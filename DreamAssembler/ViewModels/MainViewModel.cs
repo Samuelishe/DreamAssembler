@@ -258,6 +258,16 @@ public partial class MainViewModel : ObservableObject
         : string.Empty;
 
     /// <summary>
+    /// Получает подпись для выделенного фрагмента в словесных режимах.
+    /// </summary>
+    public string LexicalSpotlightTitle => "Выбранный фрагмент";
+
+    /// <summary>
+    /// Получает подпись для списка истории в словесных режимах.
+    /// </summary>
+    public string ResultsListCaption => IsLexicalMode ? "Остальные фрагменты" : string.Empty;
+
+    /// <summary>
     /// Получает строку версии приложения.
     /// </summary>
     public string AppVersion => $"Версия {typeof(MainViewModel).Assembly.GetName().Version}";
