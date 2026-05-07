@@ -55,6 +55,39 @@
       "tags": ["quiet", "surreal", "story"],
       "absurdity": 3,
       "weight": 0.8
+    },
+    {
+      "id": "suburban_poet",
+      "text": "поэт из спального района",
+      "category": "character",
+      "tags": ["city", "story", "daily"],
+      "absurdity": 1,
+      "weight": 0.9
+    },
+    {
+      "id": "train_dispatcher",
+      "text": "диспетчер пригородных поездов",
+      "category": "character",
+      "tags": ["city", "transport", "daily"],
+      "absurdity": 0,
+      "weight": 1.0
+    },
+    {
+      "id": "keeper_of_lost_receipts",
+      "text": "хранитель потерянных чеков",
+      "category": "character",
+      "tags": ["bureaucracy", "comic", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "seamstress_of_night_curtains",
+      "text": "швея ночных занавесок",
+      "category": "character",
+      "tags": ["night", "story", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
     }
   ]
 }
+

@@ -31,6 +31,31 @@
       "tags": ["mood", "story"],
       "absurdity": 0,
       "weight": 0.9
+    },
+    {
+      "id": "slightly_embarrassing",
+      "text": "слегка неловко",
+      "category": "emotion",
+      "tags": ["comic", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "dangerously_curious",
+      "text": "опасно любопытно",
+      "category": "emotion",
+      "tags": ["story", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "administratively_sad",
+      "text": "административно грустно",
+      "category": "emotion",
+      "tags": ["bureaucracy", "comic"],
+      "absurdity": 2,
+      "weight": 0.8
     }
   ]
 }
+

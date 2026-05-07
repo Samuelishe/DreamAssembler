@@ -31,6 +31,31 @@
       "tags": ["night", "tone"],
       "absurdity": 1,
       "weight": 0.9
+    },
+    {
+      "id": "with_tender_irony",
+      "text": "с мягкой иронией",
+      "category": "style",
+      "tags": ["tone", "comic"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "as_city_legend",
+      "text": "как городскую легенду",
+      "category": "style",
+      "tags": ["city", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "with_archival_precision",
+      "text": "с архивной точностью",
+      "category": "style",
+      "tags": ["bureaucracy", "tone"],
+      "absurdity": 1,
+      "weight": 0.8
     }
   ]
 }
+

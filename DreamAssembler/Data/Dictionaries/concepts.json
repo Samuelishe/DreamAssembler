@@ -31,6 +31,39 @@
       "tags": ["bureaucracy", "memory"],
       "absurdity": 2,
       "weight": 0.8
+    },
+    {
+      "id": "silent_rehearsal_of_city",
+      "text": "тихая репетиция города",
+      "category": "concept",
+      "tags": ["city", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "calendar_fatigue",
+      "text": "усталость календаря",
+      "category": "concept",
+      "tags": ["time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "economy_of_small_miracles",
+      "text": "экономика маленьких чудес",
+      "category": "concept",
+      "tags": ["story", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "discipline_of_shadows",
+      "text": "дисциплина теней",
+      "category": "concept",
+      "tags": ["night", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
     }
   ]
 }
+

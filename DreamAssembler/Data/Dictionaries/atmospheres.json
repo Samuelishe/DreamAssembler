@@ -39,6 +39,31 @@
       "tags": ["quiet", "story"],
       "absurdity": 1,
       "weight": 0.9
+    },
+    {
+      "id": "rainy_and_patient",
+      "text": "дождливо терпеливой",
+      "category": "atmosphere",
+      "tags": ["weather", "mood"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "paper_dry",
+      "text": "бумажно сухой",
+      "category": "atmosphere",
+      "tags": ["bureaucracy", "comic"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "sleepily_resonant",
+      "text": "сонно звенящей",
+      "category": "atmosphere",
+      "tags": ["night", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
     }
   ]
 }
+

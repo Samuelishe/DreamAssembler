@@ -31,6 +31,31 @@
       "tags": ["surreal", "tone"],
       "absurdity": 2,
       "weight": 0.8
+    },
+    {
+      "id": "night_urban_fable",
+      "text": "ночная городская басня",
+      "category": "genre",
+      "tags": ["night", "city", "story"],
+      "absurdity": 1,
+      "weight": 0.9
+    },
+    {
+      "id": "documentary_surrealism",
+      "text": "документальный сюрреализм",
+      "category": "genre",
+      "tags": ["surreal", "bureaucracy"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "soft_mystery",
+      "text": "мягкий городской мистери",
+      "category": "genre",
+      "tags": ["mystery", "city"],
+      "absurdity": 1,
+      "weight": 0.8
     }
   ]
 }
+

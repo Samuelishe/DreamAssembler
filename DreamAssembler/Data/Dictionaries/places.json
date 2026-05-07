@@ -55,6 +55,39 @@
       "tags": ["dream", "surreal"],
       "absurdity": 3,
       "weight": 0.8
+    },
+    {
+      "id": "market_under_overpass",
+      "text": "рынке под эстакадой",
+      "category": "place",
+      "tags": ["city", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "library_basement",
+      "text": "подвале библиотеки",
+      "category": "place",
+      "tags": ["quiet", "story", "daily"],
+      "absurdity": 1,
+      "weight": 0.9
+    },
+    {
+      "id": "waiting_room_of_dreams",
+      "text": "зале ожидания забытых снов",
+      "category": "place",
+      "tags": ["dream", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "office_roof",
+      "text": "крыше районной администрации",
+      "category": "place",
+      "tags": ["bureaucracy", "city"],
+      "absurdity": 1,
+      "weight": 0.8
     }
   ]
 }
+

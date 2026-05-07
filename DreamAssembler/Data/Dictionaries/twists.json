@@ -55,6 +55,39 @@
       "tags": ["bureaucracy", "comic"],
       "absurdity": 2,
       "weight": 0.8
+    },
+    {
+      "id": "tram_bell_answers_first",
+      "text": "трамвайный звонок отвечает раньше него",
+      "category": "twist",
+      "tags": ["transport", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "rain_refuses_to_fall",
+      "text": "дождь отказывается падать без согласования",
+      "category": "twist",
+      "tags": ["bureaucracy", "weather", "comic"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "building_remembers_name",
+      "text": "само здание знает его по имени",
+      "category": "twist",
+      "tags": ["city", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "silence_becomes_louder",
+      "text": "тишина внезапно становится громче сирены",
+      "category": "twist",
+      "tags": ["night", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
     }
   ]
 }
+

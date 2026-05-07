@@ -31,6 +31,26 @@
       "weight": 0.9
     },
     {
+      "id": "sentence_place_condition",
+      "text": "В {place} {condition}.",
+      "mode": "Sentence",
+      "requiredCategories": ["place", "condition"],
+      "tags": ["scene", "story", "quiet"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.9
+    },
+    {
+      "id": "sentence_character_object_condition",
+      "text": "{character} нес с собой {object}, и вокруг {condition}.",
+      "mode": "Sentence",
+      "requiredCategories": ["character", "object", "condition"],
+      "tags": ["story", "city"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.8
+    },
+    {
       "id": "idea_character_action_object_place_twist",
       "text": "Идея: {character} должен {action} {object} в {place}, и при этом {twist}.",
       "mode": "Idea",
@@ -69,6 +89,16 @@
       "minAbsurdity": 1,
       "maxAbsurdity": 3,
       "weight": 0.8
+    },
+    {
+      "id": "idea_character_place_condition_genre",
+      "text": "Идея: в {place} {condition}, а в центре истории {character}. По жанру это {genre}.",
+      "mode": "Idea",
+      "requiredCategories": ["place", "condition", "character", "genre"],
+      "tags": ["story", "scene", "concept"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.9
     },
     {
       "id": "shorttext_intro",
@@ -119,6 +149,16 @@
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
       "weight": 0.8
+    },
+    {
+      "id": "shorttext_condition",
+      "text": "С самого начала было ясно одно: {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["condition"],
+      "tags": ["story", "scene", "quiet"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.9
     }
   ]
 }

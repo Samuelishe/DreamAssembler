@@ -55,6 +55,39 @@
       "tags": ["night", "daily"],
       "absurdity": 1,
       "weight": 0.9
+    },
+    {
+      "id": "exchange_in_secret",
+      "text": "тайно обменять",
+      "category": "action",
+      "tags": ["secret", "story"],
+      "absurdity": 1,
+      "weight": 0.9
+    },
+    {
+      "id": "smuggle_into_archive",
+      "text": "пронести в архив",
+      "category": "action",
+      "tags": ["bureaucracy", "city"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "wake_up_before_dawn",
+      "text": "разбудить до рассвета",
+      "category": "action",
+      "tags": ["night", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "hide_from_rain",
+      "text": "спрятать от дождя",
+      "category": "action",
+      "tags": ["city", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
     }
   ]
 }
+
