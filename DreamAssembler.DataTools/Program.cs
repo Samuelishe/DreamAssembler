@@ -1,8 +1,11 @@
+using DreamAssembler.Core.Enums;
 using DreamAssembler.Core.Models;
 using DreamAssembler.Core.Services;
 
-var dataPath = args.Length > 0
-    ? Path.GetFullPath(args[0])
+var isSamplesCommand = args.Length > 0 && string.Equals(args[0], "samples", StringComparison.OrdinalIgnoreCase);
+var dataPathArgument = args.Length > 0 && !isSamplesCommand ? args[0] : null;
+var dataPath = !string.IsNullOrWhiteSpace(dataPathArgument)
+    ? Path.GetFullPath(dataPathArgument)
     : Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "DreamAssembler", "Data"));
 
 Console.WriteLine($"DreamAssembler DataTools");
@@ -19,8 +22,15 @@ var bundle = loader.Load(dataPath);
 var analyzer = new DataSetAnalyzer();
 var report = analyzer.Analyze(bundle);
 
-PrintSummary(report);
-PrintIssues(report.Issues);
+if (isSamplesCommand)
+{
+    PrintSamples(bundle, args.Skip(1).ToArray());
+}
+else
+{
+    PrintSummary(report);
+    PrintIssues(report.Issues);
+}
 
 Environment.ExitCode = report.HasErrors ? 1 : 0;
 
@@ -86,4 +96,57 @@ static void PrintIssues(IReadOnlyList<DataValidationIssue> issues)
     {
         Console.WriteLine($"  [{issue.Severity}] {issue.Code}: {issue.Message}");
     }
+}
+
+static void PrintSamples(GeneratorDataBundle bundle, IReadOnlyList<string> args)
+{
+    var mode = ParseMode(args.FirstOrDefault()) ?? GenerationMode.Sentence;
+    var count = args.Count > 1 && int.TryParse(args[1], out var parsedCount)
+        ? Math.Clamp(parsedCount, 1, 50)
+        : 12;
+    var absurdity = ParseAbsurdity(args.Count > 2 ? args[2] : null) ?? AbsurdityLevel.Absurd;
+
+    var service = new TextGeneratorService(
+        bundle.DictionaryEntries,
+        bundle.Templates,
+        bundle.AssociationFragments,
+        new WeightedRandomSelector(new Random(17)),
+        new TemplateEngine(),
+        new Random(17));
+
+    var results = service.Generate(new TextGenerationOptions
+    {
+        Mode = mode,
+        AbsurdityLevel = absurdity,
+        ResultCount = count
+    });
+
+    Console.WriteLine($"Samples: mode={mode}, absurdity={absurdity}, count={count}");
+    Console.WriteLine();
+
+    for (var index = 0; index < results.Count; index++)
+    {
+        Console.WriteLine($"[{index + 1}] {results[index].Text}");
+        Console.WriteLine();
+    }
+}
+
+static GenerationMode? ParseMode(string? value)
+{
+    if (string.IsNullOrWhiteSpace(value))
+    {
+        return null;
+    }
+
+    return Enum.TryParse<GenerationMode>(value, true, out var mode) ? mode : null;
+}
+
+static AbsurdityLevel? ParseAbsurdity(string? value)
+{
+    if (string.IsNullOrWhiteSpace(value))
+    {
+        return null;
+    }
+
+    return Enum.TryParse<AbsurdityLevel>(value, true, out var absurdity) ? absurdity : null;
 }

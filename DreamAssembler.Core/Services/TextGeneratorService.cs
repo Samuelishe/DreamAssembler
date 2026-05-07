@@ -224,7 +224,34 @@ public sealed class TextGeneratorService
 
         RememberTemplate(template.Id, context);
 
-        return _templateEngine.Render(template, values);
+        return NormalizeSentenceStart(_templateEngine.Render(template, values));
+    }
+
+    private static string NormalizeSentenceStart(string text)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return text;
+        }
+
+        var firstLetterIndex = -1;
+        for (var index = 0; index < text.Length; index++)
+        {
+            if (char.IsLetter(text[index]))
+            {
+                firstLetterIndex = index;
+                break;
+            }
+        }
+
+        if (firstLetterIndex < 0 || char.IsUpper(text[firstLetterIndex]))
+        {
+            return text;
+        }
+
+        var chars = text.ToCharArray();
+        chars[firstLetterIndex] = char.ToUpper(chars[firstLetterIndex]);
+        return new string(chars);
     }
 
     private static List<TemplateDefinition> FilterShortTextCandidates(

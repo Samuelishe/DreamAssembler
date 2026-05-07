@@ -300,7 +300,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "shorttext_intro",
-                Text = "В {place} все началось с того, что пришлось {action} {object}. Рядом уже можно было заметить {character}.",
+                Text = "В {place} все началось с того, что пришлось {action} {object}. Рядом уже стоял {character}.",
                 Mode = GenerationMode.ShortText,
                 RequiredCategories = ["place", "character", "action", "object"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -319,7 +319,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "shorttext_intro_clause_place",
-                Text = "В {place} все началось с того, что пришлось {action} {object}. Рядом уже можно было заметить {character}.",
+                Text = "В {place} все началось с того, что пришлось {action} {object}. Рядом уже стоял {character}.",
                 Mode = GenerationMode.ShortText,
                 RequiredCategories = ["place", "character", "action", "object"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -355,7 +355,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "shorttext_reflection",
-                Text = "Из-за этого всем стало {emotion}, и всем показалось, что это {concept}.",
+                Text = "Из-за этого всем стало {emotion}, и все это напоминало: {concept}.",
                 Mode = GenerationMode.ShortText,
                 RequiredCategories = ["emotion", "concept"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -505,7 +505,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "shorttext_character_twist",
-                Text = "{character} долго живет с мыслью, что можно {action} {object}, но вскоре оказалось, что {twist}.",
+                Text = "{character} долго не мог отделаться от мысли, что можно {action} {object}, но вскоре оказалось, что {twist}.",
                 Mode = GenerationMode.ShortText,
                 RequiredCategories = ["character", "action", "object", "twist"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -574,7 +574,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "shorttext_concept_name",
-                Text = "Тогда всем показалось, что это {concept}.",
+                Text = "Тогда все это зазвучало как {concept}.",
                 Mode = GenerationMode.ShortText,
                 RequiredCategories = ["concept"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -675,7 +675,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "idea_genre_concept_style",
-                Text = "Идея: {genre} на тему: {concept}, рассказанная {style}.",
+                Text = "Идея: {genre} на тему: {concept}, поданная {style}.",
                 Mode = GenerationMode.Idea,
                 RequiredCategories = ["genre", "concept", "style"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -764,7 +764,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "idea_concept_place_style",
-                Text = "Идея: {concept}, но развернутая в {place} и с интонацией {style}.",
+                Text = "Идея: {concept}, но развернутая в {place} и поданная {style}.",
                 Mode = GenerationMode.Idea,
                 RequiredCategories = ["concept", "place", "style"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)

@@ -188,7 +188,7 @@
     },
     {
       "id": "idea_genre_concept_style",
-      "text": "Идея: {genre} на тему: {concept}, рассказанная {style}.",
+      "text": "Идея: {genre} на тему: {concept}, поданная {style}.",
       "mode": "Idea",
       "requiredCategories": ["genre", "concept", "style"],
       "slotRequirements": {
@@ -312,7 +312,7 @@
     },
     {
       "id": "idea_concept_place_style",
-      "text": "Идея: {concept}, но развернутая в {place} и с интонацией {style}.",
+      "text": "Идея: {concept}, но развернутая в {place} и поданная {style}.",
       "mode": "Idea",
       "requiredCategories": ["concept", "place", "style"],
       "slotRequirements": {
@@ -327,7 +327,7 @@
     },
     {
       "id": "shorttext_intro",
-      "text": "В {place} все началось с того, что пришлось {action} {object}. Рядом уже можно было заметить {character}.",
+      "text": "В {place} все началось с того, что пришлось {action} {object}. Рядом уже стоял {character}.",
       "mode": "ShortText",
       "requiredCategories": ["place", "character", "action", "object"],
       "slotRequirements": {
@@ -344,7 +344,7 @@
     },
     {
       "id": "shorttext_intro_clause_place",
-      "text": "В {place} все началось с того, что пришлось {action} {object}. Рядом уже можно было заметить {character}.",
+      "text": "В {place} все началось с того, что пришлось {action} {object}. Рядом уже стоял {character}.",
       "mode": "ShortText",
       "requiredCategories": ["place", "character", "action", "object"],
       "slotRequirements": {
@@ -376,7 +376,7 @@
     },
     {
       "id": "shorttext_reflection",
-      "text": "Из-за этого всем стало {emotion}, и всем показалось, что это {concept}.",
+      "text": "Из-за этого всем стало {emotion}, и все это напоминало: {concept}.",
       "mode": "ShortText",
       "requiredCategories": ["emotion", "concept"],
       "slotRequirements": {
@@ -508,7 +508,7 @@
     },
     {
       "id": "shorttext_character_twist",
-      "text": "{character} долго живет с мыслью, что можно {action} {object}, но вскоре оказалось, что {twist}.",
+      "text": "{character} долго не мог отделаться от мысли, что можно {action} {object}, но вскоре оказалось, что {twist}.",
       "mode": "ShortText",
       "requiredCategories": ["character", "action", "object", "twist"],
       "slotRequirements": {
@@ -569,7 +569,7 @@
     },
     {
       "id": "shorttext_concept_name",
-      "text": "Тогда всем показалось, что это {concept}.",
+      "text": "Тогда все это зазвучало как {concept}.",
       "mode": "ShortText",
       "requiredCategories": ["concept"],
       "slotRequirements": {

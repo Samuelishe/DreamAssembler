@@ -186,7 +186,7 @@ public sealed class TextGeneratorServiceTests
             ResultCount = 1
         });
 
-        Assert.Equal("все молчали.", Assert.Single(result).Text);
+        Assert.Equal("Все молчали.", Assert.Single(result).Text);
     }
 
     /// <summary>
@@ -231,7 +231,7 @@ public sealed class TextGeneratorServiceTests
             ResultCount = 1
         });
 
-        Assert.Equal("кассир понял, что очередь начала ему аплодировать.", Assert.Single(result).Text);
+        Assert.Equal("Кассир понял, что очередь начала ему аплодировать.", Assert.Single(result).Text);
     }
 
     /// <summary>
@@ -482,7 +482,7 @@ public sealed class TextGeneratorServiceTests
             ResultCount = 1
         });
 
-        Assert.Equal("сломанные часы нужно чинить по ночам.", Assert.Single(result).Text);
+        Assert.Equal("Сломанные часы нужно чинить по ночам.", Assert.Single(result).Text);
     }
 
     /// <summary>
