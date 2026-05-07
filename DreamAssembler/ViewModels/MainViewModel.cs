@@ -17,6 +17,9 @@ public partial class MainViewModel : ObservableObject
 {
     private readonly TextGeneratorService _textGeneratorService;
     private readonly IClipboardService _clipboardService;
+    private readonly IUserSettingsService _userSettingsService;
+    private readonly string _baseStatusMessage;
+    private bool _isRestoringSettings;
 
     /// <summary>
     /// Инициализирует модель представления главного окна.
@@ -38,11 +41,8 @@ public partial class MainViewModel : ObservableObject
             new OptionItem<AbsurdityLevel> { DisplayName = "Безумно", Value = AbsurdityLevel.Insane }
         ];
 
-        SelectedMode = Modes[0];
-        SelectedAbsurdityLevel = AbsurdityLevels[1];
-        ResultCount = 3;
-
         _clipboardService = new ClipboardService();
+        _userSettingsService = new UserSettingsService();
         Results = [];
 
         var dataPath = Path.Combine(AppContext.BaseDirectory, "Data");
@@ -50,13 +50,15 @@ public partial class MainViewModel : ObservableObject
         var dataBundle = dataLoader.Load(dataPath);
 
         IsFallbackActive = dataBundle.UsedFallback;
-        StatusMessage = dataBundle.StatusMessage;
+        _baseStatusMessage = dataBundle.StatusMessage;
 
         _textGeneratorService = new TextGeneratorService(
             dataBundle.DictionaryEntries,
             dataBundle.Templates,
             new WeightedRandomSelector(Random.Shared),
             new TemplateEngine());
+
+        ApplySettings(_userSettingsService.Load());
 
         SummaryText = "Результаты еще не сгенерированы.";
         LastGeneratedAtText = "История пуста";
@@ -81,13 +83,13 @@ public partial class MainViewModel : ObservableObject
     /// Получает или задает выбранный режим генерации.
     /// </summary>
     [ObservableProperty]
-    private OptionItem<GenerationMode> selectedMode;
+    private OptionItem<GenerationMode> selectedMode = null!;
 
     /// <summary>
     /// Получает или задает выбранный уровень абсурдности.
     /// </summary>
     [ObservableProperty]
-    private OptionItem<AbsurdityLevel> selectedAbsurdityLevel;
+    private OptionItem<AbsurdityLevel> selectedAbsurdityLevel = null!;
 
     /// <summary>
     /// Получает или задает количество генерируемых результатов.
@@ -182,5 +184,68 @@ public partial class MainViewModel : ObservableObject
     private bool CanCopy()
     {
         return SelectedResult is not null;
+    }
+
+    partial void OnSelectedModeChanged(OptionItem<GenerationMode> value)
+    {
+        SaveSettingsIfNeeded();
+    }
+
+    partial void OnSelectedAbsurdityLevelChanged(OptionItem<AbsurdityLevel> value)
+    {
+        SaveSettingsIfNeeded();
+    }
+
+    partial void OnResultCountChanged(int value)
+    {
+        SaveSettingsIfNeeded();
+    }
+
+    private void ApplySettings(SettingsLoadResult loadResult)
+    {
+        _isRestoringSettings = true;
+
+        SelectedMode = Modes.FirstOrDefault(item => item.Value == loadResult.Settings.Mode) ?? Modes[0];
+        SelectedAbsurdityLevel = AbsurdityLevels.FirstOrDefault(item => item.Value == loadResult.Settings.AbsurdityLevel) ?? AbsurdityLevels[1];
+        ResultCount = Math.Clamp(loadResult.Settings.ResultCount, 1, 10);
+
+        _isRestoringSettings = false;
+
+        StatusMessage = CombineStatusMessages(_baseStatusMessage, loadResult.Message);
+    }
+
+    private void SaveSettingsIfNeeded()
+    {
+        if (_isRestoringSettings)
+        {
+            return;
+        }
+
+        var settings = new AppSettings
+        {
+            Mode = SelectedMode.Value,
+            AbsurdityLevel = SelectedAbsurdityLevel.Value,
+            ResultCount = ResultCount
+        };
+
+        if (!_userSettingsService.Save(settings))
+        {
+            StatusMessage = CombineStatusMessages(_baseStatusMessage, "Не удалось сохранить пользовательские настройки.");
+        }
+    }
+
+    private static string CombineStatusMessages(string first, string second)
+    {
+        if (string.IsNullOrWhiteSpace(first))
+        {
+            return second;
+        }
+
+        if (string.IsNullOrWhiteSpace(second))
+        {
+            return first;
+        }
+
+        return $"{first} {second}";
     }
 }

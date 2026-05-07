@@ -62,7 +62,7 @@
 
 - Словари: `DreamAssembler/Data/Dictionaries/*.json`
 - Шаблоны: `DreamAssembler/Data/Templates/templates.json`
-- Настройки MVP пока задаются из UI и не требуют отдельного JSON-файла.
+- Пользовательские настройки: `%LocalAppData%/DreamAssembler/settings.json`
 
 ## Как расширять генератор
 
@@ -71,4 +71,3 @@
 3. При необходимости добавить новый режим генерации в `GenerationMode`.
 4. Расширить логику весов или тегов в `TextGeneratorService`, не меняя UI-слой.
 5. Позже можно добавить редактор словарей как отдельный модуль, не меняя базовую структуру `Core`.
-

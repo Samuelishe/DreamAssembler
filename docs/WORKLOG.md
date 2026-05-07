@@ -26,6 +26,8 @@
 - расширены словари категорий `character`, `action`, `object`, `place`, `twist`, `atmosphere`, `genre`, `style`, `emotion`, `concept`;
 - добавлены новые шаблоны для `Sentence`, `Idea` и `ShortText`;
 - расширен fallback-набор данных, чтобы улучшения качества работали и при отсутствии JSON-файлов.
+- добавлен JSON-сервис пользовательских настроек в `%LocalAppData%/DreamAssembler/settings.json`;
+- сохранение режима генерации, уровня абсурдности и количества результатов теперь работает между запусками приложения.
 
 ### Какие файлы изменены
 
@@ -45,8 +47,12 @@
 - `DreamAssembler/DreamAssembler.csproj`
 - `DreamAssembler/App.xaml`
 - `DreamAssembler/App.xaml.cs`
+- `DreamAssembler/Models/AppSettings.cs`
+- `DreamAssembler/Models/SettingsLoadResult.cs`
 - `DreamAssembler/MainWindow.xaml`
 - `DreamAssembler/MainWindow.xaml.cs`
+- `DreamAssembler/Services/IUserSettingsService.cs`
+- `DreamAssembler/Services/UserSettingsService.cs`
 - `DreamAssembler/Data/Dictionaries/*.json`
 - `DreamAssembler/Data/Templates/templates.json`
 - `DreamAssembler/ViewModels/*`
