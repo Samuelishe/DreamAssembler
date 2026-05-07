@@ -1,68 +1,85 @@
 {
   "entries": [
     {
-      "id": "melancholic",
-      "text": "меланхолично",
+      "id": "uneasy",
+      "text": "тревожно",
       "category": "emotion",
-      "slot": "emotion_predicative",
+      "slot": "emotion_group_state",
       "tags": ["mood"],
       "absurdity": 0,
       "weight": 1.0
     },
     {
-      "id": "suspiciously_cheerful",
-      "text": "подозрительно бодро",
+      "id": "slightly_embarrassing",
+      "text": "слегка неловко",
       "category": "emotion",
-      "slot": "emotion_predicative",
-      "tags": ["mood", "comic"],
-      "absurdity": 1,
+      "slot": "emotion_group_state",
+      "tags": ["comic", "daily"],
+      "absurdity": 0,
       "weight": 0.9
     },
     {
-      "id": "administratively_calm",
-      "text": "административно спокойно",
+      "id": "not_themselves",
+      "text": "не по себе",
       "category": "emotion",
-      "slot": "emotion_predicative",
-      "tags": ["bureaucracy", "comic"],
-      "absurdity": 2,
+      "slot": "emotion_group_state",
+      "tags": ["mood", "story"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "suspiciously_calm",
+      "text": "подозрительно спокойно",
+      "category": "emotion",
+      "slot": "emotion_group_state",
+      "tags": ["mood", "comic"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "melancholic",
+      "text": "меланхолично",
+      "category": "emotion",
+      "slot": "emotion_group_state",
+      "tags": ["mood"],
+      "absurdity": 0,
       "weight": 0.8
     },
     {
       "id": "quietly_anxious",
       "text": "тихо тревожно",
       "category": "emotion",
-      "slot": "emotion_predicative",
+      "slot": "emotion_observer_state",
       "tags": ["mood", "story"],
       "absurdity": 0,
       "weight": 0.9
     },
     {
-      "id": "slightly_embarrassing",
-      "text": "слегка неловко",
+      "id": "too_serious",
+      "text": "чересчур серьезно",
       "category": "emotion",
-      "slot": "emotion_predicative",
-      "tags": ["comic", "daily"],
+      "slot": "emotion_observer_state",
+      "tags": ["tone", "dry"],
       "absurdity": 0,
       "weight": 0.9
     },
     {
-      "id": "dangerously_curious",
-      "text": "опасно любопытно",
+      "id": "suspiciously_smooth",
+      "text": "подозрительно гладко",
       "category": "emotion",
-      "slot": "emotion_predicative",
-      "tags": ["story", "surreal"],
-      "absurdity": 2,
+      "slot": "emotion_observer_state",
+      "tags": ["comic", "story"],
+      "absurdity": 1,
       "weight": 0.8
     },
     {
-      "id": "administratively_sad",
-      "text": "административно грустно",
+      "id": "restrainedly_absurd",
+      "text": "сдержанно нелепо",
       "category": "emotion",
-      "slot": "emotion_predicative",
-      "tags": ["bureaucracy", "comic"],
+      "slot": "emotion_observer_state",
+      "tags": ["story", "surreal"],
       "absurdity": 2,
       "weight": 0.8
     }
   ]
 }
-

@@ -11,11 +11,13 @@ public sealed class TextGeneratorService
 {
     private const int RecentTemplateLimit = 8;
     private const int RecentEntryLimitPerCategory = 6;
+    private static readonly string[] PreferredOpeningRoles = ["setup", "scene"];
 
     private readonly IReadOnlyList<DictionaryEntry> _dictionaryEntries;
     private readonly IReadOnlyList<TemplateDefinition> _templates;
     private readonly WeightedRandomSelector _selector;
     private readonly TemplateEngine _templateEngine;
+    private readonly Random _random;
     private readonly Queue<string> _recentTemplateIds = new();
     private readonly Dictionary<string, Queue<string>> _recentEntryIdsByCategory = new(StringComparer.OrdinalIgnoreCase);
 
@@ -26,16 +28,19 @@ public sealed class TextGeneratorService
     /// <param name="templates">Список шаблонов.</param>
     /// <param name="selector">Селектор случайного выбора по весам.</param>
     /// <param name="templateEngine">Движок подстановки значений.</param>
+    /// <param name="random">Источник случайности для композиции коротких текстов.</param>
     public TextGeneratorService(
         IReadOnlyList<DictionaryEntry> dictionaryEntries,
         IReadOnlyList<TemplateDefinition> templates,
         WeightedRandomSelector selector,
-        TemplateEngine templateEngine)
+        TemplateEngine templateEngine,
+        Random? random = null)
     {
         _dictionaryEntries = dictionaryEntries;
         _templates = templates;
         _selector = selector;
         _templateEngine = templateEngine;
+        _random = random ?? Random.Shared;
     }
 
     /// <summary>
@@ -71,8 +76,10 @@ public sealed class TextGeneratorService
 
     private string GenerateShortText(TextGenerationOptions options, GenerationContext context)
     {
-        var sentenceCount = Random.Shared.Next(2, 6);
+        var sentenceCount = _random.Next(2, 6);
         var builder = new StringBuilder();
+        var roleUsageCounts = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+        string? previousRole = null;
 
         for (var index = 0; index < sentenceCount; index++)
         {
@@ -81,7 +88,18 @@ public sealed class TextGeneratorService
                 builder.Append(' ');
             }
 
-            builder.Append(GenerateSingleTemplateText(GenerationMode.ShortText, options.AbsurdityLevel, context));
+            var template = SelectTemplate(
+                GenerationMode.ShortText,
+                (int)options.AbsurdityLevel,
+                context,
+                roleUsageCounts,
+                previousRole,
+                index);
+
+            builder.Append(RenderTemplate(template, (int)options.AbsurdityLevel, context));
+
+            previousRole = GetCompositionRole(template);
+            IncrementRoleUsage(roleUsageCounts, previousRole);
         }
 
         return builder.ToString();
@@ -90,6 +108,18 @@ public sealed class TextGeneratorService
     private string GenerateSingleTemplateText(GenerationMode mode, AbsurdityLevel absurdityLevel, GenerationContext context)
     {
         var targetAbsurdity = (int)absurdityLevel;
+        var template = SelectTemplate(mode, targetAbsurdity, context);
+        return RenderTemplate(template, targetAbsurdity, context);
+    }
+
+    private TemplateDefinition SelectTemplate(
+        GenerationMode mode,
+        int targetAbsurdity,
+        GenerationContext context,
+        IReadOnlyDictionary<string, int>? roleUsageCounts = null,
+        string? previousRole = null,
+        int sentenceIndex = -1)
+    {
         var candidates = _templates
             .Where(template => template.Mode == mode)
             .ToList();
@@ -99,7 +129,16 @@ public sealed class TextGeneratorService
             throw new InvalidOperationException($"Не найдено шаблонов для режима {mode}.");
         }
 
-        var template = _selector.Select(candidates, item => CalculateTemplateWeight(item, targetAbsurdity, context));
+        if (mode == GenerationMode.ShortText)
+        {
+            candidates = FilterShortTextCandidates(candidates, roleUsageCounts, previousRole, sentenceIndex);
+        }
+
+        return _selector.Select(candidates, item => CalculateTemplateWeight(item, targetAbsurdity, context));
+    }
+
+    private string RenderTemplate(TemplateDefinition template, int targetAbsurdity, GenerationContext context)
+    {
         var values = new Dictionary<string, DictionaryEntry>(StringComparer.OrdinalIgnoreCase);
 
         foreach (var category in template.RequiredCategories)
@@ -111,6 +150,97 @@ public sealed class TextGeneratorService
         RememberTemplate(template.Id, context);
 
         return _templateEngine.Render(template, values);
+    }
+
+    private static List<TemplateDefinition> FilterShortTextCandidates(
+        IReadOnlyList<TemplateDefinition> candidates,
+        IReadOnlyDictionary<string, int>? roleUsageCounts,
+        string? previousRole,
+        int sentenceIndex)
+    {
+        var usage = roleUsageCounts ?? new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+        var filtered = candidates.ToList();
+
+        if (sentenceIndex == 0)
+        {
+            var openingCandidates = filtered
+                .Where(template => PreferredOpeningRoles.Contains(GetCompositionRole(template), StringComparer.OrdinalIgnoreCase))
+                .ToList();
+
+            if (openingCandidates.Count > 0)
+            {
+                filtered = openingCandidates;
+            }
+        }
+        else
+        {
+            filtered = TryFilterByRole(filtered, template => !IsMetaRole(template), candidates);
+        }
+
+        filtered = TryFilterByRole(filtered, template => CanUseShortTextRole(template, usage, previousRole, sentenceIndex), candidates);
+        return filtered;
+    }
+
+    private static List<TemplateDefinition> TryFilterByRole(
+        IReadOnlyList<TemplateDefinition> currentCandidates,
+        Func<TemplateDefinition, bool> predicate,
+        IReadOnlyList<TemplateDefinition> fallbackCandidates)
+    {
+        var filtered = currentCandidates.Where(predicate).ToList();
+        return filtered.Count > 0 ? filtered : fallbackCandidates.ToList();
+    }
+
+    private static bool CanUseShortTextRole(
+        TemplateDefinition template,
+        IReadOnlyDictionary<string, int> roleUsageCounts,
+        string? previousRole,
+        int sentenceIndex)
+    {
+        var role = GetCompositionRole(template);
+
+        if (sentenceIndex == 0 && string.Equals(role, "meta", StringComparison.OrdinalIgnoreCase))
+        {
+            return false;
+        }
+
+        if (string.Equals(role, "meta", StringComparison.OrdinalIgnoreCase)
+            && roleUsageCounts.TryGetValue(role, out var metaCount)
+            && metaCount >= 1)
+        {
+            return false;
+        }
+
+        if (string.Equals(role, "reflection", StringComparison.OrdinalIgnoreCase)
+            && roleUsageCounts.TryGetValue(role, out var reflectionCount)
+            && reflectionCount >= 1)
+        {
+            return false;
+        }
+
+        if (!string.IsNullOrWhiteSpace(previousRole)
+            && string.Equals(role, previousRole, StringComparison.OrdinalIgnoreCase)
+            && roleUsageCounts.Count > 1)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    private static bool IsMetaRole(TemplateDefinition template)
+    {
+        return string.Equals(GetCompositionRole(template), "meta", StringComparison.OrdinalIgnoreCase);
+    }
+
+    private static string GetCompositionRole(TemplateDefinition template)
+    {
+        return string.IsNullOrWhiteSpace(template.CompositionRole) ? "default" : template.CompositionRole;
+    }
+
+    private static void IncrementRoleUsage(IDictionary<string, int> roleUsageCounts, string role)
+    {
+        roleUsageCounts.TryGetValue(role, out var count);
+        roleUsageCounts[role] = count + 1;
     }
 
     private DictionaryEntry SelectEntry(

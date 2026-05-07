@@ -13,6 +13,7 @@
       "id": "rusty_elevator",
       "text": "ржавый лифт",
       "category": "object",
+      "slot": "object_direct",
       "tags": ["city", "decay", "industrial"],
       "absurdity": 2,
       "weight": 1.0
@@ -26,6 +27,7 @@
 - `id` - уникальный строковый идентификатор.
 - `text` - текст, который попадет в шаблон.
 - `category` - категория записи.
+- `slot` - безопасная шаблонная позиция внутри категории.
 - `tags` - список тегов для смысловой группировки.
 - `absurdity` - уровень абсурдности от 0 до 3.
 - `weight` - базовый вес выбора.
@@ -58,6 +60,11 @@
       "text": "{character} должен {action} {object} в месте: {place}, но {twist}.",
       "mode": "idea",
       "requiredCategories": ["character", "action", "object", "place", "twist"],
+      "slotRequirements": {
+        "action": "action_infinitive",
+        "object": "object_direct"
+      },
+      "compositionRole": "setup",
       "tags": ["story", "absurd"],
       "minAbsurdity": 1,
       "maxAbsurdity": 3,
@@ -73,6 +80,8 @@
 - `text` - шаблон с плейсхолдерами вида `{category}`.
 - `mode` - режим генерации: `sentence`, `shortText`, `idea`.
 - `requiredCategories` - список обязательных категорий.
+- `slotRequirements` - необязательная карта "категория -> нужный slot".
+- `compositionRole` - необязательная роль шаблона внутри `ShortText`, например `setup`, `development`, `reflection`, `meta`.
 - `tags` - смысловые теги шаблона.
 - `minAbsurdity` - нижняя граница применимости.
 - `maxAbsurdity` - верхняя граница применимости.
@@ -84,6 +93,7 @@
 - если у записи и шаблона есть совпадающие теги, вероятность выбора повышается;
 - `weight` задает базовую вероятность выбора;
 - близость `absurdity` записи к выбранному уровню также повышает вероятность;
+- для `ShortText` шаблоны с одинаковой `compositionRole` не должны доминировать в одном тексте;
 - на высоких уровнях абсурдности допускаются более конфликтные сочетания.
 
 ## Примечание по безопасным словоформам
@@ -94,4 +104,4 @@
 
 - `object` может храниться как прямое дополнение: `свернутую карту города`;
 - `condition` лучше хранить как короткое законченное состояние: `никто не доверял часам`;
-- `emotion` лучше хранить как безличную форму: `тихо тревожно`.
+- `emotion` лучше разводить по подтипам, например `emotion_group_state` для фраз вида `всем стало тревожно` и `emotion_observer_state` для фраз вида `все звучало тихо тревожно`.

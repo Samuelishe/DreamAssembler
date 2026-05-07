@@ -38,6 +38,11 @@ public sealed class TemplateDefinition
     public IReadOnlyList<string> Tags { get; set; } = Array.Empty<string>();
 
     /// <summary>
+    /// Получает или задает композиционную роль шаблона внутри короткого текста.
+    /// </summary>
+    public string CompositionRole { get; set; } = string.Empty;
+
+    /// <summary>
     /// Получает или задает минимальный поддерживаемый уровень абсурдности.
     /// </summary>
     public int MinAbsurdity { get; set; }

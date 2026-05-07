@@ -166,6 +166,7 @@
         "action": "action_infinitive",
         "object": "object_direct"
       },
+      "compositionRole": "setup",
       "tags": ["story", "daily"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -180,6 +181,7 @@
         "atmosphere": "atmosphere_state",
         "twist": "twist_clause"
       },
+      "compositionRole": "development",
       "tags": ["story", "mood"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -191,9 +193,10 @@
       "mode": "ShortText",
       "requiredCategories": ["emotion", "concept"],
       "slotRequirements": {
-        "emotion": "emotion_predicative",
+        "emotion": "emotion_group_state",
         "concept": "concept_label"
       },
+      "compositionRole": "reflection",
       "tags": ["story", "mood", "concept"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -201,13 +204,14 @@
     },
     {
       "id": "shorttext_observer",
-      "text": "Со стороны все звучало {emotion}, хотя на деле вокруг зрела {concept}.",
+      "text": "Со стороны все звучало {emotion}, хотя на деле {condition}.",
       "mode": "ShortText",
-      "requiredCategories": ["emotion", "concept"],
+      "requiredCategories": ["emotion", "condition"],
       "slotRequirements": {
-        "emotion": "emotion_predicative",
-        "concept": "concept_label"
+        "emotion": "emotion_observer_state",
+        "condition": "condition_clause"
       },
+      "compositionRole": "observation",
       "tags": ["story", "mood", "surreal"],
       "minAbsurdity": 1,
       "maxAbsurdity": 3,
@@ -221,6 +225,7 @@
       "slotRequirements": {
         "style": "style_note"
       },
+      "compositionRole": "meta",
       "tags": ["tone", "story"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -234,10 +239,40 @@
       "slotRequirements": {
         "condition": "condition_clause"
       },
+      "compositionRole": "scene",
       "tags": ["story", "scene", "quiet"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
       "weight": 0.9
+    },
+    {
+      "id": "shorttext_reveal",
+      "text": "Позже выяснилось, что в {place} {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["place", "condition"],
+      "slotRequirements": {
+        "place": "place_in",
+        "condition": "condition_clause"
+      },
+      "compositionRole": "development",
+      "tags": ["story", "scene", "city"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.9
+    },
+    {
+      "id": "shorttext_reaction",
+      "text": "Никто особенно не спорил, когда стало ясно, что {twist}.",
+      "mode": "ShortText",
+      "requiredCategories": ["twist"],
+      "slotRequirements": {
+        "twist": "twist_clause"
+      },
+      "compositionRole": "reaction",
+      "tags": ["story", "quiet", "rule"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.8
     }
   ]
 }

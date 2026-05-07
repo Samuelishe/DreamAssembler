@@ -46,8 +46,8 @@
       "weight": 0.9
     },
     {
-      "id": "rainy_and_patient",
-      "text": "дождливо терпеливой",
+      "id": "rainy_and_muted",
+      "text": "дождливо притихшей",
       "category": "atmosphere",
       "slot": "atmosphere_state",
       "tags": ["weather", "mood"],
@@ -56,7 +56,7 @@
     },
     {
       "id": "paper_dry",
-      "text": "бумажно сухой",
+      "text": "бумажно суховатой",
       "category": "atmosphere",
       "slot": "atmosphere_state",
       "tags": ["bureaucracy", "comic"],
@@ -74,4 +74,3 @@
     }
   ]
 }
-

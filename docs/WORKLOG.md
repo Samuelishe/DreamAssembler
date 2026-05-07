@@ -44,6 +44,11 @@
 - по визуальной проверке UI найден дефект: длинные результаты в карточках плохо переносятся по строкам при сужении окна;
 - по визуальной проверке генерации зафиксированы оставшиеся проблемы качества: повторяющиеся служебные конструкции и семантически слабые сочетания в `Sentence` и `ShortText`.
 - исправлен шаблон списка результатов в `MainWindow.xaml`: карточки теперь растягиваются по ширине списка, горизонтальный скролл отключен, длинный текст должен корректно уходить в multiline при ресайзе окна.
+- по следующей визуальной проверке `ShortText` дополнительно зафиксированы новые классы проблем: чрезмерное повторение каркасных предложений, неестественные наречные и оценочные связки, а также местами слабые местоименные отсылки.
+- в `TemplateDefinition` добавлено поле `CompositionRole`, а `TextGeneratorService` начал учитывать композиционные роли при сборке `ShortText`;
+- `ShortText` больше не должен начинаться с meta-ремарки и не должен набиваться несколькими одинаковыми meta-шаблонами при наличии альтернатив;
+- часть `emotion`-данных разведена по slot-подтипам `emotion_group_state` и `emotion_observer_state`;
+- обновлены short-text шаблоны и fallback-данные, чтобы снизить количество повторов и убрать часть неестественных связок.
 
 ### Какие файлы изменены
 
@@ -66,6 +71,13 @@
 - `DreamAssembler/Models/AppSettings.cs`
 - `DreamAssembler/Models/SettingsLoadResult.cs`
 - `DreamAssembler/MainWindow.xaml`
+- `DreamAssembler.Core/Models/TemplateDefinition.cs`
+- `DreamAssembler.Core/Services/TextGeneratorService.cs`
+- `DreamAssembler.Core/Services/FallbackDataProvider.cs`
+- `DreamAssembler.Core.Tests/Services/TextGeneratorServiceTests.cs`
+- `DreamAssembler/Data/Dictionaries/emotion/predicative_states.json`
+- `DreamAssembler/Data/Dictionaries/atmosphere/scene_tones.json`
+- `DreamAssembler/Data/Templates/templates.json`
 - `DreamAssembler/MainWindow.xaml.cs`
 - `DreamAssembler/Services/IUserSettingsService.cs`
 - `DreamAssembler/Services/UserSettingsService.cs`
@@ -87,3 +99,4 @@
 - `dotnet test` проходит для первых unit-тестов ядра.
 - длинные результаты корректно переносятся по строкам в узком окне и не обрезаются визуально.
 - новые улучшения генерации уменьшают количество повторяющихся вводных фраз и слабых сочетаний.
+- `ShortText` не начинается с meta-фразы и не повторяет ее несколько раз в одной генерации при наличии других шаблонов.
