@@ -568,6 +568,8 @@ public sealed class TextGeneratorService
                             || string.Equals(entry.Slot, requiredSlot, StringComparison.OrdinalIgnoreCase))
             .ToList();
 
+        candidates = FilterStrongActionObjectCandidates(category, candidates, selectedValues);
+
         if (candidates.Count == 0)
         {
             var slotSuffix = string.IsNullOrWhiteSpace(requiredSlot) ? string.Empty : $" со слотом '{requiredSlot}'";
@@ -577,6 +579,45 @@ public sealed class TextGeneratorService
         var selectedEntry = _selector.Select(candidates, item => CalculateEntryWeight(item, template, targetAbsurdity, context, selectedValues));
         RememberEntry(selectedEntry, context);
         return selectedEntry;
+    }
+
+    private static List<DictionaryEntry> FilterStrongActionObjectCandidates(
+        string category,
+        List<DictionaryEntry> candidates,
+        IReadOnlyDictionary<string, DictionaryEntry> selectedValues)
+    {
+        if (candidates.Count == 0)
+        {
+            return candidates;
+        }
+
+        DictionaryEntry? pairedEntry = null;
+
+        if (string.Equals(category, "action", StringComparison.OrdinalIgnoreCase))
+        {
+            selectedValues.TryGetValue("object", out pairedEntry);
+        }
+        else if (string.Equals(category, "object", StringComparison.OrdinalIgnoreCase))
+        {
+            selectedValues.TryGetValue("action", out pairedEntry);
+        }
+
+        if (pairedEntry is null)
+        {
+            return candidates;
+        }
+
+        var pairedCompatibilityKeys = GetCompatibilityKeys(pairedEntry);
+        if (pairedCompatibilityKeys.Count == 0)
+        {
+            return candidates;
+        }
+
+        var strongCandidates = candidates
+            .Where(candidate => GetCompatibilityKeys(candidate).Intersect(pairedCompatibilityKeys, StringComparer.OrdinalIgnoreCase).Any())
+            .ToList();
+
+        return strongCandidates.Count > 0 ? strongCandidates : candidates;
     }
 
     private double CalculateTemplateWeight(TemplateDefinition template, int targetAbsurdity, GenerationContext context)
@@ -669,21 +710,29 @@ public sealed class TextGeneratorService
             return 1d;
         }
 
-        var entryCompatibilityKeys = GetCompatibilityKeys(entry);
-        var selectedCompatibilityKeys = GetCompatibilityKeys(selectedEntry);
+        var actionEntry = string.Equals(entry.Category, "action", StringComparison.OrdinalIgnoreCase) ? entry : selectedEntry;
+        var objectEntry = string.Equals(entry.Category, "object", StringComparison.OrdinalIgnoreCase) ? entry : selectedEntry;
 
-        if (entryCompatibilityKeys.Count == 0 || selectedCompatibilityKeys.Count == 0)
+        var actionCompatibilityKeys = GetCompatibilityKeys(actionEntry);
+        var objectCompatibilityKeys = GetCompatibilityKeys(objectEntry);
+
+        if (actionCompatibilityKeys.Count == 0 && objectCompatibilityKeys.Count == 0)
         {
             return 0.88d;
         }
 
-        var sharedCompatibilityKeys = entryCompatibilityKeys.Intersect(selectedCompatibilityKeys, StringComparer.OrdinalIgnoreCase).Count();
+        if (actionCompatibilityKeys.Count == 0 || objectCompatibilityKeys.Count == 0)
+        {
+            return 0.42d;
+        }
+
+        var sharedCompatibilityKeys = actionCompatibilityKeys.Intersect(objectCompatibilityKeys, StringComparer.OrdinalIgnoreCase).Count();
         if (sharedCompatibilityKeys > 0)
         {
             return 1.8d + ((sharedCompatibilityKeys - 1) * 0.2d);
         }
 
-        return 0.16d;
+        return 0.05d;
     }
 
     private static bool IsActionObjectPair(DictionaryEntry entry, DictionaryEntry selectedEntry)

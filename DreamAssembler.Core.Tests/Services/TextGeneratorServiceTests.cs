@@ -526,6 +526,144 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что object без нужного compat-ключа резко проигрывает совместимому объекту.
+    /// </summary>
+    [Fact]
+    public void Generate_PrefersOpenableObject_WhenActionRequiresOpenable()
+    {
+        var template = new TemplateDefinition
+        {
+            Id = "action_object_openable_test",
+            Text = "{action} {object}.",
+            Mode = GenerationMode.Sentence,
+            RequiredCategories = ["action", "object"],
+            SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["action"] = "action_infinitive",
+                ["object"] = "object_direct"
+            },
+            Weight = 1.0
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new()
+            {
+                Id = "action_open",
+                Category = "action",
+                Slot = "action_infinitive",
+                Text = "открыть мастер-ключом",
+                Tags = ["compat:openable"],
+                Weight = 1.0
+            },
+            new()
+            {
+                Id = "object_wrong",
+                Category = "object",
+                Slot = "object_direct",
+                Text = "табличку с выцветшим номером маршрута",
+                Tags = ["compat:hideable", "compat:protectable"],
+                Weight = 2.0
+            },
+            new()
+            {
+                Id = "object_right",
+                Category = "object",
+                Slot = "object_direct",
+                Text = "запечатанный таможенный конверт",
+                Tags = ["compat:openable", "compat:hideable"],
+                Weight = 1.0
+            }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            [template],
+            [],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.Sentence,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 1
+        });
+
+        Assert.Equal("Открыть мастер-ключом запечатанный таможенный конверт.", Assert.Single(result).Text);
+    }
+
+    /// <summary>
+    /// Проверяет, что при наличии совместимых object-кандидатов генератор не рассматривает явно несовместимые.
+    /// </summary>
+    [Fact]
+    public void Generate_FiltersToCompatibleObjects_WhenCompatibleCandidatesExist()
+    {
+        var template = new TemplateDefinition
+        {
+            Id = "action_object_strong_filter_test",
+            Text = "{action} {object}.",
+            Mode = GenerationMode.Sentence,
+            RequiredCategories = ["action", "object"],
+            SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["action"] = "action_infinitive",
+                ["object"] = "object_direct"
+            },
+            Weight = 1.0
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new()
+            {
+                Id = "action_open",
+                Category = "action",
+                Slot = "action_infinitive",
+                Text = "открыть мастер-ключом",
+                Tags = ["compat:openable"],
+                Weight = 1.0
+            },
+            new()
+            {
+                Id = "object_wrong_heavy",
+                Category = "object",
+                Slot = "object_direct",
+                Text = "табличку с выцветшим номером маршрута",
+                Tags = ["compat:hideable", "compat:protectable"],
+                Weight = 100.0
+            },
+            new()
+            {
+                Id = "object_right",
+                Category = "object",
+                Slot = "object_direct",
+                Text = "запечатанный авиапочтовый пакет",
+                Tags = ["compat:openable", "compat:hideable"],
+                Weight = 0.1
+            }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            [template],
+            [],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.Sentence,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 1
+        });
+
+        Assert.Equal("Открыть мастер-ключом запечатанный авиапочтовый пакет.", Assert.Single(result).Text);
+    }
+
+    /// <summary>
     /// Проверяет, что короткий текст не начинается с meta-шаблона и не повторяет его несколько раз при наличии альтернатив.
     /// </summary>
     [Fact]
