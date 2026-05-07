@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "departure_drowsy",
+      "text": "вылетно сонной",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["airport", "night", "transit"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "white_lit_fatigued",
+      "text": "белосветно уставшей",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["airport", "sterile_light", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "queue_disciplined",
+      "text": "очередно дисциплинированной",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["airport", "bureaucracy", "mood"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "transit_hollow",
+      "text": "транзитно опустевшей",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["airport", "quiet", "surreal"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "delay_coloured",
+      "text": "задержечно настороженной",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["airport", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

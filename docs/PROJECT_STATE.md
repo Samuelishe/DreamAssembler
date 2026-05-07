@@ -123,6 +123,7 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - затем выполнен короткий output-driven pass по `character` и `ShortText` rhythm: исправлена форма `дежурный по бюро пропусков` и разведены два слишком доминирующих atmospheric-каркаса, чтобы short-text выдача чуть реже повторяла одну и ту же интонацию;
 - затем начато controlled expansion вне archive/transport ядра: добавлен первый компактный curated field `nocturnal airports / fluorescent insomnia` по `place / object / condition / concept / atmosphere / twist`, чтобы проект рос не жанрами, а новыми atmospheric manifolds;
 - затем добавлен еще один distinct manifold `dead shopping malls / abandoned commerce / fluorescent afterhours`: проект начал выходить и в пространство пустых галерей, закрытых витрин, усталой торговой вежливости и послезакрытной инфраструктуры;
+- после этого airport-ось получила и второй curated pack: к первоначальному `nocturnal airports / fluorescent insomnia` слою добавлены `airport afterhours` characters, actions, places, objects, conditions, concepts, atmosphere и twists, чтобы airport-manifold держался уже не только на декорациях, но и на procedural ritual, late-night bureaucracy и transit-afterhours logic;
 - проведен первый quality-pass по semantic coherence: из шаблонов убраны несколько явно gendered конструкций без морфологии, а lexical CSV-фильтр стал жестче к техническим, медицинским и слишком абстрактным словам;
 - для lexical modes добавлен первый curated subset layer: поверх общего CSV-пула появились предпочтительные nouns / adjectives / verbs, которые усиливают атмосферный semantic field без жесткой тематической блокировки;
 - поверх этого слоя добавлены первые atmospheric clusters для lexical batch coherence: `archive`, `rainy-city`, `night-route`;
@@ -151,6 +152,7 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - JSON-структура со `slot` удерживает controllability без чрезмерной сложности;
 - данные уже содержат правильную tonal base: город, ночь, транспорт, бюрократия, архивность, тихая сюрреальность.
 - новые поля уже начали расходиться в правильные стороны: помимо archive/transport base и airport-insomnia слоя появился mall/abandoned-commerce слой, что подтверждает работоспособность стратегии growth through curated manifolds.
+- airport-field теперь уже нельзя считать тонкой первой пробой: после второго pack он стал самостоятельным second-wave manifold, который можно оценивать и наращивать по pack-level статистике, а не только по ощущениям от единичных фраз.
 - lexical modes больше не полностью отданы сырому словарю: curated preference layer уже помогает удерживать городской, дождливый, архивный и инфраструктурный mood.
 - lexical modes получили первый мягкий cluster-pass: внутри одной серии коротких фрагментов атмосфера чаще держится вокруг локального emotional space, а не распадается на полностью независимые лексические вспышки.
 - lexical modes все еще должны развиваться прежде всего через curated dataset quality, а не через усложнение алгоритма: это подтверждено реальными пользовательскими примерами слабых слов.

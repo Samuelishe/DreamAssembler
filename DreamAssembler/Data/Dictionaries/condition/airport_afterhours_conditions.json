@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "everyone_spoke_quieter_than_schedule",
+      "text": "все говорили тише, чем требовало расписание",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["airport", "quiet", "time"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "nobody_believed_the_last_boarding",
+      "text": "никто уже не верил, что последняя посадка действительно последняя",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["airport", "night", "transit"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "cleaning_machine_moved_past_silence",
+      "text": "уборочная машина проезжала мимо тишины слишком деликатно",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["airport", "service", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "glass_reflected_empty_gates",
+      "text": "стекло отражало пустые выходы на посадку лучше людей",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["airport", "sterile_light", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "shuttle_buses_waited_without_rush",
+      "text": "перронные автобусы ждали без всякой уверенности, что их позовут",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["airport", "transit", "story"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "boarding_started_before_decision",
+      "text": "посадка начиналась чуть раньше, чем принималось решение о вылете",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["airport", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "terminal_reused_same_midnight",
+      "text": "терминал снова использовал ту же самую полночь",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["airport", "night", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "passport_control_recognized_hesitation",
+      "text": "паспортный контроль узнавал нерешительность раньше документов",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["airport", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

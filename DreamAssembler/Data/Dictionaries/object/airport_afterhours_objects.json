@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "creased_customs_declaration",
+      "text": "смятую таможенную декларацию",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["airport", "paper", "compat:portable", "compat:hideable", "compat:rewriteable", "compat:searchable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "gate_change_note",
+      "text": "листок с изменением выхода на посадку",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["airport", "time", "compat:portable", "compat:searchable", "compat:rewriteable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "plastic_priority_tag",
+      "text": "пластиковую бирку приоритетного багажа",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["airport", "transit", "compat:portable", "compat:hideable", "compat:exchangeable", "compat:searchable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "sealed_airline_pouch",
+      "text": "запечатанный авиапочтовый пакет",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["airport", "bureaucracy", "compat:portable", "compat:hideable", "compat:openable", "compat:exchangeable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "reflective_queue_stanchion",
+      "text": "хромированную стойку ограждения очереди",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["airport", "sterile_light", "compat:portable", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "night_flight_manifest",
+      "text": "распечатку ночного рейса",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["airport", "paper", "compat:portable", "compat:searchable", "compat:rewriteable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "forgotten_neck_wallet",
+      "text": "забытый шейный кошелек путешественника",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["airport", "quiet", "compat:portable", "compat:hideable", "compat:exchangeable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "half_awake_floor_cleaner_console",
+      "text": "полусонный пульт уборочной машины",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["airport", "night", "surreal", "compat:portable", "compat:repairable", "compat:wakeable"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "remote_gate_corridor",
+      "text": "коридоре к дальнему выходу на посадку",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["airport", "transit", "night"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "empty_passport_control_lane",
+      "text": "пустом коридоре паспортного контроля",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["airport", "bureaucracy", "sterile_light"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "overnight_transfer_counter",
+      "text": "ночной стойке пересадки",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["airport", "transit", "bureaucracy"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "apron_bus_stop",
+      "text": "остановке перронного автобуса",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["airport", "transit", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "silent_smoking_room",
+      "text": "тихой курительной комнате терминала",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["airport", "night", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "service_room_near_arrivals",
+      "text": "служебной комнате у прилета",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["airport", "service", "night"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "glass_corridor_with_tired_screens",
+      "text": "стеклянном коридоре, где экраны выглядели уставшими,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["airport", "sterile_light", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "passport_control_where_time_stalled",
+      "text": "паспортном контроле, где время стояло ровнее очередей,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["airport", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

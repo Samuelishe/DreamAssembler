@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "boarding_pass_changes_for_him",
+      "text": "посадочный талон меняется для него чуть быстрее, чем он успевает это заметить",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["airport", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "passport_control_answers_him",
+      "text": "паспортный контроль отвечает ему раньше, чем он задает вопрос",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["airport", "bureaucracy", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "bus_waits_for_his_hesitation",
+      "text": "перронный автобус ждет его нерешительность внимательнее, чем водителя",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["airport", "transit", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "same_announcement_returns",
+      "text": "объявление возвращается к той же фразе, как будто у него нет другого выхода",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["airport", "night", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "terminal_uses_same_midnight",
+      "text": "терминал второй раз проживает одну и ту же полночь",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["airport", "time", "surreal"],
+      "absurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "departure_board_loses_morning",
+      "text": "табло вылета постепенно теряет все упоминания утра",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["airport", "time", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

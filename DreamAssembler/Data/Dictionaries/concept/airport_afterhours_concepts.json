@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "bureaucracy_of_departure",
+      "text": "бюрократия отлета, которая уже устала объясняться",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["airport", "bureaucracy", "night"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "night_shift_transit_ritual",
+      "text": "ритуал ночной пересадки",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["airport", "transit", "ritual"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "sterile_memory_of_gates",
+      "text": "стерильная память выходов на посадку",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["airport", "sterile_light", "memory"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "people_between_decisions",
+      "text": "люди, существующие между решением и посадкой",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["airport", "transit", "quiet"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "afterhours_terminal_identity",
+      "text": "ночная личность терминала",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["airport", "night", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "departure_without_morning",
+      "text": "вылет, которому не обещали утра",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["airport", "time", "mood"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "check_under_white_light",
+      "text": "проверить под белым светом",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["airport", "sterile_light", "compat:portable", "compat:searchable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "carry_to_transfer_desk",
+      "text": "отнести к стойке пересадки",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["airport", "transit", "compat:portable", "compat:exchangeable", "compat:searchable"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "rewrite_on_baggage_tag",
+      "text": "переписать на обороте багажной бирки",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["airport", "paper", "compat:portable", "compat:rewriteable", "compat:searchable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "place_in_security_tray",
+      "text": "положить в лоток досмотра",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["airport", "sterile_light", "compat:portable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "seal_until_morning_flight",
+      "text": "опечатать до утреннего рейса",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["airport", "bureaucracy", "compat:openable", "compat:hideable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "hide_in_gate_sleeve",
+      "text": "спрятать в рукаве посадки",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["airport", "night", "compat:portable", "compat:hideable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "return_to_arrivals_desk",
+      "text": "вернуть к стойке прилета",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["airport", "story", "compat:portable", "compat:exchangeable", "compat:searchable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "wake_through_intercom",
+      "text": "разбудить через переговорное устройство",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["airport", "night", "compat:wakeable", "compat:repairable"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

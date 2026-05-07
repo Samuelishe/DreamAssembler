@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "late_checkin_attendant",
+      "text": "сотрудник поздней регистрации",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["airport", "night", "bureaucracy", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "transfer_desk_clerk",
+      "text": "дежурный по стойке пересадки",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["airport", "transit", "bureaucracy", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "departure_board_operator",
+      "text": "оператор табло вылета",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["airport", "night", "time", "daily"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "sterile_zone_attendant",
+      "text": "дежурная по стерильной зоне",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["airport", "sterile_light", "bureaucracy", "daily"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "unclaimed_baggage_receiver",
+      "text": "приемщик невостребованного багажа",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["airport", "quiet", "story", "daily"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "apron_bus_driver",
+      "text": "водитель перронного автобуса",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["airport", "transit", "night", "daily"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "keeper_of_delayed_departures",
+      "text": "хранитель задержанных вылетов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["airport", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "curator_of_empty_gates",
+      "text": "смотритель пустых выходов на посадку",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["airport", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}
