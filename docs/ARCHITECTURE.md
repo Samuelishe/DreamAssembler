@@ -38,6 +38,7 @@
 - `WeightedRandomSelector` - выбор элементов по весу.
 - `DictionaryRepository` - загрузка словарей из `Data/Dictionaries`.
 - `TemplateRepository` - загрузка шаблонов из `Data/Templates/templates.json`.
+- `DataSetManifestRepository` - загрузка manifest набора данных из `Data/data-manifest.json`.
 - `TemplateEngine` - подстановка значений в шаблон.
 - `TextGeneratorService` - главная точка генерации текста.
 
@@ -63,6 +64,7 @@
 ## Где лежат словари, шаблоны и настройки
 
 - Словари: `DreamAssembler/Data/Dictionaries/*.json`
+- Manifest набора данных: `DreamAssembler/Data/data-manifest.json`
 - Шаблоны: `DreamAssembler/Data/Templates/templates.json`
 - Пользовательские настройки: `%LocalAppData%/DreamAssembler/settings.json`
 
@@ -71,5 +73,6 @@
 1. Добавить новые JSON-файлы словарей с нужной категорией.
 2. Добавить новые шаблоны в `templates.json`.
 3. При необходимости добавить новый режим генерации в `GenerationMode`.
-4. Расширить логику весов или тегов в `TextGeneratorService`, не меняя UI-слой.
-5. Позже можно добавить редактор словарей как отдельный модуль, не меняя базовую структуру `Core`.
+4. Для безопасных шаблонных позиций использовать `slot`, а не только общую `category`.
+5. Расширить логику весов или тегов в `TextGeneratorService`, не меняя UI-слой.
+6. Позже можно добавить редактор словарей как отдельный модуль, не меняя базовую структуру `Core`.

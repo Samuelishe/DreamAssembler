@@ -4,6 +4,7 @@
       "id": "rusty_elevator",
       "text": "ржавый лифт",
       "category": "object",
+      "slot": "object_direct",
       "tags": ["city", "decay", "industrial"],
       "absurdity": 1,
       "weight": 1.0
@@ -12,6 +13,7 @@
       "id": "forgotten_alarm_clocks",
       "text": "забытые будильники",
       "category": "object",
+      "slot": "object_direct",
       "tags": ["home", "absurd", "daily"],
       "absurdity": 2,
       "weight": 1.0
@@ -20,22 +22,16 @@
       "id": "own_voice",
       "text": "собственный голос",
       "category": "object",
+      "slot": "object_direct",
       "tags": ["inner", "surreal"],
       "absurdity": 3,
       "weight": 0.8
     },
     {
-      "id": "old_kettle",
-      "text": "старый чайник",
-      "category": "object",
-      "tags": ["home", "daily"],
-      "absurdity": 0,
-      "weight": 1.0
-    },
-    {
       "id": "paper_moon_ticket",
       "text": "бумажный билет на луну",
       "category": "object",
+      "slot": "object_direct",
       "tags": ["dream", "surreal"],
       "absurdity": 2,
       "weight": 0.9
@@ -44,46 +40,16 @@
       "id": "sleeping_vending_machine",
       "text": "спящий торговый автомат",
       "category": "object",
+      "slot": "object_direct",
       "tags": ["city", "comic", "surreal"],
       "absurdity": 3,
       "weight": 0.8
     },
     {
-      "id": "wet_newspaper_bundle",
-      "text": "связку мокрых газет",
-      "category": "object",
-      "tags": ["city", "daily", "decay"],
-      "absurdity": 1,
-      "weight": 0.9
-    },
-    {
-      "id": "broken_station_clock",
-      "text": "сломанные станционные часы",
-      "category": "object",
-      "tags": ["city", "transport", "time"],
-      "absurdity": 1,
-      "weight": 0.9
-    },
-    {
-      "id": "tin_box_of_keys",
-      "text": "жестяную коробку ключей",
-      "category": "object",
-      "tags": ["daily", "mystery"],
-      "absurdity": 0,
-      "weight": 0.9
-    },
-    {
-      "id": "rolled_city_map",
-      "text": "свернутую карту города",
-      "category": "object",
-      "tags": ["city", "story"],
-      "absurdity": 0,
-      "weight": 0.9
-    },
-    {
       "id": "choir_of_receipts",
       "text": "хор кассовых чеков",
       "category": "object",
+      "slot": "object_direct",
       "tags": ["bureaucracy", "comic", "surreal"],
       "absurdity": 3,
       "weight": 0.7

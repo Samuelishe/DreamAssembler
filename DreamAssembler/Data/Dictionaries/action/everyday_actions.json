@@ -4,6 +4,7 @@
       "id": "hide",
       "text": "спрятать",
       "category": "action",
+      "slot": "action_infinitive",
       "tags": ["secret", "daily"],
       "absurdity": 0,
       "weight": 1.0
@@ -12,46 +13,25 @@
       "id": "open",
       "text": "открыть",
       "category": "action",
+      "slot": "action_infinitive",
       "tags": ["business", "daily"],
       "absurdity": 0,
       "weight": 1.0
     },
     {
-      "id": "trace",
-      "text": "разыскать",
-      "category": "action",
-      "tags": ["mystery", "surreal"],
-      "absurdity": 2,
-      "weight": 0.9
-    },
-    {
-      "id": "teach_to_whisper",
-      "text": "научить шептать",
-      "category": "action",
-      "tags": ["surreal", "comic"],
-      "absurdity": 3,
-      "weight": 0.8
-    },
-    {
       "id": "carry_through_city",
       "text": "провезти через весь город",
       "category": "action",
+      "slot": "action_infinitive",
       "tags": ["city", "daily"],
       "absurdity": 0,
       "weight": 1.0
     },
     {
-      "id": "rewrite",
-      "text": "переписать",
-      "category": "action",
-      "tags": ["language", "surreal"],
-      "absurdity": 3,
-      "weight": 0.7
-    },
-    {
       "id": "repair_at_night",
       "text": "чинить по ночам",
       "category": "action",
+      "slot": "action_infinitive",
       "tags": ["night", "daily"],
       "absurdity": 1,
       "weight": 0.9
@@ -60,6 +40,7 @@
       "id": "exchange_in_secret",
       "text": "тайно обменять",
       "category": "action",
+      "slot": "action_infinitive",
       "tags": ["secret", "story"],
       "absurdity": 1,
       "weight": 0.9
@@ -68,22 +49,16 @@
       "id": "smuggle_into_archive",
       "text": "пронести в архив",
       "category": "action",
+      "slot": "action_infinitive",
       "tags": ["bureaucracy", "city"],
       "absurdity": 1,
-      "weight": 0.8
-    },
-    {
-      "id": "wake_up_before_dawn",
-      "text": "разбудить до рассвета",
-      "category": "action",
-      "tags": ["night", "surreal"],
-      "absurdity": 2,
       "weight": 0.8
     },
     {
       "id": "hide_from_rain",
       "text": "спрятать от дождя",
       "category": "action",
+      "slot": "action_infinitive",
       "tags": ["city", "daily"],
       "absurdity": 0,
       "weight": 0.9

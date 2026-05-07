@@ -1,0 +1,23 @@
+{
+  "id": "dreamassembler-base-ru",
+  "version": "0.2.0",
+  "description": "Базовый русскоязычный набор словарей и шаблонов для DreamAssembler.",
+  "dictionarySets": [
+    "character/city_workers",
+    "character/surreal_people",
+    "action/everyday_actions",
+    "action/surreal_actions",
+    "object/everyday_objects",
+    "object/surreal_objects",
+    "place/urban_places",
+    "place/surreal_places",
+    "twist/rules_and_reactions",
+    "atmosphere/scene_tones",
+    "genre/base_genres",
+    "style/base_styles",
+    "emotion/predicative_states",
+    "concept/story_concepts",
+    "condition/scene_conditions"
+  ]
+}
+

@@ -32,7 +32,7 @@ public sealed class DictionaryRepository
 
         try
         {
-            var files = Directory.GetFiles(directoryPath, "*.json", SearchOption.TopDirectoryOnly);
+            var files = Directory.GetFiles(directoryPath, "*.json", SearchOption.AllDirectories);
             var entries = new List<DictionaryEntry>();
 
             foreach (var file in files)
@@ -104,4 +104,3 @@ public sealed class DictionaryRepository
         public List<DictionaryEntry> Entries { get; set; } = [];
     }
 }
-

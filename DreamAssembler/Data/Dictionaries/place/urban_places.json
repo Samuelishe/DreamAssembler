@@ -4,6 +4,7 @@
       "id": "night_pharmacy",
       "text": "круглосуточной аптеке",
       "category": "place",
+      "slot": "place_in",
       "tags": ["city", "night"],
       "absurdity": 0,
       "weight": 1.1
@@ -12,54 +13,34 @@
       "id": "night_shop",
       "text": "ночном магазине",
       "category": "place",
+      "slot": "place_in",
       "tags": ["city", "night", "daily"],
       "absurdity": 0,
       "weight": 1.0
     },
     {
-      "id": "inside_windows_city",
-      "text": "городе, где все окна смотрят внутрь людей",
-      "category": "place",
-      "tags": ["city", "surreal"],
-      "absurdity": 3,
-      "weight": 0.9
-    },
-    {
       "id": "empty_platform",
       "text": "пустой платформе метро",
       "category": "place",
+      "slot": "place_in",
       "tags": ["city", "transport", "daily"],
       "absurdity": 1,
       "weight": 1.0
     },
     {
-      "id": "courtyard_with_radio",
-      "text": "дворе, где старое радио знает все новости заранее",
-      "category": "place",
-      "tags": ["city", "surreal", "story"],
-      "absurdity": 2,
-      "weight": 0.9
-    },
-    {
       "id": "district_archive",
       "text": "районном архиве",
       "category": "place",
+      "slot": "place_in",
       "tags": ["bureaucracy", "daily"],
       "absurdity": 0,
       "weight": 0.9
     },
     {
-      "id": "cinema_without_ceiling",
-      "text": "кинотеатре без потолка",
-      "category": "place",
-      "tags": ["dream", "surreal"],
-      "absurdity": 3,
-      "weight": 0.8
-    },
-    {
       "id": "market_under_overpass",
       "text": "рынке под эстакадой",
       "category": "place",
+      "slot": "place_in",
       "tags": ["city", "daily"],
       "absurdity": 0,
       "weight": 0.9
@@ -68,25 +49,10 @@
       "id": "library_basement",
       "text": "подвале библиотеки",
       "category": "place",
+      "slot": "place_in",
       "tags": ["quiet", "story", "daily"],
       "absurdity": 1,
       "weight": 0.9
-    },
-    {
-      "id": "waiting_room_of_dreams",
-      "text": "зале ожидания забытых снов",
-      "category": "place",
-      "tags": ["dream", "surreal"],
-      "absurdity": 3,
-      "weight": 0.7
-    },
-    {
-      "id": "office_roof",
-      "text": "крыше районной администрации",
-      "category": "place",
-      "tags": ["bureaucracy", "city"],
-      "absurdity": 1,
-      "weight": 0.8
     }
   ]
 }

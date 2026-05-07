@@ -24,5 +24,9 @@ public sealed class GeneratorDataBundle
     /// Получает или задает итоговое сообщение по загрузке.
     /// </summary>
     public string StatusMessage { get; set; } = string.Empty;
-}
 
+    /// <summary>
+    /// Получает или задает manifest набора данных, если он был найден.
+    /// </summary>
+    public DataSetManifest? Manifest { get; set; }
+}

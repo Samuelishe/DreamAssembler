@@ -1,25 +1,10 @@
 {
   "entries": [
     {
-      "id": "tired_librarian",
-      "text": "уставший библиотекарь",
-      "category": "character",
-      "tags": ["city", "quiet", "daily"],
-      "absurdity": 0,
-      "weight": 1.2
-    },
-    {
-      "id": "night_cashier",
-      "text": "кассир из ночного магазина",
-      "category": "character",
-      "tags": ["city", "night", "daily"],
-      "absurdity": 0,
-      "weight": 1.1
-    },
-    {
       "id": "pigeon_engineer",
       "text": "голубь с дипломом инженера",
       "category": "character",
+      "slot": "character_subject",
       "tags": ["city", "absurd", "comic"],
       "absurdity": 2,
       "weight": 1.0
@@ -28,22 +13,16 @@
       "id": "accounting_brownie",
       "text": "домовой из бухгалтерии",
       "category": "character",
+      "slot": "character_subject",
       "tags": ["office", "absurd", "bureaucracy"],
       "absurdity": 3,
       "weight": 0.8
     },
     {
-      "id": "retired_projectionist",
-      "text": "пенсионер-киномеханик",
-      "category": "character",
-      "tags": ["city", "nostalgia", "daily"],
-      "absurdity": 0,
-      "weight": 1.0
-    },
-    {
       "id": "tram_conductor_prophet",
       "text": "кондуктор трамвая с даром пророчества",
       "category": "character",
+      "slot": "character_subject",
       "tags": ["city", "transport", "surreal"],
       "absurdity": 2,
       "weight": 0.9
@@ -52,30 +31,16 @@
       "id": "museum_cleaner_of_echoes",
       "text": "уборщица музея эха",
       "category": "character",
+      "slot": "character_subject",
       "tags": ["quiet", "surreal", "story"],
       "absurdity": 3,
       "weight": 0.8
     },
     {
-      "id": "suburban_poet",
-      "text": "поэт из спального района",
-      "category": "character",
-      "tags": ["city", "story", "daily"],
-      "absurdity": 1,
-      "weight": 0.9
-    },
-    {
-      "id": "train_dispatcher",
-      "text": "диспетчер пригородных поездов",
-      "category": "character",
-      "tags": ["city", "transport", "daily"],
-      "absurdity": 0,
-      "weight": 1.0
-    },
-    {
       "id": "keeper_of_lost_receipts",
       "text": "хранитель потерянных чеков",
       "category": "character",
+      "slot": "character_subject",
       "tags": ["bureaucracy", "comic", "surreal"],
       "absurdity": 2,
       "weight": 0.8
@@ -84,6 +49,7 @@
       "id": "seamstress_of_night_curtains",
       "text": "швея ночных занавесок",
       "category": "character",
+      "slot": "character_subject",
       "tags": ["night", "story", "surreal"],
       "absurdity": 2,
       "weight": 0.8

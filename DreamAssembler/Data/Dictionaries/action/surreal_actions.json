@@ -1,0 +1,41 @@
+{
+  "entries": [
+    {
+      "id": "trace",
+      "text": "разыскать",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["mystery", "surreal"],
+      "absurdity": 2,
+      "weight": 0.9
+    },
+    {
+      "id": "teach_to_whisper",
+      "text": "научить шептать",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["surreal", "comic"],
+      "absurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "rewrite",
+      "text": "переписать",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["language", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "wake_up_before_dawn",
+      "text": "разбудить до рассвета",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["night", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    }
+  ]
+}
+

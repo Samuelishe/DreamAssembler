@@ -4,6 +4,7 @@
       "id": "deadpan_style",
       "text": "с серьезной интонацией",
       "category": "style",
+      "slot": "style_note",
       "tags": ["tone", "dry"],
       "absurdity": 0,
       "weight": 1.0
@@ -12,6 +13,7 @@
       "id": "dreamlike_style",
       "text": "как будто это забытый сон",
       "category": "style",
+      "slot": "style_note",
       "tags": ["tone", "surreal"],
       "absurdity": 2,
       "weight": 0.9
@@ -20,6 +22,7 @@
       "id": "protocol_style",
       "text": "в форме сухого служебного протокола",
       "category": "style",
+      "slot": "style_note",
       "tags": ["bureaucracy", "tone"],
       "absurdity": 1,
       "weight": 0.8
@@ -28,6 +31,7 @@
       "id": "late_night_radio_style",
       "text": "как ночной радиомонолог",
       "category": "style",
+      "slot": "style_note",
       "tags": ["night", "tone"],
       "absurdity": 1,
       "weight": 0.9
@@ -36,6 +40,7 @@
       "id": "with_tender_irony",
       "text": "с мягкой иронией",
       "category": "style",
+      "slot": "style_note",
       "tags": ["tone", "comic"],
       "absurdity": 0,
       "weight": 0.9
@@ -44,6 +49,7 @@
       "id": "as_city_legend",
       "text": "как городскую легенду",
       "category": "style",
+      "slot": "style_note",
       "tags": ["city", "story"],
       "absurdity": 1,
       "weight": 0.8
@@ -52,6 +58,7 @@
       "id": "with_archival_precision",
       "text": "с архивной точностью",
       "category": "style",
+      "slot": "style_note",
       "tags": ["bureaucracy", "tone"],
       "absurdity": 1,
       "weight": 0.8

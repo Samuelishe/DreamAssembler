@@ -4,6 +4,7 @@
       "id": "foggy",
       "text": "туманной",
       "category": "atmosphere",
+      "slot": "atmosphere_state",
       "tags": ["mood", "quiet"],
       "absurdity": 0,
       "weight": 1.0
@@ -12,6 +13,7 @@
       "id": "whispering",
       "text": "шепчущей",
       "category": "atmosphere",
+      "slot": "atmosphere_state",
       "tags": ["mood", "surreal"],
       "absurdity": 2,
       "weight": 0.9
@@ -20,6 +22,7 @@
       "id": "bureaucratically_tense",
       "text": "бюрократически напряженной",
       "category": "atmosphere",
+      "slot": "atmosphere_state",
       "tags": ["office", "comic"],
       "absurdity": 2,
       "weight": 0.8
@@ -28,6 +31,7 @@
       "id": "electrically_sleepy",
       "text": "электрически сонной",
       "category": "atmosphere",
+      "slot": "atmosphere_state",
       "tags": ["night", "surreal"],
       "absurdity": 2,
       "weight": 0.8
@@ -36,6 +40,7 @@
       "id": "ceremonially_quiet",
       "text": "церемонно тихой",
       "category": "atmosphere",
+      "slot": "atmosphere_state",
       "tags": ["quiet", "story"],
       "absurdity": 1,
       "weight": 0.9
@@ -44,6 +49,7 @@
       "id": "rainy_and_patient",
       "text": "дождливо терпеливой",
       "category": "atmosphere",
+      "slot": "atmosphere_state",
       "tags": ["weather", "mood"],
       "absurdity": 0,
       "weight": 0.9
@@ -52,6 +58,7 @@
       "id": "paper_dry",
       "text": "бумажно сухой",
       "category": "atmosphere",
+      "slot": "atmosphere_state",
       "tags": ["bureaucracy", "comic"],
       "absurdity": 2,
       "weight": 0.8
@@ -60,6 +67,7 @@
       "id": "sleepily_resonant",
       "text": "сонно звенящей",
       "category": "atmosphere",
+      "slot": "atmosphere_state",
       "tags": ["night", "surreal"],
       "absurdity": 2,
       "weight": 0.8

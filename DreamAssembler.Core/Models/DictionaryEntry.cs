@@ -21,6 +21,11 @@ public sealed class DictionaryEntry
     public string Category { get; set; } = string.Empty;
 
     /// <summary>
+    /// Получает или задает безопасный слот шаблона, для которого подготовлена запись.
+    /// </summary>
+    public string? Slot { get; set; }
+
+    /// <summary>
     /// Получает или задает теги записи.
     /// </summary>
     public IReadOnlyList<string> Tags { get; set; } = Array.Empty<string>();
@@ -35,4 +40,3 @@ public sealed class DictionaryEntry
     /// </summary>
     public double Weight { get; set; } = 1d;
 }
-

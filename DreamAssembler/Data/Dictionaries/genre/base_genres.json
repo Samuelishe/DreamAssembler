@@ -4,6 +4,7 @@
       "id": "bureaucratic_fantasy",
       "text": "бюрократическое фэнтези",
       "category": "genre",
+      "slot": "genre_label",
       "tags": ["story", "absurd"],
       "absurdity": 2,
       "weight": 0.8
@@ -12,6 +13,7 @@
       "id": "city_parable",
       "text": "городская притча",
       "category": "genre",
+      "slot": "genre_label",
       "tags": ["story", "daily"],
       "absurdity": 0,
       "weight": 1.0
@@ -20,6 +22,7 @@
       "id": "office_myth",
       "text": "офисный миф",
       "category": "genre",
+      "slot": "genre_label",
       "tags": ["bureaucracy", "story"],
       "absurdity": 1,
       "weight": 0.9
@@ -28,6 +31,7 @@
       "id": "melancholic_absurdism",
       "text": "меланхоличный абсурдизм",
       "category": "genre",
+      "slot": "genre_label",
       "tags": ["surreal", "tone"],
       "absurdity": 2,
       "weight": 0.8
@@ -36,6 +40,7 @@
       "id": "night_urban_fable",
       "text": "ночная городская басня",
       "category": "genre",
+      "slot": "genre_label",
       "tags": ["night", "city", "story"],
       "absurdity": 1,
       "weight": 0.9
@@ -44,6 +49,7 @@
       "id": "documentary_surrealism",
       "text": "документальный сюрреализм",
       "category": "genre",
+      "slot": "genre_label",
       "tags": ["surreal", "bureaucracy"],
       "absurdity": 2,
       "weight": 0.8
@@ -52,6 +58,7 @@
       "id": "soft_mystery",
       "text": "мягкий городской мистери",
       "category": "genre",
+      "slot": "genre_label",
       "tags": ["mystery", "city"],
       "absurdity": 1,
       "weight": 0.8

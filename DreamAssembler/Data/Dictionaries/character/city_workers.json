@@ -1,0 +1,50 @@
+{
+  "entries": [
+    {
+      "id": "tired_librarian",
+      "text": "уставший библиотекарь",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["city", "quiet", "daily"],
+      "absurdity": 0,
+      "weight": 1.2
+    },
+    {
+      "id": "night_cashier",
+      "text": "кассир из ночного магазина",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["city", "night", "daily"],
+      "absurdity": 0,
+      "weight": 1.1
+    },
+    {
+      "id": "retired_projectionist",
+      "text": "пенсионер-киномеханик",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["city", "nostalgia", "daily"],
+      "absurdity": 0,
+      "weight": 1.0
+    },
+    {
+      "id": "train_dispatcher",
+      "text": "диспетчер пригородных поездов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["city", "transport", "daily"],
+      "absurdity": 0,
+      "weight": 1.0
+    },
+    {
+      "id": "suburban_poet",
+      "text": "поэт из спального района",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["city", "story", "daily"],
+      "absurdity": 1,
+      "weight": 0.9
+    }
+  ]
+}
+

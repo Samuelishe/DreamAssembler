@@ -46,7 +46,10 @@ public partial class MainViewModel : ObservableObject
         Results = [];
 
         var dataPath = Path.Combine(AppContext.BaseDirectory, "Data");
-        var dataLoader = new GeneratorDataLoader(new DictionaryRepository(), new TemplateRepository());
+        var dataLoader = new GeneratorDataLoader(
+            new DictionaryRepository(),
+            new TemplateRepository(),
+            new DataSetManifestRepository());
         var dataBundle = dataLoader.Load(dataPath);
 
         IsFallbackActive = dataBundle.UsedFallback;

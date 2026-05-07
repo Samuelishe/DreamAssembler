@@ -62,6 +62,49 @@ public sealed class DictionaryRepositoryTests
         }
     }
 
+    /// <summary>
+    /// Проверяет рекурсивную загрузку словарей из вложенных папок.
+    /// </summary>
+    [Fact]
+    public void Load_ReadsNestedJsonFiles_WhenDirectoryTreeIsUsed()
+    {
+        var repository = new DictionaryRepository();
+        var directoryPath = CreateTempDirectory();
+        var nestedPath = Path.Combine(directoryPath, "character");
+        Directory.CreateDirectory(nestedPath);
+
+        try
+        {
+            File.WriteAllText(
+                Path.Combine(nestedPath, "workers.json"),
+                """
+                {
+                  "entries": [
+                    {
+                      "id": "nested_character",
+                      "text": "вложенный персонаж",
+                      "category": "character",
+                      "slot": "character_subject",
+                      "tags": ["test"],
+                      "absurdity": 0,
+                      "weight": 1.0
+                    }
+                  ]
+                }
+                """);
+
+            var result = repository.Load(directoryPath);
+
+            Assert.False(result.UsedFallback);
+            Assert.Single(result.Data);
+            Assert.Equal("character_subject", result.Data[0].Slot);
+        }
+        finally
+        {
+            Directory.Delete(directoryPath, true);
+        }
+    }
+
     private static string CreateTempDirectory()
     {
         var directoryPath = Path.Combine(Path.GetTempPath(), $"dreamassembler-tests-{Guid.NewGuid():N}");
@@ -69,4 +112,3 @@ public sealed class DictionaryRepositoryTests
         return directoryPath;
     }
 }
-

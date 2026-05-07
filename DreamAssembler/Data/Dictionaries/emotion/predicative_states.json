@@ -4,6 +4,7 @@
       "id": "melancholic",
       "text": "меланхолично",
       "category": "emotion",
+      "slot": "emotion_predicative",
       "tags": ["mood"],
       "absurdity": 0,
       "weight": 1.0
@@ -12,6 +13,7 @@
       "id": "suspiciously_cheerful",
       "text": "подозрительно бодро",
       "category": "emotion",
+      "slot": "emotion_predicative",
       "tags": ["mood", "comic"],
       "absurdity": 1,
       "weight": 0.9
@@ -20,6 +22,7 @@
       "id": "administratively_calm",
       "text": "административно спокойно",
       "category": "emotion",
+      "slot": "emotion_predicative",
       "tags": ["bureaucracy", "comic"],
       "absurdity": 2,
       "weight": 0.8
@@ -28,6 +31,7 @@
       "id": "quietly_anxious",
       "text": "тихо тревожно",
       "category": "emotion",
+      "slot": "emotion_predicative",
       "tags": ["mood", "story"],
       "absurdity": 0,
       "weight": 0.9
@@ -36,6 +40,7 @@
       "id": "slightly_embarrassing",
       "text": "слегка неловко",
       "category": "emotion",
+      "slot": "emotion_predicative",
       "tags": ["comic", "daily"],
       "absurdity": 0,
       "weight": 0.9
@@ -44,6 +49,7 @@
       "id": "dangerously_curious",
       "text": "опасно любопытно",
       "category": "emotion",
+      "slot": "emotion_predicative",
       "tags": ["story", "surreal"],
       "absurdity": 2,
       "weight": 0.8
@@ -52,6 +58,7 @@
       "id": "administratively_sad",
       "text": "административно грустно",
       "category": "emotion",
+      "slot": "emotion_predicative",
       "tags": ["bureaucracy", "comic"],
       "absurdity": 2,
       "weight": 0.8
