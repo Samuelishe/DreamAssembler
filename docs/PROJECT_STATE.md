@@ -117,6 +117,8 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - в lexical modes история под spotlight сделана тише по opacity и типографике, а у самого spotlight появились быстрые reader-actions;
 - начат первый реальный soft-controls pass: основные кнопки, dropdowns, spotlight-секции, карточки результатов и fullscreen reading presentation стали мягче и менее utility-oriented по визуальному тону;
 - после этого начат и layout-rhythm pass: левая панель стала тише и компактнее, lexical history ослаблена как chrome-зона, а fullscreen reading mode приблизился к более самостоятельной ritual-reading surface;
+- затем начат targeted shell/popup pass: верхний window chrome получил более тихую identity-подпись текущего режима, а settings popup стал меньше напоминать служебное WPF-меню и ближе к calm atmospheric tuning surface;
+- затем начат content-facing pass для `Sentence / Idea / ShortText`: numbered result-feel ослаблен, history стала тише, а обычные текстовые режимы подаются ближе к reading fragments, чем к списку generated items;
 - проведен первый quality-pass по semantic coherence: из шаблонов убраны несколько явно gendered конструкций без морфологии, а lexical CSV-фильтр стал жестче к техническим, медицинским и слишком абстрактным словам;
 - для lexical modes добавлен первый curated subset layer: поверх общего CSV-пула появились предпочтительные nouns / adjectives / verbs, которые усиливают атмосферный semantic field без жесткой тематической блокировки;
 - поверх этого слоя добавлены первые atmospheric clusters для lexical batch coherence: `archive`, `rainy-city`, `night-route`;

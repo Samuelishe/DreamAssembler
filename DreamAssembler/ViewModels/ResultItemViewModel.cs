@@ -16,7 +16,7 @@ public partial class ResultItemViewModel : ObservableObject
     public ResultItemViewModel(TextGenerationResult result, int index)
     {
         Text = result.Text;
-        Header = $"Результат {index}";
+        Header = GetHeader(result.Mode);
         GeneratedAt = result.CreatedAt;
         AtmosphereLabel = GetAtmosphereLabel(result.AtmosphereKey);
         AtmosphereDescription = GetAtmosphereDescription(result.AtmosphereKey);
@@ -46,6 +46,19 @@ public partial class ResultItemViewModel : ObservableObject
     /// Получает короткое пояснение локального atmospheric-пространства.
     /// </summary>
     public string AtmosphereDescription { get; }
+
+    private static string GetHeader(Core.Enums.GenerationMode mode)
+    {
+        return mode switch
+        {
+            Core.Enums.GenerationMode.Sentence => "Фраза",
+            Core.Enums.GenerationMode.ShortText => "Короткий текст",
+            Core.Enums.GenerationMode.Idea => "Идея",
+            Core.Enums.GenerationMode.WordPair => "Фрагмент",
+            Core.Enums.GenerationMode.WordCluster => "Фрагмент",
+            _ => "Фрагмент"
+        };
+    }
 
     private static string GetAtmosphereLabel(string? atmosphereKey)
     {

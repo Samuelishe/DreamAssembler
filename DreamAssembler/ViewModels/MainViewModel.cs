@@ -229,9 +229,14 @@ public partial class MainViewModel : ObservableObject
     public GridLength ContentGapWidth => new(IsLexicalMode ? 34d : 24d);
 
     /// <summary>
+    /// Получает короткую подпись текущего режима для верхнего shell.
+    /// </summary>
+    public string ShellModeLabel => SelectedMode?.DisplayName ?? "Фрагменты";
+
+    /// <summary>
     /// Получает максимальную ширину карточки результата для текущего режима.
     /// </summary>
-    public double ResultCardMaxWidth => IsLexicalMode ? 700d : 820d;
+    public double ResultCardMaxWidth => IsLexicalMode ? 700d : 780d;
 
     /// <summary>
     /// Получает минимальную ширину карточки результата для текущего режима.
@@ -241,7 +246,7 @@ public partial class MainViewModel : ObservableObject
     /// <summary>
     /// Получает рекомендуемый размер шрифта основного текста результата.
     /// </summary>
-    public double ResultTextFontSize => IsLexicalMode ? 34d : 21d;
+    public double ResultTextFontSize => IsLexicalMode ? 34d : 22d;
 
     /// <summary>
     /// Получает рекомендуемую высоту строки для основного текста результата.
@@ -261,9 +266,19 @@ public partial class MainViewModel : ObservableObject
         : "Выберите тон и форму следующего фрагмента.";
 
     /// <summary>
+    /// Получает заголовок popup-настроек.
+    /// </summary>
+    public string SettingsPopupTitle => "Тон и оформление";
+
+    /// <summary>
+    /// Получает вспомогательный текст popup-настроек.
+    /// </summary>
+    public string SettingsPopupHint => "Спокойная настройка reading surface, шрифта и палитры.";
+
+    /// <summary>
     /// Получает заголовок секции результатов.
     /// </summary>
-    public string ResultsSectionTitle => IsLexicalMode ? "Фрагменты" : "Результаты";
+    public string ResultsSectionTitle => IsLexicalMode ? "Фрагменты" : "Фрагменты чтения";
 
     /// <summary>
     /// Получает дополнительное пояснение для словесных режимов.
@@ -272,7 +287,7 @@ public partial class MainViewModel : ObservableObject
         ? (HasSelectedLexicalAtmosphere
             ? SelectedLexicalAtmosphereDescription
             : "Короткие фразы лучше читать как отдельные найденные обрывки.")
-        : string.Empty;
+        : "Один фрагмент остается впереди, остальные уходят в тихую историю.";
 
     /// <summary>
     /// Получает подпись для выделенного фрагмента в словесных режимах.
@@ -282,7 +297,7 @@ public partial class MainViewModel : ObservableObject
     /// <summary>
     /// Получает подпись для списка истории в словесных режимах.
     /// </summary>
-    public string ResultsListCaption => IsLexicalMode ? "Тихая история" : string.Empty;
+    public string ResultsListCaption => IsLexicalMode ? "Тихая история" : "История чтения";
 
     /// <summary>
     /// Получает подпись атмосферного header для словесных режимов.
@@ -447,12 +462,15 @@ public partial class MainViewModel : ObservableObject
         OnPropertyChanged(nameof(IsLexicalMode));
         OnPropertyChanged(nameof(ControlPanelWidth));
         OnPropertyChanged(nameof(ContentGapWidth));
+        OnPropertyChanged(nameof(ShellModeLabel));
         OnPropertyChanged(nameof(ResultCardMaxWidth));
         OnPropertyChanged(nameof(ResultCardMinWidth));
         OnPropertyChanged(nameof(ResultTextFontSize));
         OnPropertyChanged(nameof(ResultTextLineHeight));
         OnPropertyChanged(nameof(ControlPanelTitle));
         OnPropertyChanged(nameof(ControlPanelHint));
+        OnPropertyChanged(nameof(SettingsPopupTitle));
+        OnPropertyChanged(nameof(SettingsPopupHint));
         OnPropertyChanged(nameof(ResultsSectionTitle));
         OnPropertyChanged(nameof(ResultsSectionHint));
         OnPropertyChanged(nameof(LexicalSpotlightTitle));

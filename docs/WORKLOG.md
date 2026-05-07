@@ -10,6 +10,8 @@
 - дополнительно расширено UI / UX / presentation-направление: DreamAssembler теперь еще явнее зафиксирован как atmospheric reading instrument, где fullscreen reading, visual silence, phrase-centered presentation, softer controls и content dominance важнее dashboard-feel и стандартной utility-подачи;
 - реализован первый soft-controls pass в `MainWindow.xaml`: смягчены основные кнопки и dropdowns, ослаблен utility-feel у spotlight/result cards/settings popup, а fullscreen reading mode стал тише и менее механически-виджетным по подаче;
 - затем начат следующий UI-этап по layout rhythm: control panel визуально отодвинута назад, lexical history стала еще менее card-heavy, а fullscreen reading overlay приблизился к более изолированной, centered и ritual-reading presentation;
+- после этого выполнен targeted shell/popup pass: верхняя полоса окна стала менее безличной за счет тихой mode-подписи, а popup настроек смещен от utility-menu к более мягкой atmospheric tuning surface;
+- после этого выполнен content-facing pass для `Sentence / Idea / ShortText`: карточки обычных режимов сильнее центрированы и поданы как fragments, служебные summary/timestamp элементы убраны из шапки списка, а заголовки результатов стали менее механическими;
 
 ### Что сделано
 
