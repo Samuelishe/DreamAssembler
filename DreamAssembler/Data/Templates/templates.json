@@ -361,7 +361,7 @@
     },
     {
       "id": "shorttext_twist",
-      "text": "Обстановка стала {atmosphere}, потому что {twist}.",
+      "text": "И тогда сама обстановка стала {atmosphere}, потому что {twist}.",
       "mode": "ShortText",
       "requiredCategories": ["atmosphere", "twist"],
       "slotRequirements": {
@@ -372,7 +372,7 @@
       "tags": ["story", "mood"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
-      "weight": 1.0
+      "weight": 0.8
     },
     {
       "id": "shorttext_reflection",

@@ -101,7 +101,7 @@
     },
     {
       "id": "pass_office_attendant",
-      "text": "дежурный бюро пропусков",
+      "text": "дежурный по бюро пропусков",
       "category": "character",
       "slot": "character_subject",
       "tags": ["bureaucracy", "city", "daily"],

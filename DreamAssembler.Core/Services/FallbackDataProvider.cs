@@ -338,7 +338,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "shorttext_twist",
-                Text = "Обстановка стала {atmosphere}, потому что {twist}.",
+                Text = "И тогда сама обстановка стала {atmosphere}, потому что {twist}.",
                 Mode = GenerationMode.ShortText,
                 RequiredCategories = ["atmosphere", "twist"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -350,7 +350,7 @@ public static class FallbackDataProvider
                 Tags = ["story", "mood"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
-                Weight = 1.0
+                Weight = 0.8
             },
             new TemplateDefinition
             {

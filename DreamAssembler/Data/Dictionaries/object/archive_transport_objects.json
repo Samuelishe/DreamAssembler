@@ -5,7 +5,7 @@
       "text": "папку с мокрыми заявлениями",
       "category": "object",
       "slot": "object_direct",
-      "tags": ["bureaucracy", "paper", "compat:portable", "compat:hideable", "compat:searchable", "compat:rewriteable", "compat:protectable"],
+      "tags": ["bureaucracy", "paper", "compat:portable", "compat:archive-portable", "compat:journalable", "compat:hideable", "compat:searchable", "compat:rewriteable", "compat:protectable"],
       "absurdity": 1,
       "weight": 0.9
     },
@@ -23,7 +23,7 @@
       "text": "табличку с выцветшим номером маршрута",
       "category": "object",
       "slot": "object_direct",
-      "tags": ["transport", "city", "compat:portable", "compat:hideable", "compat:searchable", "compat:protectable"],
+      "tags": ["transport", "city", "compat:portable", "compat:hideable", "compat:protectable"],
       "absurdity": 0,
       "weight": 0.9
     },
@@ -41,7 +41,7 @@
       "text": "коробку с архивными карточками",
       "category": "object",
       "slot": "object_direct",
-      "tags": ["archive", "paper", "compat:portable", "compat:hideable", "compat:searchable", "compat:rewriteable", "compat:protectable", "compat:openable"],
+      "tags": ["archive", "paper", "compat:portable", "compat:archive-portable", "compat:journalable", "compat:hideable", "compat:searchable", "compat:rewriteable", "compat:protectable", "compat:openable"],
       "absurdity": 0,
       "weight": 0.9
     },
@@ -50,7 +50,7 @@
       "text": "портфель с незаполненными бланками",
       "category": "object",
       "slot": "object_direct",
-      "tags": ["bureaucracy", "paper", "compat:portable", "compat:hideable", "compat:rewriteable", "compat:searchable", "compat:protectable"],
+      "tags": ["bureaucracy", "paper", "compat:portable", "compat:archive-portable", "compat:journalable", "compat:hideable", "compat:rewriteable", "compat:searchable", "compat:protectable"],
       "absurdity": 0,
       "weight": 0.8
     },
@@ -65,10 +65,10 @@
     },
     {
       "id": "duty_logs_stack",
-      "text": "стопку дежурных журналов",
+      "text": "подшивку дежурных журналов",
       "category": "object",
       "slot": "object_direct",
-      "tags": ["bureaucracy", "archive", "compat:portable", "compat:hideable", "compat:searchable", "compat:rewriteable"],
+      "tags": ["bureaucracy", "archive", "compat:portable", "compat:archive-portable", "compat:journalable", "compat:hideable", "compat:searchable", "compat:rewriteable", "compat:openable"],
       "absurdity": 1,
       "weight": 0.8
     },

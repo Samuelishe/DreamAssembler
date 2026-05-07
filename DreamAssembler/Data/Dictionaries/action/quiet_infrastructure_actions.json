@@ -11,12 +11,12 @@
     },
     {
       "id": "mark_in_journal",
-      "text": "отметить в журнале",
+      "text": "сверить по журналу",
       "category": "action",
       "slot": "action_infinitive",
-      "tags": ["bureaucracy", "paper", "compat:searchable", "compat:rewriteable"],
+      "tags": ["bureaucracy", "paper", "compat:journalable"],
       "absurdity": 0,
-      "weight": 0.9
+      "weight": 0.8
     },
     {
       "id": "return_to_lost_and_found",

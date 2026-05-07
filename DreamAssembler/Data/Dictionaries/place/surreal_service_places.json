@@ -65,7 +65,7 @@
     },
     {
       "id": "platform_where_lamps_take_notes",
-      "text": "платформе, где фонари вели заметки,",
+      "text": "платформенном зале, где фонари вели заметки,",
       "category": "place",
       "slot": "place_in_clause",
       "tags": ["transport", "night", "surreal"],
