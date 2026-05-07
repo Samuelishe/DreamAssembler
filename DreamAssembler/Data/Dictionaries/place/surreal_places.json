@@ -2,18 +2,18 @@
   "entries": [
     {
       "id": "inside_windows_city",
-      "text": "городе, где все окна смотрят внутрь людей",
+      "text": "городе, где все окна смотрят внутрь людей,",
       "category": "place",
-      "slot": "place_in",
+      "slot": "place_in_clause",
       "tags": ["city", "surreal"],
       "absurdity": 3,
       "weight": 0.9
     },
     {
       "id": "courtyard_with_radio",
-      "text": "дворе, где старое радио знает все новости заранее",
+      "text": "дворе, где старое радио знает все новости заранее,",
       "category": "place",
-      "slot": "place_in",
+      "slot": "place_in_clause",
       "tags": ["city", "surreal", "story"],
       "absurdity": 2,
       "weight": 0.9
@@ -47,4 +47,3 @@
     }
   ]
 }
-

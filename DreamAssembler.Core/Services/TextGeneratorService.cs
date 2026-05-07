@@ -12,6 +12,9 @@ public sealed class TextGeneratorService
     private const int RecentTemplateLimit = 8;
     private const int RecentEntryLimitPerCategory = 6;
     private static readonly string[] PreferredOpeningRoles = ["setup", "scene"];
+    private static readonly string[] OpeningRoles = ["setup", "scene"];
+    private static readonly string[] LateRoles = ["reflection", "interpretation", "meta"];
+    private static readonly string[] RevealRoles = ["observation", "reaction"];
 
     private readonly IReadOnlyList<DictionaryEntry> _dictionaryEntries;
     private readonly IReadOnlyList<TemplateDefinition> _templates;
@@ -94,7 +97,8 @@ public sealed class TextGeneratorService
                 context,
                 roleUsageCounts,
                 previousRole,
-                index);
+                index,
+                sentenceCount);
 
             builder.Append(RenderTemplate(template, (int)options.AbsurdityLevel, context));
 
@@ -118,7 +122,8 @@ public sealed class TextGeneratorService
         GenerationContext context,
         IReadOnlyDictionary<string, int>? roleUsageCounts = null,
         string? previousRole = null,
-        int sentenceIndex = -1)
+        int sentenceIndex = -1,
+        int sentenceCount = -1)
     {
         var candidates = _templates
             .Where(template => template.Mode == mode)
@@ -131,7 +136,7 @@ public sealed class TextGeneratorService
 
         if (mode == GenerationMode.ShortText)
         {
-            candidates = FilterShortTextCandidates(candidates, roleUsageCounts, previousRole, sentenceIndex);
+            candidates = FilterShortTextCandidates(candidates, roleUsageCounts, previousRole, sentenceIndex, sentenceCount);
         }
 
         return _selector.Select(candidates, item => CalculateTemplateWeight(item, targetAbsurdity, context));
@@ -156,7 +161,8 @@ public sealed class TextGeneratorService
         IReadOnlyList<TemplateDefinition> candidates,
         IReadOnlyDictionary<string, int>? roleUsageCounts,
         string? previousRole,
-        int sentenceIndex)
+        int sentenceIndex,
+        int sentenceCount)
     {
         var usage = roleUsageCounts ?? new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
         var filtered = candidates.ToList();
@@ -177,7 +183,7 @@ public sealed class TextGeneratorService
             filtered = TryFilterByRole(filtered, template => !IsMetaRole(template), candidates);
         }
 
-        filtered = TryFilterByRole(filtered, template => CanUseShortTextRole(template, usage, previousRole, sentenceIndex), candidates);
+        filtered = TryFilterByRole(filtered, template => CanUseShortTextRole(template, usage, previousRole, sentenceIndex, sentenceCount), candidates);
         return filtered;
     }
 
@@ -194,11 +200,34 @@ public sealed class TextGeneratorService
         TemplateDefinition template,
         IReadOnlyDictionary<string, int> roleUsageCounts,
         string? previousRole,
-        int sentenceIndex)
+        int sentenceIndex,
+        int sentenceCount)
     {
         var role = GetCompositionRole(template);
 
-        if (sentenceIndex == 0 && string.Equals(role, "meta", StringComparison.OrdinalIgnoreCase))
+        if (sentenceIndex == 0 && IsRoleIn(role, LateRoles))
+        {
+            return false;
+        }
+
+        if (sentenceIndex > 0
+            && IsRoleIn(role, OpeningRoles)
+            && roleUsageCounts.Keys.Any(existingRole => IsRoleIn(existingRole, OpeningRoles)))
+        {
+            return false;
+        }
+
+        if (sentenceIndex == 1
+            && IsRoleIn(role, LateRoles)
+            && sentenceCount > 2)
+        {
+            return false;
+        }
+
+        if (sentenceIndex == 1
+            && IsRoleIn(role, RevealRoles)
+            && !roleUsageCounts.ContainsKey("setup")
+            && !roleUsageCounts.ContainsKey("scene"))
         {
             return false;
         }
@@ -225,6 +254,11 @@ public sealed class TextGeneratorService
         }
 
         return true;
+    }
+
+    private static bool IsRoleIn(string role, IEnumerable<string> supportedRoles)
+    {
+        return supportedRoles.Contains(role, StringComparer.OrdinalIgnoreCase);
     }
 
     private static bool IsMetaRole(TemplateDefinition template)

@@ -177,6 +177,91 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что шаблон ранней сцены берет condition только из initial-state slot.
+    /// </summary>
+    [Fact]
+    public void Generate_UsesInitialConditionSlot_WhenTemplateRequiresOpeningState()
+    {
+        var template = new TemplateDefinition
+        {
+            Id = "condition_initial_slot_test",
+            Text = "С самого начала было ясно одно: {condition}.",
+            Mode = GenerationMode.ShortText,
+            RequiredCategories = ["condition"],
+            SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["condition"] = "condition_initial_state"
+            },
+            CompositionRole = "scene",
+            Weight = 1.0
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new() { Id = "condition_initial_ok", Category = "condition", Slot = "condition_initial_state", Text = "никто никуда не спешил", Weight = 1.0 },
+            new() { Id = "condition_reveal_wrong", Category = "condition", Slot = "condition_reveal_state", Text = "стулья вели молчаливое совещание", Weight = 100.0 }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            [template],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.ShortText,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 1
+        });
+
+        Assert.Contains("никто никуда не спешил", Assert.Single(result).Text, StringComparison.Ordinal);
+    }
+
+    /// <summary>
+    /// Проверяет, что шаблон со сложным местом берет только clause-slot и сохраняет закрывающую запятую.
+    /// </summary>
+    [Fact]
+    public void Generate_UsesClausePlaceSlot_WhenTemplateRequiresComplexPlace()
+    {
+        var template = new TemplateDefinition
+        {
+            Id = "place_clause_slot_test",
+            Text = "В {place} все началось.",
+            Mode = GenerationMode.Sentence,
+            RequiredCategories = ["place"],
+            SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["place"] = "place_in_clause"
+            },
+            Weight = 1.0
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new() { Id = "place_clause_ok", Category = "place", Slot = "place_in_clause", Text = "дворе, где старое радио знает все новости заранее,", Weight = 1.0 },
+            new() { Id = "place_simple_wrong", Category = "place", Slot = "place_in", Text = "ночном магазине", Weight = 100.0 }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            [template],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.Sentence,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 1
+        });
+
+        Assert.Equal("В дворе, где старое радио знает все новости заранее, все началось.", Assert.Single(result).Text);
+    }
+
+    /// <summary>
     /// Проверяет, что короткий текст не начинается с meta-шаблона и не повторяет его несколько раз при наличии альтернатив.
     /// </summary>
     [Fact]
@@ -248,6 +333,88 @@ public sealed class TextGeneratorServiceTests
         var text = Assert.Single(result).Text;
         Assert.False(text.StartsWith("Если пересказывать это", StringComparison.Ordinal));
         Assert.True(CountOccurrences(text, "Если пересказывать это") <= 1);
+    }
+
+    /// <summary>
+    /// Проверяет, что короткий текст не выбирает late-роль второй фразой, если есть обычное развитие.
+    /// </summary>
+    [Fact]
+    public void Generate_ShortText_DelaysLateRoles_WhenDevelopmentExists()
+    {
+        var templates = new List<TemplateDefinition>
+        {
+            new()
+            {
+                Id = "scene",
+                Text = "С самого начала было ясно одно: {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["condition"] = "condition_initial_state"
+                },
+                CompositionRole = "scene",
+                Weight = 1.0
+            },
+            new()
+            {
+                Id = "reflection",
+                Text = "Из-за этого всем стало {emotion}, и всем показалось, что это {concept}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["emotion", "concept"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["emotion"] = "emotion_group_state",
+                    ["concept"] = "concept_reflection"
+                },
+                CompositionRole = "reflection",
+                Weight = 10.0
+            },
+            new()
+            {
+                Id = "development",
+                Text = "Позже выяснилось, что в {place} {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["place", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in",
+                    ["condition"] = "condition_reveal_state"
+                },
+                CompositionRole = "development",
+                Weight = 1.0
+            }
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new() { Id = "condition_initial_ok", Category = "condition", Slot = "condition_initial_state", Text = "никто никуда не спешил", Weight = 1.0 },
+            new() { Id = "condition_reveal_ok", Category = "condition", Slot = "condition_reveal_state", Text = "стулья вели молчаливое совещание", Weight = 1.0 },
+            new() { Id = "place_ok", Category = "place", Slot = "place_in", Text = "в подвале библиотеки", Weight = 1.0 },
+            new() { Id = "emotion_ok", Category = "emotion", Slot = "emotion_group_state", Text = "не по себе", Weight = 1.0 },
+            new() { Id = "concept_ok", Category = "concept", Slot = "concept_reflection", Text = "маленькая городская тайна", Weight = 1.0 }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            templates,
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(3));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.ShortText,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 1
+        });
+
+        var sentences = Assert.Single(result).Text
+            .Split('.', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+
+        Assert.True(sentences.Length >= 3);
+        Assert.StartsWith("С самого начала было ясно одно:", sentences[0], StringComparison.Ordinal);
+        Assert.StartsWith("Позже выяснилось", sentences[1], StringComparison.Ordinal);
     }
 
     private static TextGeneratorService CreateService()

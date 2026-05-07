@@ -4,7 +4,7 @@
       "id": "everybody_spoke_whisper",
       "text": "все говорили шепотом",
       "category": "condition",
-      "slot": "condition_clause",
+      "slot": "condition_initial_state",
       "tags": ["quiet", "story"],
       "absurdity": 0,
       "weight": 1.0
@@ -13,7 +13,7 @@
       "id": "nobody_trusted_clocks",
       "text": "никто не доверял часам",
       "category": "condition",
-      "slot": "condition_clause",
+      "slot": "condition_initial_state",
       "tags": ["time", "surreal"],
       "absurdity": 2,
       "weight": 0.9
@@ -22,7 +22,7 @@
       "id": "walls_listened_carefully",
       "text": "стены слушали слишком внимательно",
       "category": "condition",
-      "slot": "condition_clause",
+      "slot": "condition_reveal_state",
       "tags": ["surreal", "mood"],
       "absurdity": 3,
       "weight": 0.8
@@ -31,7 +31,7 @@
       "id": "nobody_hurried_anywhere",
       "text": "никто никуда не спешил",
       "category": "condition",
-      "slot": "condition_clause",
+      "slot": "condition_initial_state",
       "tags": ["daily", "quiet"],
       "absurdity": 0,
       "weight": 1.0
@@ -40,7 +40,7 @@
       "id": "air_smelled_of_ozone",
       "text": "воздух пах озоном и архивной пылью",
       "category": "condition",
-      "slot": "condition_clause",
+      "slot": "condition_scene_detail",
       "tags": ["city", "story"],
       "absurdity": 1,
       "weight": 0.9
@@ -49,7 +49,7 @@
       "id": "chairs_held_council",
       "text": "стулья вели молчаливое совещание",
       "category": "condition",
-      "slot": "condition_clause",
+      "slot": "condition_reveal_state",
       "tags": ["bureaucracy", "surreal"],
       "absurdity": 3,
       "weight": 0.7

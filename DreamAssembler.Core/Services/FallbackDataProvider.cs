@@ -30,9 +30,9 @@ public static class FallbackDataProvider
             new DictionaryEntry { Id = "paper_moon_ticket", Text = "бумажный билет на луну", Category = "object", Slot = "object_direct", Tags = ["dream", "surreal"], Absurdity = 2, Weight = 0.9 },
             new DictionaryEntry { Id = "rolled_city_map", Text = "свернутую карту города", Category = "object", Slot = "object_direct", Tags = ["city", "story"], Absurdity = 0, Weight = 0.9 },
             new DictionaryEntry { Id = "night_pharmacy", Text = "круглосуточной аптеке", Category = "place", Slot = "place_in", Tags = ["city", "night"], Absurdity = 0, Weight = 1.1 },
-            new DictionaryEntry { Id = "inward_windows_city", Text = "городе, где все окна смотрят внутрь людей", Category = "place", Slot = "place_in", Tags = ["city", "surreal"], Absurdity = 3, Weight = 0.9 },
+            new DictionaryEntry { Id = "inward_windows_city", Text = "городе, где все окна смотрят внутрь людей,", Category = "place", Slot = "place_in_clause", Tags = ["city", "surreal"], Absurdity = 3, Weight = 0.9 },
             new DictionaryEntry { Id = "night_shop", Text = "ночном магазине", Category = "place", Slot = "place_in", Tags = ["city", "night"], Absurdity = 0, Weight = 1.0 },
-            new DictionaryEntry { Id = "courtyard_with_radio", Text = "дворе, где старое радио знает все новости заранее", Category = "place", Slot = "place_in", Tags = ["city", "surreal"], Absurdity = 2, Weight = 0.9 },
+            new DictionaryEntry { Id = "courtyard_with_radio", Text = "дворе, где старое радио знает все новости заранее,", Category = "place", Slot = "place_in_clause", Tags = ["city", "surreal"], Absurdity = 2, Weight = 0.9 },
             new DictionaryEntry { Id = "library_basement", Text = "подвале библиотеки", Category = "place", Slot = "place_in", Tags = ["quiet", "story"], Absurdity = 1, Weight = 0.9 },
             new DictionaryEntry { Id = "people_remember_childhood", Text = "каждый посетитель помнит его детство", Category = "twist", Slot = "twist_character_clause", Tags = ["memory", "absurd"], Absurdity = 2, Weight = 1.0 },
             new DictionaryEntry { Id = "truth_tuesday", Text = "по вторникам запрещено говорить правду", Category = "twist", Slot = "twist_general_clause", Tags = ["rule", "absurd"], Absurdity = 3, Weight = 1.0 },
@@ -56,8 +56,10 @@ public static class FallbackDataProvider
             new DictionaryEntry { Id = "quiet_rebellion", Text = "тихий бунт предметов", Category = "concept", Slot = "concept_story_frame", Tags = ["story", "absurd"], Absurdity = 2, Weight = 0.9 },
             new DictionaryEntry { Id = "bureaucracy_of_memories", Text = "бюрократия воспоминаний", Category = "concept", Slot = "concept_reflection", Tags = ["bureaucracy", "memory"], Absurdity = 2, Weight = 0.8 },
             new DictionaryEntry { Id = "silent_rehearsal_of_city", Text = "тихая репетиция города", Category = "concept", Slot = "concept_reflection", Tags = ["city", "story"], Absurdity = 1, Weight = 0.8 },
-            new DictionaryEntry { Id = "everybody_spoke_whisper", Text = "все говорили шепотом", Category = "condition", Slot = "condition_clause", Tags = ["quiet", "story"], Absurdity = 0, Weight = 1.0 },
-            new DictionaryEntry { Id = "nobody_trusted_clocks", Text = "никто не доверял часам", Category = "condition", Slot = "condition_clause", Tags = ["time", "surreal"], Absurdity = 2, Weight = 0.9 }
+            new DictionaryEntry { Id = "everybody_spoke_whisper", Text = "все говорили шепотом", Category = "condition", Slot = "condition_initial_state", Tags = ["quiet", "story"], Absurdity = 0, Weight = 1.0 },
+            new DictionaryEntry { Id = "nobody_trusted_clocks", Text = "никто не доверял часам", Category = "condition", Slot = "condition_initial_state", Tags = ["time", "surreal"], Absurdity = 2, Weight = 0.9 },
+            new DictionaryEntry { Id = "air_smelled_of_ozone", Text = "воздух пах озоном и архивной пылью", Category = "condition", Slot = "condition_scene_detail", Tags = ["city", "story"], Absurdity = 1, Weight = 0.9 },
+            new DictionaryEntry { Id = "chairs_held_council", Text = "стулья вели молчаливое совещание", Category = "condition", Slot = "condition_reveal_state", Tags = ["bureaucracy", "surreal"], Absurdity = 3, Weight = 0.7 }
         ];
     }
 
@@ -107,6 +109,24 @@ public static class FallbackDataProvider
             },
             new TemplateDefinition
             {
+                Id = "sentence_place_clause_character_action_object",
+                Text = "В {place} {character} пытается {action} {object}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["place", "character", "action", "object"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in_clause",
+                    ["character"] = "character_subject",
+                    ["action"] = "action_infinitive",
+                    ["object"] = "object_direct"
+                },
+                Tags = ["scene", "daily", "surreal"],
+                MinAbsurdity = 1,
+                MaxAbsurdity = 3,
+                Weight = 0.8
+            },
+            new TemplateDefinition
+            {
                 Id = "sentence_character_place_twist",
                 Text = "{character} однажды понял, что в {place} {twist}.",
                 Mode = GenerationMode.Sentence,
@@ -131,12 +151,45 @@ public static class FallbackDataProvider
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
                 {
                     ["place"] = "place_in",
-                    ["condition"] = "condition_clause"
+                    ["condition"] = "condition_scene_detail"
                 },
                 Tags = ["scene", "story", "quiet"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
                 Weight = 0.9
+            },
+            new TemplateDefinition
+            {
+                Id = "sentence_place_clause_condition",
+                Text = "В {place} {condition}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["place", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in_clause",
+                    ["condition"] = "condition_scene_detail"
+                },
+                Tags = ["scene", "story", "surreal"],
+                MinAbsurdity = 1,
+                MaxAbsurdity = 3,
+                Weight = 0.8
+            },
+            new TemplateDefinition
+            {
+                Id = "sentence_character_object_condition",
+                Text = "{character} нес с собой {object}, и вокруг {condition}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["character", "object", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["character"] = "character_subject",
+                    ["object"] = "object_direct",
+                    ["condition"] = "condition_initial_state"
+                },
+                Tags = ["story", "city"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.8
             },
             new TemplateDefinition
             {
@@ -156,6 +209,25 @@ public static class FallbackDataProvider
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
                 Weight = 1.0
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_intro_clause_place",
+                Text = "В {place} все началось с того, что {character} решил {action} {object}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["place", "character", "action", "object"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in_clause",
+                    ["character"] = "character_subject",
+                    ["action"] = "action_infinitive",
+                    ["object"] = "object_direct"
+                },
+                CompositionRole = "setup",
+                Tags = ["story", "surreal"],
+                MinAbsurdity = 1,
+                MaxAbsurdity = 3,
+                Weight = 0.8
             },
             new TemplateDefinition
             {
@@ -216,7 +288,7 @@ public static class FallbackDataProvider
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
                 {
                     ["emotion"] = "emotion_observer_state",
-                    ["condition"] = "condition_clause"
+                    ["condition"] = "condition_reveal_state"
                 },
                 CompositionRole = "observation",
                 Tags = ["story", "mood", "surreal"],
@@ -248,7 +320,7 @@ public static class FallbackDataProvider
                 RequiredCategories = ["condition"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
                 {
-                    ["condition"] = "condition_clause"
+                    ["condition"] = "condition_initial_state"
                 },
                 CompositionRole = "scene",
                 Tags = ["story", "scene", "quiet"],
@@ -265,13 +337,64 @@ public static class FallbackDataProvider
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
                 {
                     ["place"] = "place_in",
-                    ["condition"] = "condition_clause"
+                    ["condition"] = "condition_reveal_state"
                 },
                 CompositionRole = "development",
                 Tags = ["story", "scene", "city"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
                 Weight = 0.9
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_reveal_clause_place",
+                Text = "Позже выяснилось, что в {place} {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["place", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in_clause",
+                    ["condition"] = "condition_reveal_state"
+                },
+                CompositionRole = "development",
+                Tags = ["story", "scene", "surreal"],
+                MinAbsurdity = 1,
+                MaxAbsurdity = 3,
+                Weight = 0.8
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_scene_detail",
+                Text = "Сначала в {place} {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["place", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in",
+                    ["condition"] = "condition_scene_detail"
+                },
+                CompositionRole = "scene",
+                Tags = ["story", "scene", "city"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.8
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_scene_detail_clause_place",
+                Text = "Сначала в {place} {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["place", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in_clause",
+                    ["condition"] = "condition_scene_detail"
+                },
+                CompositionRole = "scene",
+                Tags = ["story", "scene", "surreal"],
+                MinAbsurdity = 1,
+                MaxAbsurdity = 3,
+                Weight = 0.7
             },
             new TemplateDefinition
             {
@@ -327,6 +450,23 @@ public static class FallbackDataProvider
             },
             new TemplateDefinition
             {
+                Id = "idea_place_clause_concept_genre",
+                Text = "Идея: история о том, как в {place} возникает {concept}. По тону это {genre}.",
+                Mode = GenerationMode.Idea,
+                RequiredCategories = ["place", "concept", "genre"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in_clause",
+                    ["concept"] = "concept_story_frame",
+                    ["genre"] = "genre_label"
+                },
+                Tags = ["story", "concept", "city", "surreal"],
+                MinAbsurdity = 1,
+                MaxAbsurdity = 3,
+                Weight = 0.8
+            },
+            new TemplateDefinition
+            {
                 Id = "idea_genre_concept_style",
                 Text = "Идея: {genre} на тему: {concept}, рассказанная {style}.",
                 Mode = GenerationMode.Idea,
@@ -349,6 +489,13 @@ public static class FallbackDataProvider
                 Mode = GenerationMode.Idea,
                 RequiredCategories = ["place", "condition", "character", "genre"],
                 Tags = ["story", "scene", "concept"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in",
+                    ["condition"] = "condition_scene_detail",
+                    ["character"] = "character_subject",
+                    ["genre"] = "genre_label"
+                },
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
                 Weight = 0.9

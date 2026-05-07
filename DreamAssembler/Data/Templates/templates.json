@@ -34,6 +34,22 @@
       "weight": 1.0
     },
     {
+      "id": "sentence_place_clause_character_action_object",
+      "text": "В {place} {character} пытается {action} {object}.",
+      "mode": "Sentence",
+      "requiredCategories": ["place", "character", "action", "object"],
+      "slotRequirements": {
+        "place": "place_in_clause",
+        "character": "character_subject",
+        "action": "action_infinitive",
+        "object": "object_direct"
+      },
+      "tags": ["scene", "daily", "surreal"],
+      "minAbsurdity": 1,
+      "maxAbsurdity": 3,
+      "weight": 0.8
+    },
+    {
       "id": "sentence_character_place_twist",
       "text": "{character} однажды понял, что в {place} {twist}.",
       "mode": "Sentence",
@@ -55,12 +71,26 @@
       "requiredCategories": ["place", "condition"],
       "slotRequirements": {
         "place": "place_in",
-        "condition": "condition_clause"
+        "condition": "condition_scene_detail"
       },
       "tags": ["scene", "story", "quiet"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
       "weight": 0.9
+    },
+    {
+      "id": "sentence_place_clause_condition",
+      "text": "В {place} {condition}.",
+      "mode": "Sentence",
+      "requiredCategories": ["place", "condition"],
+      "slotRequirements": {
+        "place": "place_in_clause",
+        "condition": "condition_scene_detail"
+      },
+      "tags": ["scene", "story", "surreal"],
+      "minAbsurdity": 1,
+      "maxAbsurdity": 3,
+      "weight": 0.8
     },
     {
       "id": "sentence_character_object_condition",
@@ -70,7 +100,7 @@
       "slotRequirements": {
         "character": "character_subject",
         "object": "object_direct",
-        "condition": "condition_clause"
+        "condition": "condition_initial_state"
       },
       "tags": ["story", "city"],
       "minAbsurdity": 0,
@@ -125,6 +155,21 @@
       "weight": 1.0
     },
     {
+      "id": "idea_place_clause_concept_genre",
+      "text": "Идея: история о том, как в {place} возникает {concept}. По тону это {genre}.",
+      "mode": "Idea",
+      "requiredCategories": ["place", "concept", "genre"],
+      "slotRequirements": {
+        "place": "place_in_clause",
+        "concept": "concept_story_frame",
+        "genre": "genre_label"
+      },
+      "tags": ["story", "concept", "city", "surreal"],
+      "minAbsurdity": 1,
+      "maxAbsurdity": 3,
+      "weight": 0.8
+    },
+    {
       "id": "idea_character_object_style",
       "text": "Идея: {character} вступает в спор с объектом: {object}. Подать это {style}.",
       "mode": "Idea",
@@ -146,7 +191,7 @@
       "requiredCategories": ["place", "condition", "character", "genre"],
       "slotRequirements": {
         "place": "place_in",
-        "condition": "condition_clause",
+        "condition": "condition_scene_detail",
         "character": "character_subject",
         "genre": "genre_label"
       },
@@ -171,6 +216,23 @@
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
       "weight": 1.0
+    },
+    {
+      "id": "shorttext_intro_clause_place",
+      "text": "В {place} все началось с того, что {character} решил {action} {object}.",
+      "mode": "ShortText",
+      "requiredCategories": ["place", "character", "action", "object"],
+      "slotRequirements": {
+        "place": "place_in_clause",
+        "character": "character_subject",
+        "action": "action_infinitive",
+        "object": "object_direct"
+      },
+      "compositionRole": "setup",
+      "tags": ["story", "surreal"],
+      "minAbsurdity": 1,
+      "maxAbsurdity": 3,
+      "weight": 0.8
     },
     {
       "id": "shorttext_twist",
@@ -223,7 +285,7 @@
       "requiredCategories": ["emotion", "condition"],
       "slotRequirements": {
         "emotion": "emotion_observer_state",
-        "condition": "condition_clause"
+        "condition": "condition_reveal_state"
       },
       "compositionRole": "observation",
       "tags": ["story", "mood", "surreal"],
@@ -251,7 +313,7 @@
       "mode": "ShortText",
       "requiredCategories": ["condition"],
       "slotRequirements": {
-        "condition": "condition_clause"
+        "condition": "condition_initial_state"
       },
       "compositionRole": "scene",
       "tags": ["story", "scene", "quiet"],
@@ -266,13 +328,58 @@
       "requiredCategories": ["place", "condition"],
       "slotRequirements": {
         "place": "place_in",
-        "condition": "condition_clause"
+        "condition": "condition_reveal_state"
       },
       "compositionRole": "development",
       "tags": ["story", "scene", "city"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
       "weight": 0.9
+    },
+    {
+      "id": "shorttext_reveal_clause_place",
+      "text": "Позже выяснилось, что в {place} {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["place", "condition"],
+      "slotRequirements": {
+        "place": "place_in_clause",
+        "condition": "condition_reveal_state"
+      },
+      "compositionRole": "development",
+      "tags": ["story", "scene", "surreal"],
+      "minAbsurdity": 1,
+      "maxAbsurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "shorttext_scene_detail",
+      "text": "Сначала в {place} {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["place", "condition"],
+      "slotRequirements": {
+        "place": "place_in",
+        "condition": "condition_scene_detail"
+      },
+      "compositionRole": "scene",
+      "tags": ["story", "scene", "city"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "shorttext_scene_detail_clause_place",
+      "text": "Сначала в {place} {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["place", "condition"],
+      "slotRequirements": {
+        "place": "place_in_clause",
+        "condition": "condition_scene_detail"
+      },
+      "compositionRole": "scene",
+      "tags": ["story", "scene", "surreal"],
+      "minAbsurdity": 1,
+      "maxAbsurdity": 3,
+      "weight": 0.7
     },
     {
       "id": "shorttext_reaction",

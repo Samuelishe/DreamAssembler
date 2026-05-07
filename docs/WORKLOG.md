@@ -53,6 +53,11 @@
 - добавлен тест на соблюдение персонального twist-slot и синхронизированы fallback-данные с новой схемой.
 - `concept` разделен на `concept_story_frame` и `concept_reflection`, чтобы сюжетные темы не смешивались с рефлексивными смысловыми хвостами;
 - добавлен новый short-text шаблон интерпретации и тест на соблюдение reflection-slot для `concept`.
+- `condition` разделен на `condition_initial_state`, `condition_scene_detail` и `condition_reveal_state`;
+- `TextGeneratorService` получил более строгие правила порядка для narrative-ролей `ShortText`, чтобы late-роли не вылезали слишком рано;
+- добавлен новый short-text шаблон сценической детали и тесты на `condition`-slot и порядок narrative-ролей.
+- для сложных мест с придаточной частью введен slot `place_in_clause` и отдельные шаблоны, которые ожидают закрывающую запятую после такого места;
+- добавлен тест на clause-slot для `place`, чтобы конструкции вида `в дворе, где ... ,` не откатывались назад к сломанной пунктуации.
 
 ### Какие файлы изменены
 
@@ -83,6 +88,8 @@
 - `DreamAssembler/Data/Dictionaries/atmosphere/scene_tones.json`
 - `DreamAssembler/Data/Dictionaries/twist/rules_and_reactions.json`
 - `DreamAssembler/Data/Dictionaries/concept/story_concepts.json`
+- `DreamAssembler/Data/Dictionaries/condition/scene_conditions.json`
+- `DreamAssembler/Data/Dictionaries/place/surreal_places.json`
 - `DreamAssembler/Data/Templates/templates.json`
 - `DreamAssembler/MainWindow.xaml.cs`
 - `DreamAssembler/Services/IUserSettingsService.cs`
@@ -108,3 +115,5 @@
 - `ShortText` не начинается с meta-фразы и не повторяет ее несколько раз в одной генерации при наличии других шаблонов.
 - местоименные twist-конструкции не попадают в шаблоны, которые ждут общий безличный twist без явной опоры на персонажа.
 - рефлексивные short-text конструкции берут `concept` только из `concept_reflection`, а idea-шаблоны с сюжетной темой используют `concept_story_frame`.
+- ранние short-text шаблоны берут только стартовые `condition`, а поздние reveal-шаблоны не используют начальные сценические состояния.
+- сложные `place` с придаточной частью попадают только в clause-шаблоны и не ломают запятые в вынесенных позициях.
