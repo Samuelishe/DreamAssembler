@@ -46,6 +46,7 @@ public partial class MainViewModel : ObservableObject
         _clipboardService = new ClipboardService();
         _userSettingsService = new UserSettingsService();
         Results = [];
+        ResultCountOptions = Enumerable.Range(1, 10).ToArray();
 
         var dataPath = Path.Combine(AppContext.BaseDirectory, "Data");
         var dataLoader = new GeneratorDataLoader(
@@ -85,6 +86,11 @@ public partial class MainViewModel : ObservableObject
     /// Получает коллекцию результатов и истории текущего запуска.
     /// </summary>
     public ObservableCollection<ResultItemViewModel> Results { get; }
+
+    /// <summary>
+    /// Получает допустимые значения количества результатов.
+    /// </summary>
+    public IReadOnlyList<int> ResultCountOptions { get; }
 
     /// <summary>
     /// Получает или задает выбранный режим генерации.
@@ -166,6 +172,26 @@ public partial class MainViewModel : ObservableObject
     public string AbsurdityModeNote => SelectedMode?.Value is GenerationMode.WordPair or GenerationMode.WordCluster
         ? "В этом режиме уровень абсурдности не влияет на выдачу."
         : string.Empty;
+
+    /// <summary>
+    /// Получает признак словесного режима с короткими фразами.
+    /// </summary>
+    public bool IsLexicalMode => SelectedMode?.Value is GenerationMode.WordPair or GenerationMode.WordCluster;
+
+    /// <summary>
+    /// Получает максимальную ширину карточки результата для текущего режима.
+    /// </summary>
+    public double ResultCardMaxWidth => IsLexicalMode ? 560d : 840d;
+
+    /// <summary>
+    /// Получает рекомендуемый размер шрифта основного текста результата.
+    /// </summary>
+    public double ResultTextFontSize => IsLexicalMode ? 30d : 21d;
+
+    /// <summary>
+    /// Получает рекомендуемую высоту строки для основного текста результата.
+    /// </summary>
+    public double ResultTextLineHeight => IsLexicalMode ? 38d : 30d;
 
     /// <summary>
     /// Выполняет генерацию результатов по текущим настройкам.
@@ -255,6 +281,10 @@ public partial class MainViewModel : ObservableObject
     {
         OnPropertyChanged(nameof(IsAbsurditySelectionEnabled));
         OnPropertyChanged(nameof(AbsurdityModeNote));
+        OnPropertyChanged(nameof(IsLexicalMode));
+        OnPropertyChanged(nameof(ResultCardMaxWidth));
+        OnPropertyChanged(nameof(ResultTextFontSize));
+        OnPropertyChanged(nameof(ResultTextLineHeight));
         SaveSettingsIfNeeded();
     }
 

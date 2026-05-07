@@ -137,7 +137,7 @@ public sealed class TextGeneratorService
         }
 
         var genderKey = _selector.Select(supportedGenders, _ => 1.0);
-        var patterns = new[] { 2, 3 };
+        var patterns = new[] { 1, 2 };
         var adjectiveCount = _selector.Select(patterns, GetWordClusterPatternWeight);
 
         return RenderAssociationPredicatePhrase(genderKey, adjectiveCount);
@@ -354,8 +354,8 @@ public sealed class TextGeneratorService
     {
         return adjectiveCount switch
         {
-            2 => 1.0,
-            3 => 0.8,
+            1 => 1.0,
+            2 => 0.85,
             _ => 0.5
         };
     }

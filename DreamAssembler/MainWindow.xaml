@@ -6,16 +6,52 @@
         xmlns:vm="clr-namespace:DreamAssembler.App.ViewModels"
         mc:Ignorable="d"
         Title="DreamAssembler"
-        Width="1080"
-        Height="720"
-        MinWidth="960"
-        MinHeight="640"
+        Width="980"
+        Height="690"
+        MinWidth="860"
+        MinHeight="620"
+        WindowStartupLocation="CenterScreen"
         Background="#FFF5F4EF">
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
 
-    <Grid Margin="20">
+    <Window.Resources>
+        <Style x:Key="SectionBorderStyle" TargetType="Border">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="#FFD9D2C6" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="8" />
+        </Style>
+
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="42" />
+            <Setter Property="Padding" Value="14,0" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="#FF40352B" />
+            <Setter Property="BorderBrush" Value="#FF40352B" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+
+        <Style x:Key="SecondaryButtonStyle" TargetType="Button" BasedOn="{StaticResource PrimaryButtonStyle}">
+            <Setter Property="Height" Value="36" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground" Value="#FF332D28" />
+            <Setter Property="Background" Value="#FFF2ECE3" />
+            <Setter Property="BorderBrush" Value="#FFE1D7C8" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+
+        <Style x:Key="InputComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="Height" Value="38" />
+            <Setter Property="Padding" Value="8,4" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="18">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -23,27 +59,28 @@
         </Grid.RowDefinitions>
 
         <Border Padding="18"
-                Background="White"
-                BorderBrush="#FFD7D0C5"
-                BorderThickness="1"
-                CornerRadius="8">
+                Style="{StaticResource SectionBorderStyle}">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2.6*" />
-                    <ColumnDefinition Width="1.4*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="320" />
                 </Grid.ColumnDefinitions>
 
                 <StackPanel>
-                    <TextBlock FontSize="28"
+                    <TextBlock FontSize="30"
                                FontWeight="SemiBold"
                                Foreground="#FF2C2B28"
                                Text="DreamAssembler" />
                     <TextBlock Margin="0,8,0,0"
+                               MaxWidth="560"
+                               FontSize="14"
                                Foreground="#FF5A5750"
+                               TextWrapping="Wrap"
                                Text="Rule-based генератор русскоязычных предложений, коротких текстов, словосочетаний, коротких фраз и абсурдных идей." />
                 </StackPanel>
 
                 <Border Grid.Column="1"
+                        Margin="18,0,0,0"
                         Padding="12"
                         Background="#FFF8F1E4"
                         BorderBrush="#FFE6D7C0"
@@ -76,16 +113,13 @@
 
         <Grid Grid.Row="1" Margin="0,16,0,16">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="320" />
-                <ColumnDefinition Width="16" />
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="18" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <Border Padding="18"
-                    Background="White"
-                    BorderBrush="#FFD7D0C5"
-                    BorderThickness="1"
-                    CornerRadius="8">
+                    Style="{StaticResource SectionBorderStyle}">
                 <StackPanel>
                     <TextBlock FontSize="18"
                                FontWeight="SemiBold"
@@ -95,14 +129,16 @@
                     <TextBlock Margin="0,18,0,6"
                                Foreground="#FF4B4740"
                                Text="Тип генерации" />
-                    <ComboBox ItemsSource="{Binding Modes}"
+                    <ComboBox Style="{StaticResource InputComboBoxStyle}"
+                              ItemsSource="{Binding Modes}"
                               SelectedItem="{Binding SelectedMode}"
                               DisplayMemberPath="DisplayName" />
 
                     <TextBlock Margin="0,18,0,6"
                                Foreground="#FF4B4740"
                                Text="Уровень абсурдности" />
-                    <ComboBox ItemsSource="{Binding AbsurdityLevels}"
+                    <ComboBox Style="{StaticResource InputComboBoxStyle}"
+                              ItemsSource="{Binding AbsurdityLevels}"
                               IsEnabled="{Binding IsAbsurditySelectionEnabled}"
                               SelectedItem="{Binding SelectedAbsurdityLevel}"
                               DisplayMemberPath="DisplayName" />
@@ -114,34 +150,22 @@
                     <TextBlock Margin="0,18,0,6"
                                Foreground="#FF4B4740"
                                Text="Количество результатов" />
-                    <DockPanel>
-                        <Slider Minimum="1"
-                                Maximum="10"
-                                TickFrequency="1"
-                                IsSnapToTickEnabled="True"
-                                Value="{Binding ResultCount}" />
-                        <Border Margin="12,0,0,0"
-                                Padding="10,4"
-                                MinWidth="44"
-                                Background="#FFF0E7D9"
-                                CornerRadius="6">
-                            <TextBlock HorizontalAlignment="Center"
-                                       Text="{Binding ResultCount}" />
-                        </Border>
-                    </DockPanel>
+                    <ComboBox Style="{StaticResource InputComboBoxStyle}"
+                              ItemsSource="{Binding ResultCountOptions}"
+                              SelectedItem="{Binding ResultCount}" />
 
                     <Button Margin="0,24,0,0"
-                            Height="38"
+                            Style="{StaticResource PrimaryButtonStyle}"
                             Command="{Binding GenerateCommand}"
                             Content="Сгенерировать" />
 
                     <Button Margin="0,10,0,0"
-                            Height="34"
+                            Style="{StaticResource SecondaryButtonStyle}"
                             Command="{Binding CopyCommand}"
                             Content="Скопировать выбранное" />
 
                     <Button Margin="0,10,0,0"
-                            Height="34"
+                            Style="{StaticResource SecondaryButtonStyle}"
                             Command="{Binding ClearHistoryCommand}"
                             Content="Очистить историю" />
 
@@ -171,10 +195,7 @@
                 </Grid.RowDefinitions>
 
                 <Border Padding="18"
-                        Background="White"
-                        BorderBrush="#FFD7D0C5"
-                        BorderThickness="1"
-                        CornerRadius="8">
+                        Style="{StaticResource SectionBorderStyle}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -200,44 +221,49 @@
 
                 <Border Grid.Row="1"
                         Margin="0,16,0,0"
-                        Padding="8"
-                        Background="White"
-                        BorderBrush="#FFD7D0C5"
-                        BorderThickness="1"
-                        CornerRadius="8">
+                        Padding="10"
+                        Style="{StaticResource SectionBorderStyle}">
                     <ListBox ItemsSource="{Binding Results}"
                              SelectedItem="{Binding SelectedResult}"
                              BorderThickness="0"
                              Background="Transparent"
                              HorizontalContentAlignment="Stretch"
-                             ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto">
                         <ListBox.ItemContainerStyle>
                             <Style TargetType="ListBoxItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                                 <Setter Property="Padding" Value="0" />
-                                <Setter Property="Margin" Value="0" />
+                                <Setter Property="Margin" Value="0,0,0,8" />
                             </Style>
                         </ListBox.ItemContainerStyle>
                         <ListBox.ItemTemplate>
                             <DataTemplate DataType="{x:Type vm:ResultItemViewModel}">
-                                <Border Margin="6"
-                                        Padding="12"
+                                <Border Margin="4,2"
+                                        Padding="16"
+                                        MinWidth="260"
+                                        MaxWidth="{Binding DataContext.ResultCardMaxWidth, RelativeSource={RelativeSource AncestorType=ListBox}}"
+                                        HorizontalAlignment="Left"
                                         Background="#FFF9F7F3"
                                         BorderBrush="#FFE2DBD2"
                                         BorderThickness="1"
-                                        CornerRadius="6">
+                                        CornerRadius="8">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto" />
                                             <RowDefinition Height="Auto" />
                                         </Grid.RowDefinitions>
 
-                                        <TextBlock FontWeight="SemiBold"
-                                                   Foreground="#FF4E4A44"
+                                        <TextBlock FontSize="12"
+                                                   FontWeight="SemiBold"
+                                                   Foreground="#FF6A6258"
                                                    Text="{Binding Header}" />
                                         <TextBlock Grid.Row="1"
-                                                   Margin="0,8,0,0"
-                                                   HorizontalAlignment="Stretch"
+                                                   Margin="0,10,0,0"
+                                                   FontFamily="Georgia"
+                                                   FontSize="{Binding DataContext.ResultTextFontSize, RelativeSource={RelativeSource AncestorType=ListBox}}"
+                                                   LineHeight="{Binding DataContext.ResultTextLineHeight, RelativeSource={RelativeSource AncestorType=ListBox}}"
+                                                   HorizontalAlignment="Left"
                                                    TextWrapping="Wrap"
                                                    TextTrimming="None"
                                                    Foreground="#FF272622"

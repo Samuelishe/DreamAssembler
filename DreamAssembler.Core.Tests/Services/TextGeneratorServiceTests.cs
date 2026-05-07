@@ -91,6 +91,29 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что режим нескольких слов стабильно не выходит за пределы 3-4 слов при серии запусков.
+    /// </summary>
+    [Fact]
+    public void Generate_ReturnsWordCluster_WithinExpectedRange_AcrossMultipleRuns()
+    {
+        var service = CreateService();
+
+        for (var index = 0; index < 40; index++)
+        {
+            var result = service.Generate(new TextGenerationOptions
+            {
+                Mode = GenerationMode.WordCluster,
+                AbsurdityLevel = AbsurdityLevel.Insane,
+                ResultCount = 1
+            });
+
+            var text = Assert.Single(result).Text;
+            var wordCount = text.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Length;
+            Assert.InRange(wordCount, 3, 4);
+        }
+    }
+
+    /// <summary>
     /// Проверяет, что генератор использует slot-требования шаблона.
     /// </summary>
     [Fact]
