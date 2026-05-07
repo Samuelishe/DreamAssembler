@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "loading_zone_after_hours",
+      "text": "погрузочной зоне после закрытия",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["mall", "service", "night"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "back_storage_of_closed_stores",
+      "text": "заднем складе закрытых павильонов",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["mall", "commerce_decay", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "mall_control_room",
+      "text": "диспетчерской торгового центра",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["mall", "infrastructure", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "corridor_of_shuttered_kiosks",
+      "text": "коридоре закрытых киосков",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["mall", "quiet", "commerce_decay"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "food_court_cleaning_room",
+      "text": "комнате уборки фуд-корта",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["mall", "service", "fluorescent"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "night_gallery_without_buyers",
+      "text": "ночной галерее без покупателей",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["mall", "night", "empty"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "passage_where_announcements_lingered",
+      "text": "проходе, где объявления задерживались дольше шагов,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["mall", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "service_room_where_lights_hesitated",
+      "text": "служебной комнате, где свет колебался как уставший продавец,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["mall", "fluorescent", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

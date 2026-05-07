@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "directory_screen_knows_him",
+      "text": "экран навигации узнает его быстрее охраны",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["mall", "fluorescent", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "announcements_address_him_politely",
+      "text": "объявления обращаются к нему так, будто он последний покупатель этой ночи",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["mall", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "empty_shopfront_waits_for_him",
+      "text": "пустая витрина ведет себя так, будто уже выбрала его заранее",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["mall", "quiet", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    },
+    {
+      "id": "night_cleaning_becomes_ritual",
+      "text": "ночная уборка постепенно становится ритуалом без причины",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["mall", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "store_routes_rearrange_themselves",
+      "text": "маршруты между павильонами перестраиваются без участия людей",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["mall", "infrastructure", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "opening_hours_keep_waiting",
+      "text": "часы работы продолжают ждать того дня, который уже не наступит",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["mall", "time", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

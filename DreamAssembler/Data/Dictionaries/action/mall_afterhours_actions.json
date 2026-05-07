@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "rearrange_window_display_after_close",
+      "text": "переставить витрину после закрытия",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["mall", "service", "compat:protectable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "compare_with_old_receipts",
+      "text": "сверить со старыми чеками",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["mall", "paper", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "hide_before_morning_shift",
+      "text": "спрятать до утренней смены",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["mall", "night", "compat:hideable", "compat:portable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "unlock_with_service_card",
+      "text": "открыть служебной картой",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["mall", "service", "compat:openable", "compat:exchangeable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "return_to_back_storage",
+      "text": "вернуть на задний склад",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["mall", "service", "compat:portable", "compat:hideable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "exchange_between_empty_shops",
+      "text": "обменять между пустыми павильонами",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["mall", "commerce_decay", "compat:exchangeable", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "repair_for_store_opening_that_wont_come",
+      "text": "починить к открытию, которого не будет",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["mall", "surreal", "compat:repairable"],
+      "absurdity": 3,
+      "weight": 0.6
+    },
+    {
+      "id": "wake_from_sales_sleep",
+      "text": "разбудить от торгового сна",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["mall", "surreal", "compat:wakeable"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "night_cleaning_supervisor",
+      "text": "ночной координатор уборки",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["mall", "night", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "empty_floor_administrator",
+      "text": "администратор пустого этажа",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["mall", "service", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "keeper_of_closed_shopfronts",
+      "text": "смотритель закрытых витрин торгового центра",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["mall", "commerce_decay", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "escalator_technician_after_hours",
+      "text": "техник остановленных эскалаторов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["mall", "infrastructure", "night"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "voice_of_lost_promotions",
+      "text": "голос забытых акций",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["mall", "surreal", "fluorescent"],
+      "absurdity": 3,
+      "weight": 0.6
+    },
+    {
+      "id": "food_court_registrar",
+      "text": "регистратор фуд-корта после закрытия",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["mall", "service", "night"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "security_guard_of_empty_passage",
+      "text": "охранник пустого перехода между павильонами",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["mall", "quiet", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "saleswoman_of_unclaimed_evening",
+      "text": "продавщица невостребованного вечера",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["mall", "surreal", "night"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

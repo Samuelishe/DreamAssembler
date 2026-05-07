@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "concept_commerce_as_waiting",
+      "text": "торговля как форма ожидания",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["mall", "quiet", "commerce_decay"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "concept_hospitality_of_empty_floors",
+      "text": "гостеприимство пустых этажей",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["mall", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "concept_afterhours_cleanliness",
+      "text": "послезакрытная чистота как отдельная интонация",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["mall", "service", "fluorescent"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_unfinished_sale",
+      "text": "история о распродаже, которую никто не успел закончить",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["mall", "commerce_decay", "time"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "story_about_empty_escalator_ritual",
+      "text": "история о ритуале пустого эскалатора",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["mall", "infrastructure", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_store_opening_without_day",
+      "text": "история об открытии магазина без наступления дня",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["mall", "night", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

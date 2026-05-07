@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "service_lights_stayed_on",
+      "text": "служебный свет оставался включенным дольше покупателей",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["mall", "service", "fluorescent"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "opening_was_no_longer_expected",
+      "text": "открытие больше никого не убеждало",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["mall", "commerce_decay", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "announcements_sounded_tired",
+      "text": "объявления звучали так, будто устали от собственной вежливости",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["mall", "service", "surreal"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "navigation_screens_waited",
+      "text": "навигационные экраны ждали кого-то слишком терпеливо",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["mall", "fluorescent", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "vacant_shops_held_their_pose",
+      "text": "пустующие павильоны держали позу так же старательно, как днем",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["mall", "commerce_decay", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "cleanliness_became_ceremonial",
+      "text": "чистота постепенно становилась почти церемониальной",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["mall", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "floor_started_remembering_routes",
+      "text": "пол как будто начал помнить маршруты тех, кто уже ушел",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["mall", "memory", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "commerce_became_waiting_room",
+      "text": "торговля незаметно превращалась в комнату ожидания",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["mall", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

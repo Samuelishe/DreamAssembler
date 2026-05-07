@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "service_pass_card",
+      "text": "служебную карту прохода",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "service", "compat:portable", "compat:openable", "compat:exchangeable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "boxed_neon_letter",
+      "text": "упакованную неоновую букву",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "fluorescent", "compat:portable", "compat:repairable", "compat:hideable", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "inventory_sheet_of_empty_store",
+      "text": "инвентарный лист пустого павильона",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "paper", "compat:portable", "compat:searchable", "compat:rewriteable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "vacant_shop_key_ring",
+      "text": "связку ключей от пустующего павильона",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "service", "compat:portable", "compat:exchangeable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "covered_promo_stand",
+      "text": "накрытую промо-стойку",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "commerce_decay", "compat:protectable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "paused_directory_screen",
+      "text": "застывший экран навигации",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "fluorescent", "compat:repairable", "compat:wakeable", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "unclaimed_store_uniform",
+      "text": "невостребованную форму продавца",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "quiet", "compat:hideable", "compat:protectable", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "announcement_script_with_delay",
+      "text": "сценарий объявлений с задержкой",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "paper", "surreal", "compat:portable", "compat:rewriteable", "compat:searchable"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

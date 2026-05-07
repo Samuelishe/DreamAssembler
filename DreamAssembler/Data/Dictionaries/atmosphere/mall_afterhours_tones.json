@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "atmosphere_afterhours_retail_hush",
+      "text": "как в торговом центре после последнего объявления",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["mall", "night", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "atmosphere_clean_fluorescent_waiting",
+      "text": "как в чистом флуоресцентном ожидании",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["mall", "fluorescent", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_service_politeness_without_customers",
+      "text": "как в служебной вежливости без покупателей",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["mall", "service", "commerce_decay"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_discounts_after_memory",
+      "text": "как у скидок, переживших собственную память",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["mall", "surreal", "commerce_decay"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_late_navigation_glow",
+      "text": "как в позднем свечении торговой навигации",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["mall", "fluorescent", "night"],
+      "absurdity": 1,
+      "weight": 0.7
+    }
+  ]
+}
