@@ -203,7 +203,16 @@
                     <ListBox ItemsSource="{Binding Results}"
                              SelectedItem="{Binding SelectedResult}"
                              BorderThickness="0"
-                             Background="Transparent">
+                             Background="Transparent"
+                             HorizontalContentAlignment="Stretch"
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                <Setter Property="Padding" Value="0" />
+                                <Setter Property="Margin" Value="0" />
+                            </Style>
+                        </ListBox.ItemContainerStyle>
                         <ListBox.ItemTemplate>
                             <DataTemplate DataType="{x:Type vm:ResultItemViewModel}">
                                 <Border Margin="6"
@@ -212,15 +221,23 @@
                                         BorderBrush="#FFE2DBD2"
                                         BorderThickness="1"
                                         CornerRadius="6">
-                                    <StackPanel>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
                                         <TextBlock FontWeight="SemiBold"
                                                    Foreground="#FF4E4A44"
                                                    Text="{Binding Header}" />
-                                        <TextBlock Margin="0,8,0,0"
+                                        <TextBlock Grid.Row="1"
+                                                   Margin="0,8,0,0"
+                                                   HorizontalAlignment="Stretch"
                                                    TextWrapping="Wrap"
+                                                   TextTrimming="None"
                                                    Foreground="#FF272622"
                                                    Text="{Binding Text}" />
-                                    </StackPanel>
+                                    </Grid>
                                 </Border>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
