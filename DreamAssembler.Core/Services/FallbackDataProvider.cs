@@ -109,7 +109,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "sentence_character_action_object_place_twist",
-                Text = "{character} должен {action} {object} в {place}, но {twist}.",
+                Text = "{character} получает странное поручение: {action} {object} в {place}, но {twist}.",
                 Mode = GenerationMode.Sentence,
                 RequiredCategories = ["character", "action", "object", "place", "twist"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -164,7 +164,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "sentence_character_place_twist",
-                Text = "{character} однажды понял, что в {place} {twist}.",
+                Text = "{character} однажды обнаруживает одну странность: в {place} {twist}.",
                 Mode = GenerationMode.Sentence,
                 RequiredCategories = ["character", "place", "twist"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -230,7 +230,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "shorttext_intro",
-                Text = "В {place} все началось с того, что {character} решил {action} {object}.",
+                Text = "В {place} все началось с того, что {character} оказался рядом, когда понадобилось {action} {object}.",
                 Mode = GenerationMode.ShortText,
                 RequiredCategories = ["place", "character", "action", "object"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -249,7 +249,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "shorttext_intro_clause_place",
-                Text = "В {place} все началось с того, что {character} решил {action} {object}.",
+                Text = "В {place} все началось с того, что {character} оказался рядом, когда понадобилось {action} {object}.",
                 Mode = GenerationMode.ShortText,
                 RequiredCategories = ["place", "character", "action", "object"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -451,7 +451,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "idea_character_action_object_place_twist",
-                Text = "Идея: {character} должен {action} {object} в {place}, и при этом {twist}.",
+                Text = "Идея: {character} получает странное поручение: {action} {object} в {place}, и при этом {twist}.",
                 Mode = GenerationMode.Idea,
                 RequiredCategories = ["character", "action", "object", "place", "twist"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)

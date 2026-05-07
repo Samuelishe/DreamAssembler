@@ -109,6 +109,9 @@
 - в root `README.md` и `docs/DATA_SOURCES.md` синхронизированы источники всех bundled шрифтов, включая `Manrope`, и зафиксирован текущий способ их загрузки в WPF;
 - selected-fragment spotlight в lexical modes получил мягкую fade/slide анимацию при смене выбранной фразы;
 - история lexical-фрагментов под spotlight дополнительно приглушена по opacity и размеру текста, а в сам spotlight вынесены быстрые действия `Копировать` и `Открыть в режиме чтения`;
+- проведен первый quality-pass по данным и semantic coherence: несколько gendered шаблонов переведены в более безопасные нейтральные формулировки без морфологии;
+- `AssociationFragmentRepository` получил более жесткую фильтрацию и quality-weighting для lexical CSV-лексикона, чтобы реже пропускать технические, медицинские и слишком абстрактные слова;
+- по контрольной выборке зафиксировано, что этого шага недостаточно для полного reader-grade lexical quality: следующим этапом нужен curated thematic subset поверх сырого словаря;
 
 ### Какие файлы изменены
 
@@ -128,6 +131,10 @@
 - `DreamAssembler/App.xaml`
 - `DreamAssembler/Services/AppearanceService.cs`
 - `DreamAssembler/DreamAssembler.csproj`
+- `DreamAssembler/Data/Templates/templates.json`
+- `DreamAssembler.Core/Services/FallbackDataProvider.cs`
+- `DreamAssembler.Core/Services/AssociationFragmentRepository.cs`
+- `DreamAssembler.Core.Tests/Services/AssociationFragmentRepositoryTests.cs`
 - `docs/PROMPTS_FOR_DATA.md`
 - `README.md`
 - `docs/DATA_SOURCES.md`

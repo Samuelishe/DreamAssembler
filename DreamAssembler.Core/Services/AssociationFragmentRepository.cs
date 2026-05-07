@@ -27,7 +27,73 @@ public sealed class AssociationFragmentRepository
         "каждый",
         "всякий",
         "иной",
-        "данный"
+        "данный",
+        "венерический",
+        "оргазмический",
+        "водородистый",
+        "синкретический",
+        "прямокрылый",
+        "перегрузочный",
+        "вышеуказанный",
+        "неблагопристойный",
+        "маниакальный",
+        "читательский",
+        "псиный",
+        "выборный",
+        "козлиный",
+        "дынный",
+        "переимчивый",
+        "можжевёловый",
+        "малометражный",
+        "опустошённый",
+        "зажаренный",
+        "печёночный",
+        "пепсиновый",
+        "наторелый",
+        "сальный",
+        "окислительный",
+        "дражайший",
+        "кукушечий",
+        "вожделенный",
+        "мавританский",
+        "муниципальный",
+        "кумулятивный",
+        "льнопрядильный",
+        "многоступенчатый",
+        "ацетоновый",
+        "вирулентный",
+        "сексуальный"
+    ];
+
+    private static readonly HashSet<string> NounStopWords =
+    [
+        "заболеваемость",
+        "идолопоклонничество",
+        "фабула",
+        "гладь",
+        "жалостливость",
+        "епископат",
+        "дифирамб",
+        "старение",
+        "обзаведение",
+        "поправка",
+        "причастие",
+        "абитуриент",
+        "корь",
+        "бенуар",
+        "либерал",
+        "нищенство",
+        "отстранение",
+        "буксование",
+        "огневик",
+        "бензол",
+        "молодечество",
+        "разрушение",
+        "обжалование",
+        "ухудшение",
+        "трансляция",
+        "сверление",
+        "бескультурье"
     ];
 
     private static readonly HashSet<string> VerbStopWords =
@@ -35,7 +101,11 @@ public sealed class AssociationFragmentRepository
         "быть",
         "мочь",
         "стать",
-        "являться"
+        "являться",
+        "выщелачивать",
+        "приживлять",
+        "перемахивать",
+        "вперяться"
     ];
 
     /// <summary>
@@ -161,7 +231,7 @@ public sealed class AssociationFragmentRepository
             }
 
             var nominative = NormalizeWord(GetColumnValue(columns, header, "sg_nom"));
-            if (!IsSingleRussianWord(nominative))
+            if (!IsSingleRussianWord(nominative) || !IsAllowedNounLemma(nominative))
             {
                 continue;
             }
@@ -171,7 +241,7 @@ public sealed class AssociationFragmentRepository
                 Id = $"noun_{gender}_{nominative}",
                 Text = nominative,
                 Kind = $"noun_{gender}",
-                Weight = 1.0
+                Weight = CalculateLexicalWeight($"noun_{gender}", nominative)
             });
         }
 
@@ -193,7 +263,7 @@ public sealed class AssociationFragmentRepository
         {
             var columns = row.Split('\t');
             var bare = NormalizeWord(GetColumnValue(columns, header, "bare"));
-            if (!LooksLikeAdjectiveLemma(bare) || AdjectiveStopWords.Contains(bare))
+            if (!LooksLikeAdjectiveLemma(bare) || AdjectiveStopWords.Contains(bare) || !IsAllowedAdjectiveLemma(bare))
             {
                 continue;
             }
@@ -212,7 +282,7 @@ public sealed class AssociationFragmentRepository
                 Id = $"adjective_m_{masculine}",
                 Text = masculine,
                 Kind = "adjective_m",
-                Weight = 1.0
+                Weight = CalculateLexicalWeight("adjective_m", masculine)
             });
 
             entries.Add(new AssociationFragmentEntry
@@ -220,7 +290,7 @@ public sealed class AssociationFragmentRepository
                 Id = $"adjective_f_{feminine}",
                 Text = feminine,
                 Kind = "adjective_f",
-                Weight = 1.0
+                Weight = CalculateLexicalWeight("adjective_f", feminine)
             });
 
             entries.Add(new AssociationFragmentEntry
@@ -228,7 +298,7 @@ public sealed class AssociationFragmentRepository
                 Id = $"adjective_n_{neuter}",
                 Text = neuter,
                 Kind = "adjective_n",
-                Weight = 1.0
+                Weight = CalculateLexicalWeight("adjective_n", neuter)
             });
         }
 
@@ -250,7 +320,7 @@ public sealed class AssociationFragmentRepository
         {
             var columns = row.Split('\t');
             var bare = NormalizeWord(GetColumnValue(columns, header, "bare"));
-            if (!IsSingleRussianWord(bare) || VerbStopWords.Contains(bare))
+            if (!IsSingleRussianWord(bare) || VerbStopWords.Contains(bare) || !IsAllowedVerbLemma(bare))
             {
                 continue;
             }
@@ -266,7 +336,7 @@ public sealed class AssociationFragmentRepository
                     Id = $"verb_past_m_{pastMasculine}",
                     Text = pastMasculine,
                     Kind = "verb_past_m",
-                    Weight = 1.0
+                    Weight = CalculateLexicalWeight("verb_past_m", pastMasculine)
                 });
             }
 
@@ -277,7 +347,7 @@ public sealed class AssociationFragmentRepository
                     Id = $"verb_past_f_{pastFeminine}",
                     Text = pastFeminine,
                     Kind = "verb_past_f",
-                    Weight = 1.0
+                    Weight = CalculateLexicalWeight("verb_past_f", pastFeminine)
                 });
             }
 
@@ -288,7 +358,7 @@ public sealed class AssociationFragmentRepository
                     Id = $"verb_past_n_{pastNeuter}",
                     Text = pastNeuter,
                     Kind = "verb_past_n",
-                    Weight = 1.0
+                    Weight = CalculateLexicalWeight("verb_past_n", pastNeuter)
                 });
             }
         }
@@ -374,6 +444,104 @@ public sealed class AssociationFragmentRepository
         return value.EndsWith("ый", StringComparison.Ordinal)
                || value.EndsWith("ий", StringComparison.Ordinal)
                || value.EndsWith("ой", StringComparison.Ordinal);
+    }
+
+    private static bool IsAllowedNounLemma(string value)
+    {
+        if (NounStopWords.Contains(value))
+        {
+            return false;
+        }
+
+        if (value.Length >= 11
+            && (value.EndsWith("ость", StringComparison.Ordinal)
+                || value.EndsWith("ение", StringComparison.Ordinal)
+                || value.EndsWith("ание", StringComparison.Ordinal)
+                || value.EndsWith("чество", StringComparison.Ordinal)
+                || value.EndsWith("ичество", StringComparison.Ordinal)))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    private static bool IsAllowedAdjectiveLemma(string value)
+    {
+        if (value.Length >= 12
+            && (value.EndsWith("ический", StringComparison.Ordinal)
+                || value.EndsWith("ическая", StringComparison.Ordinal)
+                || value.EndsWith("ическое", StringComparison.Ordinal)
+                || value.EndsWith("истический", StringComparison.Ordinal)))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    private static bool IsAllowedVerbLemma(string value)
+    {
+        if (value.Length >= 12
+            && (value.EndsWith("ировать", StringComparison.Ordinal)
+                || value.EndsWith("изировать", StringComparison.Ordinal)))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    private static double CalculateLexicalWeight(string kind, string text)
+    {
+        var weight = 1.0d;
+
+        if (kind.StartsWith("noun_", StringComparison.OrdinalIgnoreCase))
+        {
+            if (text.Length >= 10)
+            {
+                weight *= 0.82d;
+            }
+
+            if (text.Length >= 13)
+            {
+                weight *= 0.7d;
+            }
+
+            if (text.EndsWith("ость", StringComparison.Ordinal)
+                || text.EndsWith("ение", StringComparison.Ordinal)
+                || text.EndsWith("ание", StringComparison.Ordinal)
+                || text.EndsWith("чество", StringComparison.Ordinal))
+            {
+                weight *= 0.55d;
+            }
+        }
+        else if (kind.StartsWith("adjective_", StringComparison.OrdinalIgnoreCase))
+        {
+            if (text.Length >= 10)
+            {
+                weight *= 0.8d;
+            }
+
+            if (text.Length >= 13)
+            {
+                weight *= 0.68d;
+            }
+        }
+        else if (kind.StartsWith("verb_past_", StringComparison.OrdinalIgnoreCase))
+        {
+            if (text.Length >= 9)
+            {
+                weight *= 0.84d;
+            }
+
+            if (text.Length >= 12)
+            {
+                weight *= 0.72d;
+            }
+        }
+
+        return Math.Max(0.2d, weight);
     }
 
     private static bool IsSingleRussianWord(string value)

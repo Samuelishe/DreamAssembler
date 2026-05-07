@@ -2,7 +2,7 @@
   "templates": [
     {
       "id": "sentence_character_action_object_place_twist",
-      "text": "{character} должен {action} {object} в {place}, но {twist}.",
+      "text": "{character} получает странное поручение: {action} {object} в {place}, но {twist}.",
       "mode": "Sentence",
       "requiredCategories": ["character", "action", "object", "place", "twist"],
       "slotRequirements": {
@@ -51,7 +51,7 @@
     },
     {
       "id": "sentence_character_place_twist",
-      "text": "{character} однажды понял, что в {place} {twist}.",
+      "text": "{character} однажды обнаруживает одну странность: в {place} {twist}.",
       "mode": "Sentence",
       "requiredCategories": ["character", "place", "twist"],
       "slotRequirements": {
@@ -109,7 +109,7 @@
     },
     {
       "id": "idea_character_action_object_place_twist",
-      "text": "Идея: {character} должен {action} {object} в {place}, и при этом {twist}.",
+      "text": "Идея: {character} получает странное поручение: {action} {object} в {place}, и при этом {twist}.",
       "mode": "Idea",
       "requiredCategories": ["character", "action", "object", "place", "twist"],
       "slotRequirements": {
@@ -202,7 +202,7 @@
     },
     {
       "id": "shorttext_intro",
-      "text": "В {place} все началось с того, что {character} решил {action} {object}.",
+      "text": "В {place} все началось с того, что {character} оказался рядом, когда понадобилось {action} {object}.",
       "mode": "ShortText",
       "requiredCategories": ["place", "character", "action", "object"],
       "slotRequirements": {
@@ -219,7 +219,7 @@
     },
     {
       "id": "shorttext_intro_clause_place",
-      "text": "В {place} все началось с того, что {character} решил {action} {object}.",
+      "text": "В {place} все началось с того, что {character} оказался рядом, когда понадобилось {action} {object}.",
       "mode": "ShortText",
       "requiredCategories": ["place", "character", "action", "object"],
       "slotRequirements": {
