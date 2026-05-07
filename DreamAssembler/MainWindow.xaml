@@ -215,7 +215,7 @@
             <TextBlock FontFamily="{StaticResource DisplayFontFamily}"
                        FontSize="42"
                        FontWeight="Black"
-                       Foreground="{DynamicResource PrimaryTextBrush}"
+                       Foreground="{DynamicResource TitleGradientBrush}"
                        Text="DreamAssembler" />
         </Grid>
 
@@ -433,6 +433,33 @@
                               ItemContainerStyle="{StaticResource InputComboBoxItemStyle}"
                               SelectedItem="{Binding SelectedTheme}"
                               DisplayMemberPath="DisplayName" />
+                    <TextBlock Margin="0,8,0,0"
+                               Foreground="{DynamicResource SecondaryTextBrush}"
+                               TextWrapping="Wrap"
+                               Text="{Binding ThemeDescription}" />
+                    <StackPanel Margin="0,10,0,0"
+                                Orientation="Horizontal">
+                        <Border Width="28"
+                                Height="28"
+                                CornerRadius="14"
+                                Background="{DynamicResource WindowBackgroundBrush}"
+                                BorderBrush="{DynamicResource PanelBorderBrush}"
+                                BorderThickness="1" />
+                        <Border Margin="8,0,0,0"
+                                Width="28"
+                                Height="28"
+                                CornerRadius="14"
+                                Background="{DynamicResource PanelBackgroundBrush}"
+                                BorderBrush="{DynamicResource PanelBorderBrush}"
+                                BorderThickness="1" />
+                        <Border Margin="8,0,0,0"
+                                Width="28"
+                                Height="28"
+                                CornerRadius="14"
+                                Background="{DynamicResource AccentBrush}"
+                                BorderBrush="{DynamicResource PanelBorderBrush}"
+                                BorderThickness="1" />
+                    </StackPanel>
                     <TextBlock Margin="0,12,0,0"
                                Foreground="{DynamicResource SecondaryTextBrush}"
                                Text="Шрифт чтения" />

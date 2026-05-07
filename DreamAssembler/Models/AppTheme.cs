@@ -11,7 +11,17 @@ public enum AppTheme
     WarmLight,
 
     /// <summary>
+    /// Светлая тема с прохладным бумажным оттенком.
+    /// </summary>
+    MistLight,
+
+    /// <summary>
     /// Графитовая темная тема.
     /// </summary>
-    GraphiteDark
+    GraphiteDark,
+
+    /// <summary>
+    /// Темная тема с винно-сливовым акцентом.
+    /// </summary>
+    PlumNight
 }

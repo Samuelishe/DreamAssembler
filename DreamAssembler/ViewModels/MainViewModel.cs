@@ -52,7 +52,9 @@ public partial class MainViewModel : ObservableObject
         ThemeOptions =
         [
             new OptionItem<AppTheme> { DisplayName = "Теплая светлая", Value = AppTheme.WarmLight },
-            new OptionItem<AppTheme> { DisplayName = "Графитовая темная", Value = AppTheme.GraphiteDark }
+            new OptionItem<AppTheme> { DisplayName = "Туманная светлая", Value = AppTheme.MistLight },
+            new OptionItem<AppTheme> { DisplayName = "Графитовая темная", Value = AppTheme.GraphiteDark },
+            new OptionItem<AppTheme> { DisplayName = "Сливовая ночь", Value = AppTheme.PlumNight }
         ];
         ReadingFontOptions =
         [
@@ -232,6 +234,18 @@ public partial class MainViewModel : ObservableObject
     public string AppVersion => $"Версия {typeof(MainViewModel).Assembly.GetName().Version}";
 
     /// <summary>
+    /// Получает короткое пояснение для выбранной темы.
+    /// </summary>
+    public string ThemeDescription => SelectedTheme?.Value switch
+    {
+        AppTheme.WarmLight => "Теплая светлая тема с мягким песочным акцентом.",
+        AppTheme.MistLight => "Светлая прохладная тема с бумажно-мятным характером.",
+        AppTheme.GraphiteDark => "Темная графитовая тема с янтарным акцентом.",
+        AppTheme.PlumNight => "Темная сливовая тема с более выразительным цветовым контрастом.",
+        _ => string.Empty
+    };
+
+    /// <summary>
     /// Выполняет генерацию результатов по текущим настройкам.
     /// </summary>
     [RelayCommand]
@@ -399,6 +413,7 @@ public partial class MainViewModel : ObservableObject
 
     partial void OnSelectedThemeChanged(OptionItem<AppTheme> value)
     {
+        OnPropertyChanged(nameof(ThemeDescription));
         ApplyAppearanceAndSave();
     }
 

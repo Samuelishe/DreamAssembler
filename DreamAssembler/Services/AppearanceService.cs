@@ -19,7 +19,7 @@ public sealed class AppearanceService
         var resources = Application.Current.Resources;
         var palette = CreatePalette(theme);
 
-        resources["WindowBackgroundBrush"] = CreateBrush(palette.WindowBackground);
+        resources["WindowBackgroundBrush"] = CreateWindowBackgroundBrush(palette.WindowBackgroundStart, palette.WindowBackgroundEnd);
         resources["PanelBackgroundBrush"] = CreateBrush(palette.PanelBackground);
         resources["PanelAltBackgroundBrush"] = CreateBrush(palette.PanelAltBackground);
         resources["PanelBorderBrush"] = CreateBrush(palette.PanelBorder);
@@ -37,9 +37,27 @@ public sealed class AppearanceService
     {
         return theme switch
         {
+            AppTheme.MistLight => new ThemePalette
+            {
+                WindowBackgroundStart = Color.FromRgb(0xEF, 0xF4, 0xF2),
+                WindowBackgroundEnd = Color.FromRgb(0xE7, 0xEC, 0xEE),
+                PanelBackground = Color.FromRgb(0xFA, 0xFC, 0xFB),
+                PanelAltBackground = Color.FromRgb(0xE8, 0xF0, 0xEC),
+                PanelBorder = Color.FromRgb(0xCF, 0xDA, 0xD7),
+                PrimaryText = Color.FromRgb(0x1F, 0x26, 0x26),
+                SecondaryText = Color.FromRgb(0x56, 0x63, 0x63),
+                MutedText = Color.FromRgb(0x7A, 0x88, 0x88),
+                Accent = Color.FromRgb(0x25, 0x54, 0x57),
+                AccentSoft = Color.FromRgb(0xD9, 0xE7, 0xE4),
+                ResultCardBackground = Color.FromRgb(0xF8, 0xFB, 0xFA),
+                TitleGradientStart = Color.FromRgb(0x95, 0xC9, 0xC0),
+                TitleGradientMiddle = Color.FromRgb(0x68, 0xA7, 0xA9),
+                TitleGradientEnd = Color.FromRgb(0x4D, 0x79, 0x9F)
+            },
             AppTheme.GraphiteDark => new ThemePalette
             {
-                WindowBackground = Color.FromRgb(0x19, 0x17, 0x1B),
+                WindowBackgroundStart = Color.FromRgb(0x19, 0x17, 0x1B),
+                WindowBackgroundEnd = Color.FromRgb(0x12, 0x12, 0x16),
                 PanelBackground = Color.FromRgb(0x22, 0x20, 0x25),
                 PanelAltBackground = Color.FromRgb(0x2A, 0x27, 0x2E),
                 PanelBorder = Color.FromRgb(0x3F, 0x39, 0x46),
@@ -53,9 +71,27 @@ public sealed class AppearanceService
                 TitleGradientMiddle = Color.FromRgb(0xD8, 0x98, 0x79),
                 TitleGradientEnd = Color.FromRgb(0x9F, 0x6D, 0x64)
             },
+            AppTheme.PlumNight => new ThemePalette
+            {
+                WindowBackgroundStart = Color.FromRgb(0x1A, 0x14, 0x1F),
+                WindowBackgroundEnd = Color.FromRgb(0x11, 0x10, 0x18),
+                PanelBackground = Color.FromRgb(0x24, 0x1F, 0x2A),
+                PanelAltBackground = Color.FromRgb(0x2E, 0x26, 0x36),
+                PanelBorder = Color.FromRgb(0x49, 0x40, 0x56),
+                PrimaryText = Color.FromRgb(0xF4, 0xEE, 0xF7),
+                SecondaryText = Color.FromRgb(0xCF, 0xC0, 0xD8),
+                MutedText = Color.FromRgb(0xA8, 0x97, 0xB4),
+                Accent = Color.FromRgb(0xD7, 0x87, 0xA8),
+                AccentSoft = Color.FromRgb(0x38, 0x2F, 0x43),
+                ResultCardBackground = Color.FromRgb(0x2B, 0x23, 0x31),
+                TitleGradientStart = Color.FromRgb(0xF0, 0xA1, 0xC3),
+                TitleGradientMiddle = Color.FromRgb(0xC9, 0x78, 0xB6),
+                TitleGradientEnd = Color.FromRgb(0x7A, 0x6D, 0xD3)
+            },
             _ => new ThemePalette
             {
-                WindowBackground = Color.FromRgb(0xF4, 0xF0, 0xE8),
+                WindowBackgroundStart = Color.FromRgb(0xF4, 0xF0, 0xE8),
+                WindowBackgroundEnd = Color.FromRgb(0xEE, 0xE4, 0xD8),
                 PanelBackground = Color.FromRgb(0xFB, 0xF9, 0xF5),
                 PanelAltBackground = Color.FromRgb(0xF5, 0xEC, 0xDD),
                 PanelBorder = Color.FromRgb(0xE1, 0xD7, 0xC9),
@@ -70,6 +106,20 @@ public sealed class AppearanceService
                 TitleGradientEnd = Color.FromRgb(0xE8, 0xC2, 0xA8)
             }
         };
+    }
+
+    private static LinearGradientBrush CreateWindowBackgroundBrush(Color start, Color end)
+    {
+        var brush = new LinearGradientBrush
+        {
+            StartPoint = new Point(0, 0),
+            EndPoint = new Point(1, 1)
+        };
+
+        brush.GradientStops.Add(new GradientStop(start, 0));
+        brush.GradientStops.Add(new GradientStop(end, 1));
+        brush.Freeze();
+        return brush;
     }
 
     private static SolidColorBrush CreateBrush(Color color)
@@ -105,7 +155,9 @@ public sealed class AppearanceService
 
     private sealed class ThemePalette
     {
-        public Color WindowBackground { get; init; }
+        public Color WindowBackgroundStart { get; init; }
+
+        public Color WindowBackgroundEnd { get; init; }
 
         public Color PanelBackground { get; init; }
 
