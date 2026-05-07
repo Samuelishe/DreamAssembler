@@ -272,16 +272,63 @@ public sealed class AssociationFragmentRepositoryTests
                 """
                 bare	accented	translations_en	translations_de	gender	partner	animate	indeclinable	sg_only	pl_only	sg_nom	sg_gen	sg_dat	sg_acc	sg_inst	sg_prep	pl_nom	pl_gen	pl_dat	pl_acc	pl_inst	pl_prep
                 южанин	южа'нин	southerner	Südländer	n		0	0	0	0	южа'нин	южа'нина	южа'нину	южа'нина	южа'нином	южа'нине	южа'не	южа'н	южа'нам	южа'н	южа'нами	южа'нах
-                оседание	оседа'ние	settling	Senkung	f		0	0	0	0	оседа'ние	оседа'ния	оседа'нию	оседа'ние	оседа'нием	оседа'нии	оседа'ния	оседа'ний	оседа'ниям	оседа'ния	оседа'ниями	оседа'ниях
+                окно	окно'	window	Fenster	m		0	0	0	0	окно'	окна'	окну'	окно'	окно'м	окне'	о'кна	о'кон	о'кнам	о'кна	о'кнами	о'кнах
                 """);
 
             var result = repository.Load(directoryPath);
 
             Assert.False(result.UsedFallback);
             Assert.Contains(result.Data, entry => entry.Kind == "noun_m" && entry.Text == "южанин");
-            Assert.Contains(result.Data, entry => entry.Kind == "noun_n" && entry.Text == "оседание");
+            Assert.Contains(result.Data, entry => entry.Kind == "noun_n" && entry.Text == "окно");
             Assert.DoesNotContain(result.Data, entry => entry.Kind == "noun_n" && entry.Text == "южанин");
-            Assert.DoesNotContain(result.Data, entry => entry.Kind == "noun_f" && entry.Text == "оседание");
+            Assert.DoesNotContain(result.Data, entry => entry.Kind == "noun_m" && entry.Text == "окно");
+        }
+        finally
+        {
+            Directory.Delete(directoryPath, true);
+        }
+    }
+
+    /// <summary>
+    /// Проверяет, что второй curated-pass отфильтровывает low-image и source-noise слова из lexical CSV.
+    /// </summary>
+    [Fact]
+    public void Load_FiltersObservedLowImageLexicalNoise_WhenSourceContainsWeakWords()
+    {
+        var repository = new AssociationFragmentRepository();
+        var directoryPath = CreateTempDirectory();
+
+        try
+        {
+            File.WriteAllText(
+                Path.Combine(directoryPath, "sample-nouns.csv"),
+                """
+                bare	accented	translations_en	translations_de	gender	partner	animate	indeclinable	sg_only	pl_only	sg_nom	sg_gen	sg_dat	sg_acc	sg_inst	sg_prep	pl_nom	pl_gen	pl_dat	pl_acc	pl_inst	pl_prep
+                архив	архи'в	archive	Archiv	m		0	0	0	0	архи'в	архи'ва	архи'ву	архив	архи'вом	архиве'	архи'вы	архивов	архивам	архивы	архивами	архивах
+                состояние	состоя'ние	state	Zustand	n		0	0	0	0	состоя'ние	состоя'ния	состоя'нию	состоя'ние	состоя'нием	состоя'нии	состоя'ния	состоя'ний	состоя'ниям	состоя'ния	состоя'ниями	состоя'ниях
+                посягательство	посяга'тельство	encroachment	Eingriff	n		0	0	0	0	посяга'тельство	посяга'тельства	посяга'тельству	посяга'тельство	посяга'тельством	посяга'тельстве	посяга'тельства	посяга'тельств	посяга'тельствам	посяга'тельства	посяга'тельствами	посяга'тельствах
+                """);
+
+            File.WriteAllText(
+                Path.Combine(directoryPath, "sample-adjectives.csv"),
+                """
+                bare	accented	translations_en	translations_de	comparative	superlative	short_m	short_f	short_n	short_pl	decl_m_nom	decl_m_gen	decl_m_dat	decl_m_acc	decl_m_inst	decl_m_prep	decl_f_nom	decl_f_gen	decl_f_dat	decl_f_acc	decl_f_inst	decl_f_prep	decl_n_nom	decl_n_gen	decl_n_dat	decl_n_acc	decl_n_inst	decl_n_prep	decl_pl_nom	decl_pl_gen	decl_pl_dat	decl_pl_acc	decl_pl_inst	decl_pl_prep
+                тихий	ти'хий	quiet	ruhig							ти'хий	ти'хого	ти'хому	ти'хий	ти'хим	ти'хом	ти'хая	ти'хой	ти'хой	ти'хую	ти'хой	ти'хой	ти'хое	ти'хого	ти'хому	ти'хое	ти'хим	ти'хом	ти'хие	ти'хих	ти'хим	ти'хие	ти'хими	ти'хих
+                глобальный	глоба'льный	global	global							глоба'льный	глоба'льного	глоба'льному	глоба'льный	глоба'льным	глоба'льном	глоба'льная	глоба'льной	глоба'льной	глоба'льную	глоба'льной	глоба'льной	глоба'льное	глоба'льного	глоба'льному	глоба'льное	глоба'льным	глоба'льном	глоба'льные	глоба'льных	глоба'льным	глоба'льные	глоба'льными	глоба'льных
+                смычный	смы'чный	occlusive	Verschluss-							смы'чный	смы'чного	смы'чному	смы'чный	смы'чным	смы'чном	смы'чная	смы'чной	смы'чной	смы'чную	смы'чной	смы'чной	смы'чное	смы'чного	смы'чному	смы'чное	смы'чным	смы'чном	смы'чные	смы'чных	смы'чным	смы'чные	смы'чными	смы'чных
+                афганский	афга'нский	afghan	afghanisch							афга'нский	афга'нского	афга'нскому	афга'нский	афга'нским	афга'нском	афга'нская	афга'нской	афга'нской	афга'нскую	афга'нской	афга'нской	афга'нское	афга'нского	афга'нскому	афга'нское	афга'нским	афга'нском	афга'нские	афга'нских	афга'нским	афга'нские	афга'нскими	афга'нских
+                """);
+
+            var result = repository.Load(directoryPath);
+
+            Assert.False(result.UsedFallback);
+            Assert.Contains(result.Data, entry => entry.Text == "архив");
+            Assert.Contains(result.Data, entry => entry.Text == "тихий");
+            Assert.DoesNotContain(result.Data, entry => entry.Text.Contains("состояни", StringComparison.Ordinal));
+            Assert.DoesNotContain(result.Data, entry => entry.Text.Contains("посягательств", StringComparison.Ordinal));
+            Assert.DoesNotContain(result.Data, entry => entry.Text.Contains("глобаль", StringComparison.Ordinal));
+            Assert.DoesNotContain(result.Data, entry => entry.Text.Contains("смычн", StringComparison.Ordinal));
+            Assert.DoesNotContain(result.Data, entry => entry.Text.Contains("афганск", StringComparison.Ordinal));
         }
         finally
         {

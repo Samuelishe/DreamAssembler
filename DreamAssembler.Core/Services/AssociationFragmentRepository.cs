@@ -8,7 +8,7 @@ namespace DreamAssembler.Core.Services;
 public sealed class AssociationFragmentRepository
 {
     private const double CuratedEntryBoost = 3.2d;
-    private const double NonCuratedPenalty = 0.32d;
+    private const double NonCuratedPenalty = 0.24d;
 
     private static readonly HashSet<string> AdjectiveStopWords =
     [
@@ -65,7 +65,15 @@ public sealed class AssociationFragmentRepository
         "многоступенчатый",
         "ацетоновый",
         "вирулентный",
-        "сексуальный"
+        "сексуальный",
+        "глобальный",
+        "смычный",
+        "апостольский",
+        "послеударный",
+        "электромагнитный",
+        "антинародный",
+        "афганский",
+        "эфиопский"
     ];
 
     private static readonly HashSet<string> NounStopWords =
@@ -97,6 +105,21 @@ public sealed class AssociationFragmentRepository
         "трансляция",
         "сверление",
         "бескультурье"
+        ,
+        "пакистан",
+        "багдад",
+        "сообщество",
+        "спряжение",
+        "мелодекламатор",
+        "аммонит",
+        "чернобыльник",
+        "ревальвация",
+        "посягательство",
+        "координата",
+        "конституция",
+        "матрица",
+        "редкость",
+        "состояние"
     ];
 
     private static readonly HashSet<string> VerbStopWords =
@@ -562,12 +585,15 @@ public sealed class AssociationFragmentRepository
             return false;
         }
 
-        if (value.Length >= 11
-            && (value.EndsWith("ость", StringComparison.Ordinal)
-                || value.EndsWith("ение", StringComparison.Ordinal)
-                || value.EndsWith("ание", StringComparison.Ordinal)
-                || value.EndsWith("чество", StringComparison.Ordinal)
-                || value.EndsWith("ичество", StringComparison.Ordinal)))
+        if (value.EndsWith("ение", StringComparison.Ordinal)
+            || value.EndsWith("ание", StringComparison.Ordinal)
+            || value.EndsWith("чество", StringComparison.Ordinal)
+            || value.EndsWith("ичество", StringComparison.Ordinal))
+        {
+            return false;
+        }
+
+        if (value.Length >= 11 && value.EndsWith("ость", StringComparison.Ordinal))
         {
             return false;
         }
@@ -577,11 +603,26 @@ public sealed class AssociationFragmentRepository
 
     private static bool IsAllowedAdjectiveLemma(string value)
     {
+        if (value.EndsWith("ский", StringComparison.Ordinal)
+            && value.Length >= 10
+            && !value.EndsWith("городской", StringComparison.Ordinal)
+            && !value.EndsWith("районный", StringComparison.Ordinal)
+            && !value.EndsWith("трамвайный", StringComparison.Ordinal))
+        {
+            return false;
+        }
+
         if (value.Length >= 12
             && (value.EndsWith("ический", StringComparison.Ordinal)
                 || value.EndsWith("ическая", StringComparison.Ordinal)
                 || value.EndsWith("ическое", StringComparison.Ordinal)
                 || value.EndsWith("истический", StringComparison.Ordinal)))
+        {
+            return false;
+        }
+
+        if (value.EndsWith("ящий", StringComparison.Ordinal)
+            || value.EndsWith("ющий", StringComparison.Ordinal))
         {
             return false;
         }
