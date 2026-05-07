@@ -323,6 +323,46 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что при прочих равных генератор предпочитает запись из того же strong-manifold field.
+    /// </summary>
+    [Fact]
+    public void Generate_PrefersSameStrongManifoldField_WhenCandidatesAreOtherwiseEqual()
+    {
+        var template = new TemplateDefinition
+        {
+            Id = "manifold_affinity_test",
+            Text = "{place}. {character}.",
+            Mode = GenerationMode.Sentence,
+            RequiredCategories = ["place", "character"],
+            Weight = 1.0
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new() { Id = "museum_place", Category = "place", Slot = "place_in", Text = "в закрытом крыле музея", Tags = ["museum"], Weight = 1.0 },
+            new() { Id = "museum_character", Category = "character", Slot = "character_subject", Text = "куратор ночной экспозиции", Tags = ["museum"], Weight = 1.0 },
+            new() { Id = "mall_character", Category = "character", Slot = "character_subject", Text = "администратор пустого этажа", Tags = ["mall"], Weight = 1.0 }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            [template],
+            [],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.Sentence,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 1
+        });
+
+        Assert.Contains("куратор ночной экспозиции", Assert.Single(result).Text, StringComparison.Ordinal);
+    }
+
+    /// <summary>
     /// Проверяет, что шаблон со сложным местом берет только clause-slot и сохраняет закрывающую запятую.
     /// </summary>
     [Fact]

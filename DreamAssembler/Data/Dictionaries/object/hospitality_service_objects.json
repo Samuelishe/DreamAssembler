@@ -14,7 +14,7 @@
       "text": "карточку завтрака в номер",
       "category": "object",
       "slot": "object_direct",
-      "tags": ["hospitality", "service", "compat:portable", "compat:hideable", "compat:wakeable"],
+      "tags": ["hospitality", "service", "compat:portable", "compat:hideable"],
       "absurdity": 0,
       "weight": 0.7
     },

@@ -41,7 +41,7 @@
       "text": "карточку тихого пробуждения",
       "category": "object",
       "slot": "object_direct",
-      "tags": ["hospitality", "quiet", "compat:portable", "compat:wakeable", "compat:hideable"],
+      "tags": ["hospitality", "quiet", "compat:portable", "compat:hideable"],
       "absurdity": 1,
       "weight": 0.7
     },

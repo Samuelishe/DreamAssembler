@@ -16,6 +16,13 @@ public sealed class TextGeneratorService
     private static readonly string[] OpeningRoles = ["setup", "scene"];
     private static readonly string[] LateRoles = ["reflection", "interpretation", "meta"];
     private static readonly string[] RevealRoles = ["observation", "reaction"];
+    private static readonly HashSet<string> StrongManifoldTags =
+    [
+        "airport",
+        "museum",
+        "mall",
+        "hospitality"
+    ];
 
     private readonly IReadOnlyList<DictionaryEntry> _dictionaryEntries;
     private readonly IReadOnlyList<TemplateDefinition> _templates;
@@ -629,10 +636,30 @@ public sealed class TextGeneratorService
                 score *= 0.92d;
             }
 
+            score *= CalculateManifoldAffinityBoost(entry, selectedEntry);
             score *= CalculateActionObjectCompatibility(entry, selectedEntry);
         }
 
         return Math.Max(0.55d, score);
+    }
+
+    private static double CalculateManifoldAffinityBoost(DictionaryEntry entry, DictionaryEntry selectedEntry)
+    {
+        var entryFieldTags = GetStrongManifoldTags(entry);
+        var selectedFieldTags = GetStrongManifoldTags(selectedEntry);
+
+        if (entryFieldTags.Count == 0 || selectedFieldTags.Count == 0)
+        {
+            return 1d;
+        }
+
+        var sharedFieldTags = entryFieldTags.Intersect(selectedFieldTags, StringComparer.OrdinalIgnoreCase).Count();
+        if (sharedFieldTags > 0)
+        {
+            return 1d + (sharedFieldTags * 0.28d);
+        }
+
+        return 0.78d;
     }
 
     private static double CalculateActionObjectCompatibility(DictionaryEntry entry, DictionaryEntry selectedEntry)
@@ -671,6 +698,13 @@ public sealed class TextGeneratorService
     {
         return entry.Tags
             .Where(tag => tag.StartsWith("compat:", StringComparison.OrdinalIgnoreCase))
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+    }
+
+    private static HashSet<string> GetStrongManifoldTags(DictionaryEntry entry)
+    {
+        return entry.Tags
+            .Where(tag => StrongManifoldTags.Contains(tag))
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
     }
 

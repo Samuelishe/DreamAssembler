@@ -14,7 +14,7 @@
       "text": "открыть мастер-ключом",
       "category": "action",
       "slot": "action_infinitive",
-      "tags": ["hospitality", "service", "compat:openable", "compat:exchangeable"],
+      "tags": ["hospitality", "service", "compat:openable"],
       "absurdity": 0,
       "weight": 0.8
     },
@@ -41,7 +41,7 @@
       "text": "приготовить к позднему приезду",
       "category": "action",
       "slot": "action_infinitive",
-      "tags": ["hospitality", "service", "compat:protectable", "compat:wakeable"],
+      "tags": ["hospitality", "service", "compat:protectable"],
       "absurdity": 1,
       "weight": 0.7
     },
