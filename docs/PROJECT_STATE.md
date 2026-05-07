@@ -96,6 +96,8 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - начато системное расширение боевых JSON-словарей для `Sentence`, `Idea` и `ShortText`: добавлен первый крупный curated pack по `character`, `place`, `object`, `action`, `condition`, `concept`, `twist`, `atmosphere`;
 - добавлен второй curated pack в tonal-support категории `emotion`, `style`, `genre`, а также в дополнительные `place`, `condition`, `concept`, `twist`, чтобы core-режимы росли не только сценой, но и интерпретацией, mood-слоем и quieter genre/style variation;
 - шаблонный слой тоже начал догонять выросший корпус: добавлен новый пакет `Sentence`, `Idea` и особенно `ShortText` templates, чтобы новые `condition / concept / style / genre / atmosphere / twist` использовались шире и музыкальнее;
+- после контрольной выборки проведен первый output-driven pass: убраны оставшиеся gender-sensitive каркасы без морфологии и исправлены несколько реальных словарных шероховатостей в `genre` и `place`;
+- output-driven quality pass теперь рассматривается как постоянный рабочий цикл: после каждого заметного расширения корпуса нужно снимать живую выборку и точечно чинить реальные слабые каркасы, а не спорить с абстрактным качеством на уровне теории;
 - проект собирается без ошибок.
 
 ## Сильные стороны текущей генерации

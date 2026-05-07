@@ -56,7 +56,7 @@
     },
     {
       "id": "soft_mystery",
-      "text": "мягкий городской мистери",
+      "text": "мягкая городская мистерия",
       "category": "genre",
       "slot": "genre_label",
       "tags": ["mystery", "city"],

@@ -20,7 +20,7 @@
     },
     {
       "id": "empty_platform",
-      "text": "пустой платформе метро",
+      "text": "пустом вестибюле метро",
       "category": "place",
       "slot": "place_in",
       "tags": ["city", "transport", "daily"],

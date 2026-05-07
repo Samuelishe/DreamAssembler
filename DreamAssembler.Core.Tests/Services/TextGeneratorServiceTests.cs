@@ -366,6 +366,57 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что short-text шаблоны с персонажем не требуют гендерно жестких форм без морфологии.
+    /// </summary>
+    [Fact]
+    public void Generate_ShortText_AllowsNeutralCharacterPhrasing()
+    {
+        var template = new TemplateDefinition
+        {
+            Id = "neutral_character_shorttext_test",
+            Text = "В {place} все началось с того, что пришлось {action} {object}. Рядом уже можно было заметить {character}.",
+            Mode = GenerationMode.ShortText,
+            RequiredCategories = ["place", "action", "object", "character"],
+            SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["place"] = "place_in",
+                ["action"] = "action_infinitive",
+                ["object"] = "object_direct",
+                ["character"] = "character_subject"
+            },
+            CompositionRole = "setup",
+            Weight = 1.0
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new() { Id = "place_ok", Category = "place", Slot = "place_in", Text = "дежурной комнате", Weight = 1.0 },
+            new() { Id = "action_ok", Category = "action", Slot = "action_infinitive", Text = "проверить", Weight = 1.0 },
+            new() { Id = "object_ok", Category = "object", Slot = "object_direct", Text = "журнал учета", Weight = 1.0 },
+            new() { Id = "character_ok", Category = "character", Slot = "character_subject", Text = "уборщица музея эха", Weight = 1.0 }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            [template],
+            [],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.ShortText,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 1
+        });
+
+        var text = Assert.Single(result).Text;
+        Assert.Contains("можно было заметить уборщица музея эха", text, StringComparison.Ordinal);
+        Assert.DoesNotContain("был уборщица музея эха", text, StringComparison.Ordinal);
+    }
+
+    /// <summary>
     /// Проверяет, что action и object с общими compat-тегами получают приоритет над несовместимой парой.
     /// </summary>
     [Fact]

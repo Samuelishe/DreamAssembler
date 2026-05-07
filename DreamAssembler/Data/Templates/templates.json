@@ -94,7 +94,7 @@
     },
     {
       "id": "sentence_character_object_condition",
-      "text": "{character} нес с собой {object}, и вокруг {condition}.",
+      "text": "{character} получает {object}, и вокруг {condition}.",
       "mode": "Sentence",
       "requiredCategories": ["character", "object", "condition"],
       "slotRequirements": {
@@ -109,7 +109,7 @@
     },
     {
       "id": "sentence_character_condition_action_object",
-      "text": "{character} заметил, что {condition}, и после этого решил {action} {object}.",
+      "text": "{character} видит, что {condition}, и тогда приходится {action} {object}.",
       "mode": "Sentence",
       "requiredCategories": ["character", "condition", "action", "object"],
       "slotRequirements": {
@@ -125,7 +125,7 @@
     },
     {
       "id": "sentence_character_action_object_concept",
-      "text": "{character} пытался {action} {object}, словно все это уже было почти как {concept}.",
+      "text": "{character} снова и снова пробует {action} {object}, словно все это уже было почти как {concept}.",
       "mode": "Sentence",
       "requiredCategories": ["character", "action", "object", "concept"],
       "slotRequirements": {
@@ -312,7 +312,7 @@
     },
     {
       "id": "idea_concept_place_style",
-      "text": "Идея: {concept}, но на материале {place} и с интонацией {style}.",
+      "text": "Идея: {concept}, но развернутая в {place} и с интонацией {style}.",
       "mode": "Idea",
       "requiredCategories": ["concept", "place", "style"],
       "slotRequirements": {
@@ -327,7 +327,7 @@
     },
     {
       "id": "shorttext_intro",
-      "text": "В {place} все началось с того, что {character} оказался рядом, когда понадобилось {action} {object}.",
+      "text": "В {place} все началось с того, что пришлось {action} {object}. Рядом уже можно было заметить {character}.",
       "mode": "ShortText",
       "requiredCategories": ["place", "character", "action", "object"],
       "slotRequirements": {
@@ -344,7 +344,7 @@
     },
     {
       "id": "shorttext_intro_clause_place",
-      "text": "В {place} все началось с того, что {character} оказался рядом, когда понадобилось {action} {object}.",
+      "text": "В {place} все началось с того, что пришлось {action} {object}. Рядом уже можно было заметить {character}.",
       "mode": "ShortText",
       "requiredCategories": ["place", "character", "action", "object"],
       "slotRequirements": {
@@ -508,7 +508,7 @@
     },
     {
       "id": "shorttext_character_twist",
-      "text": "{character} сначала думал, что сможет {action} {object}, но вскоре оказалось, что {twist}.",
+      "text": "{character} долго живет с мыслью, что можно {action} {object}, но вскоре оказалось, что {twist}.",
       "mode": "ShortText",
       "requiredCategories": ["character", "action", "object", "twist"],
       "slotRequirements": {
@@ -569,7 +569,7 @@
     },
     {
       "id": "shorttext_concept_name",
-      "text": "Тогда это начали считать чем-то вроде {concept}.",
+      "text": "Тогда всем показалось, что это {concept}.",
       "mode": "ShortText",
       "requiredCategories": ["concept"],
       "slotRequirements": {

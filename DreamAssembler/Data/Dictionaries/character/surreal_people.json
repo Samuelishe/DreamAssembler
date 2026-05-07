@@ -29,7 +29,7 @@
     },
     {
       "id": "museum_cleaner_of_echoes",
-      "text": "уборщица музея эха",
+      "text": "смотритель музея эха",
       "category": "character",
       "slot": "character_subject",
       "tags": ["quiet", "surreal", "story"],
@@ -47,7 +47,7 @@
     },
     {
       "id": "seamstress_of_night_curtains",
-      "text": "швея ночных занавесок",
+      "text": "мастер ночных занавесок",
       "category": "character",
       "slot": "character_subject",
       "tags": ["night", "story", "surreal"],

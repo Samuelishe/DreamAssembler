@@ -213,7 +213,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "sentence_character_object_condition",
-                Text = "{character} нес с собой {object}, и вокруг {condition}.",
+                Text = "{character} получает {object}, и вокруг {condition}.",
                 Mode = GenerationMode.Sentence,
                 RequiredCategories = ["character", "object", "condition"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -230,7 +230,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "sentence_character_condition_action_object",
-                Text = "{character} заметил, что {condition}, и после этого решил {action} {object}.",
+                Text = "{character} видит, что {condition}, и тогда приходится {action} {object}.",
                 Mode = GenerationMode.Sentence,
                 RequiredCategories = ["character", "condition", "action", "object"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -248,7 +248,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "sentence_character_action_object_concept",
-                Text = "{character} пытался {action} {object}, словно все это уже было почти как {concept}.",
+                Text = "{character} снова и снова пробует {action} {object}, словно все это уже было почти как {concept}.",
                 Mode = GenerationMode.Sentence,
                 RequiredCategories = ["character", "action", "object", "concept"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -300,7 +300,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "shorttext_intro",
-                Text = "В {place} все началось с того, что {character} оказался рядом, когда понадобилось {action} {object}.",
+                Text = "В {place} все началось с того, что пришлось {action} {object}. Рядом уже можно было заметить {character}.",
                 Mode = GenerationMode.ShortText,
                 RequiredCategories = ["place", "character", "action", "object"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -319,7 +319,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "shorttext_intro_clause_place",
-                Text = "В {place} все началось с того, что {character} оказался рядом, когда понадобилось {action} {object}.",
+                Text = "В {place} все началось с того, что пришлось {action} {object}. Рядом уже можно было заметить {character}.",
                 Mode = GenerationMode.ShortText,
                 RequiredCategories = ["place", "character", "action", "object"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -505,7 +505,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "shorttext_character_twist",
-                Text = "{character} сначала думал, что сможет {action} {object}, но вскоре оказалось, что {twist}.",
+                Text = "{character} долго живет с мыслью, что можно {action} {object}, но вскоре оказалось, что {twist}.",
                 Mode = GenerationMode.ShortText,
                 RequiredCategories = ["character", "action", "object", "twist"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -574,7 +574,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "shorttext_concept_name",
-                Text = "Тогда это начали считать чем-то вроде {concept}.",
+                Text = "Тогда всем показалось, что это {concept}.",
                 Mode = GenerationMode.ShortText,
                 RequiredCategories = ["concept"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -764,7 +764,7 @@ public static class FallbackDataProvider
             new TemplateDefinition
             {
                 Id = "idea_concept_place_style",
-                Text = "Идея: {concept}, но на материале {place} и с интонацией {style}.",
+                Text = "Идея: {concept}, но развернутая в {place} и с интонацией {style}.",
                 Mode = GenerationMode.Idea,
                 RequiredCategories = ["concept", "place", "style"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)

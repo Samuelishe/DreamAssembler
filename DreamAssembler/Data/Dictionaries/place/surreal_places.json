@@ -74,7 +74,7 @@
     },
     {
       "id": "station_where_announcements_apologize",
-      "text": "станции, где объявления всегда извиняются заранее,",
+      "text": "вестибюле станции, где объявления всегда извиняются заранее,",
       "category": "place",
       "slot": "place_in_clause",
       "tags": ["transport", "city", "surreal"],
