@@ -26,6 +26,13 @@ It is intentionally not an AI text generator. The project combines JSON dictiona
 
 The project currently reuses lexical data from [`Badestrand/russian-dictionary`](https://github.com/Badestrand/russian-dictionary), especially the `nouns.csv`, `adjectives.csv`, `verbs.csv`, and `others.csv` files used for the word-pair and multi-word modes.
 
+The current UI also embeds open-source fonts with Cyrillic support:
+
+- [`Unbounded`](https://github.com/w3f/unbounded) for the display title font
+- [`Inter`](https://github.com/google/fonts/tree/main/ofl/inter) for the main interface font
+
+Both fonts are stored in the repository with their OFL license files.
+
 ## Run locally
 
 ```bash

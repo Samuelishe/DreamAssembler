@@ -36,3 +36,26 @@
 - это не curated художественный словарь, а большой сырой лексический источник;
 - словесные режимы намеренно допускают случайность и слабую семантическую связность;
 - для основного генератора `Sentence`, `ShortText` и `Idea` эти CSV-словари пока не используются.
+
+## Шрифты интерфейса
+
+На 2026-05-07 в проект добавлены бесплатные шрифты с кириллицей для UI:
+
+- `DreamAssembler/Assets/Fonts/Unbounded-Black.ttf`
+- `DreamAssembler/Assets/Fonts/Inter-Variable.ttf`
+
+Источники:
+
+- `Unbounded`: `https://github.com/w3f/unbounded`
+- `Inter`: `https://github.com/google/fonts/tree/main/ofl/inter`
+
+Лицензии:
+
+- `DreamAssembler/Assets/Fonts/Unbounded-OFL.txt`
+- `DreamAssembler/Assets/Fonts/Inter-OFL.txt`
+
+Практическая причина выбора:
+
+- `Unbounded` хорошо подходит для жирного выразительного заголовка приложения;
+- `Inter` подходит для плотного интерфейса и длинного чтения;
+- оба шрифта поддерживают кириллицу и допускают встраивание в проект.

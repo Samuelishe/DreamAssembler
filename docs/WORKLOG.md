@@ -76,6 +76,9 @@
 - убрана отдельная кнопка `Скопировать выбранное`: копирование и удаление перенесены на сами карточки результатов и в их контекстное меню;
 - стартовый размер окна дополнительно увеличен, чтобы элементы управления не прятались при открытии;
 - выделение элементов списка сделано менее агрессивным, а вертикальная прокрутка результатов визуально приглушена.
+- убрана системная цветная шапка окна: начат переход на собственный window chrome со встроенными кнопками `свернуть`, `развернуть`, `закрыть` и отдельной кнопкой-шестеренкой под меню настроек;
+- крупный верхний служебный блок над рабочей областью удален, оставлена только крупная надпись `DreamAssembler`;
+- в проект добавлены встроенные бесплатные шрифты `Unbounded` и `Inter` с указанием источников и лицензий.
 
 ### Какие файлы изменены
 
@@ -89,6 +92,7 @@
 - `docs/IDEAS_BACKLOG.md`
 - `docs/PROMPTS_FOR_DATA.md`
 - `README.md`
+- `docs/DATA_SOURCES.md`
 - `DreamAssembler.sln`
 - `.gitignore`
 - `DreamAssembler.Core.Tests/*`
@@ -98,8 +102,11 @@
 - `DreamAssembler/Models/AppSettings.cs`
 - `DreamAssembler/Models/SettingsLoadResult.cs`
 - `DreamAssembler/MainWindow.xaml`
+- `DreamAssembler/MainWindow.xaml.cs`
 - `DreamAssembler/ViewModels/MainViewModel.cs`
 - `DreamAssembler/ViewModels/ResultItemViewModel.cs`
+- `DreamAssembler/Assets/Fonts/*`
+- `DreamAssembler/DreamAssembler.csproj`
 - `DreamAssembler.Core/Models/TemplateDefinition.cs`
 - `DreamAssembler.Core/Services/TextGeneratorService.cs`
 - `DreamAssembler.Core/Services/FallbackDataProvider.cs`
@@ -157,3 +164,6 @@
 - короткие словесные результаты читаются крупнее и не теряются в слишком широких карточках.
 - копирование и удаление одного результата доступны прямо на карточке и через правый клик.
 - список результатов прокручивается колесом мыши и не навязывает грубый системный scroll chrome.
+- главное окно больше не использует отдельную системную шапку другого цвета.
+- встроенные шрифты реально подхватываются и не ломают кириллицу в UI.
+- кнопка настроек в кастомной шапке открывает вспомогательное меню без отдельного системного окна.
