@@ -114,7 +114,6 @@ public partial class MainViewModel : ObservableObject
     /// Получает или задает выбранный результат.
     /// </summary>
     [ObservableProperty]
-    [NotifyCanExecuteChangedFor(nameof(CopyCommand))]
     private ResultItemViewModel? selectedResult;
 
     /// <summary>
@@ -230,20 +229,21 @@ public partial class MainViewModel : ObservableObject
     }
 
     /// <summary>
-    /// Копирует выбранный результат в буфер обмена.
+    /// Копирует указанный результат в буфер обмена.
     /// </summary>
-    [RelayCommand(CanExecute = nameof(CanCopy))]
-    private void Copy()
+    /// <param name="result">Результат для копирования.</param>
+    [RelayCommand]
+    private void CopyResult(ResultItemViewModel? result)
     {
-        if (SelectedResult is null)
+        if (result is null)
         {
             return;
         }
 
         try
         {
-            _clipboardService.SetText(SelectedResult.Text);
-            ActionStatusMessage = "Выбранный результат скопирован в буфер обмена.";
+            _clipboardService.SetText(result.Text);
+            ActionStatusMessage = "Результат скопирован в буфер обмена.";
             IsActionError = false;
         }
         catch (COMException)
@@ -259,6 +259,31 @@ public partial class MainViewModel : ObservableObject
     }
 
     /// <summary>
+    /// Удаляет один результат из текущей истории.
+    /// </summary>
+    /// <param name="result">Результат для удаления.</param>
+    [RelayCommand]
+    private void RemoveResult(ResultItemViewModel? result)
+    {
+        if (result is null)
+        {
+            return;
+        }
+
+        var wasSelected = ReferenceEquals(SelectedResult, result);
+        Results.Remove(result);
+
+        if (wasSelected)
+        {
+            SelectedResult = Results.FirstOrDefault();
+        }
+
+        UpdateHistorySummary();
+        ActionStatusMessage = "Результат удален из истории.";
+        IsActionError = false;
+    }
+
+    /// <summary>
     /// Очищает историю результатов текущего запуска.
     /// </summary>
     [RelayCommand]
@@ -266,15 +291,9 @@ public partial class MainViewModel : ObservableObject
     {
         Results.Clear();
         SelectedResult = null;
-        SummaryText = "История очищена.";
-        LastGeneratedAtText = "История пуста";
+        UpdateHistorySummary();
         ActionStatusMessage = "История генераций очищена.";
         IsActionError = false;
-    }
-
-    private bool CanCopy()
-    {
-        return SelectedResult is not null;
     }
 
     partial void OnSelectedModeChanged(OptionItem<GenerationMode> value)
@@ -332,5 +351,18 @@ public partial class MainViewModel : ObservableObject
         }
 
         SettingsStatusMessage = "Пользовательские настройки сохранены.";
+    }
+
+    private void UpdateHistorySummary()
+    {
+        if (Results.Count == 0)
+        {
+            SummaryText = "История пуста.";
+            LastGeneratedAtText = "История пуста";
+            return;
+        }
+
+        SummaryText = $"В истории: {Results.Count}.";
+        LastGeneratedAtText = $"Последняя выдача {Results[0].GeneratedAt:HH:mm:ss}";
     }
 }

@@ -6,10 +6,10 @@
         xmlns:vm="clr-namespace:DreamAssembler.App.ViewModels"
         mc:Ignorable="d"
         Title="DreamAssembler"
-        Width="980"
-        Height="690"
-        MinWidth="860"
-        MinHeight="620"
+        Width="1080"
+        Height="820"
+        MinWidth="920"
+        MinHeight="720"
         WindowStartupLocation="CenterScreen"
         Background="#FFF5F4EF">
     <Window.DataContext>
@@ -33,6 +33,8 @@
             <Setter Property="Background" Value="#FF40352B" />
             <Setter Property="BorderBrush" Value="#FF40352B" />
             <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
         </Style>
 
         <Style x:Key="SecondaryButtonStyle" TargetType="Button" BasedOn="{StaticResource PrimaryButtonStyle}">
@@ -45,9 +47,86 @@
         </Style>
 
         <Style x:Key="InputComboBoxStyle" TargetType="ComboBox">
-            <Setter Property="Height" Value="38" />
-            <Setter Property="Padding" Value="8,4" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Padding" Value="10,0" />
             <Setter Property="FontSize" Value="14" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+        </Style>
+
+        <Style x:Key="InputComboBoxItemStyle" TargetType="ComboBoxItem">
+            <Setter Property="Padding" Value="10,6" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+        </Style>
+
+        <Style x:Key="ResultActionButtonStyle" TargetType="Button" BasedOn="{StaticResource SecondaryButtonStyle}">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="MinWidth" Value="84" />
+            <Setter Property="Padding" Value="10,0" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+
+        <Style x:Key="ResultItemContainerStyle" TargetType="ListBoxItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="0,0,0,8" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <ContentPresenter />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SubtleThumbStyle" TargetType="Thumb">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Thumb">
+                        <Border Background="#66796F63"
+                                CornerRadius="3" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SubtleScrollBarStyle" TargetType="ScrollBar">
+            <Setter Property="Width" Value="8" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Margin" Value="2,0,0,0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollBar">
+                        <Grid Background="Transparent">
+                            <Track Name="PART_Track"
+                                   IsDirectionReversed="True">
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Command="ScrollBar.PageUpCommand"
+                                                  Focusable="False"
+                                                  Opacity="0" />
+                                </Track.DecreaseRepeatButton>
+                                <Track.Thumb>
+                                    <Thumb Style="{StaticResource SubtleThumbStyle}" />
+                                </Track.Thumb>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton Command="ScrollBar.PageDownCommand"
+                                                  Focusable="False"
+                                                  Opacity="0" />
+                                </Track.IncreaseRepeatButton>
+                            </Track>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Orientation" Value="Horizontal">
+                                <Setter Property="Height" Value="8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
 
@@ -131,6 +210,7 @@
                                Text="Тип генерации" />
                     <ComboBox Style="{StaticResource InputComboBoxStyle}"
                               ItemsSource="{Binding Modes}"
+                              ItemContainerStyle="{StaticResource InputComboBoxItemStyle}"
                               SelectedItem="{Binding SelectedMode}"
                               DisplayMemberPath="DisplayName" />
 
@@ -139,6 +219,7 @@
                                Text="Уровень абсурдности" />
                     <ComboBox Style="{StaticResource InputComboBoxStyle}"
                               ItemsSource="{Binding AbsurdityLevels}"
+                              ItemContainerStyle="{StaticResource InputComboBoxItemStyle}"
                               IsEnabled="{Binding IsAbsurditySelectionEnabled}"
                               SelectedItem="{Binding SelectedAbsurdityLevel}"
                               DisplayMemberPath="DisplayName" />
@@ -152,17 +233,13 @@
                                Text="Количество результатов" />
                     <ComboBox Style="{StaticResource InputComboBoxStyle}"
                               ItemsSource="{Binding ResultCountOptions}"
+                              ItemContainerStyle="{StaticResource InputComboBoxItemStyle}"
                               SelectedItem="{Binding ResultCount}" />
 
                     <Button Margin="0,24,0,0"
                             Style="{StaticResource PrimaryButtonStyle}"
                             Command="{Binding GenerateCommand}"
                             Content="Сгенерировать" />
-
-                    <Button Margin="0,10,0,0"
-                            Style="{StaticResource SecondaryButtonStyle}"
-                            Command="{Binding CopyCommand}"
-                            Content="Скопировать выбранное" />
 
                     <Button Margin="0,10,0,0"
                             Style="{StaticResource SecondaryButtonStyle}"
@@ -223,20 +300,19 @@
                         Margin="0,16,0,0"
                         Padding="10"
                         Style="{StaticResource SectionBorderStyle}">
-                    <ListBox ItemsSource="{Binding Results}"
+                    <ListBox x:Name="ResultsList"
+                             ItemsSource="{Binding Results}"
                              SelectedItem="{Binding SelectedResult}"
                              BorderThickness="0"
                              Background="Transparent"
                              HorizontalContentAlignment="Stretch"
                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                             ScrollViewer.VerticalScrollBarVisibility="Auto">
-                        <ListBox.ItemContainerStyle>
-                            <Style TargetType="ListBoxItem">
-                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                                <Setter Property="Padding" Value="0" />
-                                <Setter Property="Margin" Value="0,0,0,8" />
-                            </Style>
-                        </ListBox.ItemContainerStyle>
+                             ScrollViewer.VerticalScrollBarVisibility="Auto"
+                             ScrollViewer.CanContentScroll="False"
+                             ItemContainerStyle="{StaticResource ResultItemContainerStyle}">
+                        <ListBox.Resources>
+                            <Style TargetType="ScrollBar" BasedOn="{StaticResource SubtleScrollBarStyle}" />
+                        </ListBox.Resources>
                         <ListBox.ItemTemplate>
                             <DataTemplate DataType="{x:Type vm:ResultItemViewModel}">
                                 <Border Margin="4,2"
@@ -248,17 +324,44 @@
                                         BorderBrush="#FFE2DBD2"
                                         BorderThickness="1"
                                         CornerRadius="8">
+                                    <Border.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="Скопировать"
+                                                      Command="{Binding DataContext.CopyResultCommand, Source={x:Reference ResultsList}}"
+                                                      CommandParameter="{Binding}" />
+                                            <MenuItem Header="Удалить"
+                                                      Command="{Binding DataContext.RemoveResultCommand, Source={x:Reference ResultsList}}"
+                                                      CommandParameter="{Binding}" />
+                                        </ContextMenu>
+                                    </Border.ContextMenu>
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto" />
                                             <RowDefinition Height="Auto" />
                                         </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
 
                                         <TextBlock FontSize="12"
                                                    FontWeight="SemiBold"
                                                    Foreground="#FF6A6258"
                                                    Text="{Binding Header}" />
+                                        <StackPanel Grid.Column="1"
+                                                    Orientation="Horizontal">
+                                            <Button Style="{StaticResource ResultActionButtonStyle}"
+                                                    Command="{Binding DataContext.CopyResultCommand, Source={x:Reference ResultsList}}"
+                                                    CommandParameter="{Binding}"
+                                                    Content="Копировать" />
+                                            <Button Margin="8,0,0,0"
+                                                    Style="{StaticResource ResultActionButtonStyle}"
+                                                    Command="{Binding DataContext.RemoveResultCommand, Source={x:Reference ResultsList}}"
+                                                    CommandParameter="{Binding}"
+                                                    Content="Удалить" />
+                                        </StackPanel>
                                         <TextBlock Grid.Row="1"
+                                                   Grid.ColumnSpan="2"
                                                    Margin="0,10,0,0"
                                                    FontFamily="Georgia"
                                                    FontSize="{Binding DataContext.ResultTextFontSize, RelativeSource={RelativeSource AncestorType=ListBox}}"
