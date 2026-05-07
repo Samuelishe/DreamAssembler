@@ -229,6 +229,76 @@ public static class FallbackDataProvider
             },
             new TemplateDefinition
             {
+                Id = "sentence_character_condition_action_object",
+                Text = "{character} заметил, что {condition}, и после этого решил {action} {object}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["character", "condition", "action", "object"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["character"] = "character_subject",
+                    ["condition"] = "condition_scene_detail",
+                    ["action"] = "action_infinitive",
+                    ["object"] = "object_direct"
+                },
+                Tags = ["story", "scene", "city"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.9
+            },
+            new TemplateDefinition
+            {
+                Id = "sentence_character_action_object_concept",
+                Text = "{character} пытался {action} {object}, словно все это уже было почти как {concept}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["character", "action", "object", "concept"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["character"] = "character_subject",
+                    ["action"] = "action_infinitive",
+                    ["object"] = "object_direct",
+                    ["concept"] = "concept_reflection"
+                },
+                Tags = ["story", "concept", "quiet"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.8
+            },
+            new TemplateDefinition
+            {
+                Id = "sentence_place_atmosphere_twist",
+                Text = "В {place} обстановка оставалась {atmosphere}, пока {twist}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["place", "atmosphere", "twist"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in",
+                    ["atmosphere"] = "atmosphere_state",
+                    ["twist"] = "twist_general_clause"
+                },
+                Tags = ["mood", "scene", "story"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.9
+            },
+            new TemplateDefinition
+            {
+                Id = "sentence_place_clause_atmosphere_twist",
+                Text = "В {place} обстановка оставалась {atmosphere}, пока {twist}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["place", "atmosphere", "twist"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in_clause",
+                    ["atmosphere"] = "atmosphere_state",
+                    ["twist"] = "twist_general_clause"
+                },
+                Tags = ["mood", "scene", "surreal"],
+                MinAbsurdity = 1,
+                MaxAbsurdity = 3,
+                Weight = 0.8
+            },
+            new TemplateDefinition
+            {
                 Id = "shorttext_intro",
                 Text = "В {place} все началось с того, что {character} оказался рядом, когда понадобилось {action} {object}.",
                 Mode = GenerationMode.ShortText,
@@ -434,6 +504,107 @@ public static class FallbackDataProvider
             },
             new TemplateDefinition
             {
+                Id = "shorttext_character_twist",
+                Text = "{character} сначала думал, что сможет {action} {object}, но вскоре оказалось, что {twist}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["character", "action", "object", "twist"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["character"] = "character_subject",
+                    ["action"] = "action_infinitive",
+                    ["object"] = "object_direct",
+                    ["twist"] = "twist_character_clause"
+                },
+                CompositionRole = "development",
+                Tags = ["story", "surreal", "character"],
+                MinAbsurdity = 1,
+                MaxAbsurdity = 3,
+                Weight = 0.9
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_atmosphere_place",
+                Text = "Даже в {place} обстановка оставалась {atmosphere}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["place", "atmosphere"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in",
+                    ["atmosphere"] = "atmosphere_state"
+                },
+                CompositionRole = "scene",
+                Tags = ["mood", "scene", "quiet"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.8
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_atmosphere_place_clause",
+                Text = "Даже в {place} обстановка оставалась {atmosphere}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["place", "atmosphere"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in_clause",
+                    ["atmosphere"] = "atmosphere_state"
+                },
+                CompositionRole = "scene",
+                Tags = ["mood", "scene", "surreal"],
+                MinAbsurdity = 1,
+                MaxAbsurdity = 3,
+                Weight = 0.7
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_genre_turn",
+                Text = "Так постепенно получалось не событие, а {genre}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["genre"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["genre"] = "genre_label"
+                },
+                CompositionRole = "interpretation",
+                Tags = ["tone", "concept", "story"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.8
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_concept_name",
+                Text = "Тогда это начали считать чем-то вроде {concept}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["concept"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["concept"] = "concept_reflection"
+                },
+                CompositionRole = "reflection",
+                Tags = ["concept", "mood", "story"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.8
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_meta_style_turn",
+                Text = "В другом изложении это можно было бы подать {style}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["style"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["style"] = "style_note"
+                },
+                CompositionRole = "meta",
+                Tags = ["tone", "story", "quiet"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.7
+            },
+            new TemplateDefinition
+            {
                 Id = "shorttext_reaction",
                 Text = "Никто особенно не спорил, когда стало ясно, что {twist}.",
                 Mode = GenerationMode.ShortText,
@@ -535,6 +706,77 @@ public static class FallbackDataProvider
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
                 Weight = 0.9
+            },
+            new TemplateDefinition
+            {
+                Id = "idea_genre_character_action_object_condition",
+                Text = "Идея: {genre} о том, как {character} пытается {action} {object}, пока {condition}.",
+                Mode = GenerationMode.Idea,
+                RequiredCategories = ["genre", "character", "action", "object", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["genre"] = "genre_label",
+                    ["character"] = "character_subject",
+                    ["action"] = "action_infinitive",
+                    ["object"] = "object_direct",
+                    ["condition"] = "condition_initial_state"
+                },
+                Tags = ["story", "genre", "scene"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.9
+            },
+            new TemplateDefinition
+            {
+                Id = "idea_character_place_twist_style",
+                Text = "Идея: {character} в {place}, где {twist}. Подать это {style}.",
+                Mode = GenerationMode.Idea,
+                RequiredCategories = ["character", "place", "twist", "style"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["character"] = "character_subject",
+                    ["place"] = "place_in",
+                    ["twist"] = "twist_character_clause",
+                    ["style"] = "style_note"
+                },
+                Tags = ["story", "tone", "surreal"],
+                MinAbsurdity = 1,
+                MaxAbsurdity = 3,
+                Weight = 0.8
+            },
+            new TemplateDefinition
+            {
+                Id = "idea_condition_twist_genre",
+                Text = "Идея: сначала {condition}, потом {twist}. По жанру это {genre}.",
+                Mode = GenerationMode.Idea,
+                RequiredCategories = ["condition", "twist", "genre"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["condition"] = "condition_initial_state",
+                    ["twist"] = "twist_general_clause",
+                    ["genre"] = "genre_label"
+                },
+                Tags = ["story", "scene", "tone"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.8
+            },
+            new TemplateDefinition
+            {
+                Id = "idea_concept_place_style",
+                Text = "Идея: {concept}, но на материале {place} и с интонацией {style}.",
+                Mode = GenerationMode.Idea,
+                RequiredCategories = ["concept", "place", "style"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["concept"] = "concept_story_frame",
+                    ["place"] = "place_in",
+                    ["style"] = "style_note"
+                },
+                Tags = ["concept", "tone", "city"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.8
             }
         ];
     }

@@ -108,6 +108,68 @@
       "weight": 0.8
     },
     {
+      "id": "sentence_character_condition_action_object",
+      "text": "{character} заметил, что {condition}, и после этого решил {action} {object}.",
+      "mode": "Sentence",
+      "requiredCategories": ["character", "condition", "action", "object"],
+      "slotRequirements": {
+        "character": "character_subject",
+        "condition": "condition_scene_detail",
+        "action": "action_infinitive",
+        "object": "object_direct"
+      },
+      "tags": ["story", "scene", "city"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.9
+    },
+    {
+      "id": "sentence_character_action_object_concept",
+      "text": "{character} пытался {action} {object}, словно все это уже было почти как {concept}.",
+      "mode": "Sentence",
+      "requiredCategories": ["character", "action", "object", "concept"],
+      "slotRequirements": {
+        "character": "character_subject",
+        "action": "action_infinitive",
+        "object": "object_direct",
+        "concept": "concept_reflection"
+      },
+      "tags": ["story", "concept", "quiet"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "sentence_place_atmosphere_twist",
+      "text": "В {place} обстановка оставалась {atmosphere}, пока {twist}.",
+      "mode": "Sentence",
+      "requiredCategories": ["place", "atmosphere", "twist"],
+      "slotRequirements": {
+        "place": "place_in",
+        "atmosphere": "atmosphere_state",
+        "twist": "twist_general_clause"
+      },
+      "tags": ["mood", "scene", "story"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.9
+    },
+    {
+      "id": "sentence_place_clause_atmosphere_twist",
+      "text": "В {place} обстановка оставалась {atmosphere}, пока {twist}.",
+      "mode": "Sentence",
+      "requiredCategories": ["place", "atmosphere", "twist"],
+      "slotRequirements": {
+        "place": "place_in_clause",
+        "atmosphere": "atmosphere_state",
+        "twist": "twist_general_clause"
+      },
+      "tags": ["mood", "scene", "surreal"],
+      "minAbsurdity": 1,
+      "maxAbsurdity": 3,
+      "weight": 0.8
+    },
+    {
       "id": "idea_character_action_object_place_twist",
       "text": "Идея: {character} получает странное поручение: {action} {object} в {place}, и при этом {twist}.",
       "mode": "Idea",
@@ -199,6 +261,69 @@
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
       "weight": 0.9
+    },
+    {
+      "id": "idea_genre_character_action_object_condition",
+      "text": "Идея: {genre} о том, как {character} пытается {action} {object}, пока {condition}.",
+      "mode": "Idea",
+      "requiredCategories": ["genre", "character", "action", "object", "condition"],
+      "slotRequirements": {
+        "genre": "genre_label",
+        "character": "character_subject",
+        "action": "action_infinitive",
+        "object": "object_direct",
+        "condition": "condition_initial_state"
+      },
+      "tags": ["story", "genre", "scene"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.9
+    },
+    {
+      "id": "idea_character_place_twist_style",
+      "text": "Идея: {character} в {place}, где {twist}. Подать это {style}.",
+      "mode": "Idea",
+      "requiredCategories": ["character", "place", "twist", "style"],
+      "slotRequirements": {
+        "character": "character_subject",
+        "place": "place_in",
+        "twist": "twist_character_clause",
+        "style": "style_note"
+      },
+      "tags": ["story", "tone", "surreal"],
+      "minAbsurdity": 1,
+      "maxAbsurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "idea_condition_twist_genre",
+      "text": "Идея: сначала {condition}, потом {twist}. По жанру это {genre}.",
+      "mode": "Idea",
+      "requiredCategories": ["condition", "twist", "genre"],
+      "slotRequirements": {
+        "condition": "condition_initial_state",
+        "twist": "twist_general_clause",
+        "genre": "genre_label"
+      },
+      "tags": ["story", "scene", "tone"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "idea_concept_place_style",
+      "text": "Идея: {concept}, но на материале {place} и с интонацией {style}.",
+      "mode": "Idea",
+      "requiredCategories": ["concept", "place", "style"],
+      "slotRequirements": {
+        "concept": "concept_story_frame",
+        "place": "place_in",
+        "style": "style_note"
+      },
+      "tags": ["concept", "tone", "city"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.8
     },
     {
       "id": "shorttext_intro",
@@ -378,6 +503,95 @@
       "compositionRole": "scene",
       "tags": ["story", "scene", "surreal"],
       "minAbsurdity": 1,
+      "maxAbsurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "shorttext_character_twist",
+      "text": "{character} сначала думал, что сможет {action} {object}, но вскоре оказалось, что {twist}.",
+      "mode": "ShortText",
+      "requiredCategories": ["character", "action", "object", "twist"],
+      "slotRequirements": {
+        "character": "character_subject",
+        "action": "action_infinitive",
+        "object": "object_direct",
+        "twist": "twist_character_clause"
+      },
+      "compositionRole": "development",
+      "tags": ["story", "surreal", "character"],
+      "minAbsurdity": 1,
+      "maxAbsurdity": 3,
+      "weight": 0.9
+    },
+    {
+      "id": "shorttext_atmosphere_place",
+      "text": "Даже в {place} обстановка оставалась {atmosphere}.",
+      "mode": "ShortText",
+      "requiredCategories": ["place", "atmosphere"],
+      "slotRequirements": {
+        "place": "place_in",
+        "atmosphere": "atmosphere_state"
+      },
+      "compositionRole": "scene",
+      "tags": ["mood", "scene", "quiet"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "shorttext_atmosphere_place_clause",
+      "text": "Даже в {place} обстановка оставалась {atmosphere}.",
+      "mode": "ShortText",
+      "requiredCategories": ["place", "atmosphere"],
+      "slotRequirements": {
+        "place": "place_in_clause",
+        "atmosphere": "atmosphere_state"
+      },
+      "compositionRole": "scene",
+      "tags": ["mood", "scene", "surreal"],
+      "minAbsurdity": 1,
+      "maxAbsurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "shorttext_genre_turn",
+      "text": "Так постепенно получалось не событие, а {genre}.",
+      "mode": "ShortText",
+      "requiredCategories": ["genre"],
+      "slotRequirements": {
+        "genre": "genre_label"
+      },
+      "compositionRole": "interpretation",
+      "tags": ["tone", "concept", "story"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "shorttext_concept_name",
+      "text": "Тогда это начали считать чем-то вроде {concept}.",
+      "mode": "ShortText",
+      "requiredCategories": ["concept"],
+      "slotRequirements": {
+        "concept": "concept_reflection"
+      },
+      "compositionRole": "reflection",
+      "tags": ["concept", "mood", "story"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "shorttext_meta_style_turn",
+      "text": "В другом изложении это можно было бы подать {style}.",
+      "mode": "ShortText",
+      "requiredCategories": ["style"],
+      "slotRequirements": {
+        "style": "style_note"
+      },
+      "compositionRole": "meta",
+      "tags": ["tone", "story", "quiet"],
+      "minAbsurdity": 0,
       "maxAbsurdity": 3,
       "weight": 0.7
     },

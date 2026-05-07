@@ -127,6 +127,7 @@
 - добавлен первый крупный curated expansion pack в новые JSON-файлы по `character`, `place`, `object`, `action`, `condition`, `concept`, `twist`, `atmosphere`, с упором на архивность, транспорт, бюрократию, провинциальную инфраструктуру, дождь и ночные служебные пространства;
 - добавлен второй curated expansion pack по `emotion`, `style`, `genre` и дополнительным `place`, `condition`, `concept`, `twist`, чтобы `Idea` и `ShortText` стали сильнее не только по сценическим опорам, но и по tonal identity, observer-feel и quiet interpretive layer;
 - версия data-manifest поднята до `0.5.0`, потому что набор данных уже заметно вырос по core JSON-слою, а не только по локальным правкам;
+- после роста корпуса расширен и template-layer: в `templates.json` и fallback-шаблонах добавлен новый пакет `Sentence`, `Idea` и `ShortText` каркасов, чтобы свежие `concept`, `genre`, `style`, `atmosphere`, `condition` и `twist` не оставались недоиспользованными;
 
 ### Какие файлы изменены
 
