@@ -53,7 +53,51 @@
       "tags": ["quiet", "story", "daily"],
       "absurdity": 1,
       "weight": 0.9
+    },
+    {
+      "id": "tram_depot",
+      "text": "трамвайном депо",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["transport", "city", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "courtyard_boiler_room",
+      "text": "дворовой котельной",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["city", "industrial", "daily"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "district_post_office",
+      "text": "районном почтовом отделении",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["city", "bureaucracy", "daily"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "closed_passage",
+      "text": "закрытом подземном переходе",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["city", "night", "daily"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "roof_snack_kiosk",
+      "text": "киоске на крыше",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["city", "comic", "daily"],
+      "absurdity": 1,
+      "weight": 0.7
     }
   ]
 }
-

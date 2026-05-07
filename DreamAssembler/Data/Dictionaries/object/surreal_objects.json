@@ -53,6 +53,42 @@
       "tags": ["bureaucracy", "comic", "surreal", "compat:whisperable", "compat:rewriteable", "compat:portable"],
       "absurdity": 3,
       "weight": 0.7
+    },
+    {
+      "id": "pocket_orchestra",
+      "text": "карманный оркестр",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["comic", "surreal", "compat:portable", "compat:wakeable", "compat:whisperable"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "sleeping_neon_sign",
+      "text": "сонную неоновую вывеску",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["city", "surreal", "compat:repairable", "compat:wakeable", "compat:hideable"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "glass_keyhole",
+      "text": "стеклянную замочную скважину",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["surreal", "mystery", "compat:openable", "compat:portable", "compat:searchable", "compat:hideable"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "draft_of_someone_elses_voice",
+      "text": "черновик чужого голоса",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["language", "surreal", "compat:rewriteable", "compat:whisperable", "compat:hideable", "compat:portable"],
+      "absurdity": 3,
+      "weight": 0.7
     }
   ]
 }

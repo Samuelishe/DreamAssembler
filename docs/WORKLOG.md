@@ -61,6 +61,8 @@
 - для `action` и `object` введена смысловая совместимость через `compat:*`-теги;
 - `TextGeneratorService` теперь отдельно усиливает пары `action`/`object` с общими compat-ключами и резко штрафует несовместимые пары;
 - добавлен тест на выбор совместимой пары `action`/`object` даже при наличии более тяжелой, но семантически слабой альтернативы.
+- начато первое крупное расширение боевых JSON-словарей: увеличены `action`, `object`, `place`, `twist`, `condition` и `concept`;
+- после первого пакета данных `DreamAssembler.DataTools` показывает рост с 100 до 141 записей без ошибок структуры и покрытия.
 
 ### Какие файлы изменены
 
@@ -97,6 +99,7 @@
 - `DreamAssembler/Data/Dictionaries/action/surreal_actions.json`
 - `DreamAssembler/Data/Dictionaries/object/everyday_objects.json`
 - `DreamAssembler/Data/Dictionaries/object/surreal_objects.json`
+- `DreamAssembler/Data/Dictionaries/place/urban_places.json`
 - `DreamAssembler/Data/Templates/templates.json`
 - `DreamAssembler/MainWindow.xaml.cs`
 - `DreamAssembler/Services/IUserSettingsService.cs`
@@ -125,3 +128,4 @@
 - ранние short-text шаблоны берут только стартовые `condition`, а поздние reveal-шаблоны не используют начальные сценические состояния.
 - сложные `place` с придаточной частью попадают только в clause-шаблоны и не ломают запятые в вынесенных позициях.
 - пары `action`/`object` чаще выбираются по смысловой совместимости, а не только по общей странности и случайному весу.
+- первый крупный пакет данных реально увеличивает вариативность выдачи и не ломает manifest, slot-покрытие и валидацию.

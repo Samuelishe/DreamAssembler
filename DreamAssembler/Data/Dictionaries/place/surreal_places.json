@@ -44,6 +44,42 @@
       "tags": ["bureaucracy", "city"],
       "absurdity": 1,
       "weight": 0.8
+    },
+    {
+      "id": "corridor_of_echoes",
+      "text": "коридоре, где эхо отвечает раньше людей,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["surreal", "story", "quiet"],
+      "absurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "elevator_shaft_cafe",
+      "text": "кафе внутри лифтовой шахты",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["city", "comic", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "archive_of_wet_weather",
+      "text": "архиве дождливых прогнозов",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["weather", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "station_where_announcements_apologize",
+      "text": "станции, где объявления всегда извиняются заранее,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["transport", "city", "surreal"],
+      "absurdity": 3,
+      "weight": 0.8
     }
   ]
 }

@@ -35,6 +35,42 @@
       "tags": ["night", "surreal", "compat:wakeable"],
       "absurdity": 2,
       "weight": 0.8
+    },
+    {
+      "id": "rewrite_by_hand",
+      "text": "переписать от руки",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["language", "surreal", "compat:rewriteable"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "search_in_fog",
+      "text": "разыскать в тумане",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["mystery", "surreal", "compat:searchable"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "teach_to_breathe",
+      "text": "научить дышать ровно",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["surreal", "comic", "compat:wakeable"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "hide_in_plain_sight",
+      "text": "спрятать на самом видном месте",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["surreal", "story", "compat:hideable"],
+      "absurdity": 2,
+      "weight": 0.8
     }
   ]
 }

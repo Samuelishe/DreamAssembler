@@ -44,6 +44,51 @@
       "tags": ["city", "story", "compat:portable", "compat:searchable", "compat:hideable", "compat:protectable", "compat:rewriteable"],
       "absurdity": 0,
       "weight": 0.9
+    },
+    {
+      "id": "folded_route_sheet",
+      "text": "сложенный лист с маршрутом",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["transport", "daily", "compat:portable", "compat:searchable", "compat:rewriteable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "toolbox_without_handle",
+      "text": "ящик с инструментами без ручки",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["daily", "repair", "compat:portable", "compat:repairable", "compat:hideable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "sealed_envelope",
+      "text": "запечатанный конверт",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["daily", "story", "compat:openable", "compat:portable", "compat:hideable", "compat:exchangeable"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "woolen_scarf",
+      "text": "шерстяной шарф",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["daily", "weather", "compat:portable", "compat:protectable", "compat:hideable", "compat:exchangeable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "stack_of_receipts",
+      "text": "стопку старых квитанций",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["bureaucracy", "daily", "compat:portable", "compat:rewriteable", "compat:hideable", "compat:searchable"],
+      "absurdity": 1,
+      "weight": 0.7
     }
   ]
 }

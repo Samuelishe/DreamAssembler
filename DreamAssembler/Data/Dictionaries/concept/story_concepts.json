@@ -71,6 +71,51 @@
       "tags": ["night", "surreal"],
       "absurdity": 3,
       "weight": 0.7
+    },
+    {
+      "id": "small_office_conspiracy",
+      "text": "маленький служебный заговор",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["bureaucracy", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "portable_myth_of_city",
+      "text": "переносной миф о городе",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["city", "story", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "habit_of_disappearing_things",
+      "text": "привычка вещей исчезать без объяснений",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["surreal", "story"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "night_shift_epic",
+      "text": "эпос ночной смены",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["night", "story", "city"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "office_weather_inside_people",
+      "text": "внутренний климат служебных людей",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["bureaucracy", "mood", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
     }
   ]
 }

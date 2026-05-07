@@ -98,6 +98,51 @@
       "tags": ["night", "surreal"],
       "absurdity": 3,
       "weight": 0.7
+    },
+    {
+      "id": "stairs_change_direction",
+      "text": "лестница внезапно меняет направление разговора",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["surreal", "comic", "city"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "ticket_recognizes_him",
+      "text": "билет узнает его раньше кассира",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["transport", "comic", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "windows_require_report",
+      "text": "все окна требуют письменного объяснения",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["bureaucracy", "city", "comic"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "rain_thanks_him",
+      "text": "дождь вежливо благодарит его за терпение",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["weather", "comic", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "door_remembers_schedule",
+      "text": "дверь помнит его расписание лучше него",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["city", "memory", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
     }
   ]
 }

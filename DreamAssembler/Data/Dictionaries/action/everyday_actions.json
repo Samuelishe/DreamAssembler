@@ -62,6 +62,42 @@
       "tags": ["city", "daily", "compat:protectable"],
       "absurdity": 0,
       "weight": 0.9
+    },
+    {
+      "id": "unlock_before_dawn",
+      "text": "открыть до рассвета",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["night", "daily", "compat:openable"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "trade_quietly",
+      "text": "обменять без лишних вопросов",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["daily", "story", "compat:exchangeable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "carry_to_station",
+      "text": "донести до станции",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["transport", "daily", "compat:portable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "repair_in_silence",
+      "text": "чинить молча",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["daily", "quiet", "compat:repairable"],
+      "absurdity": 0,
+      "weight": 0.8
     }
   ]
 }

@@ -53,6 +53,51 @@
       "tags": ["bureaucracy", "surreal"],
       "absurdity": 3,
       "weight": 0.7
+    },
+    {
+      "id": "lamps_flickered_patiently",
+      "text": "лампы мигали с вежливым терпением",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["city", "night", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "everybody_avoided_eye_contact",
+      "text": "все старательно избегали встречаться взглядом",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["daily", "quiet", "story"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "ceiling_breathed_slowly",
+      "text": "потолок дышал медленно и сосредоточенно",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["surreal", "mood"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "air_smelt_of_ink",
+      "text": "воздух пах сырыми чернилами и железом",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["city", "story", "bureaucracy"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "nobody_spoke_above_whisper",
+      "text": "никто не решался говорить громче шепота",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["quiet", "story", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
     }
   ]
 }
