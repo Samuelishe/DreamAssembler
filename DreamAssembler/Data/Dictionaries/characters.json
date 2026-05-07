@@ -1,0 +1,37 @@
+{
+  "entries": [
+    {
+      "id": "tired_librarian",
+      "text": "уставший библиотекарь",
+      "category": "character",
+      "tags": ["city", "quiet", "daily"],
+      "absurdity": 0,
+      "weight": 1.2
+    },
+    {
+      "id": "night_cashier",
+      "text": "кассир из ночного магазина",
+      "category": "character",
+      "tags": ["city", "night", "daily"],
+      "absurdity": 0,
+      "weight": 1.1
+    },
+    {
+      "id": "pigeon_engineer",
+      "text": "голубь с дипломом инженера",
+      "category": "character",
+      "tags": ["city", "absurd", "comic"],
+      "absurdity": 2,
+      "weight": 1.0
+    },
+    {
+      "id": "accounting_brownie",
+      "text": "домовой из бухгалтерии",
+      "category": "character",
+      "tags": ["office", "absurd", "bureaucracy"],
+      "absurdity": 3,
+      "weight": 0.8
+    }
+  ]
+}
+

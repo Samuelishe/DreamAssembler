@@ -1,12 +1,204 @@
-﻿<Window x:Class="DreamAssembler.MainWindow"
+<Window x:Class="DreamAssembler.App.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DreamAssembler"
+        xmlns:vm="clr-namespace:DreamAssembler.App.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="DreamAssembler"
+        Width="1080"
+        Height="720"
+        MinWidth="960"
+        MinHeight="640"
+        Background="#FFF5F4EF">
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
 
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Padding="18"
+                Background="White"
+                BorderBrush="#FFD7D0C5"
+                BorderThickness="1"
+                CornerRadius="8">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2.6*" />
+                    <ColumnDefinition Width="1.4*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <TextBlock FontSize="28"
+                               FontWeight="SemiBold"
+                               Foreground="#FF2C2B28"
+                               Text="DreamAssembler" />
+                    <TextBlock Margin="0,8,0,0"
+                               Foreground="#FF5A5750"
+                               Text="Rule-based генератор русскоязычных предложений, коротких текстов и абсурдных идей." />
+                </StackPanel>
+
+                <Border Grid.Column="1"
+                        Padding="12"
+                        Background="#FFF8F1E4"
+                        BorderBrush="#FFE6D7C0"
+                        BorderThickness="1"
+                        CornerRadius="8">
+                    <StackPanel>
+                        <TextBlock FontWeight="SemiBold"
+                                   Foreground="#FF3E3A33"
+                                   Text="Статус данных" />
+                        <TextBlock Margin="0,8,0,0"
+                                   Foreground="{Binding IsFallbackActive, Converter={StaticResource BooleanToBrushConverter}}"
+                                   TextWrapping="Wrap"
+                                   Text="{Binding StatusMessage}" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1" Margin="0,16,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="320" />
+                <ColumnDefinition Width="16" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Padding="18"
+                    Background="White"
+                    BorderBrush="#FFD7D0C5"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                <StackPanel>
+                    <TextBlock FontSize="18"
+                               FontWeight="SemiBold"
+                               Foreground="#FF2C2B28"
+                               Text="Параметры" />
+
+                    <TextBlock Margin="0,18,0,6"
+                               Foreground="#FF4B4740"
+                               Text="Тип генерации" />
+                    <ComboBox ItemsSource="{Binding Modes}"
+                              SelectedItem="{Binding SelectedMode}"
+                              DisplayMemberPath="DisplayName" />
+
+                    <TextBlock Margin="0,18,0,6"
+                               Foreground="#FF4B4740"
+                               Text="Уровень абсурдности" />
+                    <ComboBox ItemsSource="{Binding AbsurdityLevels}"
+                              SelectedItem="{Binding SelectedAbsurdityLevel}"
+                              DisplayMemberPath="DisplayName" />
+
+                    <TextBlock Margin="0,18,0,6"
+                               Foreground="#FF4B4740"
+                               Text="Количество результатов" />
+                    <DockPanel>
+                        <Slider Minimum="1"
+                                Maximum="10"
+                                TickFrequency="1"
+                                IsSnapToTickEnabled="True"
+                                Value="{Binding ResultCount}" />
+                        <Border Margin="12,0,0,0"
+                                Padding="10,4"
+                                MinWidth="44"
+                                Background="#FFF0E7D9"
+                                CornerRadius="6">
+                            <TextBlock HorizontalAlignment="Center"
+                                       Text="{Binding ResultCount}" />
+                        </Border>
+                    </DockPanel>
+
+                    <Button Margin="0,24,0,0"
+                            Height="38"
+                            Command="{Binding GenerateCommand}"
+                            Content="Сгенерировать" />
+
+                    <Button Margin="0,10,0,0"
+                            Height="34"
+                            Command="{Binding CopyCommand}"
+                            Content="Скопировать выбранное" />
+
+                    <Button Margin="0,10,0,0"
+                            Height="34"
+                            Command="{Binding ClearHistoryCommand}"
+                            Content="Очистить историю" />
+                </StackPanel>
+            </Border>
+
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Border Padding="18"
+                        Background="White"
+                        BorderBrush="#FFD7D0C5"
+                        BorderThickness="1"
+                        CornerRadius="8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel>
+                            <TextBlock FontSize="18"
+                                       FontWeight="SemiBold"
+                                       Foreground="#FF2C2B28"
+                                       Text="Результаты" />
+                            <TextBlock Margin="0,6,0,0"
+                                       Foreground="#FF5A5750"
+                                       Text="{Binding SummaryText}" />
+                        </StackPanel>
+
+                        <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Top"
+                                   Foreground="#FF857E73"
+                                   Text="{Binding LastGeneratedAtText}" />
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="1"
+                        Margin="0,16,0,0"
+                        Padding="8"
+                        Background="White"
+                        BorderBrush="#FFD7D0C5"
+                        BorderThickness="1"
+                        CornerRadius="8">
+                    <ListBox ItemsSource="{Binding Results}"
+                             SelectedItem="{Binding SelectedResult}"
+                             BorderThickness="0"
+                             Background="Transparent">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="{x:Type vm:ResultItemViewModel}">
+                                <Border Margin="6"
+                                        Padding="12"
+                                        Background="#FFF9F7F3"
+                                        BorderBrush="#FFE2DBD2"
+                                        BorderThickness="1"
+                                        CornerRadius="6">
+                                    <StackPanel>
+                                        <TextBlock FontWeight="SemiBold"
+                                                   Foreground="#FF4E4A44"
+                                                   Text="{Binding Header}" />
+                                        <TextBlock Margin="0,8,0,0"
+                                                   TextWrapping="Wrap"
+                                                   Foreground="#FF272622"
+                                                   Text="{Binding Text}" />
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Border>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
+

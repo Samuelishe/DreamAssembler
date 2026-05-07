@@ -1,0 +1,21 @@
+{
+  "entries": [
+    {
+      "id": "quiet_rebellion",
+      "text": "тихий бунт предметов",
+      "category": "concept",
+      "tags": ["story", "absurd"],
+      "absurdity": 2,
+      "weight": 0.9
+    },
+    {
+      "id": "small_city_secret",
+      "text": "маленькая городская тайна",
+      "category": "concept",
+      "tags": ["story", "daily"],
+      "absurdity": 0,
+      "weight": 1.0
+    }
+  ]
+}
+

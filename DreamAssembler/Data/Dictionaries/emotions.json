@@ -1,0 +1,21 @@
+{
+  "entries": [
+    {
+      "id": "melancholic",
+      "text": "меланхоличной",
+      "category": "emotion",
+      "tags": ["mood"],
+      "absurdity": 0,
+      "weight": 1.0
+    },
+    {
+      "id": "suspiciously_cheerful",
+      "text": "подозрительно бодрой",
+      "category": "emotion",
+      "tags": ["mood", "comic"],
+      "absurdity": 1,
+      "weight": 0.9
+    }
+  ]
+}
+

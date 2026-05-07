@@ -1,0 +1,37 @@
+{
+  "entries": [
+    {
+      "id": "hide",
+      "text": "спрятать",
+      "category": "action",
+      "tags": ["secret", "daily"],
+      "absurdity": 0,
+      "weight": 1.0
+    },
+    {
+      "id": "open",
+      "text": "открыть",
+      "category": "action",
+      "tags": ["business", "daily"],
+      "absurdity": 0,
+      "weight": 1.0
+    },
+    {
+      "id": "search_manual_for",
+      "text": "искать инструкцию к",
+      "category": "action",
+      "tags": ["mystery", "surreal"],
+      "absurdity": 2,
+      "weight": 0.9
+    },
+    {
+      "id": "teach_to_whisper",
+      "text": "научить шептать",
+      "category": "action",
+      "tags": ["surreal", "comic"],
+      "absurdity": 3,
+      "weight": 0.8
+    }
+  ]
+}
+

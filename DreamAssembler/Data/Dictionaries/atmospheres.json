@@ -1,0 +1,29 @@
+{
+  "entries": [
+    {
+      "id": "foggy",
+      "text": "туманной",
+      "category": "atmosphere",
+      "tags": ["mood", "quiet"],
+      "absurdity": 0,
+      "weight": 1.0
+    },
+    {
+      "id": "whispering",
+      "text": "шепчущей",
+      "category": "atmosphere",
+      "tags": ["mood", "surreal"],
+      "absurdity": 2,
+      "weight": 0.9
+    },
+    {
+      "id": "bureaucratically_tense",
+      "text": "бюрократически напряженной",
+      "category": "atmosphere",
+      "tags": ["office", "comic"],
+      "absurdity": 2,
+      "weight": 0.8
+    }
+  ]
+}
+

@@ -1,0 +1,37 @@
+{
+  "entries": [
+    {
+      "id": "rusty_elevator",
+      "text": "ржавый лифт",
+      "category": "object",
+      "tags": ["city", "decay", "industrial"],
+      "absurdity": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "forgotten_alarm_clocks",
+      "text": "забытые будильники",
+      "category": "object",
+      "tags": ["home", "absurd", "daily"],
+      "absurdity": 2,
+      "weight": 1.0
+    },
+    {
+      "id": "own_voice",
+      "text": "собственный голос",
+      "category": "object",
+      "tags": ["inner", "surreal"],
+      "absurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "old_kettle",
+      "text": "старый чайник",
+      "category": "object",
+      "tags": ["home", "daily"],
+      "absurdity": 0,
+      "weight": 1.0
+    }
+  ]
+}
+

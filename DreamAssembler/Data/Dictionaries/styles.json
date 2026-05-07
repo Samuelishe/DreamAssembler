@@ -1,0 +1,21 @@
+{
+  "entries": [
+    {
+      "id": "deadpan_style",
+      "text": "с серьезной интонацией",
+      "category": "style",
+      "tags": ["tone", "dry"],
+      "absurdity": 0,
+      "weight": 1.0
+    },
+    {
+      "id": "dreamlike_style",
+      "text": "как будто это забытый сон",
+      "category": "style",
+      "tags": ["tone", "surreal"],
+      "absurdity": 2,
+      "weight": 0.9
+    }
+  ]
+}
+

@@ -1,0 +1,107 @@
+using DreamAssembler.Core.Enums;
+using DreamAssembler.Core.Models;
+
+namespace DreamAssembler.Core.Services;
+
+/// <summary>
+/// Предоставляет минимальные встроенные данные на случай отсутствия JSON-файлов.
+/// </summary>
+public static class FallbackDataProvider
+{
+    /// <summary>
+    /// Возвращает минимальный набор словарных записей.
+    /// </summary>
+    public static IReadOnlyList<DictionaryEntry> GetDictionaryEntries()
+    {
+        return
+        [
+            new DictionaryEntry { Id = "tired_librarian", Text = "уставший библиотекарь", Category = "character", Tags = ["city", "quiet"], Absurdity = 0, Weight = 1.2 },
+            new DictionaryEntry { Id = "pigeon_engineer", Text = "голубь с дипломом инженера", Category = "character", Tags = ["city", "absurd"], Absurdity = 2, Weight = 1.0 },
+            new DictionaryEntry { Id = "accounting_brownie", Text = "домовой из бухгалтерии", Category = "character", Tags = ["office", "absurd"], Absurdity = 3, Weight = 0.8 },
+            new DictionaryEntry { Id = "hide", Text = "спрятать", Category = "action", Tags = ["secret"], Absurdity = 0, Weight = 1.0 },
+            new DictionaryEntry { Id = "open", Text = "открыть", Category = "action", Tags = ["business"], Absurdity = 0, Weight = 1.0 },
+            new DictionaryEntry { Id = "search_manual", Text = "искать инструкцию к", Category = "action", Tags = ["mystery"], Absurdity = 2, Weight = 0.9 },
+            new DictionaryEntry { Id = "rusty_elevator", Text = "ржавый лифт", Category = "object", Tags = ["city", "decay", "industrial"], Absurdity = 1, Weight = 1.0 },
+            new DictionaryEntry { Id = "forgotten_alarm_clocks", Text = "забытые будильники", Category = "object", Tags = ["home", "absurd"], Absurdity = 2, Weight = 1.0 },
+            new DictionaryEntry { Id = "own_voice", Text = "собственный голос", Category = "object", Tags = ["inner", "absurd"], Absurdity = 3, Weight = 0.8 },
+            new DictionaryEntry { Id = "night_pharmacy", Text = "круглосуточной аптеке", Category = "place", Tags = ["city", "night"], Absurdity = 0, Weight = 1.1 },
+            new DictionaryEntry { Id = "inward_windows_city", Text = "городе, где все окна смотрят внутрь людей", Category = "place", Tags = ["city", "surreal"], Absurdity = 3, Weight = 0.9 },
+            new DictionaryEntry { Id = "night_shop", Text = "ночном магазине", Category = "place", Tags = ["city", "night"], Absurdity = 0, Weight = 1.0 },
+            new DictionaryEntry { Id = "people_remember_childhood", Text = "каждый посетитель помнит его детство", Category = "twist", Tags = ["memory", "absurd"], Absurdity = 2, Weight = 1.0 },
+            new DictionaryEntry { Id = "truth_tuesday", Text = "по вторникам запрещено говорить правду", Category = "twist", Tags = ["rule", "absurd"], Absurdity = 3, Weight = 1.0 },
+            new DictionaryEntry { Id = "no_noise_after_midnight", Text = "ему запретили шуметь после полуночи", Category = "twist", Tags = ["rule", "night"], Absurdity = 1, Weight = 1.0 },
+            new DictionaryEntry { Id = "foggy", Text = "туманной", Category = "atmosphere", Tags = ["mood"], Absurdity = 0, Weight = 1.0 },
+            new DictionaryEntry { Id = "whispering", Text = "шепчущей", Category = "atmosphere", Tags = ["mood", "surreal"], Absurdity = 2, Weight = 0.9 },
+            new DictionaryEntry { Id = "melancholic", Text = "меланхоличной", Category = "emotion", Tags = ["mood"], Absurdity = 0, Weight = 1.0 },
+            new DictionaryEntry { Id = "bureaucratic_fantasy", Text = "бюрократическое фэнтези", Category = "genre", Tags = ["story"], Absurdity = 2, Weight = 0.8 },
+            new DictionaryEntry { Id = "deadpan_style", Text = "с серьезной интонацией", Category = "style", Tags = ["tone"], Absurdity = 0, Weight = 1.0 },
+            new DictionaryEntry { Id = "quiet_rebellion", Text = "тихий бунт предметов", Category = "concept", Tags = ["story", "absurd"], Absurdity = 2, Weight = 0.9 }
+        ];
+    }
+
+    /// <summary>
+    /// Возвращает минимальный набор шаблонов.
+    /// </summary>
+    public static IReadOnlyList<TemplateDefinition> GetTemplates()
+    {
+        return
+        [
+            new TemplateDefinition
+            {
+                Id = "sentence_character_action_object_place_twist",
+                Text = "{character} должен {action} {object} в {place}, но {twist}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["character", "action", "object", "place", "twist"],
+                Tags = ["story"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 1.0
+            },
+            new TemplateDefinition
+            {
+                Id = "sentence_place_character_action_object",
+                Text = "В {place} {character} пытается {action} {object}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["place", "character", "action", "object"],
+                Tags = ["scene"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 1.0
+            },
+            new TemplateDefinition
+            {
+                Id = "idea_character_action_object_place_twist",
+                Text = "Идея: {character} должен {action} {object} в {place}, и при этом {twist}.",
+                Mode = GenerationMode.Idea,
+                RequiredCategories = ["character", "action", "object", "place", "twist"],
+                Tags = ["story", "concept"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 1.1
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_intro",
+                Text = "В {place} все началось с того, что {character} решил {action} {object}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["place", "character", "action", "object"],
+                Tags = ["story"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 1.0
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_twist",
+                Text = "Обстановка стала {atmosphere}, потому что {twist}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["atmosphere", "twist"],
+                Tags = ["story", "mood"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 1.0
+            }
+        ];
+    }
+}
+

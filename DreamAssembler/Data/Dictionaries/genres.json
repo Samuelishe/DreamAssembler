@@ -1,0 +1,21 @@
+{
+  "entries": [
+    {
+      "id": "bureaucratic_fantasy",
+      "text": "бюрократическое фэнтези",
+      "category": "genre",
+      "tags": ["story", "absurd"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "city_parable",
+      "text": "городская притча",
+      "category": "genre",
+      "tags": ["story", "daily"],
+      "absurdity": 0,
+      "weight": 1.0
+    }
+  ]
+}
+

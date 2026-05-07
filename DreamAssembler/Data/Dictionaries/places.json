@@ -1,0 +1,37 @@
+{
+  "entries": [
+    {
+      "id": "night_pharmacy",
+      "text": "круглосуточной аптеке",
+      "category": "place",
+      "tags": ["city", "night"],
+      "absurdity": 0,
+      "weight": 1.1
+    },
+    {
+      "id": "night_shop",
+      "text": "ночном магазине",
+      "category": "place",
+      "tags": ["city", "night", "daily"],
+      "absurdity": 0,
+      "weight": 1.0
+    },
+    {
+      "id": "inside_windows_city",
+      "text": "городе, где все окна смотрят внутрь людей",
+      "category": "place",
+      "tags": ["city", "surreal"],
+      "absurdity": 3,
+      "weight": 0.9
+    },
+    {
+      "id": "empty_platform",
+      "text": "пустой платформе метро",
+      "category": "place",
+      "tags": ["city", "transport", "daily"],
+      "absurdity": 1,
+      "weight": 1.0
+    }
+  ]
+}
+

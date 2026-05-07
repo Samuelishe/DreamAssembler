@@ -1,9 +1,9 @@
-﻿<Application x:Class="DreamAssembler.App"
+<Application x:Class="DreamAssembler.App.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:DreamAssembler"
+             xmlns:converters="clr-namespace:DreamAssembler.App.Converters"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <converters:BooleanToBrushConverter x:Key="BooleanToBrushConverter" />
     </Application.Resources>
 </Application>

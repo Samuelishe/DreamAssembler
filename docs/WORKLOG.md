@@ -1,0 +1,56 @@
+# Журнал изменений
+
+## 2026-05-07
+
+### Что сделано
+
+- создан план первого этапа;
+- добавлена структура документации;
+- подготовлена архитектура решения с разделением на `DreamAssembler.Core` и `DreamAssembler.App`;
+- реализован MVP-генератор, загрузка JSON и fallback-данные;
+- добавлен WPF-интерфейс на MVVM;
+- добавлены стартовые словари и шаблоны.
+
+### Что сделано после уточнения по ведению проекта
+
+- добавлен быстрый индекс для новых сессий и агентов;
+- добавлен отдельный документ с текущим состоянием проекта;
+- добавлен backlog идей, которые еще не стали планом;
+- добавлен корневой `README.md` для GitHub;
+- расширен `.gitignore` под Rider, .NET и служебные артефакты.
+- папка `docs` добавлена в `DreamAssembler.sln` как solution folder, чтобы она отображалась в панели Solution.
+
+### Какие файлы изменены
+
+- `docs/README.md`
+- `docs/ARCHITECTURE.md`
+- `docs/ROADMAP.md`
+- `docs/WORKLOG.md`
+- `docs/DICTIONARY_FORMAT.md`
+- `docs/SESSION_INDEX.md`
+- `docs/PROJECT_STATE.md`
+- `docs/IDEAS_BACKLOG.md`
+- `docs/PROMPTS_FOR_DATA.md`
+- `README.md`
+- `DreamAssembler.sln`
+- `.gitignore`
+- `DreamAssembler/DreamAssembler.csproj`
+- `DreamAssembler/App.xaml`
+- `DreamAssembler/App.xaml.cs`
+- `DreamAssembler/MainWindow.xaml`
+- `DreamAssembler/MainWindow.xaml.cs`
+- `DreamAssembler/Data/Dictionaries/*.json`
+- `DreamAssembler/Data/Templates/templates.json`
+- `DreamAssembler/ViewModels/*`
+- `DreamAssembler/Services/*`
+- `DreamAssembler/Converters/*`
+- `DreamAssembler.Core/*`
+
+### Что проверить
+
+- проект собирается;
+- при наличии JSON используются данные из файлов;
+- при повреждении или отсутствии JSON отображается fallback-сообщение;
+- генерация работает для всех трех режимов;
+- копирование и очистка истории работают в UI.
+- новые сессии могут быстро понять состояние проекта по `docs/SESSION_INDEX.md`.

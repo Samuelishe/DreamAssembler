@@ -1,0 +1,75 @@
+{
+  "templates": [
+    {
+      "id": "sentence_character_action_object_place_twist",
+      "text": "{character} должен {action} {object} в {place}, но {twist}.",
+      "mode": "Sentence",
+      "requiredCategories": ["character", "action", "object", "place", "twist"],
+      "tags": ["story", "city"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 1.0
+    },
+    {
+      "id": "sentence_place_character_action_object",
+      "text": "В {place} {character} пытается {action} {object}.",
+      "mode": "Sentence",
+      "requiredCategories": ["place", "character", "action", "object"],
+      "tags": ["scene", "daily"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 1.0
+    },
+    {
+      "id": "idea_character_action_object_place_twist",
+      "text": "Идея: {character} должен {action} {object} в {place}, и при этом {twist}.",
+      "mode": "Idea",
+      "requiredCategories": ["character", "action", "object", "place", "twist"],
+      "tags": ["concept", "story"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 1.1
+    },
+    {
+      "id": "idea_genre_concept_style",
+      "text": "Идея: {genre} про {concept}, рассказанная {style}.",
+      "mode": "Idea",
+      "requiredCategories": ["genre", "concept", "style"],
+      "tags": ["concept", "tone"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.9
+    },
+    {
+      "id": "shorttext_intro",
+      "text": "В {place} все началось с того, что {character} решил {action} {object}.",
+      "mode": "ShortText",
+      "requiredCategories": ["place", "character", "action", "object"],
+      "tags": ["story", "daily"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 1.0
+    },
+    {
+      "id": "shorttext_twist",
+      "text": "Обстановка стала {atmosphere}, потому что {twist}.",
+      "mode": "ShortText",
+      "requiredCategories": ["atmosphere", "twist"],
+      "tags": ["story", "mood"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 1.0
+    },
+    {
+      "id": "shorttext_reflection",
+      "text": "Из-за этого настроение стало {emotion}, и всем показалось, что это {concept}.",
+      "mode": "ShortText",
+      "requiredCategories": ["emotion", "concept"],
+      "tags": ["story", "mood", "concept"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.9
+    }
+  ]
+}
+

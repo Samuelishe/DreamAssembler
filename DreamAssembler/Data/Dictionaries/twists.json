@@ -1,0 +1,37 @@
+{
+  "entries": [
+    {
+      "id": "remember_childhood",
+      "text": "каждый посетитель помнит его детство",
+      "category": "twist",
+      "tags": ["memory", "absurd"],
+      "absurdity": 2,
+      "weight": 1.0
+    },
+    {
+      "id": "truth_tuesday",
+      "text": "по вторникам запрещено говорить правду",
+      "category": "twist",
+      "tags": ["rule", "absurd"],
+      "absurdity": 3,
+      "weight": 1.0
+    },
+    {
+      "id": "no_noise_after_midnight",
+      "text": "ему запретили шуметь после полуночи",
+      "category": "twist",
+      "tags": ["rule", "night"],
+      "absurdity": 1,
+      "weight": 1.0
+    },
+    {
+      "id": "queue_applauds",
+      "text": "очередь начала ему аплодировать",
+      "category": "twist",
+      "tags": ["crowd", "comic"],
+      "absurdity": 2,
+      "weight": 0.9
+    }
+  ]
+}
+

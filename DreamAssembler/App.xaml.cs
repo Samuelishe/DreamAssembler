@@ -1,11 +1,9 @@
-﻿using System.Configuration;
-using System.Data;
 using System.Windows;
 
-namespace DreamAssembler;
+namespace DreamAssembler.App;
 
 /// <summary>
-/// Interaction logic for App.xaml
+/// Представляет точку входа WPF-приложения.
 /// </summary>
 public partial class App : Application
 {
