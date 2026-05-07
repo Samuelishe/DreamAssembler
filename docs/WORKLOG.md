@@ -49,6 +49,8 @@
 - `ShortText` больше не должен начинаться с meta-ремарки и не должен набиваться несколькими одинаковыми meta-шаблонами при наличии альтернатив;
 - часть `emotion`-данных разведена по slot-подтипам `emotion_group_state` и `emotion_observer_state`;
 - обновлены short-text шаблоны и fallback-данные, чтобы снизить количество повторов и убрать часть неестественных связок.
+- `twist` разделен на `twist_character_clause` и `twist_general_clause`, чтобы местоименные конструкции выбирались только там, где в шаблоне есть явный персонаж;
+- добавлен тест на соблюдение персонального twist-slot и синхронизированы fallback-данные с новой схемой.
 
 ### Какие файлы изменены
 
@@ -77,6 +79,7 @@
 - `DreamAssembler.Core.Tests/Services/TextGeneratorServiceTests.cs`
 - `DreamAssembler/Data/Dictionaries/emotion/predicative_states.json`
 - `DreamAssembler/Data/Dictionaries/atmosphere/scene_tones.json`
+- `DreamAssembler/Data/Dictionaries/twist/rules_and_reactions.json`
 - `DreamAssembler/Data/Templates/templates.json`
 - `DreamAssembler/MainWindow.xaml.cs`
 - `DreamAssembler/Services/IUserSettingsService.cs`
@@ -100,3 +103,4 @@
 - длинные результаты корректно переносятся по строкам в узком окне и не обрезаются визуально.
 - новые улучшения генерации уменьшают количество повторяющихся вводных фраз и слабых сочетаний.
 - `ShortText` не начинается с meta-фразы и не повторяет ее несколько раз в одной генерации при наличии других шаблонов.
+- местоименные twist-конструкции не попадают в шаблоны, которые ждут общий безличный twist без явной опоры на персонажа.

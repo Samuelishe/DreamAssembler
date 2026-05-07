@@ -4,7 +4,7 @@
       "id": "remember_childhood",
       "text": "каждый посетитель помнит его детство",
       "category": "twist",
-      "slot": "twist_clause",
+      "slot": "twist_character_clause",
       "tags": ["memory", "absurd"],
       "absurdity": 2,
       "weight": 1.0
@@ -13,7 +13,7 @@
       "id": "truth_tuesday",
       "text": "по вторникам запрещено говорить правду",
       "category": "twist",
-      "slot": "twist_clause",
+      "slot": "twist_general_clause",
       "tags": ["rule", "absurd"],
       "absurdity": 3,
       "weight": 1.0
@@ -22,7 +22,7 @@
       "id": "no_noise_after_midnight",
       "text": "ему запретили шуметь после полуночи",
       "category": "twist",
-      "slot": "twist_clause",
+      "slot": "twist_character_clause",
       "tags": ["rule", "night"],
       "absurdity": 1,
       "weight": 1.0
@@ -31,7 +31,7 @@
       "id": "queue_applauds",
       "text": "очередь начала ему аплодировать",
       "category": "twist",
-      "slot": "twist_clause",
+      "slot": "twist_character_clause",
       "tags": ["crowd", "comic"],
       "absurdity": 2,
       "weight": 0.9
@@ -40,7 +40,7 @@
       "id": "every_lamp_disagrees",
       "text": "каждый фонарь с ним не согласен",
       "category": "twist",
-      "slot": "twist_clause",
+      "slot": "twist_character_clause",
       "tags": ["city", "surreal"],
       "absurdity": 2,
       "weight": 0.9
@@ -49,7 +49,7 @@
       "id": "room_keeps_minutes",
       "text": "комната ведет протокол их разговора",
       "category": "twist",
-      "slot": "twist_clause",
+      "slot": "twist_character_clause",
       "tags": ["bureaucracy", "surreal"],
       "absurdity": 3,
       "weight": 0.8
@@ -58,7 +58,7 @@
       "id": "all_doors_wait_for_permission",
       "text": "все двери ждут письменного разрешения",
       "category": "twist",
-      "slot": "twist_clause",
+      "slot": "twist_general_clause",
       "tags": ["bureaucracy", "comic"],
       "absurdity": 2,
       "weight": 0.8
@@ -67,7 +67,7 @@
       "id": "tram_bell_answers_first",
       "text": "трамвайный звонок отвечает раньше него",
       "category": "twist",
-      "slot": "twist_clause",
+      "slot": "twist_character_clause",
       "tags": ["transport", "surreal"],
       "absurdity": 2,
       "weight": 0.8
@@ -76,7 +76,7 @@
       "id": "rain_refuses_to_fall",
       "text": "дождь отказывается падать без согласования",
       "category": "twist",
-      "slot": "twist_clause",
+      "slot": "twist_general_clause",
       "tags": ["bureaucracy", "weather", "comic"],
       "absurdity": 3,
       "weight": 0.7
@@ -85,7 +85,7 @@
       "id": "building_remembers_name",
       "text": "само здание знает его по имени",
       "category": "twist",
-      "slot": "twist_clause",
+      "slot": "twist_character_clause",
       "tags": ["city", "story"],
       "absurdity": 1,
       "weight": 0.8
@@ -94,11 +94,10 @@
       "id": "silence_becomes_louder",
       "text": "тишина внезапно становится громче сирены",
       "category": "twist",
-      "slot": "twist_clause",
+      "slot": "twist_general_clause",
       "tags": ["night", "surreal"],
       "absurdity": 3,
       "weight": 0.7
     }
   ]
 }
-

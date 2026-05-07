@@ -10,7 +10,7 @@
         "action": "action_infinitive",
         "object": "object_direct",
         "place": "place_in",
-        "twist": "twist_clause"
+        "twist": "twist_character_clause"
       },
       "tags": ["story", "city"],
       "minAbsurdity": 0,
@@ -41,7 +41,7 @@
       "slotRequirements": {
         "character": "character_subject",
         "place": "place_in",
-        "twist": "twist_clause"
+        "twist": "twist_character_clause"
       },
       "tags": ["story", "surreal"],
       "minAbsurdity": 1,
@@ -87,7 +87,7 @@
         "action": "action_infinitive",
         "object": "object_direct",
         "place": "place_in",
-        "twist": "twist_clause"
+        "twist": "twist_character_clause"
       },
       "tags": ["concept", "story"],
       "minAbsurdity": 0,
@@ -179,7 +179,7 @@
       "requiredCategories": ["atmosphere", "twist"],
       "slotRequirements": {
         "atmosphere": "atmosphere_state",
-        "twist": "twist_clause"
+        "twist": "twist_general_clause"
       },
       "compositionRole": "development",
       "tags": ["story", "mood"],
@@ -266,7 +266,7 @@
       "mode": "ShortText",
       "requiredCategories": ["twist"],
       "slotRequirements": {
-        "twist": "twist_clause"
+        "twist": "twist_general_clause"
       },
       "compositionRole": "reaction",
       "tags": ["story", "quiet", "rule"],

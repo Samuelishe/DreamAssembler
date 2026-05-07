@@ -34,11 +34,11 @@ public static class FallbackDataProvider
             new DictionaryEntry { Id = "night_shop", Text = "ночном магазине", Category = "place", Slot = "place_in", Tags = ["city", "night"], Absurdity = 0, Weight = 1.0 },
             new DictionaryEntry { Id = "courtyard_with_radio", Text = "дворе, где старое радио знает все новости заранее", Category = "place", Slot = "place_in", Tags = ["city", "surreal"], Absurdity = 2, Weight = 0.9 },
             new DictionaryEntry { Id = "library_basement", Text = "подвале библиотеки", Category = "place", Slot = "place_in", Tags = ["quiet", "story"], Absurdity = 1, Weight = 0.9 },
-            new DictionaryEntry { Id = "people_remember_childhood", Text = "каждый посетитель помнит его детство", Category = "twist", Slot = "twist_clause", Tags = ["memory", "absurd"], Absurdity = 2, Weight = 1.0 },
-            new DictionaryEntry { Id = "truth_tuesday", Text = "по вторникам запрещено говорить правду", Category = "twist", Slot = "twist_clause", Tags = ["rule", "absurd"], Absurdity = 3, Weight = 1.0 },
-            new DictionaryEntry { Id = "no_noise_after_midnight", Text = "ему запретили шуметь после полуночи", Category = "twist", Slot = "twist_clause", Tags = ["rule", "night"], Absurdity = 1, Weight = 1.0 },
-            new DictionaryEntry { Id = "every_lamp_disagrees", Text = "каждый фонарь с ним не согласен", Category = "twist", Slot = "twist_clause", Tags = ["city", "surreal"], Absurdity = 2, Weight = 0.9 },
-            new DictionaryEntry { Id = "building_remembers_name", Text = "само здание знает его по имени", Category = "twist", Slot = "twist_clause", Tags = ["city", "story"], Absurdity = 1, Weight = 0.8 },
+            new DictionaryEntry { Id = "people_remember_childhood", Text = "каждый посетитель помнит его детство", Category = "twist", Slot = "twist_character_clause", Tags = ["memory", "absurd"], Absurdity = 2, Weight = 1.0 },
+            new DictionaryEntry { Id = "truth_tuesday", Text = "по вторникам запрещено говорить правду", Category = "twist", Slot = "twist_general_clause", Tags = ["rule", "absurd"], Absurdity = 3, Weight = 1.0 },
+            new DictionaryEntry { Id = "no_noise_after_midnight", Text = "ему запретили шуметь после полуночи", Category = "twist", Slot = "twist_character_clause", Tags = ["rule", "night"], Absurdity = 1, Weight = 1.0 },
+            new DictionaryEntry { Id = "every_lamp_disagrees", Text = "каждый фонарь с ним не согласен", Category = "twist", Slot = "twist_character_clause", Tags = ["city", "surreal"], Absurdity = 2, Weight = 0.9 },
+            new DictionaryEntry { Id = "building_remembers_name", Text = "само здание знает его по имени", Category = "twist", Slot = "twist_character_clause", Tags = ["city", "story"], Absurdity = 1, Weight = 0.8 },
             new DictionaryEntry { Id = "foggy", Text = "туманной", Category = "atmosphere", Slot = "atmosphere_state", Tags = ["mood"], Absurdity = 0, Weight = 1.0 },
             new DictionaryEntry { Id = "whispering", Text = "шепчущей", Category = "atmosphere", Slot = "atmosphere_state", Tags = ["mood", "surreal"], Absurdity = 2, Weight = 0.9 },
             new DictionaryEntry { Id = "ceremonially_quiet", Text = "церемонно тихой", Category = "atmosphere", Slot = "atmosphere_state", Tags = ["quiet", "story"], Absurdity = 1, Weight = 0.9 },
@@ -80,7 +80,7 @@ public static class FallbackDataProvider
                     ["action"] = "action_infinitive",
                     ["object"] = "object_direct",
                     ["place"] = "place_in",
-                    ["twist"] = "twist_clause"
+                    ["twist"] = "twist_character_clause"
                 },
                 Tags = ["story"],
                 MinAbsurdity = 0,
@@ -115,7 +115,7 @@ public static class FallbackDataProvider
                 {
                     ["character"] = "character_subject",
                     ["place"] = "place_in",
-                    ["twist"] = "twist_clause"
+                    ["twist"] = "twist_character_clause"
                 },
                 Tags = ["story", "surreal"],
                 MinAbsurdity = 1,
@@ -166,7 +166,7 @@ public static class FallbackDataProvider
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
                 {
                     ["atmosphere"] = "atmosphere_state",
-                    ["twist"] = "twist_clause"
+                    ["twist"] = "twist_general_clause"
                 },
                 CompositionRole = "development",
                 Tags = ["story", "mood"],
@@ -265,10 +265,10 @@ public static class FallbackDataProvider
                 RequiredCategories = ["twist"],
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
                 {
-                    ["twist"] = "twist_clause"
+                    ["twist"] = "twist_general_clause"
                 },
                 CompositionRole = "reaction",
-                Tags = ["story", "scene", "quiet"],
+                Tags = ["story", "quiet", "rule"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
                 Weight = 0.8
@@ -279,6 +279,14 @@ public static class FallbackDataProvider
                 Text = "Идея: {character} должен {action} {object} в {place}, и при этом {twist}.",
                 Mode = GenerationMode.Idea,
                 RequiredCategories = ["character", "action", "object", "place", "twist"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["character"] = "character_subject",
+                    ["action"] = "action_infinitive",
+                    ["object"] = "object_direct",
+                    ["place"] = "place_in",
+                    ["twist"] = "twist_character_clause"
+                },
                 Tags = ["story", "concept"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,

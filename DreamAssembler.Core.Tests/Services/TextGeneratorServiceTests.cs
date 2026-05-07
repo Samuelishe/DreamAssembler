@@ -90,6 +90,50 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что шаблон с персонажем берет twist только из персонального slot.
+    /// </summary>
+    [Fact]
+    public void Generate_UsesCharacterTwistSlot_WhenTemplateRequiresCharacterContext()
+    {
+        var template = new TemplateDefinition
+        {
+            Id = "twist_character_slot_test",
+            Text = "{character} понял, что {twist}.",
+            Mode = GenerationMode.Sentence,
+            RequiredCategories = ["character", "twist"],
+            SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["character"] = "character_subject",
+                ["twist"] = "twist_character_clause"
+            },
+            Weight = 1.0
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new() { Id = "character_ok", Category = "character", Slot = "character_subject", Text = "кассир", Weight = 1.0 },
+            new() { Id = "twist_character_ok", Category = "twist", Slot = "twist_character_clause", Text = "очередь начала ему аплодировать", Weight = 1.0 },
+            new() { Id = "twist_general_wrong", Category = "twist", Slot = "twist_general_clause", Text = "по вторникам запрещено говорить правду", Weight = 100.0 }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            [template],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.Sentence,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 1
+        });
+
+        Assert.Equal("кассир понял, что очередь начала ему аплодировать.", Assert.Single(result).Text);
+    }
+
+    /// <summary>
     /// Проверяет, что короткий текст не начинается с meta-шаблона и не повторяет его несколько раз при наличии альтернатив.
     /// </summary>
     [Fact]
