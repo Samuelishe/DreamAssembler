@@ -12,6 +12,7 @@ It is intentionally not an AI text generator. The project combines JSON dictiona
 - JSON-based dictionaries and templates
 - Separate large CSV lexicons for word-pair and multi-word modes
 - Fallback data when JSON files are missing or broken
+- Reader-first UI with fullscreen reading mode, theme switching, and bundled reading fonts
 - Project documentation in [`docs`](docs)
 
 ## Repository guide
@@ -26,13 +27,24 @@ It is intentionally not an AI text generator. The project combines JSON dictiona
 
 The project currently reuses lexical data from [`Badestrand/russian-dictionary`](https://github.com/Badestrand/russian-dictionary), especially the `nouns.csv`, `adjectives.csv`, `verbs.csv`, and `others.csv` files used for the word-pair and multi-word modes.
 
-The current UI also embeds open-source fonts with Cyrillic support:
+The current UI also vendors open-source fonts with Cyrillic support:
 
 - [`Unbounded`](https://github.com/w3f/unbounded) for the display title font
 - [`Inter`](https://github.com/google/fonts/tree/main/ofl/inter) for the main interface font
 - [`Literata`](https://github.com/google/fonts/tree/main/ofl/literata) for the reading-focused result font
+- [`Manrope`](https://github.com/google/fonts/tree/main/ofl/manrope) as an alternative reading font with a cleaner geometric tone
 
-Both fonts are stored in the repository with their OFL license files.
+The font files and their OFL license texts are stored under [`DreamAssembler/Assets/Fonts`](DreamAssembler/Assets/Fonts). At runtime the app loads them from local `.ttf` files copied next to the build output, because this is more reliable for WPF than the pack URI approach that silently fell back to system fonts.
+
+## UI direction
+
+The application is moving toward a calmer reading surface rather than a control-heavy generator UI:
+
+- typography-first result presentation
+- phrase-centered layout for lexical modes
+- selected-fragment spotlight for short phrase reading
+- multiple curated light and dark themes instead of unbounded theme sprawl
+- a small bundled font set chosen for Cyrillic support and mood fit
 
 ## Run locally
 

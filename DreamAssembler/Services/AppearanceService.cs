@@ -1,6 +1,7 @@
 using System.Windows;
 using System.Windows.Media;
 using DreamAssembler.App.Models;
+using System.IO;
 
 namespace DreamAssembler.App.Services;
 
@@ -19,6 +20,8 @@ public sealed class AppearanceService
         var resources = Application.Current.Resources;
         var palette = CreatePalette(theme);
 
+        resources["UiFontFamily"] = GetUiFontFamily();
+        resources["DisplayFontFamily"] = GetDisplayFontFamily();
         resources["WindowBackgroundBrush"] = CreateWindowBackgroundBrush(palette.WindowBackgroundStart, palette.WindowBackgroundEnd);
         resources["PanelBackgroundBrush"] = CreateBrush(palette.PanelBackground);
         resources["PanelAltBackgroundBrush"] = CreateBrush(palette.PanelAltBackground);
@@ -31,6 +34,16 @@ public sealed class AppearanceService
         resources["ResultCardBackgroundBrush"] = CreateBrush(palette.ResultCardBackground);
         resources["TitleGradientBrush"] = CreateGradientBrush(palette.TitleGradientStart, palette.TitleGradientMiddle, palette.TitleGradientEnd);
         resources["ReadingFontFamily"] = GetReadingFontFamily(readingFont);
+    }
+
+    private static FontFamily GetUiFontFamily()
+    {
+        return GetBundledFontFamily("Inter");
+    }
+
+    private static FontFamily GetDisplayFontFamily()
+    {
+        return GetBundledFontFamily("Unbounded");
     }
 
     private static ThemePalette CreatePalette(AppTheme theme)
@@ -53,6 +66,23 @@ public sealed class AppearanceService
                 TitleGradientStart = Color.FromRgb(0x95, 0xC9, 0xC0),
                 TitleGradientMiddle = Color.FromRgb(0x68, 0xA7, 0xA9),
                 TitleGradientEnd = Color.FromRgb(0x4D, 0x79, 0x9F)
+            },
+            AppTheme.RainyDay => new ThemePalette
+            {
+                WindowBackgroundStart = Color.FromRgb(0xE8, 0xED, 0xF0),
+                WindowBackgroundEnd = Color.FromRgb(0xD9, 0xE0, 0xE7),
+                PanelBackground = Color.FromRgb(0xF7, 0xFA, 0xFC),
+                PanelAltBackground = Color.FromRgb(0xE6, 0xEC, 0xF1),
+                PanelBorder = Color.FromRgb(0xC7, 0xD1, 0xD9),
+                PrimaryText = Color.FromRgb(0x21, 0x28, 0x30),
+                SecondaryText = Color.FromRgb(0x55, 0x63, 0x70),
+                MutedText = Color.FromRgb(0x7A, 0x88, 0x94),
+                Accent = Color.FromRgb(0x4B, 0x67, 0x7B),
+                AccentSoft = Color.FromRgb(0xD9, 0xE4, 0xEC),
+                ResultCardBackground = Color.FromRgb(0xF9, 0xFB, 0xFD),
+                TitleGradientStart = Color.FromRgb(0xA4, 0xB6, 0xC8),
+                TitleGradientMiddle = Color.FromRgb(0x7A, 0x93, 0xA8),
+                TitleGradientEnd = Color.FromRgb(0x5A, 0x74, 0x8B)
             },
             AppTheme.GraphiteDark => new ThemePalette
             {
@@ -87,6 +117,40 @@ public sealed class AppearanceService
                 TitleGradientStart = Color.FromRgb(0xF0, 0xA1, 0xC3),
                 TitleGradientMiddle = Color.FromRgb(0xC9, 0x78, 0xB6),
                 TitleGradientEnd = Color.FromRgb(0x7A, 0x6D, 0xD3)
+            },
+            AppTheme.ArchiveDusk => new ThemePalette
+            {
+                WindowBackgroundStart = Color.FromRgb(0x1D, 0x1D, 0x18),
+                WindowBackgroundEnd = Color.FromRgb(0x14, 0x15, 0x11),
+                PanelBackground = Color.FromRgb(0x27, 0x27, 0x20),
+                PanelAltBackground = Color.FromRgb(0x31, 0x31, 0x28),
+                PanelBorder = Color.FromRgb(0x46, 0x45, 0x39),
+                PrimaryText = Color.FromRgb(0xF0, 0xEC, 0xDF),
+                SecondaryText = Color.FromRgb(0xC9, 0xC1, 0xAA),
+                MutedText = Color.FromRgb(0x9E, 0x97, 0x83),
+                Accent = Color.FromRgb(0xB6, 0xA3, 0x6A),
+                AccentSoft = Color.FromRgb(0x39, 0x39, 0x30),
+                ResultCardBackground = Color.FromRgb(0x2B, 0x2B, 0x24),
+                TitleGradientStart = Color.FromRgb(0xD9, 0xCB, 0x9E),
+                TitleGradientMiddle = Color.FromRgb(0xAB, 0x9A, 0x6E),
+                TitleGradientEnd = Color.FromRgb(0x74, 0x6E, 0x4E)
+            },
+            AppTheme.TramNight => new ThemePalette
+            {
+                WindowBackgroundStart = Color.FromRgb(0x10, 0x19, 0x1C),
+                WindowBackgroundEnd = Color.FromRgb(0x0C, 0x10, 0x14),
+                PanelBackground = Color.FromRgb(0x18, 0x22, 0x27),
+                PanelAltBackground = Color.FromRgb(0x20, 0x2D, 0x32),
+                PanelBorder = Color.FromRgb(0x2F, 0x44, 0x49),
+                PrimaryText = Color.FromRgb(0xE9, 0xF2, 0xF2),
+                SecondaryText = Color.FromRgb(0xB6, 0xCB, 0xCC),
+                MutedText = Color.FromRgb(0x87, 0xA2, 0xA5),
+                Accent = Color.FromRgb(0x4D, 0xB2, 0xB0),
+                AccentSoft = Color.FromRgb(0x1F, 0x31, 0x35),
+                ResultCardBackground = Color.FromRgb(0x1C, 0x27, 0x2C),
+                TitleGradientStart = Color.FromRgb(0x7E, 0xE1, 0xDC),
+                TitleGradientMiddle = Color.FromRgb(0x43, 0xAF, 0xB2),
+                TitleGradientEnd = Color.FromRgb(0x2B, 0x72, 0x8A)
             },
             _ => new ThemePalette
             {
@@ -148,11 +212,18 @@ public sealed class AppearanceService
     {
         return readingFont switch
         {
-            ReadingFontOption.Literata => new FontFamily("pack://application:,,,/DreamAssembler.App;component/Assets/Fonts/#Literata 12pt"),
-            ReadingFontOption.Manrope => new FontFamily("pack://application:,,,/DreamAssembler.App;component/Assets/Fonts/#Manrope"),
-            ReadingFontOption.Inter => new FontFamily("pack://application:,,,/DreamAssembler.App;component/Assets/Fonts/#Inter"),
-            _ => new FontFamily("pack://application:,,,/DreamAssembler.App;component/Assets/Fonts/#Literata 12pt")
+            ReadingFontOption.Literata => GetBundledFontFamily("Literata 12pt"),
+            ReadingFontOption.Manrope => GetBundledFontFamily("Manrope"),
+            ReadingFontOption.Inter => GetBundledFontFamily("Inter"),
+            _ => GetBundledFontFamily("Literata 12pt")
         };
+    }
+
+    private static FontFamily GetBundledFontFamily(string familyName)
+    {
+        var fontDirectory = Path.Combine(AppContext.BaseDirectory, "Assets", "Fonts");
+        var directoryUri = new Uri($"{fontDirectory.TrimEnd(Path.DirectorySeparatorChar)}{Path.DirectorySeparatorChar}", UriKind.Absolute);
+        return new FontFamily(directoryUri, $"./#{familyName}");
     }
 
     private sealed class ThemePalette

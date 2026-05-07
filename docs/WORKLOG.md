@@ -102,6 +102,11 @@
 - левая панель в lexical modes стала компактнее, а блок последнего действия в этих режимах скрыт, чтобы не тянуть внимание от фразы;
 - для lexical modes в основной правой колонке добавлен selected-fragment spotlight: выбранная фраза теперь читается как главный объект, а список результатов работает как более тихая история;
 - верхняя мета-информация в lexical modes дополнительно приглушена: summary и timestamp скрываются, когда важнее само чтение фрагмента;
+- найден и исправлен реальный дефект typography layer: встроенные шрифты подключались через некорректные pack URI и WPF тихо откатывался в fallback;
+- приложение переведено на file-based загрузку bundled `.ttf` из `Assets/Fonts`, поэтому `ReadingFontFamily`, `UiFontFamily` и `DisplayFontFamily` теперь должны реально применяться;
+- в popup настроек добавлен живой preview-блок шрифта чтения, чтобы пользователь сразу видел смену typography;
+- набор тем расширен тремя новыми палитрами: `Дождливый день`, `Архивные сумерки`, `Трамвайная ночь`;
+- в root `README.md` и `docs/DATA_SOURCES.md` синхронизированы источники всех bundled шрифтов, включая `Manrope`, и зафиксирован текущий способ их загрузки в WPF;
 
 ### Какие файлы изменены
 
@@ -118,6 +123,9 @@
 - `DreamAssembler/MainWindow.xaml`
 - `DreamAssembler/MainWindow.xaml.cs`
 - `DreamAssembler/ViewModels/MainViewModel.cs`
+- `DreamAssembler/App.xaml`
+- `DreamAssembler/Services/AppearanceService.cs`
+- `DreamAssembler/DreamAssembler.csproj`
 - `docs/PROMPTS_FOR_DATA.md`
 - `README.md`
 - `docs/DATA_SOURCES.md`

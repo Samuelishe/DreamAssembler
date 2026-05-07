@@ -54,8 +54,11 @@ public partial class MainViewModel : ObservableObject
         [
             new OptionItem<AppTheme> { DisplayName = "Теплая светлая", Value = AppTheme.WarmLight },
             new OptionItem<AppTheme> { DisplayName = "Туманная светлая", Value = AppTheme.MistLight },
+            new OptionItem<AppTheme> { DisplayName = "Дождливый день", Value = AppTheme.RainyDay },
             new OptionItem<AppTheme> { DisplayName = "Графитовая темная", Value = AppTheme.GraphiteDark },
-            new OptionItem<AppTheme> { DisplayName = "Сливовая ночь", Value = AppTheme.PlumNight }
+            new OptionItem<AppTheme> { DisplayName = "Сливовая ночь", Value = AppTheme.PlumNight },
+            new OptionItem<AppTheme> { DisplayName = "Архивные сумерки", Value = AppTheme.ArchiveDusk },
+            new OptionItem<AppTheme> { DisplayName = "Трамвайная ночь", Value = AppTheme.TramNight }
         ];
         ReadingFontOptions =
         [
@@ -279,10 +282,18 @@ public partial class MainViewModel : ObservableObject
     {
         AppTheme.WarmLight => "Теплая светлая тема с мягким песочным акцентом.",
         AppTheme.MistLight => "Светлая прохладная тема с бумажно-мятным характером.",
+        AppTheme.RainyDay => "Светлая прохладная тема с дождливым серо-синим настроением.",
         AppTheme.GraphiteDark => "Темная графитовая тема с янтарным акцентом.",
         AppTheme.PlumNight => "Темная сливовая тема с более выразительным цветовым контрастом.",
+        AppTheme.ArchiveDusk => "Темная архивная тема с оливково-бумажным оттенком.",
+        AppTheme.TramNight => "Темная ночная тема с бирюзовым транспортным свечением.",
         _ => string.Empty
     };
+
+    /// <summary>
+    /// Получает живую preview-строку для шрифта чтения.
+    /// </summary>
+    public string ReadingFontPreviewText => "Сырая платформа помнит шаги ночной смены.";
 
     /// <summary>
     /// Выполняет генерацию результатов по текущим настройкам.

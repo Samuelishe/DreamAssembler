@@ -44,27 +44,32 @@
 - `DreamAssembler/Assets/Fonts/Unbounded-Black.ttf`
 - `DreamAssembler/Assets/Fonts/Inter-Variable.ttf`
 - `DreamAssembler/Assets/Fonts/Literata-Variable.ttf`
+- `DreamAssembler/Assets/Fonts/Manrope-Variable.ttf`
 
 Источники:
 
 - `Unbounded`: `https://github.com/w3f/unbounded`
 - `Inter`: `https://github.com/google/fonts/tree/main/ofl/inter`
 - `Literata`: `https://github.com/google/fonts/tree/main/ofl/literata`
+- `Manrope`: `https://github.com/google/fonts/tree/main/ofl/manrope`
 
 Лицензии:
 
 - `DreamAssembler/Assets/Fonts/Unbounded-OFL.txt`
 - `DreamAssembler/Assets/Fonts/Inter-OFL.txt`
 - `DreamAssembler/Assets/Fonts/Literata-OFL.txt`
+- `DreamAssembler/Assets/Fonts/Manrope-OFL.txt`
 
 Практическая причина выбора:
 
 - `Unbounded` хорошо подходит для жирного выразительного заголовка приложения;
 - `Inter` подходит для плотного интерфейса и длинного чтения;
 - `Literata` подходит для более мягкого книжного чтения результатов;
-- оба шрифта поддерживают кириллицу и допускают встраивание в проект.
+- `Manrope` подходит для более чистого современного reading-mode без слишком системного ощущения;
+- все шрифты поддерживают кириллицу и допускают хранение в проекте по OFL.
 
 Техническая заметка для WPF:
 
 - `Literata` внутри TTF определяется как family `Literata 12pt`;
-- при подключении как ресурса нужно использовать именно это internal family name, иначе WPF может тихо откатиться к fallback-шрифту.
+- при загрузке шрифтов из файлов рядом с приложением нужно использовать именно это internal family name, иначе WPF может тихо откатиться к fallback-шрифту;
+- для стабильного поведения проект сейчас использует file-based загрузку локальных `.ttf`, а не pack URI.

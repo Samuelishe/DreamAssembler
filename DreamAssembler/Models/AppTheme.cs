@@ -23,5 +23,20 @@ public enum AppTheme
     /// <summary>
     /// Темная тема с винно-сливовым акцентом.
     /// </summary>
-    PlumNight
+    PlumNight,
+
+    /// <summary>
+    /// Светлая дождливая тема с холодным городским оттенком.
+    /// </summary>
+    RainyDay,
+
+    /// <summary>
+    /// Темная тема с архивно-оливковым настроением.
+    /// </summary>
+    ArchiveDusk,
+
+    /// <summary>
+    /// Ночная тема с транспортно-бирюзовым акцентом.
+    /// </summary>
+    TramNight
 }

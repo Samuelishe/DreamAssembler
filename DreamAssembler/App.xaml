@@ -5,9 +5,9 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <converters:BooleanToBrushConverter x:Key="BooleanToBrushConverter" />
-        <FontFamily x:Key="UiFontFamily">pack://application:,,,/DreamAssembler.App;component/Assets/Fonts/#Inter</FontFamily>
-        <FontFamily x:Key="DisplayFontFamily">pack://application:,,,/DreamAssembler.App;component/Assets/Fonts/#Unbounded Black</FontFamily>
-        <FontFamily x:Key="ReadingFontFamily">pack://application:,,,/DreamAssembler.App;component/Assets/Fonts/#Literata 12pt</FontFamily>
+        <FontFamily x:Key="UiFontFamily">Segoe UI</FontFamily>
+        <FontFamily x:Key="DisplayFontFamily">Segoe UI Semibold</FontFamily>
+        <FontFamily x:Key="ReadingFontFamily">Georgia</FontFamily>
 
         <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FFF4F0E8" />
         <SolidColorBrush x:Key="PanelBackgroundBrush" Color="#FFFBF9F5" />
