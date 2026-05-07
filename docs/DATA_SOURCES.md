@@ -8,6 +8,12 @@
 - `DreamAssembler/Data/AssociationWords/Sources/openrussian-adjectives.csv`
 - `DreamAssembler/Data/AssociationWords/Sources/openrussian-verbs.csv`
 - `DreamAssembler/Data/AssociationWords/Sources/openrussian-others.csv`
+- `DreamAssembler/Data/AssociationWords/Curated/preferred-nouns.txt`
+- `DreamAssembler/Data/AssociationWords/Curated/preferred-adjectives.txt`
+- `DreamAssembler/Data/AssociationWords/Curated/preferred-verbs.txt`
+- `DreamAssembler/Data/AssociationWords/Curated/Clusters/archive/*`
+- `DreamAssembler/Data/AssociationWords/Curated/Clusters/rainy-city/*`
+- `DreamAssembler/Data/AssociationWords/Curated/Clusters/night-route/*`
 
 Источник:
 
@@ -34,7 +40,9 @@
 ## Что важно помнить
 
 - это не curated художественный словарь, а большой сырой лексический источник;
-- словесные режимы намеренно допускают случайность и слабую семантическую связность;
+- словесные режимы намеренно допускают случайность и мягкую семантическую неоднородность;
+- curated txt-слой поверх CSV нужен именно для мягкого atmosphere-oriented смещения, а не для полной замены исходного словаря.
+- cluster-поднаборы нужны для мягкой batch-level coherence: они не отменяют вариативность, а удерживают серию коротких фрагментов в одном локальном mood-space.
 - для основного генератора `Sentence`, `ShortText` и `Idea` эти CSV-словари пока не используются.
 
 ## Шрифты интерфейса

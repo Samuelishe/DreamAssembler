@@ -64,14 +64,17 @@ public sealed class TextGeneratorService
         var resultCount = Math.Clamp(options.ResultCount, 1, 20);
         var results = new List<TextGenerationResult>(resultCount);
         var context = new GenerationContext();
+        var lexicalClusterKey = options.Mode is GenerationMode.WordPair or GenerationMode.WordCluster
+            ? SelectLexicalClusterKey()
+            : null;
 
         for (var index = 0; index < resultCount; index++)
         {
             var text = options.Mode switch
             {
                 GenerationMode.ShortText => GenerateShortText(options, context),
-                GenerationMode.WordPair => GenerateWordPair(),
-                GenerationMode.WordCluster => GenerateWordCluster(),
+                GenerationMode.WordPair => GenerateWordPair(lexicalClusterKey),
+                GenerationMode.WordCluster => GenerateWordCluster(lexicalClusterKey),
                 _ => GenerateSingleTemplateText(options.Mode, options.AbsurdityLevel, context)
             };
 
@@ -87,7 +90,7 @@ public sealed class TextGeneratorService
         return results;
     }
 
-    private string GenerateWordPair()
+    private string GenerateWordPair(string? lexicalClusterKey)
     {
         if (_associationFragments.Count == 0)
         {
@@ -110,10 +113,10 @@ public sealed class TextGeneratorService
         }
 
         var genderKey = _selector.Select(supportedGenders, _ => 1.0);
-        return RenderAssociationNominalPhrase(genderKey, 1);
+        return RenderAssociationNominalPhrase(genderKey, 1, lexicalClusterKey);
     }
 
-    private string GenerateWordCluster()
+    private string GenerateWordCluster(string? lexicalClusterKey)
     {
         if (_associationFragments.Count == 0)
         {
@@ -140,7 +143,7 @@ public sealed class TextGeneratorService
         var patterns = new[] { 1, 2 };
         var adjectiveCount = _selector.Select(patterns, GetWordClusterPatternWeight);
 
-        return RenderAssociationPredicatePhrase(genderKey, adjectiveCount);
+        return RenderAssociationPredicatePhrase(genderKey, adjectiveCount, lexicalClusterKey);
     }
 
     private string GenerateShortText(TextGenerationOptions options, GenerationContext context)
@@ -360,7 +363,7 @@ public sealed class TextGeneratorService
         };
     }
 
-    private string RenderAssociationNominalPhrase(string genderKey, int adjectiveCount)
+    private string RenderAssociationNominalPhrase(string genderKey, int adjectiveCount, string? lexicalClusterKey)
     {
         var nouns = GetAssociationFragmentsByKind($"noun_{genderKey}");
         var adjectives = GetAssociationFragmentsByKind($"adjective_{genderKey}");
@@ -370,9 +373,9 @@ public sealed class TextGeneratorService
             throw new InvalidOperationException($"Не найдены данные для режима словосочетаний по роду '{genderKey}'.");
         }
 
-        var noun = SelectAssociationFragment(nouns);
+        var noun = SelectAssociationFragment(nouns, lexicalClusterKey);
         RememberAssociationFragment(noun.Id);
-        var phraseAdjectives = SelectUniqueAssociationAdjectives(adjectives, noun, adjectiveCount);
+        var phraseAdjectives = SelectUniqueAssociationAdjectives(adjectives, noun, adjectiveCount, lexicalClusterKey);
 
         var words = phraseAdjectives
             .Select(entry => entry.Text)
@@ -382,7 +385,7 @@ public sealed class TextGeneratorService
         return ValidateAssociationWordCount(words, 2, 2);
     }
 
-    private string RenderAssociationPredicatePhrase(string genderKey, int adjectiveCount)
+    private string RenderAssociationPredicatePhrase(string genderKey, int adjectiveCount, string? lexicalClusterKey)
     {
         var nouns = GetAssociationFragmentsByKind($"noun_{genderKey}");
         var adjectives = GetAssociationFragmentsByKind($"adjective_{genderKey}");
@@ -393,10 +396,10 @@ public sealed class TextGeneratorService
             throw new InvalidOperationException($"Не найдены данные для режима нескольких слов по роду '{genderKey}'.");
         }
 
-        var noun = SelectAssociationFragment(nouns);
+        var noun = SelectAssociationFragment(nouns, lexicalClusterKey);
         RememberAssociationFragment(noun.Id);
-        var phraseAdjectives = SelectUniqueAssociationAdjectives(adjectives, noun, adjectiveCount);
-        var verb = SelectAssociationFragment(verbs);
+        var phraseAdjectives = SelectUniqueAssociationAdjectives(adjectives, noun, adjectiveCount, lexicalClusterKey);
+        var verb = SelectAssociationFragment(verbs, lexicalClusterKey);
         RememberAssociationFragment(verb.Id);
 
         var words = phraseAdjectives
@@ -411,7 +414,8 @@ public sealed class TextGeneratorService
     private List<AssociationFragmentEntry> SelectUniqueAssociationAdjectives(
         IReadOnlyList<AssociationFragmentEntry> adjectives,
         AssociationFragmentEntry noun,
-        int adjectiveCount)
+        int adjectiveCount,
+        string? lexicalClusterKey)
     {
         var phraseAdjectives = new List<AssociationFragmentEntry>(adjectiveCount);
         var usedIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
@@ -431,7 +435,7 @@ public sealed class TextGeneratorService
                 break;
             }
 
-            var nextAdjective = SelectAssociationFragment(eligibleAdjectives);
+            var nextAdjective = SelectAssociationFragment(eligibleAdjectives, lexicalClusterKey);
 
             phraseAdjectives.Add(nextAdjective);
             usedIds.Add(nextAdjective.Id);
@@ -456,21 +460,57 @@ public sealed class TextGeneratorService
         return string.Join(' ', words);
     }
 
-    private AssociationFragmentEntry SelectAssociationFragment(IReadOnlyList<AssociationFragmentEntry> candidates)
+    private AssociationFragmentEntry SelectAssociationFragment(IReadOnlyList<AssociationFragmentEntry> candidates, string? lexicalClusterKey = null)
     {
         if (candidates.Count == 0)
         {
             throw new InvalidOperationException("Не найдены подходящие ассоциативные фрагменты.");
         }
 
-        return _selector.Select(candidates, CalculateAssociationFragmentWeight);
+        return _selector.Select(candidates, entry => CalculateAssociationFragmentWeight(entry, lexicalClusterKey));
     }
 
-    private double CalculateAssociationFragmentWeight(AssociationFragmentEntry entry)
+    private string? SelectLexicalClusterKey()
+    {
+        var clusterKeys = _associationFragments
+            .SelectMany(entry => entry.Tags)
+            .Where(tag => tag.StartsWith("cluster:", StringComparison.OrdinalIgnoreCase))
+            .Select(tag => tag["cluster:".Length..])
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .ToList();
+
+        if (clusterKeys.Count == 0)
+        {
+            return null;
+        }
+
+        return _selector.Select(clusterKeys, clusterKey => 1d);
+    }
+
+    private double CalculateAssociationFragmentWeight(AssociationFragmentEntry entry, string? lexicalClusterKey)
     {
         var baseWeight = Math.Max(0.1d, entry.Weight);
         var recentPenalty = _recentAssociationFragmentIds.Contains(entry.Id) ? 0.35d : 1d;
-        return baseWeight * recentPenalty;
+        var clusterWeight = CalculateLexicalClusterWeight(entry, lexicalClusterKey);
+        return baseWeight * recentPenalty * clusterWeight;
+    }
+
+    private static double CalculateLexicalClusterWeight(AssociationFragmentEntry entry, string? lexicalClusterKey)
+    {
+        if (string.IsNullOrWhiteSpace(lexicalClusterKey))
+        {
+            return 1d;
+        }
+
+        var targetTag = $"cluster:{lexicalClusterKey}";
+        if (entry.Tags.Contains(targetTag, StringComparer.OrdinalIgnoreCase))
+        {
+            return 1.9d;
+        }
+
+        return entry.Tags.Any(tag => tag.StartsWith("cluster:", StringComparison.OrdinalIgnoreCase))
+            ? 0.72d
+            : 0.94d;
     }
 
     private void RememberAssociationFragment(string fragmentId)

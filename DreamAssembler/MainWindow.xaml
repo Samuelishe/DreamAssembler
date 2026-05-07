@@ -11,6 +11,7 @@
         Height="840"
         MinWidth="960"
         MinHeight="760"
+        Icon="Assets/Icons/dreamassembler.ico"
         WindowStyle="None"
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"

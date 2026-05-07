@@ -112,6 +112,10 @@
 - проведен первый quality-pass по данным и semantic coherence: несколько gendered шаблонов переведены в более безопасные нейтральные формулировки без морфологии;
 - `AssociationFragmentRepository` получил более жесткую фильтрацию и quality-weighting для lexical CSV-лексикона, чтобы реже пропускать технические, медицинские и слишком абстрактные слова;
 - по контрольной выборке зафиксировано, что этого шага недостаточно для полного reader-grade lexical quality: следующим этапом нужен curated thematic subset поверх сырого словаря;
+- этот следующий этап начат: в `Data/AssociationWords/Curated` добавлены первые предпочтительные nouns / adjectives / verbs, а загрузчик lexical-режимов теперь мягко усиливает curated-леммы внутри общего CSV-пула;
+- curated-layer сделан intentionally soft: он не превращает lexical modes в жестко закрытый словарь, а только смещает вероятность к более атмосферным словам из нужного semantic field;
+- поверх этого слоя добавлены первые atmospheric clusters `archive`, `rainy-city`, `night-route`: lexical-режимы теперь могут удерживать одну batch-level mood-зону внутри серии коротких фрагментов;
+- сгенерирована и встроена первая собственная app icon: `DreamAssembler.csproj` теперь задает `ApplicationIcon`, а `MainWindow` использует тот же `.ico`, чтобы иконка была видна и в окне приложения, и у собранного Windows `exe`;
 
 ### Какие файлы изменены
 

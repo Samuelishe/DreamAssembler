@@ -13,6 +13,7 @@ It is intentionally not an AI text generator. The project combines JSON dictiona
 - Separate large CSV lexicons for word-pair and multi-word modes
 - Fallback data when JSON files are missing or broken
 - Reader-first UI with fullscreen reading mode, theme switching, and bundled reading fonts
+- Bundled desktop icon embedded into the WPF window and the built Windows executable
 - Project documentation in [`docs`](docs)
 
 ## Repository guide
@@ -45,6 +46,7 @@ The application is moving toward a calmer reading surface rather than a control-
 - selected-fragment spotlight for short phrase reading
 - multiple curated light and dark themes instead of unbounded theme sprawl
 - a small bundled font set chosen for Cyrillic support and mood fit
+- a custom app icon that carries the same quiet surreal / infrastructural mood into Windows shell surfaces
 
 ## Run locally
 

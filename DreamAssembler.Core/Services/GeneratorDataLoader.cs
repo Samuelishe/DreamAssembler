@@ -40,7 +40,7 @@ public sealed class GeneratorDataLoader
     {
         var dictionariesPath = Path.Combine(dataRootPath, "Dictionaries");
         var templatesPath = Path.Combine(dataRootPath, "Templates", "templates.json");
-        var associationFragmentsPath = Path.Combine(dataRootPath, "AssociationWords", "Sources");
+        var associationFragmentsPath = Path.Combine(dataRootPath, "AssociationWords");
         var manifestPath = Path.Combine(dataRootPath, "data-manifest.json");
 
         var dictionaryResult = _dictionaryRepository.Load(dictionariesPath);

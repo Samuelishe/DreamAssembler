@@ -123,6 +123,25 @@
 - `DreamAssembler/Data/AssociationWords/Sources/openrussian-verbs.csv`
 - `DreamAssembler/Data/AssociationWords/Sources/openrussian-others.csv`
 
+Дополнительно lexical-режимы могут использовать необязательный curated-слой в:
+
+- `DreamAssembler/Data/AssociationWords/Curated/preferred-nouns.txt`
+- `DreamAssembler/Data/AssociationWords/Curated/preferred-adjectives.txt`
+- `DreamAssembler/Data/AssociationWords/Curated/preferred-verbs.txt`
+- `DreamAssembler/Data/AssociationWords/Curated/Clusters/*/preferred-nouns.txt`
+- `DreamAssembler/Data/AssociationWords/Curated/Clusters/*/preferred-adjectives.txt`
+- `DreamAssembler/Data/AssociationWords/Curated/Clusters/*/preferred-verbs.txt`
+
+Это простые текстовые файлы:
+
+- одна нормализованная лемма на строку;
+- пустые строки игнорируются;
+- строки, начинающиеся с `#`, считаются комментариями.
+
+Этот слой не заменяет CSV и не вводит жесткую тематическую блокировку. Он только усиливает предпочтительные атмосферные слова внутри общего lexical-пула, чтобы режимы `Словосочетание` и `Несколько слов` держались ближе к curated semantic field проекта.
+
+Подпапки `Curated/Clusters` добавляют второй, более локальный слой coherence. Каждый cluster - это не жанр, а небольшое эмоционально-атмосферное пространство, например `archive`, `rainy-city` или `night-route`. Во время одной lexical-выдачи генератор может мягко держаться одного такого cluster, чтобы серия коротких фрагментов звучала более собранно.
+
 Сейчас генератор использует такие схемы:
 
 - `Словосочетание`: прилагательное + существительное;

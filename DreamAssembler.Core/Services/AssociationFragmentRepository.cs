@@ -7,6 +7,9 @@ namespace DreamAssembler.Core.Services;
 /// </summary>
 public sealed class AssociationFragmentRepository
 {
+    private const double CuratedEntryBoost = 3.2d;
+    private const double NonCuratedPenalty = 0.32d;
+
     private static readonly HashSet<string> AdjectiveStopWords =
     [
         "тот",
@@ -127,7 +130,10 @@ public sealed class AssociationFragmentRepository
 
         try
         {
-            var files = Directory.GetFiles(directoryPath, "*.csv", SearchOption.AllDirectories);
+            var sourceDirectoryPath = ResolveSourceDirectory(directoryPath);
+            var curatedDirectoryPath = ResolveCuratedDirectory(directoryPath, sourceDirectoryPath);
+            var curatedPreference = LoadCuratedPreference(curatedDirectoryPath);
+            var files = Directory.GetFiles(sourceDirectoryPath, "*.csv", SearchOption.AllDirectories);
             var entries = new List<AssociationFragmentEntry>();
 
             foreach (var file in files)
@@ -136,15 +142,15 @@ public sealed class AssociationFragmentRepository
 
                 if (fileName.Contains("nouns", StringComparison.OrdinalIgnoreCase))
                 {
-                    entries.AddRange(ParseNouns(file));
+                    entries.AddRange(ParseNouns(file, curatedPreference));
                 }
                 else if (fileName.Contains("adjectives", StringComparison.OrdinalIgnoreCase))
                 {
-                    entries.AddRange(ParseAdjectives(file));
+                    entries.AddRange(ParseAdjectives(file, curatedPreference));
                 }
                 else if (fileName.Contains("verbs", StringComparison.OrdinalIgnoreCase))
                 {
-                    entries.AddRange(ParseVerbs(file));
+                    entries.AddRange(ParseVerbs(file, curatedPreference));
                 }
                 else if (fileName.Contains("others", StringComparison.OrdinalIgnoreCase))
                 {
@@ -205,7 +211,7 @@ public sealed class AssociationFragmentRepository
         }
     }
 
-    private static IReadOnlyList<AssociationFragmentEntry> ParseNouns(string filePath)
+    private static IReadOnlyList<AssociationFragmentEntry> ParseNouns(string filePath, CuratedAssociationPreference curatedPreference)
     {
         var rows = File.ReadLines(filePath).ToList();
         if (rows.Count <= 1)
@@ -241,14 +247,19 @@ public sealed class AssociationFragmentRepository
                 Id = $"noun_{gender}_{nominative}",
                 Text = nominative,
                 Kind = $"noun_{gender}",
-                Weight = CalculateLexicalWeight($"noun_{gender}", nominative)
+                Tags = curatedPreference.GetTagsForNoun(nominative),
+                Weight = CalculateLexicalWeight(
+                    $"noun_{gender}",
+                    nominative,
+                    curatedPreference.PreferredNouns.Contains(nominative),
+                    curatedPreference.HasNounSubset)
             });
         }
 
         return entries;
     }
 
-    private static IReadOnlyList<AssociationFragmentEntry> ParseAdjectives(string filePath)
+    private static IReadOnlyList<AssociationFragmentEntry> ParseAdjectives(string filePath, CuratedAssociationPreference curatedPreference)
     {
         var rows = File.ReadLines(filePath).ToList();
         if (rows.Count <= 1)
@@ -282,7 +293,12 @@ public sealed class AssociationFragmentRepository
                 Id = $"adjective_m_{masculine}",
                 Text = masculine,
                 Kind = "adjective_m",
-                Weight = CalculateLexicalWeight("adjective_m", masculine)
+                Tags = curatedPreference.GetTagsForAdjective(bare),
+                Weight = CalculateLexicalWeight(
+                    "adjective_m",
+                    masculine,
+                    curatedPreference.PreferredAdjectives.Contains(bare),
+                    curatedPreference.HasAdjectiveSubset)
             });
 
             entries.Add(new AssociationFragmentEntry
@@ -290,7 +306,12 @@ public sealed class AssociationFragmentRepository
                 Id = $"adjective_f_{feminine}",
                 Text = feminine,
                 Kind = "adjective_f",
-                Weight = CalculateLexicalWeight("adjective_f", feminine)
+                Tags = curatedPreference.GetTagsForAdjective(bare),
+                Weight = CalculateLexicalWeight(
+                    "adjective_f",
+                    feminine,
+                    curatedPreference.PreferredAdjectives.Contains(bare),
+                    curatedPreference.HasAdjectiveSubset)
             });
 
             entries.Add(new AssociationFragmentEntry
@@ -298,14 +319,19 @@ public sealed class AssociationFragmentRepository
                 Id = $"adjective_n_{neuter}",
                 Text = neuter,
                 Kind = "adjective_n",
-                Weight = CalculateLexicalWeight("adjective_n", neuter)
+                Tags = curatedPreference.GetTagsForAdjective(bare),
+                Weight = CalculateLexicalWeight(
+                    "adjective_n",
+                    neuter,
+                    curatedPreference.PreferredAdjectives.Contains(bare),
+                    curatedPreference.HasAdjectiveSubset)
             });
         }
 
         return entries;
     }
 
-    private static IReadOnlyList<AssociationFragmentEntry> ParseVerbs(string filePath)
+    private static IReadOnlyList<AssociationFragmentEntry> ParseVerbs(string filePath, CuratedAssociationPreference curatedPreference)
     {
         var rows = File.ReadLines(filePath).ToList();
         if (rows.Count <= 1)
@@ -336,7 +362,12 @@ public sealed class AssociationFragmentRepository
                     Id = $"verb_past_m_{pastMasculine}",
                     Text = pastMasculine,
                     Kind = "verb_past_m",
-                    Weight = CalculateLexicalWeight("verb_past_m", pastMasculine)
+                    Tags = curatedPreference.GetTagsForVerb(bare),
+                    Weight = CalculateLexicalWeight(
+                        "verb_past_m",
+                        pastMasculine,
+                        curatedPreference.PreferredVerbs.Contains(bare),
+                        curatedPreference.HasVerbSubset)
                 });
             }
 
@@ -347,7 +378,12 @@ public sealed class AssociationFragmentRepository
                     Id = $"verb_past_f_{pastFeminine}",
                     Text = pastFeminine,
                     Kind = "verb_past_f",
-                    Weight = CalculateLexicalWeight("verb_past_f", pastFeminine)
+                    Tags = curatedPreference.GetTagsForVerb(bare),
+                    Weight = CalculateLexicalWeight(
+                        "verb_past_f",
+                        pastFeminine,
+                        curatedPreference.PreferredVerbs.Contains(bare),
+                        curatedPreference.HasVerbSubset)
                 });
             }
 
@@ -358,7 +394,12 @@ public sealed class AssociationFragmentRepository
                     Id = $"verb_past_n_{pastNeuter}",
                     Text = pastNeuter,
                     Kind = "verb_past_n",
-                    Weight = CalculateLexicalWeight("verb_past_n", pastNeuter)
+                    Tags = curatedPreference.GetTagsForVerb(bare),
+                    Weight = CalculateLexicalWeight(
+                        "verb_past_n",
+                        pastNeuter,
+                        curatedPreference.PreferredVerbs.Contains(bare),
+                        curatedPreference.HasVerbSubset)
                 });
             }
         }
@@ -492,7 +533,80 @@ public sealed class AssociationFragmentRepository
         return true;
     }
 
-    private static double CalculateLexicalWeight(string kind, string text)
+    private static string ResolveSourceDirectory(string directoryPath)
+    {
+        var nestedSourcesPath = Path.Combine(directoryPath, "Sources");
+        return Directory.Exists(nestedSourcesPath) ? nestedSourcesPath : directoryPath;
+    }
+
+    private static string? ResolveCuratedDirectory(string directoryPath, string sourceDirectoryPath)
+    {
+        var directCuratedPath = Path.Combine(directoryPath, "Curated");
+        if (Directory.Exists(directCuratedPath))
+        {
+            return directCuratedPath;
+        }
+
+        var siblingCuratedPath = Path.Combine(Directory.GetParent(sourceDirectoryPath)?.FullName ?? directoryPath, "Curated");
+        return Directory.Exists(siblingCuratedPath) ? siblingCuratedPath : null;
+    }
+
+    private static CuratedAssociationPreference LoadCuratedPreference(string? curatedDirectoryPath)
+    {
+        if (string.IsNullOrWhiteSpace(curatedDirectoryPath) || !Directory.Exists(curatedDirectoryPath))
+        {
+            return CuratedAssociationPreference.Empty;
+        }
+
+        return new CuratedAssociationPreference(
+            LoadCuratedWordSet(Path.Combine(curatedDirectoryPath, "preferred-nouns.txt")),
+            LoadCuratedWordSet(Path.Combine(curatedDirectoryPath, "preferred-adjectives.txt")),
+            LoadCuratedWordSet(Path.Combine(curatedDirectoryPath, "preferred-verbs.txt")),
+            LoadCuratedClusters(Path.Combine(curatedDirectoryPath, "Clusters")));
+    }
+
+    private static HashSet<string> LoadCuratedWordSet(string filePath)
+    {
+        if (!File.Exists(filePath))
+        {
+            return [];
+        }
+
+        return File.ReadLines(filePath)
+            .Select(line => line.Trim())
+            .Where(line => !string.IsNullOrWhiteSpace(line) && !line.StartsWith('#'))
+            .Select(NormalizeWord)
+            .Where(IsSingleRussianWord)
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+    }
+
+    private static IReadOnlyList<CuratedAssociationCluster> LoadCuratedClusters(string clustersDirectoryPath)
+    {
+        if (!Directory.Exists(clustersDirectoryPath))
+        {
+            return [];
+        }
+
+        var clusters = new List<CuratedAssociationCluster>();
+        foreach (var clusterDirectoryPath in Directory.GetDirectories(clustersDirectoryPath))
+        {
+            var key = Path.GetFileName(clusterDirectoryPath).Trim().ToLowerInvariant();
+            if (string.IsNullOrWhiteSpace(key))
+            {
+                continue;
+            }
+
+            clusters.Add(new CuratedAssociationCluster(
+                key,
+                LoadCuratedWordSet(Path.Combine(clusterDirectoryPath, "preferred-nouns.txt")),
+                LoadCuratedWordSet(Path.Combine(clusterDirectoryPath, "preferred-adjectives.txt")),
+                LoadCuratedWordSet(Path.Combine(clusterDirectoryPath, "preferred-verbs.txt"))));
+        }
+
+        return clusters;
+    }
+
+    private static double CalculateLexicalWeight(string kind, string text, bool isCuratedPreferred, bool hasCuratedSubset)
     {
         var weight = 1.0d;
 
@@ -541,6 +655,11 @@ public sealed class AssociationFragmentRepository
             }
         }
 
+        if (hasCuratedSubset)
+        {
+            weight *= isCuratedPreferred ? CuratedEntryBoost : NonCuratedPenalty;
+        }
+
         return Math.Max(0.2d, weight);
     }
 
@@ -566,4 +685,48 @@ public sealed class AssociationFragmentRepository
 
         return true;
     }
+
+    private sealed record CuratedAssociationPreference(
+        HashSet<string> PreferredNouns,
+        HashSet<string> PreferredAdjectives,
+        HashSet<string> PreferredVerbs,
+        IReadOnlyList<CuratedAssociationCluster> Clusters)
+    {
+        public static CuratedAssociationPreference Empty { get; } = new([], [], [], []);
+
+        public bool HasNounSubset => PreferredNouns.Count > 0;
+
+        public bool HasAdjectiveSubset => PreferredAdjectives.Count > 0;
+
+        public bool HasVerbSubset => PreferredVerbs.Count > 0;
+
+        public IReadOnlyList<string> GetTagsForNoun(string lemma)
+        {
+            return GetTags(lemma, cluster => cluster.PreferredNouns.Contains(lemma));
+        }
+
+        public IReadOnlyList<string> GetTagsForAdjective(string lemma)
+        {
+            return GetTags(lemma, cluster => cluster.PreferredAdjectives.Contains(lemma));
+        }
+
+        public IReadOnlyList<string> GetTagsForVerb(string lemma)
+        {
+            return GetTags(lemma, cluster => cluster.PreferredVerbs.Contains(lemma));
+        }
+
+        private IReadOnlyList<string> GetTags(string lemma, Func<CuratedAssociationCluster, bool> predicate)
+        {
+            return Clusters
+                .Where(predicate)
+                .Select(cluster => $"cluster:{cluster.Key}")
+                .ToArray();
+        }
+    }
+
+    private sealed record CuratedAssociationCluster(
+        string Key,
+        HashSet<string> PreferredNouns,
+        HashSet<string> PreferredAdjectives,
+        HashSet<string> PreferredVerbs);
 }
