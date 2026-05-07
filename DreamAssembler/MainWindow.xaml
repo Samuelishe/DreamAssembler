@@ -136,6 +136,90 @@
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="HorizontalContentAlignment" Value="Left" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton x:Name="ToggleButton"
+                                          Focusable="False"
+                                          ClickMode="Press"
+                                          Foreground="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"
+                                          IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                <ToggleButton.Template>
+                                    <ControlTemplate TargetType="ToggleButton">
+                                        <Border x:Name="Chrome"
+                                                Background="{Binding Background, RelativeSource={RelativeSource AncestorType=ComboBox}}"
+                                                BorderBrush="{Binding BorderBrush, RelativeSource={RelativeSource AncestorType=ComboBox}}"
+                                                BorderThickness="{Binding BorderThickness, RelativeSource={RelativeSource AncestorType=ComboBox}}"
+                                                CornerRadius="11">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="28" />
+                                                </Grid.ColumnDefinitions>
+                                                <ContentPresenter Margin="{Binding Padding, RelativeSource={RelativeSource AncestorType=ComboBox}}"
+                                                                  VerticalAlignment="Center"
+                                                                  HorizontalAlignment="Left"
+                                                                  RecognizesAccessKey="True"
+                                                                  IsHitTestVisible="False"
+                                                                  TextElement.Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ComboBox}}"
+                                                                  Content="{Binding SelectionBoxItem, RelativeSource={RelativeSource AncestorType=ComboBox}}"
+                                                                  ContentTemplate="{Binding SelectionBoxItemTemplate, RelativeSource={RelativeSource AncestorType=ComboBox}}"
+                                                                  ContentStringFormat="{Binding SelectionBoxItemStringFormat, RelativeSource={RelativeSource AncestorType=ComboBox}}" />
+                                                <TextBlock Grid.Column="1"
+                                                           VerticalAlignment="Center"
+                                                           HorizontalAlignment="Center"
+                                                           FontSize="12"
+                                                           Foreground="{DynamicResource MutedTextBrush}"
+                                                           Text="⌄" />
+                                            </Grid>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="Chrome" Property="Background" Value="#12000000" />
+                                            </Trigger>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter TargetName="Chrome" Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter TargetName="Chrome" Property="Opacity" Value="0.55" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+
+                            <Popup x:Name="Popup"
+                                   Placement="Bottom"
+                                   AllowsTransparency="True"
+                                   Focusable="False"
+                                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                                   PopupAnimation="Fade">
+                                <Border Margin="0,6,0,0"
+                                        MinWidth="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}"
+                                        MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                        Background="{DynamicResource PanelBackgroundBrush}"
+                                        BorderBrush="{DynamicResource PanelBorderBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="11">
+                                    <ScrollViewer Margin="4"
+                                                  SnapsToDevicePixels="True">
+                                        <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                                <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.55" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <Style x:Key="InputComboBoxItemStyle" TargetType="ComboBoxItem">
@@ -295,16 +379,6 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-
-                <StackPanel VerticalAlignment="Center">
-                    <TextBlock FontSize="12"
-                               FontWeight="SemiBold"
-                               Foreground="{DynamicResource MutedTextBrush}"
-                               Text="DreamAssembler" />
-                    <TextBlock Margin="0,2,0,0"
-                               Foreground="{DynamicResource SecondaryTextBrush}"
-                               Text="{Binding ShellModeLabel}" />
-                </StackPanel>
 
                 <StackPanel Grid.Column="1"
                             Orientation="Horizontal">
@@ -681,7 +755,7 @@
                                             MinWidth="{Binding DataContext.ResultCardMinWidth, RelativeSource={RelativeSource AncestorType=ListBox}}"
                                             MaxWidth="{Binding DataContext.ResultCardMaxWidth, RelativeSource={RelativeSource AncestorType=ListBox}}"
                                             HorizontalAlignment="Left"
-                                            Background="#D8FFFFFF"
+                                            Background="{DynamicResource ResultCardBackgroundBrush}"
                                             BorderBrush="{DynamicResource PanelBorderBrush}"
                                             BorderThickness="1"
                                             CornerRadius="12">
@@ -690,14 +764,14 @@
                                                 <Setter Property="HorizontalAlignment" Value="Center" />
                                                 <Setter Property="Padding" Value="20,18,20,22" />
                                                 <Setter Property="CornerRadius" Value="13" />
-                                                <Setter Property="Background" Value="#ECE6DD" />
+                                                <Setter Property="Background" Value="{DynamicResource ResultCardBackgroundBrush}" />
                                                 <Style.Triggers>
                                                     <DataTrigger Binding="{Binding DataContext.IsLexicalMode, RelativeSource={RelativeSource AncestorType=ListBox}}" Value="True">
                                                         <Setter Property="HorizontalAlignment" Value="Center" />
                                                         <Setter Property="Padding" Value="26,24,26,28" />
                                                         <Setter Property="CornerRadius" Value="14" />
-                                                        <Setter Property="Background" Value="#EFEAE3" />
-                                                        <Setter Property="BorderBrush" Value="#20FFFFFF" />
+                                                        <Setter Property="Background" Value="{DynamicResource PanelAltBackgroundBrush}" />
+                                                        <Setter Property="BorderBrush" Value="{DynamicResource PanelBorderBrush}" />
                                                     </DataTrigger>
                                                 </Style.Triggers>
                                             </Style>
