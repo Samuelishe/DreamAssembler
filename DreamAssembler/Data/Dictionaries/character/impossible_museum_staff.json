@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "keeper_of_quiet_halls",
+      "text": "смотритель тихих залов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "quiet", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "night_exhibition_curator",
+      "text": "куратор ночной экспозиции",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "night", "bureaucracy", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "registrar_of_lost_catalogs",
+      "text": "регистратор утраченных каталогов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "archive", "paper", "daily"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "restorer_of_muted_frames",
+      "text": "реставратор немых рам",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "quiet", "story", "daily"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "guide_of_closed_wings",
+      "text": "экскурсовод закрытого крыла",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "bureaucracy", "night", "daily"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "guardian_of_echo_exhibits",
+      "text": "хранитель экспонатов с эхом",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "interpreter_of_blank_labels",
+      "text": "толкователь пустых подписей",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "watcher_of_returning_visitors",
+      "text": "наблюдатель возвращающихся посетителей",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "memory", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

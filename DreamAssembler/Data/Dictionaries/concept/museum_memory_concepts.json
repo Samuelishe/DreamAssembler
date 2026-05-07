@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "ceremony_of_curation",
+      "text": "церемония тихой курации",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["museum", "ritual", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "afterhours_exhibition_life",
+      "text": "послезакрытная жизнь экспозиции",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["museum", "night", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "catalog_bureaucracy_of_memory",
+      "text": "каталожная бюрократия памяти",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["museum", "paper", "memory"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "objects_waiting_to_be_explained",
+      "text": "предметы, дольше нуждающиеся в объяснении, чем в хранении",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["museum", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "echo_of_unfinished_display",
+      "text": "эхо недособранной экспозиции",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["museum", "surreal", "mood"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "museum_version_of_patience",
+      "text": "музейная версия терпения",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["museum", "quiet", "mood"],
+      "absurdity": 1,
+      "weight": 0.7
+    }
+  ]
+}

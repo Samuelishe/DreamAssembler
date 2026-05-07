@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "label_knows_him",
+      "text": "музейная подпись знает о нем чуть больше, чем каталог",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["museum", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "frame_waits_for_him",
+      "text": "пустая рама ведет себя так, будто давно ждала именно его",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["museum", "surreal", "quiet"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "hall_voice_repeats_him",
+      "text": "голос зала повторяет его шаги с короткой вежливой задержкой",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["museum", "echo", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "catalog_rewrites_sequence",
+      "text": "каталог медленно меняет порядок вещей, не спрашивая хранителей",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["museum", "archive", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "exhibits_return_after_closing",
+      "text": "экспонаты возвращаются на другие места уже после закрытия",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["museum", "night", "surreal"],
+      "absurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "silence_starts_guiding",
+      "text": "тишина начинает вести экскурсию точнее любого голоса",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["museum", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

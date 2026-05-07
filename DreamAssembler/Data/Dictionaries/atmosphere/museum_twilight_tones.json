@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "gallery_hushed",
+      "text": "галерейно притихшей",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["museum", "quiet", "night"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "catalog_dusty",
+      "text": "каталожно пыльной",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["museum", "archive", "paper"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "curatorially_patient",
+      "text": "кураторски терпеливой",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["museum", "ritual", "mood"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "glass_listening",
+      "text": "стеклянно слушающей",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["museum", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "exhibit_twilight",
+      "text": "экспозиционно сумеречной",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["museum", "night", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "put_under_glass",
+      "text": "убрать под стекло",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "compat:portable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "rewrite_exhibit_label",
+      "text": "переписать подпись к экспонату",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "paper", "compat:rewriteable", "compat:searchable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "carry_to_closed_fund",
+      "text": "отнести в закрытый фонд",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "archive", "compat:portable", "compat:hideable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "compare_with_catalog_card",
+      "text": "сверить с каталожной карточкой",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "paper", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "leave_in_restoration_room",
+      "text": "оставить в реставрационной комнате",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "service", "compat:portable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "seal_until_morning_tour",
+      "text": "опечатать до утренней экскурсии",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "bureaucracy", "compat:openable", "compat:hideable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "wake_with_hall_voice",
+      "text": "разбудить голосом зала",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "surreal", "compat:wakeable"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "hide_behind_display_case",
+      "text": "спрятать за витриной",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "quiet", "compat:portable", "compat:hideable"],
+      "absurdity": 1,
+      "weight": 0.7
+    }
+  ]
+}

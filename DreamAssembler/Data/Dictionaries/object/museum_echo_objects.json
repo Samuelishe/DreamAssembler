@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "blank_museum_label",
+      "text": "пустую музейную подпись",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "paper", "compat:portable", "compat:rewriteable", "compat:searchable", "compat:hideable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "cracked_display_case_key",
+      "text": "ключ от витрины с трещиной",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "service", "compat:portable", "compat:hideable", "compat:exchangeable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "stack_of_catalog_cards",
+      "text": "стопку каталожных карточек",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "paper", "compat:portable", "compat:rewriteable", "compat:searchable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "silent_audio_guide",
+      "text": "немой аудиогид",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "quiet", "compat:portable", "compat:repairable", "compat:wakeable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "restoration_gloves",
+      "text": "реставрационные перчатки",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "service", "compat:portable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "frame_without_painting",
+      "text": "раму без картины",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "surreal", "compat:portable", "compat:protectable", "compat:hideable"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "sealed_restoration_envelope",
+      "text": "опечатанный реставрационный конверт",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "paper", "compat:portable", "compat:openable", "compat:hideable", "compat:exchangeable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "echoing_exhibit_number",
+      "text": "экспонатный номер с эхом",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "surreal", "compat:portable", "compat:searchable", "compat:protectable"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

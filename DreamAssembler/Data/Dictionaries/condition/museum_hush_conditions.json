@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "nobody_spoke_loudly_near_exhibits",
+      "text": "никто не решался говорить громче музейной тишины",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["museum", "quiet", "story"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "everyone_walked_like_late_visitors",
+      "text": "все двигались так, будто опоздали к собственной экскурсии",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["museum", "night", "memory"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "glass_held_breath",
+      "text": "стекло витрин держало тишину слишком бережно",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["museum", "quiet", "service"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "dust_settled_like_memory",
+      "text": "пыль оседала так, будто знала порядок воспоминаний",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["museum", "memory", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "hall_voice_returned_softly",
+      "text": "голос зала возвращался мягче, чем следовало акустике",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["museum", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "labels_changed_order",
+      "text": "подписи менялись местами чуть раньше закрытия",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["museum", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "frames_remembered_visitors",
+      "text": "рамы запоминали посетителей лучше самих картин",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["museum", "memory", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "catalog_waited_for_corrections",
+      "text": "каталог ждал исправлений с такой вежливостью, будто знал результат заранее",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["museum", "archive", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

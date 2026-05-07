@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "hall_of_returning_exhibits",
+      "text": "зале возвращающихся экспонатов",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["museum", "memory", "quiet"],
+      "absurdity": 1,
+      "weight": 0.9
+    },
+    {
+      "id": "closed_museum_wing",
+      "text": "закрытом крыле музея",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["museum", "night", "bureaucracy"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "storage_of_unfinished_exhibits",
+      "text": "хранилище недописанных экспозиций",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["museum", "archive", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "glass_gallery_of_echoes",
+      "text": "стеклянной галерее эха",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["museum", "quiet", "surreal"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "restoration_room_after_hours",
+      "text": "реставрационной комнате после закрытия",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["museum", "service", "night"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "catalog_hall",
+      "text": "зале каталогов",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["museum", "paper", "archive"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "wing_where_labels_hesitated",
+      "text": "крыле, где подписи колебались дольше самих предметов,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["museum", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "gallery_where_frames_listened",
+      "text": "галерее, где рамы слушали внимательнее посетителей,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["museum", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}
