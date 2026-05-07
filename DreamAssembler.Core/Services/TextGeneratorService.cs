@@ -104,7 +104,7 @@ public sealed class TextGeneratorService
 
         foreach (var category in template.RequiredCategories)
         {
-            var entry = SelectEntry(category, template, targetAbsurdity, context);
+            var entry = SelectEntry(category, template, targetAbsurdity, context, values);
             values[category] = entry;
         }
 
@@ -113,18 +113,28 @@ public sealed class TextGeneratorService
         return _templateEngine.Render(template, values);
     }
 
-    private DictionaryEntry SelectEntry(string category, TemplateDefinition template, int targetAbsurdity, GenerationContext context)
+    private DictionaryEntry SelectEntry(
+        string category,
+        TemplateDefinition template,
+        int targetAbsurdity,
+        GenerationContext context,
+        IReadOnlyDictionary<string, DictionaryEntry> selectedValues)
     {
+        template.SlotRequirements.TryGetValue(category, out var requiredSlot);
+
         var candidates = _dictionaryEntries
             .Where(entry => string.Equals(entry.Category, category, StringComparison.OrdinalIgnoreCase))
+            .Where(entry => string.IsNullOrWhiteSpace(requiredSlot)
+                            || string.Equals(entry.Slot, requiredSlot, StringComparison.OrdinalIgnoreCase))
             .ToList();
 
         if (candidates.Count == 0)
         {
-            throw new InvalidOperationException($"Не найдены словарные записи для категории '{category}'.");
+            var slotSuffix = string.IsNullOrWhiteSpace(requiredSlot) ? string.Empty : $" со слотом '{requiredSlot}'";
+            throw new InvalidOperationException($"Не найдены словарные записи для категории '{category}'{slotSuffix}.");
         }
 
-        var selectedEntry = _selector.Select(candidates, item => CalculateEntryWeight(item, template, targetAbsurdity, context));
+        var selectedEntry = _selector.Select(candidates, item => CalculateEntryWeight(item, template, targetAbsurdity, context, selectedValues));
         RememberEntry(selectedEntry, context);
         return selectedEntry;
     }
@@ -145,7 +155,12 @@ public sealed class TextGeneratorService
         return baseWeight * inRangeBoost * closenessBoost * batchPenalty * recentPenalty;
     }
 
-    private double CalculateEntryWeight(DictionaryEntry entry, TemplateDefinition template, int targetAbsurdity, GenerationContext context)
+    private double CalculateEntryWeight(
+        DictionaryEntry entry,
+        TemplateDefinition template,
+        int targetAbsurdity,
+        GenerationContext context,
+        IReadOnlyDictionary<string, DictionaryEntry> selectedValues)
     {
         var baseWeight = Math.Max(0.1d, entry.Weight);
         var absurdityDistance = Math.Abs(entry.Absurdity - targetAbsurdity);
@@ -154,8 +169,35 @@ public sealed class TextGeneratorService
         var tagBoost = 1d + (tagMatches * 0.2d);
         var batchPenalty = context.IsEntryUsed(entry.Category, entry.Id) ? 0.22d : 1d;
         var recentPenalty = IsRecentlyUsed(entry.Category, entry.Id) ? 0.5d : 1d;
+        var compatibilityBoost = CalculateCompatibilityBoost(entry, selectedValues.Values);
 
-        return baseWeight * absurdityBoost * tagBoost * batchPenalty * recentPenalty;
+        return baseWeight * absurdityBoost * tagBoost * batchPenalty * recentPenalty * compatibilityBoost;
+    }
+
+    private static double CalculateCompatibilityBoost(DictionaryEntry entry, IEnumerable<DictionaryEntry> selectedValues)
+    {
+        var selectedList = selectedValues.ToList();
+        if (selectedList.Count == 0)
+        {
+            return 1d;
+        }
+
+        var score = 1d;
+
+        foreach (var selectedEntry in selectedList)
+        {
+            var sharedTags = entry.Tags.Intersect(selectedEntry.Tags, StringComparer.OrdinalIgnoreCase).Count();
+            if (sharedTags > 0)
+            {
+                score += sharedTags * 0.18d;
+            }
+            else
+            {
+                score *= 0.92d;
+            }
+        }
+
+        return Math.Max(0.55d, score);
     }
 
     private void RememberTemplate(string templateId, GenerationContext context)

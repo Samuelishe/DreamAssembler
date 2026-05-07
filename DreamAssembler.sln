@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamAssembler.Core", "Drea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamAssembler.Core.Tests", "DreamAssembler.Core.Tests\DreamAssembler.Core.Tests.csproj", "{B9957A4D-34F0-44F7-90C4-5795A9346B64}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamAssembler.DataTools", "DreamAssembler.DataTools\DreamAssembler.DataTools.csproj", "{C18B5151-C998-439A-A3A1-D84548E5D61B}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "docs", "docs\docs.csproj", "{C79E5170-33E1-4A84-B146-9734B6A35FC0}"
 EndProject
 Global
@@ -25,6 +27,10 @@ Global
 		{B9957A4D-34F0-44F7-90C4-5795A9346B64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9957A4D-34F0-44F7-90C4-5795A9346B64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9957A4D-34F0-44F7-90C4-5795A9346B64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C18B5151-C998-439A-A3A1-D84548E5D61B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C18B5151-C998-439A-A3A1-D84548E5D61B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C18B5151-C998-439A-A3A1-D84548E5D61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C18B5151-C998-439A-A3A1-D84548E5D61B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C79E5170-33E1-4A84-B146-9734B6A35FC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C79E5170-33E1-4A84-B146-9734B6A35FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C79E5170-33E1-4A84-B146-9734B6A35FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -27,6 +27,12 @@ dotnet build DreamAssembler.sln
 dotnet run --project DreamAssembler/DreamAssembler.csproj
 ```
 
+## Validate data
+
+```bash
+dotnet run --project DreamAssembler.DataTools/DreamAssembler.DataTools.csproj
+```
+
 ## Stack
 
 - C#
@@ -35,4 +41,3 @@ dotnet run --project DreamAssembler/DreamAssembler.csproj
 - MVVM
 - CommunityToolkit.Mvvm
 - JSON data files
-

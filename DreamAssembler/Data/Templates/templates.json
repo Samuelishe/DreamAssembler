@@ -5,6 +5,13 @@
       "text": "{character} должен {action} {object} в {place}, но {twist}.",
       "mode": "Sentence",
       "requiredCategories": ["character", "action", "object", "place", "twist"],
+      "slotRequirements": {
+        "character": "character_subject",
+        "action": "action_infinitive",
+        "object": "object_direct",
+        "place": "place_in",
+        "twist": "twist_clause"
+      },
       "tags": ["story", "city"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -15,6 +22,12 @@
       "text": "В {place} {character} пытается {action} {object}.",
       "mode": "Sentence",
       "requiredCategories": ["place", "character", "action", "object"],
+      "slotRequirements": {
+        "place": "place_in",
+        "character": "character_subject",
+        "action": "action_infinitive",
+        "object": "object_direct"
+      },
       "tags": ["scene", "daily"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -25,6 +38,11 @@
       "text": "{character} однажды понял, что в {place} {twist}.",
       "mode": "Sentence",
       "requiredCategories": ["character", "place", "twist"],
+      "slotRequirements": {
+        "character": "character_subject",
+        "place": "place_in",
+        "twist": "twist_clause"
+      },
       "tags": ["story", "surreal"],
       "minAbsurdity": 1,
       "maxAbsurdity": 3,
@@ -35,6 +53,10 @@
       "text": "В {place} {condition}.",
       "mode": "Sentence",
       "requiredCategories": ["place", "condition"],
+      "slotRequirements": {
+        "place": "place_in",
+        "condition": "condition_clause"
+      },
       "tags": ["scene", "story", "quiet"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -45,6 +67,11 @@
       "text": "{character} нес с собой {object}, и вокруг {condition}.",
       "mode": "Sentence",
       "requiredCategories": ["character", "object", "condition"],
+      "slotRequirements": {
+        "character": "character_subject",
+        "object": "object_direct",
+        "condition": "condition_clause"
+      },
       "tags": ["story", "city"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -55,6 +82,13 @@
       "text": "Идея: {character} должен {action} {object} в {place}, и при этом {twist}.",
       "mode": "Idea",
       "requiredCategories": ["character", "action", "object", "place", "twist"],
+      "slotRequirements": {
+        "character": "character_subject",
+        "action": "action_infinitive",
+        "object": "object_direct",
+        "place": "place_in",
+        "twist": "twist_clause"
+      },
       "tags": ["concept", "story"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -65,6 +99,11 @@
       "text": "Идея: {genre} про {concept}, рассказанная {style}.",
       "mode": "Idea",
       "requiredCategories": ["genre", "concept", "style"],
+      "slotRequirements": {
+        "genre": "genre_label",
+        "concept": "concept_label",
+        "style": "style_note"
+      },
       "tags": ["concept", "tone"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -75,6 +114,11 @@
       "text": "Идея: история о том, как в {place} возникает {concept}. По тону это {genre}.",
       "mode": "Idea",
       "requiredCategories": ["place", "concept", "genre"],
+      "slotRequirements": {
+        "place": "place_in",
+        "concept": "concept_label",
+        "genre": "genre_label"
+      },
       "tags": ["story", "concept", "city"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -85,6 +129,11 @@
       "text": "Идея: {character} вступает в спор с объектом: {object}. Подать это {style}.",
       "mode": "Idea",
       "requiredCategories": ["character", "object", "style"],
+      "slotRequirements": {
+        "character": "character_subject",
+        "object": "object_direct",
+        "style": "style_note"
+      },
       "tags": ["story", "tone", "comic"],
       "minAbsurdity": 1,
       "maxAbsurdity": 3,
@@ -95,6 +144,12 @@
       "text": "Идея: в {place} {condition}, а в центре истории {character}. По жанру это {genre}.",
       "mode": "Idea",
       "requiredCategories": ["place", "condition", "character", "genre"],
+      "slotRequirements": {
+        "place": "place_in",
+        "condition": "condition_clause",
+        "character": "character_subject",
+        "genre": "genre_label"
+      },
       "tags": ["story", "scene", "concept"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -105,6 +160,12 @@
       "text": "В {place} все началось с того, что {character} решил {action} {object}.",
       "mode": "ShortText",
       "requiredCategories": ["place", "character", "action", "object"],
+      "slotRequirements": {
+        "place": "place_in",
+        "character": "character_subject",
+        "action": "action_infinitive",
+        "object": "object_direct"
+      },
       "tags": ["story", "daily"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -115,6 +176,10 @@
       "text": "Обстановка стала {atmosphere}, потому что {twist}.",
       "mode": "ShortText",
       "requiredCategories": ["atmosphere", "twist"],
+      "slotRequirements": {
+        "atmosphere": "atmosphere_state",
+        "twist": "twist_clause"
+      },
       "tags": ["story", "mood"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -125,6 +190,10 @@
       "text": "Из-за этого всем стало {emotion}, и всем показалось, что это {concept}.",
       "mode": "ShortText",
       "requiredCategories": ["emotion", "concept"],
+      "slotRequirements": {
+        "emotion": "emotion_predicative",
+        "concept": "concept_label"
+      },
       "tags": ["story", "mood", "concept"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -135,6 +204,10 @@
       "text": "Со стороны все звучало {emotion}, хотя на деле вокруг зрела {concept}.",
       "mode": "ShortText",
       "requiredCategories": ["emotion", "concept"],
+      "slotRequirements": {
+        "emotion": "emotion_predicative",
+        "concept": "concept_label"
+      },
       "tags": ["story", "mood", "surreal"],
       "minAbsurdity": 1,
       "maxAbsurdity": 3,
@@ -145,6 +218,9 @@
       "text": "Если пересказывать это {style}, все звучит почти убедительно.",
       "mode": "ShortText",
       "requiredCategories": ["style"],
+      "slotRequirements": {
+        "style": "style_note"
+      },
       "tags": ["tone", "story"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -155,6 +231,9 @@
       "text": "С самого начала было ясно одно: {condition}.",
       "mode": "ShortText",
       "requiredCategories": ["condition"],
+      "slotRequirements": {
+        "condition": "condition_clause"
+      },
       "tags": ["story", "scene", "quiet"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,

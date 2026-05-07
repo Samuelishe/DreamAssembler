@@ -28,6 +28,11 @@ public sealed class TemplateDefinition
     public IReadOnlyList<string> RequiredCategories { get; set; } = Array.Empty<string>();
 
     /// <summary>
+    /// Получает или задает требования к безопасным слотам по категориям.
+    /// </summary>
+    public IReadOnlyDictionary<string, string> SlotRequirements { get; set; } = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+    /// <summary>
     /// Получает или задает теги шаблона.
     /// </summary>
     public IReadOnlyList<string> Tags { get; set; } = Array.Empty<string>();
@@ -47,4 +52,3 @@ public sealed class TemplateDefinition
     /// </summary>
     public double Weight { get; set; } = 1d;
 }
-
