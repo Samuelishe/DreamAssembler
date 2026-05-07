@@ -15,5 +15,11 @@ public sealed class OptionItem<T>
     /// Получает или задает значение элемента.
     /// </summary>
     public T Value { get; set; } = default!;
+
+    /// <inheritdoc />
+    public override string ToString()
+    {
+        return DisplayName;
+    }
 }
 

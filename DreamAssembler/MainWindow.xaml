@@ -129,79 +129,20 @@
             <Setter Property="Height" Value="40" />
             <Setter Property="Padding" Value="14,0" />
             <Setter Property="FontSize" Value="14" />
-            <Setter Property="Background" Value="#12FFFFFF" />
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PanelBackgroundBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource PanelBorderBrush}" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="HorizontalContentAlignment" Value="Left" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ComboBox">
-                        <Grid>
-                            <Border x:Name="Chrome"
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="11">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="28" />
-                                    </Grid.ColumnDefinitions>
-                                    <ContentPresenter Margin="{TemplateBinding Padding}"
-                                                      VerticalAlignment="Center"
-                                                      RecognizesAccessKey="True"
-                                                      Content="{TemplateBinding SelectionBoxItem}"
-                                                      ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" />
-                                    <TextBlock Grid.Column="1"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Center"
-                                               FontSize="12"
-                                               Foreground="{DynamicResource MutedTextBrush}"
-                                               Text="⌄" />
-                                </Grid>
-                            </Border>
-                            <Popup Name="Popup"
-                                   Placement="Bottom"
-                                   AllowsTransparency="True"
-                                   Focusable="False"
-                                   IsOpen="{TemplateBinding IsDropDownOpen}"
-                                   PopupAnimation="Fade">
-                                <Border Margin="0,6,0,0"
-                                        MinWidth="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}"
-                                        MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                        Background="{DynamicResource PanelBackgroundBrush}"
-                                        BorderBrush="{DynamicResource PanelBorderBrush}"
-                                        BorderThickness="1"
-                                        CornerRadius="11">
-                                    <ScrollViewer Margin="4"
-                                                  SnapsToDevicePixels="True">
-                                        <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained" />
-                                    </ScrollViewer>
-                                </Border>
-                            </Popup>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Chrome" Property="Background" Value="#18FFFFFF" />
-                            </Trigger>
-                            <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                                <Setter TargetName="Chrome" Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="Chrome" Property="Opacity" Value="0.55" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
         </Style>
 
         <Style x:Key="InputComboBoxItemStyle" TargetType="ComboBoxItem">
             <Setter Property="Padding" Value="12,8" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -851,8 +792,8 @@
             <Border Margin="0,8,0,0"
                     Padding="14"
                     Width="336"
-                    Background="#F6FBF9F5"
-                    BorderBrush="#D7D0C5"
+                    Background="{DynamicResource PanelBackgroundBrush}"
+                    BorderBrush="{DynamicResource PanelBorderBrush}"
                     BorderThickness="1"
                     CornerRadius="14">
                 <StackPanel>
@@ -883,21 +824,21 @@
                                 Height="28"
                                 CornerRadius="14"
                                 Background="{DynamicResource WindowBackgroundBrush}"
-                                BorderBrush="#D7D0C5"
+                                BorderBrush="{DynamicResource PanelBorderBrush}"
                                 BorderThickness="1" />
                         <Border Margin="8,0,0,0"
                                 Width="28"
                                 Height="28"
                                 CornerRadius="14"
                                 Background="{DynamicResource PanelBackgroundBrush}"
-                                BorderBrush="#D7D0C5"
+                                BorderBrush="{DynamicResource PanelBorderBrush}"
                                 BorderThickness="1" />
                         <Border Margin="8,0,0,0"
                                 Width="28"
                                 Height="28"
                                 CornerRadius="14"
                                 Background="{DynamicResource AccentBrush}"
-                                BorderBrush="#D7D0C5"
+                                BorderBrush="{DynamicResource PanelBorderBrush}"
                                 BorderThickness="1" />
                     </StackPanel>
                     <TextBlock Margin="0,12,0,0"
@@ -912,7 +853,7 @@
                     <Border Margin="0,10,0,0"
                             Padding="12"
                             Background="#0A000000"
-                            BorderBrush="#DDD5C9"
+                            BorderBrush="{DynamicResource PanelBorderBrush}"
                             BorderThickness="1"
                             CornerRadius="10">
                         <StackPanel>
@@ -933,7 +874,7 @@
                     <Border Margin="0,12,0,0"
                             Padding="10"
                             Background="#0A000000"
-                            BorderBrush="#DDD5C9"
+                            BorderBrush="{DynamicResource PanelBorderBrush}"
                             BorderThickness="1"
                             CornerRadius="10">
                         <StackPanel>

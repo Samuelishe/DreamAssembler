@@ -6,6 +6,8 @@
 
 ## 2026-05-08
 
+- исправлен регресс `ComboBox` после soft-controls pass: удален сломанный кастомный шаблон, из-за которого списки перестали раскрываться, а выбранные `OptionItem<T>` начали отображаться как CLR type names вместо reader-facing названий;
+- popup настроек и swatch-блок приведены к theme-aware brush-схеме, чтобы оформление не выпадало из темных палитр и не выглядело как случайная светлая вставка поверх atmospheric shell;
 - расширена продуктовая и архитектурная формулировка identity проекта: в документации зафиксировано, что текущий archive / transport / bureaucracy слой - это только первый strongest coherent atmospheric field, а дальнейшее развитие должно идти в сторону нескольких curated atmospheric manifolds, их мягкого смешивания, emotional drift и symbolic interference без жанровых пресетов и без тяжелых "умных" систем;
 - дополнительно расширено UI / UX / presentation-направление: DreamAssembler теперь еще явнее зафиксирован как atmospheric reading instrument, где fullscreen reading, visual silence, phrase-centered presentation, softer controls и content dominance важнее dashboard-feel и стандартной utility-подачи;
 - реализован первый soft-controls pass в `MainWindow.xaml`: смягчены основные кнопки и dropdowns, ослаблен utility-feel у spotlight/result cards/settings popup, а fullscreen reading mode стал тише и менее механически-виджетным по подаче;
