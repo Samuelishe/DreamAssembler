@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Windows;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DreamAssembler.App.Models;
@@ -215,19 +216,46 @@ public partial class MainViewModel : ObservableObject
     public bool IsLexicalMode => SelectedMode?.Value is GenerationMode.WordPair or GenerationMode.WordCluster;
 
     /// <summary>
+    /// Получает ширину панели управления.
+    /// </summary>
+    public GridLength ControlPanelWidth => new(IsLexicalMode ? 248d : 300d);
+
+    /// <summary>
+    /// Получает ширину промежутка между панелями.
+    /// </summary>
+    public GridLength ContentGapWidth => new(IsLexicalMode ? 26d : 18d);
+
+    /// <summary>
     /// Получает максимальную ширину карточки результата для текущего режима.
     /// </summary>
-    public double ResultCardMaxWidth => IsLexicalMode ? 560d : 840d;
+    public double ResultCardMaxWidth => IsLexicalMode ? 760d : 840d;
+
+    /// <summary>
+    /// Получает минимальную ширину карточки результата для текущего режима.
+    /// </summary>
+    public double ResultCardMinWidth => IsLexicalMode ? 340d : 260d;
 
     /// <summary>
     /// Получает рекомендуемый размер шрифта основного текста результата.
     /// </summary>
-    public double ResultTextFontSize => IsLexicalMode ? 30d : 21d;
+    public double ResultTextFontSize => IsLexicalMode ? 38d : 21d;
 
     /// <summary>
     /// Получает рекомендуемую высоту строки для основного текста результата.
     /// </summary>
-    public double ResultTextLineHeight => IsLexicalMode ? 38d : 30d;
+    public double ResultTextLineHeight => IsLexicalMode ? 46d : 30d;
+
+    /// <summary>
+    /// Получает заголовок секции результатов.
+    /// </summary>
+    public string ResultsSectionTitle => IsLexicalMode ? "Фрагменты" : "Результаты";
+
+    /// <summary>
+    /// Получает дополнительное пояснение для словесных режимов.
+    /// </summary>
+    public string ResultsSectionHint => IsLexicalMode
+        ? "Короткие фразы лучше читать как отдельные найденные обрывки."
+        : string.Empty;
 
     /// <summary>
     /// Получает строку версии приложения.
@@ -355,9 +383,14 @@ public partial class MainViewModel : ObservableObject
         OnPropertyChanged(nameof(IsAbsurditySelectionEnabled));
         OnPropertyChanged(nameof(AbsurdityModeNote));
         OnPropertyChanged(nameof(IsLexicalMode));
+        OnPropertyChanged(nameof(ControlPanelWidth));
+        OnPropertyChanged(nameof(ContentGapWidth));
         OnPropertyChanged(nameof(ResultCardMaxWidth));
+        OnPropertyChanged(nameof(ResultCardMinWidth));
         OnPropertyChanged(nameof(ResultTextFontSize));
         OnPropertyChanged(nameof(ResultTextLineHeight));
+        OnPropertyChanged(nameof(ResultsSectionTitle));
+        OnPropertyChanged(nameof(ResultsSectionHint));
         SaveSettingsIfNeeded();
     }
 

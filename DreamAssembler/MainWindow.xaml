@@ -96,6 +96,17 @@
             <Setter Property="FontSize" Value="12" />
         </Style>
 
+        <Style x:Key="HoverActionHostStyle" TargetType="StackPanel">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=Border}, Path=IsMouseOver}" Value="True">
+                    <Setter Property="Opacity" Value="1" />
+                    <Setter Property="IsHitTestVisible" Value="True" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
         <Style x:Key="ResultItemContainerStyle" TargetType="ListBoxItem">
             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
             <Setter Property="Padding" Value="0" />
@@ -186,6 +197,13 @@
                                    Text="&#xE713;" />
                     </Button>
                     <Button Style="{StaticResource WindowButtonStyle}"
+                            Click="ReadingModeButton_OnClick"
+                            ToolTip="Режим чтения">
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Text="&#xE7F4;" />
+                    </Button>
+                    <Button Style="{StaticResource WindowButtonStyle}"
                             Click="MinimizeButton_OnClick"
                             ToolTip="Свернуть">
                         <TextBlock HorizontalAlignment="Center"
@@ -222,18 +240,44 @@
         <Grid Grid.Row="2"
               Margin="18,0,18,18">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300" />
-                <ColumnDefinition Width="18" />
+                <ColumnDefinition Width="{Binding ControlPanelWidth}" />
+                <ColumnDefinition Width="{Binding ContentGapWidth}" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Border Padding="18"
-                    Style="{StaticResource PanelBorderStyle}">
+            <Border Padding="18">
+                <Border.Style>
+                    <Style TargetType="Border" BasedOn="{StaticResource PanelBorderStyle}">
+                        <Setter Property="Padding" Value="18" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsLexicalMode}" Value="True">
+                                <Setter Property="Padding" Value="16,14,16,14" />
+                                <Setter Property="Opacity" Value="0.94" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
                 <StackPanel>
                     <TextBlock FontSize="18"
                                FontWeight="SemiBold"
                                Foreground="{DynamicResource PrimaryTextBrush}"
                                Text="Параметры" />
+
+                    <TextBlock Margin="0,8,0,0"
+                               Foreground="{DynamicResource MutedTextBrush}"
+                               TextWrapping="Wrap"
+                               Text="Тихая настройка режима перед следующей выдачей.">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsLexicalMode}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
 
                     <TextBlock Margin="0,18,0,6"
                                Foreground="{DynamicResource SecondaryTextBrush}"
@@ -282,6 +326,16 @@
                             BorderBrush="{DynamicResource PanelBorderBrush}"
                             BorderThickness="1"
                             CornerRadius="8">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="Visibility" Value="Visible" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsLexicalMode}" Value="True">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
                         <StackPanel>
                             <TextBlock FontWeight="SemiBold"
                                        Foreground="{DynamicResource PrimaryTextBrush}"
@@ -311,10 +365,25 @@
                         <TextBlock FontSize="17"
                                    FontWeight="SemiBold"
                                    Foreground="{DynamicResource PrimaryTextBrush}"
-                                   Text="Результаты" />
+                                   Text="{Binding ResultsSectionTitle}" />
                         <TextBlock Margin="0,5,0,0"
                                    Foreground="{DynamicResource SecondaryTextBrush}"
                                    Text="{Binding SummaryText}" />
+                        <TextBlock Margin="0,4,0,0"
+                                   Foreground="{DynamicResource MutedTextBrush}"
+                                   TextWrapping="Wrap"
+                                   Text="{Binding ResultsSectionHint}">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsLexicalMode}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
                     </StackPanel>
 
                     <TextBlock Grid.Column="1"
@@ -325,8 +394,17 @@
 
                 <Border Grid.Row="1"
                         Margin="0,12,0,0"
-                        Padding="10"
-                        Style="{StaticResource PanelBorderStyle}">
+                        Padding="10">
+                    <Border.Style>
+                        <Style TargetType="Border" BasedOn="{StaticResource PanelBorderStyle}">
+                            <Setter Property="Padding" Value="10" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsLexicalMode}" Value="True">
+                                    <Setter Property="Padding" Value="18,22,18,26" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
                     <ListBox x:Name="ResultsList"
                              ItemsSource="{Binding Results}"
                              SelectedItem="{Binding SelectedResult}"
@@ -344,13 +422,27 @@
                             <DataTemplate DataType="{x:Type vm:ResultItemViewModel}">
                                 <Border Margin="4,2"
                                         Padding="16"
-                                        MinWidth="260"
+                                        MinWidth="{Binding DataContext.ResultCardMinWidth, RelativeSource={RelativeSource AncestorType=ListBox}}"
                                         MaxWidth="{Binding DataContext.ResultCardMaxWidth, RelativeSource={RelativeSource AncestorType=ListBox}}"
                                         HorizontalAlignment="Left"
                                         Background="{DynamicResource ResultCardBackgroundBrush}"
                                         BorderBrush="{DynamicResource PanelBorderBrush}"
                                         BorderThickness="1"
                                         CornerRadius="10">
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Setter Property="HorizontalAlignment" Value="Left" />
+                                            <Setter Property="Padding" Value="16" />
+                                            <Setter Property="CornerRadius" Value="10" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding DataContext.IsLexicalMode, RelativeSource={RelativeSource AncestorType=ListBox}}" Value="True">
+                                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                                    <Setter Property="Padding" Value="22,20,22,22" />
+                                                    <Setter Property="CornerRadius" Value="12" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
                                     <Border.ContextMenu>
                                         <ContextMenu>
                                             <MenuItem Header="Скопировать"
@@ -374,9 +466,23 @@
                                         <TextBlock FontSize="11"
                                                    FontWeight="SemiBold"
                                                    Foreground="{DynamicResource MutedTextBrush}"
-                                                   Text="{Binding Header}" />
+                                                   Text="{Binding Header}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding DataContext.IsLexicalMode, RelativeSource={RelativeSource AncestorType=ListBox}}" Value="True">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
                                         <StackPanel Grid.Column="1"
                                                     Orientation="Horizontal">
+                                            <StackPanel.Style>
+                                                <StaticResource ResourceKey="HoverActionHostStyle" />
+                                            </StackPanel.Style>
                                             <Button Style="{StaticResource ResultActionButtonStyle}"
                                                     Command="{Binding DataContext.CopyResultCommand, Source={x:Reference ResultsList}}"
                                                     CommandParameter="{Binding}"
@@ -397,7 +503,18 @@
                                                    Foreground="{DynamicResource PrimaryTextBrush}"
                                                    TextWrapping="Wrap"
                                                    TextTrimming="None"
-                                                   Text="{Binding Text}" />
+                                                   Text="{Binding Text}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="TextAlignment" Value="Left" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding DataContext.IsLexicalMode, RelativeSource={RelativeSource AncestorType=ListBox}}" Value="True">
+                                                            <Setter Property="TextAlignment" Value="Center" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
                                     </Grid>
                                 </Border>
                             </DataTemplate>
@@ -515,5 +632,71 @@
                 </StackPanel>
             </Border>
         </Popup>
+
+        <Grid x:Name="ReadingModeOverlay"
+              Grid.RowSpan="3"
+              Panel.ZIndex="20"
+              Background="#E60F0E14"
+              Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Margin="20,18,20,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <TextBlock FontSize="13"
+                               Foreground="#D9FFFFFF"
+                               Text="Режим чтения" />
+                    <TextBlock Margin="0,4,0,0"
+                               Foreground="#99FFFFFF"
+                               Text="F11 или Esc" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal">
+                    <Button Style="{StaticResource SecondaryButtonStyle}"
+                            Command="{Binding CopyResultCommand}"
+                            CommandParameter="{Binding SelectedResult}"
+                            Content="Копировать" />
+                    <Button Margin="10,0,0,0"
+                            Style="{StaticResource SecondaryButtonStyle}"
+                            Click="ExitReadingModeButton_OnClick"
+                            Content="Закрыть" />
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1"
+                  Margin="48,28,48,48">
+                <Border MaxWidth="1080"
+                        Padding="36,32"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Background="#14000000"
+                        BorderBrush="#28FFFFFF"
+                        BorderThickness="1"
+                        CornerRadius="10">
+                    <StackPanel>
+                        <TextBlock FontSize="12"
+                                   FontWeight="SemiBold"
+                                   Foreground="#A6FFFFFF"
+                                   Text="{Binding SelectedResult.Header, TargetNullValue=Фрагмент}" />
+                        <TextBlock Margin="0,18,0,0"
+                                   FontFamily="{DynamicResource ReadingFontFamily}"
+                                   FontSize="42"
+                                   FontWeight="SemiBold"
+                                   LineHeight="56"
+                                   Foreground="White"
+                                   TextWrapping="Wrap"
+                                   Text="{Binding SelectedResult.Text, TargetNullValue=Сначала выберите результат для режима чтения.}" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

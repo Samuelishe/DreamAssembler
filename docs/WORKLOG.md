@@ -88,6 +88,18 @@
 - версия приложения поднята до `0.2.0.0`, потому что тема и оформление стали полноценной пользовательской возможностью, а не заготовкой.
 - исправлено подключение шрифта `Literata` для WPF: раньше использовалось неверное family name, и карточки результатов тихо откатывались к fallback-шрифту;
 - в набор шрифтов чтения добавлен `Manrope` как еще один встроенный вариант.
+- проведен product/architecture/design refinement документации без смены rule-based направления проекта;
+- в `SESSION_INDEX.md` зафиксированы identity проекта, ключевая философия и опасные направления;
+- `PROJECT_STATE.md` переписан как документ о tonal identity, strengths генерации и reader-first направлении UI;
+- `IDEAS_BACKLOG.md` перестроен в зрелую карту направлений: `core direction`, `short-term`, `medium-term`, `experimental`, `risky directions`, `dangerous overengineering ideas`;
+- `ROADMAP.md` перестроен вокруг reader-first UI, atmospheric presentation, curated datasets quality и semantic coherence;
+- `ARCHITECTURE.md` расширен guidance по atmosphere architecture: `narrative temperature`, `atmosphere inheritance`, `semantic gravity`, `weighted emotional drift`, `soft coherence`;
+- в документации отдельно зафиксировано, почему atmosphere важнее идеальной логики и где grammar-correction не должна убивать charm проекта.
+- начат следующий UI-этап по roadmap: добавлен fullscreen reading mode поверх текущего окна с выходом по `F11` и `Esc`;
+- действия на карточках результатов переведены в более тихий hover-режим, чтобы контент меньше спорил с chrome;
+- текущее reader-first состояние UI дополнительно зафиксировано в `PROJECT_STATE.md`.
+- для режимов `Словосочетание` и `Несколько слов` усилен phrase-centered layout: карточки стали крупнее, центрированнее и с более крупной типографикой;
+- левая панель в lexical modes стала компактнее, а блок последнего действия в этих режимах скрыт, чтобы не тянуть внимание от фразы;
 
 ### Какие файлы изменены
 
@@ -99,6 +111,11 @@
 - `docs/SESSION_INDEX.md`
 - `docs/PROJECT_STATE.md`
 - `docs/IDEAS_BACKLOG.md`
+- `docs/ROADMAP.md`
+- `docs/ARCHITECTURE.md`
+- `DreamAssembler/MainWindow.xaml`
+- `DreamAssembler/MainWindow.xaml.cs`
+- `DreamAssembler/ViewModels/MainViewModel.cs`
 - `docs/PROMPTS_FOR_DATA.md`
 - `README.md`
 - `docs/DATA_SOURCES.md`

@@ -1,5 +1,6 @@
 using System.Windows;
 using System.Windows.Input;
+using DreamAssembler.App.ViewModels;
 
 namespace DreamAssembler.App;
 
@@ -8,12 +9,15 @@ namespace DreamAssembler.App;
 /// </summary>
 public partial class MainWindow : Window
 {
+    private WindowState _windowStateBeforeReadingMode = WindowState.Normal;
+
     /// <summary>
     /// Инициализирует главное окно приложения.
     /// </summary>
     public MainWindow()
     {
         InitializeComponent();
+        PreviewKeyDown += MainWindow_OnPreviewKeyDown;
     }
 
     private void TitleBar_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -47,10 +51,73 @@ public partial class MainWindow : Window
         Close();
     }
 
+    private void ReadingModeButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        ToggleReadingMode();
+    }
+
+    private void ExitReadingModeButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        ExitReadingMode();
+    }
+
     private void ToggleWindowState()
     {
         WindowState = WindowState == WindowState.Maximized
             ? WindowState.Normal
             : WindowState.Maximized;
+    }
+
+    private void ToggleReadingMode()
+    {
+        if (ReadingModeOverlay.Visibility == Visibility.Visible)
+        {
+            ExitReadingMode();
+            return;
+        }
+
+        EnterReadingMode();
+    }
+
+    private void EnterReadingMode()
+    {
+        if (DataContext is MainViewModel viewModel
+            && viewModel.SelectedResult is null
+            && viewModel.Results.Count > 0)
+        {
+            viewModel.SelectedResult = viewModel.Results[0];
+        }
+
+        _windowStateBeforeReadingMode = WindowState;
+        WindowState = WindowState.Maximized;
+        ReadingModeOverlay.Visibility = Visibility.Visible;
+        SettingsPopup.IsOpen = false;
+    }
+
+    private void ExitReadingMode()
+    {
+        if (ReadingModeOverlay.Visibility != Visibility.Visible)
+        {
+            return;
+        }
+
+        ReadingModeOverlay.Visibility = Visibility.Collapsed;
+        WindowState = _windowStateBeforeReadingMode;
+    }
+
+    private void MainWindow_OnPreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.F11)
+        {
+            ToggleReadingMode();
+            e.Handled = true;
+            return;
+        }
+
+        if (e.Key == Key.Escape && ReadingModeOverlay.Visibility == Visibility.Visible)
+        {
+            ExitReadingMode();
+            e.Handled = true;
+        }
     }
 }
