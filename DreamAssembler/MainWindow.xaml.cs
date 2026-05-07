@@ -1,5 +1,7 @@
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Animation;
 using DreamAssembler.App.ViewModels;
 
 namespace DreamAssembler.App;
@@ -119,5 +121,45 @@ public partial class MainWindow : Window
             ExitReadingMode();
             e.Handled = true;
         }
+    }
+
+    private void ResultsList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (DataContext is not MainViewModel viewModel || !viewModel.IsLexicalMode)
+        {
+            return;
+        }
+
+        AnimateLexicalSpotlight();
+    }
+
+    private void AnimateLexicalSpotlight()
+    {
+        if (LexicalSpotlightBorder.Visibility != Visibility.Visible)
+        {
+            return;
+        }
+
+        LexicalSpotlightBorder.BeginAnimation(OpacityProperty, null);
+        LexicalSpotlightTransform.BeginAnimation(System.Windows.Media.TranslateTransform.YProperty, null);
+
+        var opacityAnimation = new DoubleAnimation
+        {
+            From = 0.45d,
+            To = 1d,
+            Duration = TimeSpan.FromMilliseconds(220),
+            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+        };
+
+        var offsetAnimation = new DoubleAnimation
+        {
+            From = 10d,
+            To = 0d,
+            Duration = TimeSpan.FromMilliseconds(260),
+            EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+        };
+
+        LexicalSpotlightBorder.BeginAnimation(OpacityProperty, opacityAnimation);
+        LexicalSpotlightTransform.BeginAnimation(System.Windows.Media.TranslateTransform.YProperty, offsetAnimation);
     }
 }

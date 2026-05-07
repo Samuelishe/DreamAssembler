@@ -58,7 +58,7 @@ public partial class MainViewModel : ObservableObject
             new OptionItem<AppTheme> { DisplayName = "Графитовая темная", Value = AppTheme.GraphiteDark },
             new OptionItem<AppTheme> { DisplayName = "Сливовая ночь", Value = AppTheme.PlumNight },
             new OptionItem<AppTheme> { DisplayName = "Архивные сумерки", Value = AppTheme.ArchiveDusk },
-            new OptionItem<AppTheme> { DisplayName = "Трамвайная ночь", Value = AppTheme.TramNight }
+            new OptionItem<AppTheme> { DisplayName = "Ночной маршрут", Value = AppTheme.TramNight }
         ];
         ReadingFontOptions =
         [
@@ -241,12 +241,12 @@ public partial class MainViewModel : ObservableObject
     /// <summary>
     /// Получает рекомендуемый размер шрифта основного текста результата.
     /// </summary>
-    public double ResultTextFontSize => IsLexicalMode ? 38d : 21d;
+    public double ResultTextFontSize => IsLexicalMode ? 32d : 21d;
 
     /// <summary>
     /// Получает рекомендуемую высоту строки для основного текста результата.
     /// </summary>
-    public double ResultTextLineHeight => IsLexicalMode ? 46d : 30d;
+    public double ResultTextLineHeight => IsLexicalMode ? 40d : 30d;
 
     /// <summary>
     /// Получает заголовок секции результатов.
@@ -286,7 +286,7 @@ public partial class MainViewModel : ObservableObject
         AppTheme.GraphiteDark => "Темная графитовая тема с янтарным акцентом.",
         AppTheme.PlumNight => "Темная сливовая тема с более выразительным цветовым контрастом.",
         AppTheme.ArchiveDusk => "Темная архивная тема с оливково-бумажным оттенком.",
-        AppTheme.TramNight => "Темная ночная тема с бирюзовым транспортным свечением.",
+        AppTheme.TramNight => "Темная ночная тема с бирюзовым маршрутным свечением.",
         _ => string.Empty
     };
 

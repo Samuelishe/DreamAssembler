@@ -113,6 +113,7 @@
             <Setter Property="Margin" Value="0,0,0,10" />
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Opacity" Value="1" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="Template">
                 <Setter.Value>
@@ -121,6 +122,18 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding DataContext.IsLexicalMode, RelativeSource={RelativeSource AncestorType=ListBox}}" Value="True">
+                    <Setter Property="Opacity" Value="0.58" />
+                    <Setter Property="Margin" Value="0,0,0,14" />
+                </DataTrigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="1" />
+                </Trigger>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Opacity" Value="0.82" />
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
         <Style x:Key="SubtleThumbStyle" TargetType="Thumb">
@@ -416,12 +429,16 @@
                 </Grid>
 
                 <Border Grid.Row="1"
+                        x:Name="LexicalSpotlightBorder"
                         Margin="0,16,0,6"
                         Padding="28,26,28,30"
                         Background="#12000000"
                         BorderBrush="{DynamicResource PanelBorderBrush}"
                         BorderThickness="1"
                         CornerRadius="14">
+                    <Border.RenderTransform>
+                        <TranslateTransform x:Name="LexicalSpotlightTransform" />
+                    </Border.RenderTransform>
                     <Border.Style>
                         <Style TargetType="Border">
                             <Setter Property="Visibility" Value="Collapsed" />
@@ -447,6 +464,18 @@
                                    TextAlignment="Center"
                                    TextWrapping="Wrap"
                                    Text="{Binding SelectedResult.Text, TargetNullValue=Сначала соберите несколько фрагментов и выберите один для чтения.}" />
+                        <StackPanel Margin="0,18,0,0"
+                                    HorizontalAlignment="Center"
+                                    Orientation="Horizontal">
+                            <Button Style="{StaticResource SecondaryButtonStyle}"
+                                    Command="{Binding CopyResultCommand}"
+                                    CommandParameter="{Binding SelectedResult}"
+                                    Content="Копировать" />
+                            <Button Margin="10,0,0,0"
+                                    Style="{StaticResource SecondaryButtonStyle}"
+                                    Click="ReadingModeButton_OnClick"
+                                    Content="Открыть в режиме чтения" />
+                        </StackPanel>
                     </StackPanel>
                 </Border>
 
@@ -490,6 +519,7 @@
                                  Margin="0,8,0,0"
                                  ItemsSource="{Binding Results}"
                                  SelectedItem="{Binding SelectedResult}"
+                                 SelectionChanged="ResultsList_OnSelectionChanged"
                                  BorderThickness="0"
                                  Background="Transparent"
                                  HorizontalContentAlignment="Stretch"
