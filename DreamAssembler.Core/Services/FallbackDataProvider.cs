@@ -53,9 +53,9 @@ public static class FallbackDataProvider
             new DictionaryEntry { Id = "deadpan_style", Text = "с серьезной интонацией", Category = "style", Slot = "style_note", Tags = ["tone"], Absurdity = 0, Weight = 1.0 },
             new DictionaryEntry { Id = "late_night_radio_style", Text = "как ночной радиомонолог", Category = "style", Slot = "style_note", Tags = ["night", "tone"], Absurdity = 1, Weight = 0.9 },
             new DictionaryEntry { Id = "with_tender_irony", Text = "с мягкой иронией", Category = "style", Slot = "style_note", Tags = ["tone", "comic"], Absurdity = 0, Weight = 0.9 },
-            new DictionaryEntry { Id = "quiet_rebellion", Text = "тихий бунт предметов", Category = "concept", Slot = "concept_label", Tags = ["story", "absurd"], Absurdity = 2, Weight = 0.9 },
-            new DictionaryEntry { Id = "bureaucracy_of_memories", Text = "бюрократия воспоминаний", Category = "concept", Slot = "concept_label", Tags = ["bureaucracy", "memory"], Absurdity = 2, Weight = 0.8 },
-            new DictionaryEntry { Id = "silent_rehearsal_of_city", Text = "тихая репетиция города", Category = "concept", Slot = "concept_label", Tags = ["city", "story"], Absurdity = 1, Weight = 0.8 },
+            new DictionaryEntry { Id = "quiet_rebellion", Text = "тихий бунт предметов", Category = "concept", Slot = "concept_story_frame", Tags = ["story", "absurd"], Absurdity = 2, Weight = 0.9 },
+            new DictionaryEntry { Id = "bureaucracy_of_memories", Text = "бюрократия воспоминаний", Category = "concept", Slot = "concept_reflection", Tags = ["bureaucracy", "memory"], Absurdity = 2, Weight = 0.8 },
+            new DictionaryEntry { Id = "silent_rehearsal_of_city", Text = "тихая репетиция города", Category = "concept", Slot = "concept_reflection", Tags = ["city", "story"], Absurdity = 1, Weight = 0.8 },
             new DictionaryEntry { Id = "everybody_spoke_whisper", Text = "все говорили шепотом", Category = "condition", Slot = "condition_clause", Tags = ["quiet", "story"], Absurdity = 0, Weight = 1.0 },
             new DictionaryEntry { Id = "nobody_trusted_clocks", Text = "никто не доверял часам", Category = "condition", Slot = "condition_clause", Tags = ["time", "surreal"], Absurdity = 2, Weight = 0.9 }
         ];
@@ -183,13 +183,29 @@ public static class FallbackDataProvider
                 SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
                 {
                     ["emotion"] = "emotion_group_state",
-                    ["concept"] = "concept_label"
+                    ["concept"] = "concept_reflection"
                 },
                 CompositionRole = "reflection",
                 Tags = ["story", "mood", "concept"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
                 Weight = 0.9
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_interpretation",
+                Text = "Со временем все это стало выглядеть как {concept}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["concept"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["concept"] = "concept_reflection"
+                },
+                CompositionRole = "interpretation",
+                Tags = ["story", "concept", "mood"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.8
             },
             new TemplateDefinition
             {
@@ -298,10 +314,33 @@ public static class FallbackDataProvider
                 Text = "Идея: история о том, как в {place} возникает {concept}. По тону это {genre}.",
                 Mode = GenerationMode.Idea,
                 RequiredCategories = ["place", "concept", "genre"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in",
+                    ["concept"] = "concept_story_frame",
+                    ["genre"] = "genre_label"
+                },
                 Tags = ["story", "concept", "city"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
                 Weight = 1.0
+            },
+            new TemplateDefinition
+            {
+                Id = "idea_genre_concept_style",
+                Text = "Идея: {genre} на тему: {concept}, рассказанная {style}.",
+                Mode = GenerationMode.Idea,
+                RequiredCategories = ["genre", "concept", "style"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["genre"] = "genre_label",
+                    ["concept"] = "concept_story_frame",
+                    ["style"] = "style_note"
+                },
+                Tags = ["concept", "tone"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.9
             },
             new TemplateDefinition
             {

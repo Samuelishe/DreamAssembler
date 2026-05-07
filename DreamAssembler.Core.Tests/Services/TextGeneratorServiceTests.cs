@@ -134,6 +134,49 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что рефлексивный short-text шаблон берет concept только из reflection-slot.
+    /// </summary>
+    [Fact]
+    public void Generate_UsesReflectionConceptSlot_WhenTemplateRequiresIt()
+    {
+        var template = new TemplateDefinition
+        {
+            Id = "concept_reflection_slot_test",
+            Text = "Это было {concept}.",
+            Mode = GenerationMode.ShortText,
+            RequiredCategories = ["concept"],
+            SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["concept"] = "concept_reflection"
+            },
+            CompositionRole = "reflection",
+            Weight = 1.0
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new() { Id = "concept_reflection_ok", Category = "concept", Slot = "concept_reflection", Text = "маленькая городская тайна", Weight = 1.0 },
+            new() { Id = "concept_story_wrong", Category = "concept", Slot = "concept_story_frame", Text = "тихий бунт предметов", Weight = 100.0 }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            [template],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.ShortText,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 1
+        });
+
+        Assert.Contains("маленькая городская тайна", Assert.Single(result).Text, StringComparison.Ordinal);
+    }
+
+    /// <summary>
     /// Проверяет, что короткий текст не начинается с meta-шаблона и не повторяет его несколько раз при наличии альтернатив.
     /// </summary>
     [Fact]

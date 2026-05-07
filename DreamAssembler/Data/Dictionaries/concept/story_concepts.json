@@ -4,7 +4,7 @@
       "id": "quiet_rebellion",
       "text": "тихий бунт предметов",
       "category": "concept",
-      "slot": "concept_label",
+      "slot": "concept_story_frame",
       "tags": ["story", "absurd"],
       "absurdity": 2,
       "weight": 0.9
@@ -13,7 +13,7 @@
       "id": "small_city_secret",
       "text": "маленькая городская тайна",
       "category": "concept",
-      "slot": "concept_label",
+      "slot": "concept_reflection",
       "tags": ["story", "daily"],
       "absurdity": 0,
       "weight": 1.0
@@ -22,7 +22,7 @@
       "id": "collective_insomnia_of_things",
       "text": "коллективная бессонница вещей",
       "category": "concept",
-      "slot": "concept_label",
+      "slot": "concept_story_frame",
       "tags": ["surreal", "night"],
       "absurdity": 3,
       "weight": 0.7
@@ -31,7 +31,7 @@
       "id": "bureaucracy_of_memories",
       "text": "бюрократия воспоминаний",
       "category": "concept",
-      "slot": "concept_label",
+      "slot": "concept_reflection",
       "tags": ["bureaucracy", "memory"],
       "absurdity": 2,
       "weight": 0.8
@@ -40,7 +40,7 @@
       "id": "silent_rehearsal_of_city",
       "text": "тихая репетиция города",
       "category": "concept",
-      "slot": "concept_label",
+      "slot": "concept_reflection",
       "tags": ["city", "story"],
       "absurdity": 1,
       "weight": 0.8
@@ -49,7 +49,7 @@
       "id": "calendar_fatigue",
       "text": "усталость календаря",
       "category": "concept",
-      "slot": "concept_label",
+      "slot": "concept_story_frame",
       "tags": ["time", "surreal"],
       "absurdity": 2,
       "weight": 0.8
@@ -58,7 +58,7 @@
       "id": "economy_of_small_miracles",
       "text": "экономика маленьких чудес",
       "category": "concept",
-      "slot": "concept_label",
+      "slot": "concept_reflection",
       "tags": ["story", "surreal"],
       "absurdity": 2,
       "weight": 0.8
@@ -67,11 +67,10 @@
       "id": "discipline_of_shadows",
       "text": "дисциплина теней",
       "category": "concept",
-      "slot": "concept_label",
+      "slot": "concept_story_frame",
       "tags": ["night", "surreal"],
       "absurdity": 3,
       "weight": 0.7
     }
   ]
 }
-

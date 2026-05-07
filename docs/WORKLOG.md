@@ -51,6 +51,8 @@
 - обновлены short-text шаблоны и fallback-данные, чтобы снизить количество повторов и убрать часть неестественных связок.
 - `twist` разделен на `twist_character_clause` и `twist_general_clause`, чтобы местоименные конструкции выбирались только там, где в шаблоне есть явный персонаж;
 - добавлен тест на соблюдение персонального twist-slot и синхронизированы fallback-данные с новой схемой.
+- `concept` разделен на `concept_story_frame` и `concept_reflection`, чтобы сюжетные темы не смешивались с рефлексивными смысловыми хвостами;
+- добавлен новый short-text шаблон интерпретации и тест на соблюдение reflection-slot для `concept`.
 
 ### Какие файлы изменены
 
@@ -80,6 +82,7 @@
 - `DreamAssembler/Data/Dictionaries/emotion/predicative_states.json`
 - `DreamAssembler/Data/Dictionaries/atmosphere/scene_tones.json`
 - `DreamAssembler/Data/Dictionaries/twist/rules_and_reactions.json`
+- `DreamAssembler/Data/Dictionaries/concept/story_concepts.json`
 - `DreamAssembler/Data/Templates/templates.json`
 - `DreamAssembler/MainWindow.xaml.cs`
 - `DreamAssembler/Services/IUserSettingsService.cs`
@@ -104,3 +107,4 @@
 - новые улучшения генерации уменьшают количество повторяющихся вводных фраз и слабых сочетаний.
 - `ShortText` не начинается с meta-фразы и не повторяет ее несколько раз в одной генерации при наличии других шаблонов.
 - местоименные twist-конструкции не попадают в шаблоны, которые ждут общий безличный twist без явной опоры на персонажа.
+- рефлексивные short-text конструкции берут `concept` только из `concept_reflection`, а idea-шаблоны с сюжетной темой используют `concept_story_frame`.

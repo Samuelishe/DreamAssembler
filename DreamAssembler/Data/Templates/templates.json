@@ -96,12 +96,12 @@
     },
     {
       "id": "idea_genre_concept_style",
-      "text": "Идея: {genre} про {concept}, рассказанная {style}.",
+      "text": "Идея: {genre} на тему: {concept}, рассказанная {style}.",
       "mode": "Idea",
       "requiredCategories": ["genre", "concept", "style"],
       "slotRequirements": {
         "genre": "genre_label",
-        "concept": "concept_label",
+        "concept": "concept_story_frame",
         "style": "style_note"
       },
       "tags": ["concept", "tone"],
@@ -116,7 +116,7 @@
       "requiredCategories": ["place", "concept", "genre"],
       "slotRequirements": {
         "place": "place_in",
-        "concept": "concept_label",
+        "concept": "concept_story_frame",
         "genre": "genre_label"
       },
       "tags": ["story", "concept", "city"],
@@ -194,13 +194,27 @@
       "requiredCategories": ["emotion", "concept"],
       "slotRequirements": {
         "emotion": "emotion_group_state",
-        "concept": "concept_label"
+        "concept": "concept_reflection"
       },
       "compositionRole": "reflection",
       "tags": ["story", "mood", "concept"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
       "weight": 0.9
+    },
+    {
+      "id": "shorttext_interpretation",
+      "text": "Со временем все это стало выглядеть как {concept}.",
+      "mode": "ShortText",
+      "requiredCategories": ["concept"],
+      "slotRequirements": {
+        "concept": "concept_reflection"
+      },
+      "compositionRole": "interpretation",
+      "tags": ["story", "concept", "mood"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.8
     },
     {
       "id": "shorttext_observer",
