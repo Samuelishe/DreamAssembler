@@ -52,11 +52,23 @@
                     <StackPanel>
                         <TextBlock FontWeight="SemiBold"
                                    Foreground="#FF3E3A33"
-                                   Text="Статус данных" />
+                                   Text="Состояние" />
+                        <TextBlock Margin="0,8,0,0"
+                                   FontWeight="SemiBold"
+                                   Foreground="#FF3E3A33"
+                                   Text="Данные" />
                         <TextBlock Margin="0,8,0,0"
                                    Foreground="{Binding IsFallbackActive, Converter={StaticResource BooleanToBrushConverter}}"
                                    TextWrapping="Wrap"
-                                   Text="{Binding StatusMessage}" />
+                                   Text="{Binding DataStatusMessage}" />
+                        <TextBlock Margin="0,12,0,0"
+                                   FontWeight="SemiBold"
+                                   Foreground="#FF3E3A33"
+                                   Text="Настройки" />
+                        <TextBlock Margin="0,8,0,0"
+                                   Foreground="#FF5A5750"
+                                   TextWrapping="Wrap"
+                                   Text="{Binding SettingsStatusMessage}" />
                     </StackPanel>
                 </Border>
             </Grid>
@@ -127,6 +139,23 @@
                             Height="34"
                             Command="{Binding ClearHistoryCommand}"
                             Content="Очистить историю" />
+
+                    <Border Margin="0,18,0,0"
+                            Padding="10"
+                            Background="#FFF8F1E4"
+                            BorderBrush="#FFE6D7C0"
+                            BorderThickness="1"
+                            CornerRadius="6">
+                        <StackPanel>
+                            <TextBlock FontWeight="SemiBold"
+                                       Foreground="#FF3E3A33"
+                                       Text="Последнее действие" />
+                            <TextBlock Margin="0,8,0,0"
+                                       Foreground="{Binding IsActionError, Converter={StaticResource BooleanToBrushConverter}}"
+                                       TextWrapping="Wrap"
+                                       Text="{Binding ActionStatusMessage}" />
+                        </StackPanel>
+                    </Border>
                 </StackPanel>
             </Border>
 
@@ -201,4 +230,3 @@
         </Grid>
     </Grid>
 </Window>
-

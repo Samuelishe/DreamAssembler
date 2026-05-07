@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Runtime.InteropServices;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DreamAssembler.App.Models;
@@ -18,7 +19,6 @@ public partial class MainViewModel : ObservableObject
     private readonly TextGeneratorService _textGeneratorService;
     private readonly IClipboardService _clipboardService;
     private readonly IUserSettingsService _userSettingsService;
-    private readonly string _baseStatusMessage;
     private bool _isRestoringSettings;
 
     /// <summary>
@@ -50,7 +50,7 @@ public partial class MainViewModel : ObservableObject
         var dataBundle = dataLoader.Load(dataPath);
 
         IsFallbackActive = dataBundle.UsedFallback;
-        _baseStatusMessage = dataBundle.StatusMessage;
+        DataStatusMessage = dataBundle.StatusMessage;
 
         _textGeneratorService = new TextGeneratorService(
             dataBundle.DictionaryEntries,
@@ -108,7 +108,25 @@ public partial class MainViewModel : ObservableObject
     /// Получает или задает текст статуса данных.
     /// </summary>
     [ObservableProperty]
-    private string statusMessage = string.Empty;
+    private string dataStatusMessage = string.Empty;
+
+    /// <summary>
+    /// Получает или задает текст статуса пользовательских настроек.
+    /// </summary>
+    [ObservableProperty]
+    private string settingsStatusMessage = string.Empty;
+
+    /// <summary>
+    /// Получает или задает текст статуса последнего действия пользователя.
+    /// </summary>
+    [ObservableProperty]
+    private string actionStatusMessage = "Действий еще не было.";
+
+    /// <summary>
+    /// Получает или задает признак ошибки в последнем действии.
+    /// </summary>
+    [ObservableProperty]
+    private bool isActionError;
 
     /// <summary>
     /// Получает или задает сводку по текущей выдаче.
@@ -134,24 +152,34 @@ public partial class MainViewModel : ObservableObject
     [RelayCommand]
     private void Generate()
     {
-        var options = new TextGenerationOptions
+        try
         {
-            Mode = SelectedMode.Value,
-            AbsurdityLevel = SelectedAbsurdityLevel.Value,
-            ResultCount = ResultCount
-        };
+            var options = new TextGenerationOptions
+            {
+                Mode = SelectedMode.Value,
+                AbsurdityLevel = SelectedAbsurdityLevel.Value,
+                ResultCount = ResultCount
+            };
 
-        var generatedResults = _textGeneratorService.Generate(options);
+            var generatedResults = _textGeneratorService.Generate(options);
 
-        var headerStartIndex = Results.Count + 1;
-        for (var index = 0; index < generatedResults.Count; index++)
-        {
-            Results.Insert(0, new ResultItemViewModel(generatedResults[index], headerStartIndex + index));
+            var headerStartIndex = Results.Count + 1;
+            for (var index = 0; index < generatedResults.Count; index++)
+            {
+                Results.Insert(0, new ResultItemViewModel(generatedResults[index], headerStartIndex + index));
+            }
+
+            SelectedResult = Results.FirstOrDefault();
+            SummaryText = $"В истории: {Results.Count}. Последняя выдача: {generatedResults.Count}.";
+            LastGeneratedAtText = $"Обновлено {DateTime.Now:HH:mm:ss}";
+            ActionStatusMessage = "Генерация завершена успешно.";
+            IsActionError = false;
         }
-
-        SelectedResult = Results.FirstOrDefault();
-        SummaryText = $"В истории: {Results.Count}. Последняя выдача: {generatedResults.Count}.";
-        LastGeneratedAtText = $"Обновлено {DateTime.Now:HH:mm:ss}";
+        catch (InvalidOperationException exception)
+        {
+            ActionStatusMessage = $"Генерация не выполнена: {exception.Message}";
+            IsActionError = true;
+        }
     }
 
     /// <summary>
@@ -165,8 +193,22 @@ public partial class MainViewModel : ObservableObject
             return;
         }
 
-        _clipboardService.SetText(SelectedResult.Text);
-        StatusMessage = "Выбранный результат скопирован в буфер обмена.";
+        try
+        {
+            _clipboardService.SetText(SelectedResult.Text);
+            ActionStatusMessage = "Выбранный результат скопирован в буфер обмена.";
+            IsActionError = false;
+        }
+        catch (COMException)
+        {
+            ActionStatusMessage = "Не удалось скопировать текст в буфер обмена. Попробуйте еще раз.";
+            IsActionError = true;
+        }
+        catch (ExternalException)
+        {
+            ActionStatusMessage = "Буфер обмена сейчас недоступен. Попробуйте еще раз.";
+            IsActionError = true;
+        }
     }
 
     /// <summary>
@@ -179,6 +221,8 @@ public partial class MainViewModel : ObservableObject
         SelectedResult = null;
         SummaryText = "История очищена.";
         LastGeneratedAtText = "История пуста";
+        ActionStatusMessage = "История генераций очищена.";
+        IsActionError = false;
     }
 
     private bool CanCopy()
@@ -211,7 +255,7 @@ public partial class MainViewModel : ObservableObject
 
         _isRestoringSettings = false;
 
-        StatusMessage = CombineStatusMessages(_baseStatusMessage, loadResult.Message);
+        SettingsStatusMessage = loadResult.Message;
     }
 
     private void SaveSettingsIfNeeded()
@@ -230,22 +274,10 @@ public partial class MainViewModel : ObservableObject
 
         if (!_userSettingsService.Save(settings))
         {
-            StatusMessage = CombineStatusMessages(_baseStatusMessage, "Не удалось сохранить пользовательские настройки.");
-        }
-    }
-
-    private static string CombineStatusMessages(string first, string second)
-    {
-        if (string.IsNullOrWhiteSpace(first))
-        {
-            return second;
+            SettingsStatusMessage = "Не удалось сохранить пользовательские настройки.";
+            return;
         }
 
-        if (string.IsNullOrWhiteSpace(second))
-        {
-            return first;
-        }
-
-        return $"{first} {second}";
+        SettingsStatusMessage = "Пользовательские настройки сохранены.";
     }
 }
