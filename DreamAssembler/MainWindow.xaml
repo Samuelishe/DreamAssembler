@@ -506,9 +506,19 @@
                                     CommandParameter="{Binding SelectedResult}"
                                     Content="Копировать" />
                             <Button Margin="10,0,0,0"
-                                    Style="{StaticResource SecondaryButtonStyle}"
                                     Click="ReadingModeButton_OnClick"
-                                    Content="Открыть в режиме чтения" />
+                                    Content="Открыть в режиме чтения">
+                                <Button.Style>
+                                    <Style TargetType="Button" BasedOn="{StaticResource SecondaryButtonStyle}">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsLexicalMode}" Value="True">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
                         </StackPanel>
                     </StackPanel>
                 </Border>

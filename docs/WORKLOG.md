@@ -117,6 +117,8 @@
 - поверх этого слоя добавлены первые atmospheric clusters `archive`, `rainy-city`, `night-route`: lexical-режимы теперь могут удерживать одну batch-level mood-зону внутри серии коротких фрагментов;
 - сгенерирована и встроена первая собственная app icon: `DreamAssembler.csproj` теперь задает `ApplicationIcon`, а `MainWindow` использует тот же `.ico`, чтобы иконка была видна и в окне приложения, и у собранного Windows `exe`;
 - в UI выведена reader-facing mood-подпись lexical batch: spotlight и fullscreen reading mode теперь показывают тихий atmospheric label и короткое пояснение для текущего локального пространства;
+- по реальным пользовательским примерам найдены ложные gender-метки во внешнем noun CSV вроде `южанин -> n` и `оседание -> f`; в `AssociationFragmentRepository` добавлены мягкие noun-gender heuristics, чтобы чинить такие очевидные случаи при загрузке;
+- кнопка `Открыть в режиме чтения` скрыта для lexical spotlight, потому что для словосочетаний и коротких 3-4-словных фрагментов этот action визуально и продуктово звучал чужеродно;
 
 ### Какие файлы изменены
 

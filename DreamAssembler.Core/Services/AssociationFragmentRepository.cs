@@ -225,7 +225,14 @@ public sealed class AssociationFragmentRepository
         foreach (var row in rows.Skip(1))
         {
             var columns = row.Split('\t');
-            var gender = GetColumnValue(columns, header, "gender");
+            var nominative = NormalizeWord(GetColumnValue(columns, header, "sg_nom"));
+            var genitive = NormalizeWord(GetColumnValue(columns, header, "sg_gen"));
+            var accusative = NormalizeWord(GetColumnValue(columns, header, "sg_acc"));
+            var gender = ResolveNounGender(
+                GetColumnValue(columns, header, "gender"),
+                nominative,
+                genitive,
+                accusative);
             if (!IsSupportedNounGender(gender))
             {
                 continue;
@@ -236,7 +243,6 @@ public sealed class AssociationFragmentRepository
                 continue;
             }
 
-            var nominative = NormalizeWord(GetColumnValue(columns, header, "sg_nom"));
             if (!IsSingleRussianWord(nominative) || !IsAllowedNounLemma(nominative))
             {
                 continue;
@@ -478,6 +484,68 @@ public sealed class AssociationFragmentRepository
         return string.Equals(gender, "m", StringComparison.OrdinalIgnoreCase)
                || string.Equals(gender, "f", StringComparison.OrdinalIgnoreCase)
                || string.Equals(gender, "n", StringComparison.OrdinalIgnoreCase);
+    }
+
+    private static string ResolveNounGender(string sourceGender, string nominative, string genitive, string accusative)
+    {
+        if (string.IsNullOrWhiteSpace(nominative))
+        {
+            return sourceGender;
+        }
+
+        if (LooksLikeMasculineAnimateNoun(nominative, accusative))
+        {
+            return "m";
+        }
+
+        if (LooksLikeNeuterNoun(nominative, genitive))
+        {
+            return "n";
+        }
+
+        if (LooksLikeFeminineNoun(nominative, genitive))
+        {
+            return "f";
+        }
+
+        return sourceGender;
+    }
+
+    private static bool LooksLikeMasculineAnimateNoun(string nominative, string accusative)
+    {
+        if (!string.Equals(accusative, nominative, StringComparison.Ordinal))
+        {
+            if (nominative.EndsWith("ин", StringComparison.Ordinal)
+                || nominative.EndsWith("нин", StringComparison.Ordinal)
+                || nominative.EndsWith("тель", StringComparison.Ordinal)
+                || nominative.EndsWith("арь", StringComparison.Ordinal)
+                || nominative.EndsWith("ист", StringComparison.Ordinal)
+                || nominative.EndsWith("лог", StringComparison.Ordinal)
+                || nominative.EndsWith("ор", StringComparison.Ordinal)
+                || nominative.EndsWith("ер", StringComparison.Ordinal))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static bool LooksLikeNeuterNoun(string nominative, string genitive)
+    {
+        return nominative.EndsWith("о", StringComparison.Ordinal)
+               || nominative.EndsWith("е", StringComparison.Ordinal)
+               || nominative.EndsWith("ие", StringComparison.Ordinal)
+               || nominative.EndsWith("мя", StringComparison.Ordinal)
+               || (nominative.EndsWith("ание", StringComparison.Ordinal) && genitive.EndsWith("ания", StringComparison.Ordinal))
+               || (nominative.EndsWith("ение", StringComparison.Ordinal) && genitive.EndsWith("ения", StringComparison.Ordinal));
+    }
+
+    private static bool LooksLikeFeminineNoun(string nominative, string genitive)
+    {
+        return nominative.EndsWith("а", StringComparison.Ordinal)
+               || nominative.EndsWith("я", StringComparison.Ordinal)
+               || (nominative.EndsWith("ь", StringComparison.Ordinal) && genitive.EndsWith("и", StringComparison.Ordinal));
     }
 
     private static bool LooksLikeAdjectiveLemma(string value)

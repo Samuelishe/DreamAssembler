@@ -256,6 +256,39 @@ public sealed class AssociationFragmentRepositoryTests
         }
     }
 
+    /// <summary>
+    /// Проверяет, что репозиторий исправляет очевидно сломанный gender из внешнего CSV по форме слова.
+    /// </summary>
+    [Fact]
+    public void Load_RepairsBrokenSourceGender_WhenNounMorphologyIsObvious()
+    {
+        var repository = new AssociationFragmentRepository();
+        var directoryPath = CreateTempDirectory();
+
+        try
+        {
+            File.WriteAllText(
+                Path.Combine(directoryPath, "sample-nouns.csv"),
+                """
+                bare	accented	translations_en	translations_de	gender	partner	animate	indeclinable	sg_only	pl_only	sg_nom	sg_gen	sg_dat	sg_acc	sg_inst	sg_prep	pl_nom	pl_gen	pl_dat	pl_acc	pl_inst	pl_prep
+                южанин	южа'нин	southerner	Südländer	n		0	0	0	0	южа'нин	южа'нина	южа'нину	южа'нина	южа'нином	южа'нине	южа'не	южа'н	южа'нам	южа'н	южа'нами	южа'нах
+                оседание	оседа'ние	settling	Senkung	f		0	0	0	0	оседа'ние	оседа'ния	оседа'нию	оседа'ние	оседа'нием	оседа'нии	оседа'ния	оседа'ний	оседа'ниям	оседа'ния	оседа'ниями	оседа'ниях
+                """);
+
+            var result = repository.Load(directoryPath);
+
+            Assert.False(result.UsedFallback);
+            Assert.Contains(result.Data, entry => entry.Kind == "noun_m" && entry.Text == "южанин");
+            Assert.Contains(result.Data, entry => entry.Kind == "noun_n" && entry.Text == "оседание");
+            Assert.DoesNotContain(result.Data, entry => entry.Kind == "noun_n" && entry.Text == "южанин");
+            Assert.DoesNotContain(result.Data, entry => entry.Kind == "noun_f" && entry.Text == "оседание");
+        }
+        finally
+        {
+            Directory.Delete(directoryPath, true);
+        }
+    }
+
     private static string CreateTempDirectory()
     {
         var directoryPath = Path.Combine(Path.GetTempPath(), $"dreamassembler-association-tests-{Guid.NewGuid():N}");
