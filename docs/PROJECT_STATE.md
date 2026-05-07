@@ -88,6 +88,7 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - для lexical modes добавлен первый curated subset layer: поверх общего CSV-пула появились предпочтительные nouns / adjectives / verbs, которые усиливают атмосферный semantic field без жесткой тематической блокировки;
 - поверх этого слоя добавлены первые atmospheric clusters для lexical batch coherence: `archive`, `rainy-city`, `night-route`;
 - добавлена собственная иконка приложения: она встроена и в окно WPF, и в Windows `*.exe`, чтобы визуальная identity проекта начиналась еще до открытия генератора;
+- lexical mood начал выходить в UI: spotlight и fullscreen reading mode теперь могут тихо подсказывать локальное atmospheric-пространство выбранной серии фрагментов;
 - проект собирается без ошибок.
 
 ## Сильные стороны текущей генерации

@@ -114,6 +114,40 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что lexical batch получает общий atmospheric-cluster key.
+    /// </summary>
+    [Fact]
+    public void Generate_AssignsSameAtmosphereKey_AcrossLexicalBatch()
+    {
+        var associationFragments = new List<AssociationFragmentEntry>
+        {
+            new() { Id = "noun_m_archive", Text = "архив", Kind = "noun_m", Tags = ["cluster:archive"], Weight = 1.0 },
+            new() { Id = "noun_m_card", Text = "конверт", Kind = "noun_m", Tags = ["cluster:archive"], Weight = 1.0 },
+            new() { Id = "adjective_m_archive", Text = "архивный", Kind = "adjective_m", Tags = ["cluster:archive"], Weight = 1.0 },
+            new() { Id = "adjective_m_paper", Text = "бумажный", Kind = "adjective_m", Tags = ["cluster:archive"], Weight = 1.0 },
+            new() { Id = "verb_past_m_waited", Text = "молчал", Kind = "verb_past_m", Tags = ["cluster:archive"], Weight = 1.0 }
+        };
+
+        var service = new TextGeneratorService(
+            FallbackDataProvider.GetDictionaryEntries(),
+            FallbackDataProvider.GetTemplates(),
+            associationFragments,
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.WordPair,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 3
+        });
+
+        Assert.Equal(3, result.Count);
+        Assert.All(result, item => Assert.Equal("archive", item.AtmosphereKey));
+    }
+
+    /// <summary>
     /// Проверяет, что генератор использует slot-требования шаблона.
     /// </summary>
     [Fact]

@@ -116,6 +116,7 @@
 - curated-layer сделан intentionally soft: он не превращает lexical modes в жестко закрытый словарь, а только смещает вероятность к более атмосферным словам из нужного semantic field;
 - поверх этого слоя добавлены первые atmospheric clusters `archive`, `rainy-city`, `night-route`: lexical-режимы теперь могут удерживать одну batch-level mood-зону внутри серии коротких фрагментов;
 - сгенерирована и встроена первая собственная app icon: `DreamAssembler.csproj` теперь задает `ApplicationIcon`, а `MainWindow` использует тот же `.ico`, чтобы иконка была видна и в окне приложения, и у собранного Windows `exe`;
+- в UI выведена reader-facing mood-подпись lexical batch: spotlight и fullscreen reading mode теперь показывают тихий atmospheric label и короткое пояснение для текущего локального пространства;
 
 ### Какие файлы изменены
 

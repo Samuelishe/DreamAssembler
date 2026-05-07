@@ -26,5 +26,10 @@ public sealed class TextGenerationResult
     /// Получает или задает время генерации.
     /// </summary>
     public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.Now;
+
+    /// <summary>
+    /// Получает или задает ключ локального atmospheric-пространства для lexical-режимов.
+    /// </summary>
+    public string? AtmosphereKey { get; set; }
 }
 

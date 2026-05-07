@@ -83,7 +83,8 @@ public sealed class TextGeneratorService
                 Text = text,
                 Mode = options.Mode,
                 AbsurdityLevel = options.AbsurdityLevel,
-                CreatedAt = DateTimeOffset.Now
+                CreatedAt = DateTimeOffset.Now,
+                AtmosphereKey = lexicalClusterKey
             });
         }
 

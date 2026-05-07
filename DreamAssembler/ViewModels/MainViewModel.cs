@@ -271,6 +271,28 @@ public partial class MainViewModel : ObservableObject
     public string ResultsListCaption => IsLexicalMode ? "Остальные фрагменты" : string.Empty;
 
     /// <summary>
+    /// Получает reader-facing подпись текущего lexical mood.
+    /// </summary>
+    public string SelectedLexicalAtmosphereLabel => IsLexicalMode ? SelectedResult?.AtmosphereLabel ?? string.Empty : string.Empty;
+
+    /// <summary>
+    /// Получает краткое пояснение текущего lexical mood.
+    /// </summary>
+    public string SelectedLexicalAtmosphereDescription => IsLexicalMode ? SelectedResult?.AtmosphereDescription ?? string.Empty : string.Empty;
+
+    /// <summary>
+    /// Получает признак наличия локального lexical mood у выбранного фрагмента.
+    /// </summary>
+    public bool HasSelectedLexicalAtmosphere => IsLexicalMode && !string.IsNullOrWhiteSpace(SelectedResult?.AtmosphereLabel);
+
+    /// <summary>
+    /// Получает заголовок для fullscreen reading mode.
+    /// </summary>
+    public string ReadingModeTitle => HasSelectedLexicalAtmosphere
+        ? SelectedLexicalAtmosphereLabel
+        : SelectedResult?.Header ?? "Фрагмент";
+
+    /// <summary>
     /// Получает строку версии приложения.
     /// </summary>
     public string AppVersion => $"Версия {typeof(MainViewModel).Assembly.GetName().Version}";
@@ -412,6 +434,10 @@ public partial class MainViewModel : ObservableObject
         OnPropertyChanged(nameof(ResultTextLineHeight));
         OnPropertyChanged(nameof(ResultsSectionTitle));
         OnPropertyChanged(nameof(ResultsSectionHint));
+        OnPropertyChanged(nameof(SelectedLexicalAtmosphereLabel));
+        OnPropertyChanged(nameof(SelectedLexicalAtmosphereDescription));
+        OnPropertyChanged(nameof(HasSelectedLexicalAtmosphere));
+        OnPropertyChanged(nameof(ReadingModeTitle));
         SaveSettingsIfNeeded();
     }
 
@@ -475,6 +501,14 @@ public partial class MainViewModel : ObservableObject
     partial void OnSelectedReadingFontChanged(OptionItem<ReadingFontOption> value)
     {
         ApplyAppearanceAndSave();
+    }
+
+    partial void OnSelectedResultChanged(ResultItemViewModel? value)
+    {
+        OnPropertyChanged(nameof(SelectedLexicalAtmosphereLabel));
+        OnPropertyChanged(nameof(SelectedLexicalAtmosphereDescription));
+        OnPropertyChanged(nameof(HasSelectedLexicalAtmosphere));
+        OnPropertyChanged(nameof(ReadingModeTitle));
     }
 
     private void ApplyAppearanceAndSave()
