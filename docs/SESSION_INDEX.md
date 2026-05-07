@@ -15,6 +15,7 @@
 
 - MVP-каркас создан.
 - Решение разделено на `DreamAssembler.Core` и `DreamAssembler.App`.
+- Для ядра добавлен отдельный тестовый проект `DreamAssembler.Core.Tests`.
 - Генерация работает через JSON-словари, шаблоны и fallback-данные.
 - WPF UI уже умеет генерировать, копировать и очищать историю.
 - Проект собирается без ошибок.
@@ -24,6 +25,7 @@
 - `DreamAssembler.Core/Services/TextGeneratorService.cs`
 - `DreamAssembler.Core/Services/DictionaryRepository.cs`
 - `DreamAssembler.Core/Services/TemplateRepository.cs`
+- `DreamAssembler.Core.Tests/Services/*`
 - `DreamAssembler/ViewModels/MainViewModel.cs`
 - `DreamAssembler/MainWindow.xaml`
 
@@ -40,4 +42,3 @@
 - весь `WORKLOG` целиком;
 - все JSON-словари;
 - все документы в `docs`, если задача локальная и уже понятна по индексу.
-

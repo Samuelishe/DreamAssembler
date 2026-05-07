@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using DreamAssembler.Core.Models;
 
 namespace DreamAssembler.Core.Services;
@@ -10,7 +11,11 @@ public sealed class TemplateRepository
 {
     private readonly JsonSerializerOptions _jsonOptions = new()
     {
-        PropertyNameCaseInsensitive = true
+        PropertyNameCaseInsensitive = true,
+        Converters =
+        {
+            new JsonStringEnumConverter()
+        }
     };
 
     /// <summary>
@@ -95,4 +100,3 @@ public sealed class TemplateRepository
         public List<TemplateDefinition> Templates { get; set; } = [];
     }
 }
-

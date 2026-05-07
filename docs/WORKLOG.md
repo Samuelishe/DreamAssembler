@@ -19,6 +19,10 @@
 - добавлен корневой `README.md` для GitHub;
 - расширен `.gitignore` под Rider, .NET и служебные артефакты.
 - папка `docs` добавлена в `DreamAssembler.sln` как solution folder, чтобы она отображалась в панели Solution.
+- исправлен тип solution folder для `docs`, чтобы IDE не пыталась загрузить ее как обычный проект.
+- для стабильного отображения в Rider папка `docs` переведена в отдельный нулевой SDK-проект `docs/docs.csproj`, который показывает markdown-файлы без прикладного кода.
+- добавлен тестовый проект `DreamAssembler.Core.Tests` с первыми unit-тестами для загрузчиков, шаблонного движка и генератора.
+- исправлена загрузка enum-поля `mode` в шаблонах JSON: `TemplateRepository` теперь корректно читает строковые значения через `JsonStringEnumConverter`.
 
 ### Какие файлы изменены
 
@@ -34,6 +38,7 @@
 - `README.md`
 - `DreamAssembler.sln`
 - `.gitignore`
+- `DreamAssembler.Core.Tests/*`
 - `DreamAssembler/DreamAssembler.csproj`
 - `DreamAssembler/App.xaml`
 - `DreamAssembler/App.xaml.cs`
@@ -54,3 +59,4 @@
 - генерация работает для всех трех режимов;
 - копирование и очистка истории работают в UI.
 - новые сессии могут быстро понять состояние проекта по `docs/SESSION_INDEX.md`.
+- `dotnet test` проходит для первых unit-тестов ядра.
