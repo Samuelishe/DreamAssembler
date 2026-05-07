@@ -8,6 +8,16 @@ namespace DreamAssembler.App.Models;
 public sealed class AppSettings
 {
     /// <summary>
+    /// Получает или задает активную тему оформления.
+    /// </summary>
+    public AppTheme Theme { get; set; } = AppTheme.WarmLight;
+
+    /// <summary>
+    /// Получает или задает активный шрифт чтения результатов.
+    /// </summary>
+    public ReadingFontOption ReadingFont { get; set; } = ReadingFontOption.Literata;
+
+    /// <summary>
     /// Получает или задает последний выбранный режим генерации.
     /// </summary>
     public GenerationMode Mode { get; set; } = GenerationMode.Sentence;
@@ -22,4 +32,3 @@ public sealed class AppSettings
     /// </summary>
     public int ResultCount { get; set; } = 3;
 }
-

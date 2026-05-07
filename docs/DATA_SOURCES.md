@@ -43,19 +43,23 @@
 
 - `DreamAssembler/Assets/Fonts/Unbounded-Black.ttf`
 - `DreamAssembler/Assets/Fonts/Inter-Variable.ttf`
+- `DreamAssembler/Assets/Fonts/Literata-Variable.ttf`
 
 Источники:
 
 - `Unbounded`: `https://github.com/w3f/unbounded`
 - `Inter`: `https://github.com/google/fonts/tree/main/ofl/inter`
+- `Literata`: `https://github.com/google/fonts/tree/main/ofl/literata`
 
 Лицензии:
 
 - `DreamAssembler/Assets/Fonts/Unbounded-OFL.txt`
 - `DreamAssembler/Assets/Fonts/Inter-OFL.txt`
+- `DreamAssembler/Assets/Fonts/Literata-OFL.txt`
 
 Практическая причина выбора:
 
 - `Unbounded` хорошо подходит для жирного выразительного заголовка приложения;
 - `Inter` подходит для плотного интерфейса и длинного чтения;
+- `Literata` подходит для более мягкого книжного чтения результатов;
 - оба шрифта поддерживают кириллицу и допускают встраивание в проект.

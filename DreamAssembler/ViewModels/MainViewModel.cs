@@ -19,6 +19,7 @@ public partial class MainViewModel : ObservableObject
     private readonly TextGeneratorService _textGeneratorService;
     private readonly IClipboardService _clipboardService;
     private readonly IUserSettingsService _userSettingsService;
+    private readonly AppearanceService _appearanceService;
     private bool _isRestoringSettings;
 
     /// <summary>
@@ -45,8 +46,19 @@ public partial class MainViewModel : ObservableObject
 
         _clipboardService = new ClipboardService();
         _userSettingsService = new UserSettingsService();
+        _appearanceService = new AppearanceService();
         Results = [];
         ResultCountOptions = Enumerable.Range(1, 10).ToArray();
+        ThemeOptions =
+        [
+            new OptionItem<AppTheme> { DisplayName = "Теплая светлая", Value = AppTheme.WarmLight },
+            new OptionItem<AppTheme> { DisplayName = "Графитовая темная", Value = AppTheme.GraphiteDark }
+        ];
+        ReadingFontOptions =
+        [
+            new OptionItem<ReadingFontOption> { DisplayName = "Literata", Value = ReadingFontOption.Literata },
+            new OptionItem<ReadingFontOption> { DisplayName = "Inter", Value = ReadingFontOption.Inter }
+        ];
 
         var dataPath = Path.Combine(AppContext.BaseDirectory, "Data");
         var dataLoader = new GeneratorDataLoader(
@@ -93,6 +105,16 @@ public partial class MainViewModel : ObservableObject
     public IReadOnlyList<int> ResultCountOptions { get; }
 
     /// <summary>
+    /// Получает доступные темы оформления.
+    /// </summary>
+    public IReadOnlyList<OptionItem<AppTheme>> ThemeOptions { get; }
+
+    /// <summary>
+    /// Получает доступные встроенные шрифты чтения.
+    /// </summary>
+    public IReadOnlyList<OptionItem<ReadingFontOption>> ReadingFontOptions { get; }
+
+    /// <summary>
     /// Получает или задает выбранный режим генерации.
     /// </summary>
     [ObservableProperty]
@@ -109,6 +131,18 @@ public partial class MainViewModel : ObservableObject
     /// </summary>
     [ObservableProperty]
     private int resultCount;
+
+    /// <summary>
+    /// Получает или задает выбранную тему оформления.
+    /// </summary>
+    [ObservableProperty]
+    private OptionItem<AppTheme> selectedTheme = null!;
+
+    /// <summary>
+    /// Получает или задает выбранный шрифт чтения.
+    /// </summary>
+    [ObservableProperty]
+    private OptionItem<ReadingFontOption> selectedReadingFont = null!;
 
     /// <summary>
     /// Получает или задает выбранный результат.
@@ -191,6 +225,11 @@ public partial class MainViewModel : ObservableObject
     /// Получает рекомендуемую высоту строки для основного текста результата.
     /// </summary>
     public double ResultTextLineHeight => IsLexicalMode ? 38d : 30d;
+
+    /// <summary>
+    /// Получает строку версии приложения.
+    /// </summary>
+    public string AppVersion => $"Версия {typeof(MainViewModel).Assembly.GetName().Version}";
 
     /// <summary>
     /// Выполняет генерацию результатов по текущим настройкам.
@@ -321,12 +360,15 @@ public partial class MainViewModel : ObservableObject
     {
         _isRestoringSettings = true;
 
+        SelectedTheme = ThemeOptions.FirstOrDefault(item => item.Value == loadResult.Settings.Theme) ?? ThemeOptions[0];
+        SelectedReadingFont = ReadingFontOptions.FirstOrDefault(item => item.Value == loadResult.Settings.ReadingFont) ?? ReadingFontOptions[0];
         SelectedMode = Modes.FirstOrDefault(item => item.Value == loadResult.Settings.Mode) ?? Modes[0];
         SelectedAbsurdityLevel = AbsurdityLevels.FirstOrDefault(item => item.Value == loadResult.Settings.AbsurdityLevel) ?? AbsurdityLevels[1];
         ResultCount = Math.Clamp(loadResult.Settings.ResultCount, 1, 10);
 
         _isRestoringSettings = false;
 
+        _appearanceService.Apply(SelectedTheme.Value, SelectedReadingFont.Value);
         SettingsStatusMessage = loadResult.Message;
     }
 
@@ -339,6 +381,8 @@ public partial class MainViewModel : ObservableObject
 
         var settings = new AppSettings
         {
+            Theme = SelectedTheme.Value,
+            ReadingFont = SelectedReadingFont.Value,
             Mode = SelectedMode.Value,
             AbsurdityLevel = SelectedAbsurdityLevel.Value,
             ResultCount = ResultCount
@@ -351,6 +395,27 @@ public partial class MainViewModel : ObservableObject
         }
 
         SettingsStatusMessage = "Пользовательские настройки сохранены.";
+    }
+
+    partial void OnSelectedThemeChanged(OptionItem<AppTheme> value)
+    {
+        ApplyAppearanceAndSave();
+    }
+
+    partial void OnSelectedReadingFontChanged(OptionItem<ReadingFontOption> value)
+    {
+        ApplyAppearanceAndSave();
+    }
+
+    private void ApplyAppearanceAndSave()
+    {
+        if (_isRestoringSettings)
+        {
+            return;
+        }
+
+        _appearanceService.Apply(SelectedTheme.Value, SelectedReadingFont.Value);
+        SaveSettingsIfNeeded();
     }
 
     private void UpdateHistorySummary()

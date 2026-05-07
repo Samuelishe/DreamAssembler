@@ -79,6 +79,10 @@
 - убрана системная цветная шапка окна: начат переход на собственный window chrome со встроенными кнопками `свернуть`, `развернуть`, `закрыть` и отдельной кнопкой-шестеренкой под меню настроек;
 - крупный верхний служебный блок над рабочей областью удален, оставлена только крупная надпись `DreamAssembler`;
 - в проект добавлены встроенные бесплатные шрифты `Unbounded` и `Inter` с указанием источников и лицензий.
+- удален маленький дублирующий заголовок в шапке, а крупное название поднято выше;
+- в настройки добавлены реальные переключатели темы и шрифта чтения, а в popup появился раздел `About` с версией приложения;
+- версия приложения закреплена в `DreamAssembler/DreamAssembler.csproj`, а правила работы с четырехчастной версией вынесены в отдельный `docs/VERSIONING.md`;
+- в проект добавлен дополнительный встроенный шрифт `Literata` для чтения результатов.
 
 ### Какие файлы изменены
 
@@ -93,12 +97,15 @@
 - `docs/PROMPTS_FOR_DATA.md`
 - `README.md`
 - `docs/DATA_SOURCES.md`
+- `docs/VERSIONING.md`
 - `DreamAssembler.sln`
 - `.gitignore`
 - `DreamAssembler.Core.Tests/*`
 - `DreamAssembler/DreamAssembler.csproj`
 - `DreamAssembler/App.xaml`
 - `DreamAssembler/App.xaml.cs`
+- `DreamAssembler/Models/AppTheme.cs`
+- `DreamAssembler/Models/ReadingFontOption.cs`
 - `DreamAssembler/Models/AppSettings.cs`
 - `DreamAssembler/Models/SettingsLoadResult.cs`
 - `DreamAssembler/MainWindow.xaml`
@@ -107,6 +114,7 @@
 - `DreamAssembler/ViewModels/ResultItemViewModel.cs`
 - `DreamAssembler/Assets/Fonts/*`
 - `DreamAssembler/DreamAssembler.csproj`
+- `DreamAssembler/Services/AppearanceService.cs`
 - `DreamAssembler.Core/Models/TemplateDefinition.cs`
 - `DreamAssembler.Core/Services/TextGeneratorService.cs`
 - `DreamAssembler.Core/Services/FallbackDataProvider.cs`
@@ -167,3 +175,5 @@
 - главное окно больше не использует отдельную системную шапку другого цвета.
 - встроенные шрифты реально подхватываются и не ломают кириллицу в UI.
 - кнопка настроек в кастомной шапке открывает вспомогательное меню без отдельного системного окна.
+- переключение темы и шрифта чтения переживает перезапуск приложения через пользовательские настройки.
+- версия из `DreamAssembler.csproj` корректно видна в `About`.

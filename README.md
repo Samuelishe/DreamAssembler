@@ -30,6 +30,7 @@ The current UI also embeds open-source fonts with Cyrillic support:
 
 - [`Unbounded`](https://github.com/w3f/unbounded) for the display title font
 - [`Inter`](https://github.com/google/fonts/tree/main/ofl/inter) for the main interface font
+- [`Literata`](https://github.com/google/fonts/tree/main/ofl/literata) for the reading-focused result font
 
 Both fonts are stored in the repository with their OFL license files.
 

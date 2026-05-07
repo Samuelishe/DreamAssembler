@@ -5,5 +5,24 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <converters:BooleanToBrushConverter x:Key="BooleanToBrushConverter" />
+        <FontFamily x:Key="UiFontFamily">pack://application:,,,/DreamAssembler.App;component/Assets/Fonts/#Inter</FontFamily>
+        <FontFamily x:Key="DisplayFontFamily">pack://application:,,,/DreamAssembler.App;component/Assets/Fonts/#Unbounded Black</FontFamily>
+        <FontFamily x:Key="ReadingFontFamily">pack://application:,,,/DreamAssembler.App;component/Assets/Fonts/#Literata</FontFamily>
+
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FFF4F0E8" />
+        <SolidColorBrush x:Key="PanelBackgroundBrush" Color="#FFFBF9F5" />
+        <SolidColorBrush x:Key="PanelAltBackgroundBrush" Color="#FFF5ECDD" />
+        <SolidColorBrush x:Key="PanelBorderBrush" Color="#FFE1D7C9" />
+        <SolidColorBrush x:Key="PrimaryTextBrush" Color="#FF231F1A" />
+        <SolidColorBrush x:Key="SecondaryTextBrush" Color="#FF635B51" />
+        <SolidColorBrush x:Key="MutedTextBrush" Color="#FF877D71" />
+        <SolidColorBrush x:Key="AccentBrush" Color="#FF3A3128" />
+        <SolidColorBrush x:Key="AccentSoftBrush" Color="#FFEADBC8" />
+        <SolidColorBrush x:Key="ResultCardBackgroundBrush" Color="#FFF9F6F0" />
+        <LinearGradientBrush x:Key="TitleGradientBrush" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Offset="0" Color="#FFF7E6D0" />
+            <GradientStop Offset="0.55" Color="#FFF3D2B1" />
+            <GradientStop Offset="1" Color="#FFE8C2A8" />
+        </LinearGradientBrush>
     </Application.Resources>
 </Application>
