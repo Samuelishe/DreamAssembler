@@ -15,7 +15,22 @@
       "tags": ["story", "daily"],
       "absurdity": 0,
       "weight": 1.0
+    },
+    {
+      "id": "collective_insomnia_of_things",
+      "text": "коллективная бессонница вещей",
+      "category": "concept",
+      "tags": ["surreal", "night"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "bureaucracy_of_memories",
+      "text": "бюрократия воспоминаний",
+      "category": "concept",
+      "tags": ["bureaucracy", "memory"],
+      "absurdity": 2,
+      "weight": 0.8
     }
   ]
 }
-

@@ -31,7 +31,30 @@
       "tags": ["office", "absurd", "bureaucracy"],
       "absurdity": 3,
       "weight": 0.8
+    },
+    {
+      "id": "retired_projectionist",
+      "text": "пенсионер-киномеханик",
+      "category": "character",
+      "tags": ["city", "nostalgia", "daily"],
+      "absurdity": 0,
+      "weight": 1.0
+    },
+    {
+      "id": "tram_conductor_prophet",
+      "text": "кондуктор трамвая с даром пророчества",
+      "category": "character",
+      "tags": ["city", "transport", "surreal"],
+      "absurdity": 2,
+      "weight": 0.9
+    },
+    {
+      "id": "museum_cleaner_of_echoes",
+      "text": "уборщица музея эха",
+      "category": "character",
+      "tags": ["quiet", "surreal", "story"],
+      "absurdity": 3,
+      "weight": 0.8
     }
   ]
 }
-

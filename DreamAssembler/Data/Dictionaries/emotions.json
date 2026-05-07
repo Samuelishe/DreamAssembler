@@ -15,7 +15,22 @@
       "tags": ["mood", "comic"],
       "absurdity": 1,
       "weight": 0.9
+    },
+    {
+      "id": "administratively_calm",
+      "text": "административно спокойным",
+      "category": "emotion",
+      "tags": ["bureaucracy", "comic"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "quietly_anxious",
+      "text": "тихо тревожным",
+      "category": "emotion",
+      "tags": ["mood", "story"],
+      "absurdity": 0,
+      "weight": 0.9
     }
   ]
 }
-

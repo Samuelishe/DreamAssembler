@@ -15,7 +15,22 @@
       "tags": ["tone", "surreal"],
       "absurdity": 2,
       "weight": 0.9
+    },
+    {
+      "id": "protocol_style",
+      "text": "в форме сухого служебного протокола",
+      "category": "style",
+      "tags": ["bureaucracy", "tone"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "late_night_radio_style",
+      "text": "как ночной радиомонолог",
+      "category": "style",
+      "tags": ["night", "tone"],
+      "absurdity": 1,
+      "weight": 0.9
     }
   ]
 }
-

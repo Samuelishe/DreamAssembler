@@ -31,7 +31,30 @@
       "tags": ["city", "transport", "daily"],
       "absurdity": 1,
       "weight": 1.0
+    },
+    {
+      "id": "courtyard_with_radio",
+      "text": "дворе, где старое радио знает все новости заранее",
+      "category": "place",
+      "tags": ["city", "surreal", "story"],
+      "absurdity": 2,
+      "weight": 0.9
+    },
+    {
+      "id": "district_archive",
+      "text": "районном архиве",
+      "category": "place",
+      "tags": ["bureaucracy", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "cinema_without_ceiling",
+      "text": "кинотеатре без потолка",
+      "category": "place",
+      "tags": ["dream", "surreal"],
+      "absurdity": 3,
+      "weight": 0.8
     }
   ]
 }
-

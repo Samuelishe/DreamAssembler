@@ -18,24 +18,35 @@ public static class FallbackDataProvider
             new DictionaryEntry { Id = "tired_librarian", Text = "уставший библиотекарь", Category = "character", Tags = ["city", "quiet"], Absurdity = 0, Weight = 1.2 },
             new DictionaryEntry { Id = "pigeon_engineer", Text = "голубь с дипломом инженера", Category = "character", Tags = ["city", "absurd"], Absurdity = 2, Weight = 1.0 },
             new DictionaryEntry { Id = "accounting_brownie", Text = "домовой из бухгалтерии", Category = "character", Tags = ["office", "absurd"], Absurdity = 3, Weight = 0.8 },
+            new DictionaryEntry { Id = "retired_projectionist", Text = "пенсионер-киномеханик", Category = "character", Tags = ["city", "nostalgia"], Absurdity = 0, Weight = 1.0 },
             new DictionaryEntry { Id = "hide", Text = "спрятать", Category = "action", Tags = ["secret"], Absurdity = 0, Weight = 1.0 },
             new DictionaryEntry { Id = "open", Text = "открыть", Category = "action", Tags = ["business"], Absurdity = 0, Weight = 1.0 },
             new DictionaryEntry { Id = "search_manual", Text = "искать инструкцию к", Category = "action", Tags = ["mystery"], Absurdity = 2, Weight = 0.9 },
+            new DictionaryEntry { Id = "carry_through_city", Text = "провезти через весь город", Category = "action", Tags = ["city", "daily"], Absurdity = 0, Weight = 1.0 },
             new DictionaryEntry { Id = "rusty_elevator", Text = "ржавый лифт", Category = "object", Tags = ["city", "decay", "industrial"], Absurdity = 1, Weight = 1.0 },
             new DictionaryEntry { Id = "forgotten_alarm_clocks", Text = "забытые будильники", Category = "object", Tags = ["home", "absurd"], Absurdity = 2, Weight = 1.0 },
             new DictionaryEntry { Id = "own_voice", Text = "собственный голос", Category = "object", Tags = ["inner", "absurd"], Absurdity = 3, Weight = 0.8 },
+            new DictionaryEntry { Id = "paper_moon_ticket", Text = "бумажный билет на луну", Category = "object", Tags = ["dream", "surreal"], Absurdity = 2, Weight = 0.9 },
             new DictionaryEntry { Id = "night_pharmacy", Text = "круглосуточной аптеке", Category = "place", Tags = ["city", "night"], Absurdity = 0, Weight = 1.1 },
             new DictionaryEntry { Id = "inward_windows_city", Text = "городе, где все окна смотрят внутрь людей", Category = "place", Tags = ["city", "surreal"], Absurdity = 3, Weight = 0.9 },
             new DictionaryEntry { Id = "night_shop", Text = "ночном магазине", Category = "place", Tags = ["city", "night"], Absurdity = 0, Weight = 1.0 },
+            new DictionaryEntry { Id = "courtyard_with_radio", Text = "дворе, где старое радио знает все новости заранее", Category = "place", Tags = ["city", "surreal"], Absurdity = 2, Weight = 0.9 },
             new DictionaryEntry { Id = "people_remember_childhood", Text = "каждый посетитель помнит его детство", Category = "twist", Tags = ["memory", "absurd"], Absurdity = 2, Weight = 1.0 },
             new DictionaryEntry { Id = "truth_tuesday", Text = "по вторникам запрещено говорить правду", Category = "twist", Tags = ["rule", "absurd"], Absurdity = 3, Weight = 1.0 },
             new DictionaryEntry { Id = "no_noise_after_midnight", Text = "ему запретили шуметь после полуночи", Category = "twist", Tags = ["rule", "night"], Absurdity = 1, Weight = 1.0 },
+            new DictionaryEntry { Id = "every_lamp_disagrees", Text = "каждый фонарь с ним не согласен", Category = "twist", Tags = ["city", "surreal"], Absurdity = 2, Weight = 0.9 },
             new DictionaryEntry { Id = "foggy", Text = "туманной", Category = "atmosphere", Tags = ["mood"], Absurdity = 0, Weight = 1.0 },
             new DictionaryEntry { Id = "whispering", Text = "шепчущей", Category = "atmosphere", Tags = ["mood", "surreal"], Absurdity = 2, Weight = 0.9 },
+            new DictionaryEntry { Id = "ceremonially_quiet", Text = "церемонно тихой", Category = "atmosphere", Tags = ["quiet", "story"], Absurdity = 1, Weight = 0.9 },
             new DictionaryEntry { Id = "melancholic", Text = "меланхоличной", Category = "emotion", Tags = ["mood"], Absurdity = 0, Weight = 1.0 },
+            new DictionaryEntry { Id = "quietly_anxious", Text = "тихо тревожным", Category = "emotion", Tags = ["mood", "story"], Absurdity = 0, Weight = 0.9 },
             new DictionaryEntry { Id = "bureaucratic_fantasy", Text = "бюрократическое фэнтези", Category = "genre", Tags = ["story"], Absurdity = 2, Weight = 0.8 },
+            new DictionaryEntry { Id = "city_parable", Text = "городская притча", Category = "genre", Tags = ["story", "daily"], Absurdity = 0, Weight = 1.0 },
             new DictionaryEntry { Id = "deadpan_style", Text = "с серьезной интонацией", Category = "style", Tags = ["tone"], Absurdity = 0, Weight = 1.0 },
+            new DictionaryEntry { Id = "late_night_radio_style", Text = "как ночной радиомонолог", Category = "style", Tags = ["night", "tone"], Absurdity = 1, Weight = 0.9 },
             new DictionaryEntry { Id = "quiet_rebellion", Text = "тихий бунт предметов", Category = "concept", Tags = ["story", "absurd"], Absurdity = 2, Weight = 0.9 }
+            ,
+            new DictionaryEntry { Id = "bureaucracy_of_memories", Text = "бюрократия воспоминаний", Category = "concept", Tags = ["bureaucracy", "memory"], Absurdity = 2, Weight = 0.8 }
         ];
     }
 
@@ -81,6 +92,17 @@ public static class FallbackDataProvider
             },
             new TemplateDefinition
             {
+                Id = "sentence_character_place_twist",
+                Text = "{character} однажды понял, что в {place} {twist}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["character", "place", "twist"],
+                Tags = ["story", "surreal"],
+                MinAbsurdity = 1,
+                MaxAbsurdity = 3,
+                Weight = 0.9
+            },
+            new TemplateDefinition
+            {
                 Id = "shorttext_intro",
                 Text = "В {place} все началось с того, что {character} решил {action} {object}.",
                 Mode = GenerationMode.ShortText,
@@ -100,8 +122,18 @@ public static class FallbackDataProvider
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
                 Weight = 1.0
+            },
+            new TemplateDefinition
+            {
+                Id = "idea_place_concept_genre",
+                Text = "Идея: история о том, как в {place} возникает {concept}. По тону это {genre}.",
+                Mode = GenerationMode.Idea,
+                RequiredCategories = ["place", "concept", "genre"],
+                Tags = ["story", "concept", "city"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 1.0
             }
         ];
     }
 }
-

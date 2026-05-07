@@ -23,7 +23,22 @@
       "tags": ["office", "comic"],
       "absurdity": 2,
       "weight": 0.8
+    },
+    {
+      "id": "electrically_sleepy",
+      "text": "электрически сонной",
+      "category": "atmosphere",
+      "tags": ["night", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "ceremonially_quiet",
+      "text": "церемонно тихой",
+      "category": "atmosphere",
+      "tags": ["quiet", "story"],
+      "absurdity": 1,
+      "weight": 0.9
     }
   ]
 }
-

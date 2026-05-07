@@ -31,7 +31,30 @@
       "tags": ["surreal", "comic"],
       "absurdity": 3,
       "weight": 0.8
+    },
+    {
+      "id": "carry_through_city",
+      "text": "провезти через весь город",
+      "category": "action",
+      "tags": ["city", "daily"],
+      "absurdity": 0,
+      "weight": 1.0
+    },
+    {
+      "id": "translate_for",
+      "text": "перевести с молчания на русский для",
+      "category": "action",
+      "tags": ["language", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "repair_at_night",
+      "text": "чинить по ночам",
+      "category": "action",
+      "tags": ["night", "daily"],
+      "absurdity": 1,
+      "weight": 0.9
     }
   ]
 }
-

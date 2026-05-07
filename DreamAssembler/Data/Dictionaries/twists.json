@@ -31,7 +31,30 @@
       "tags": ["crowd", "comic"],
       "absurdity": 2,
       "weight": 0.9
+    },
+    {
+      "id": "every_lamp_disagrees",
+      "text": "каждый фонарь с ним не согласен",
+      "category": "twist",
+      "tags": ["city", "surreal"],
+      "absurdity": 2,
+      "weight": 0.9
+    },
+    {
+      "id": "room_keeps_minutes",
+      "text": "комната ведет протокол их разговора",
+      "category": "twist",
+      "tags": ["bureaucracy", "surreal"],
+      "absurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "all_doors_wait_for_permission",
+      "text": "все двери ждут письменного разрешения",
+      "category": "twist",
+      "tags": ["bureaucracy", "comic"],
+      "absurdity": 2,
+      "weight": 0.8
     }
   ]
 }
-

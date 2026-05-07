@@ -15,7 +15,22 @@
       "tags": ["story", "daily"],
       "absurdity": 0,
       "weight": 1.0
+    },
+    {
+      "id": "office_myth",
+      "text": "офисный миф",
+      "category": "genre",
+      "tags": ["bureaucracy", "story"],
+      "absurdity": 1,
+      "weight": 0.9
+    },
+    {
+      "id": "melancholic_absurdism",
+      "text": "меланхоличный абсурдизм",
+      "category": "genre",
+      "tags": ["surreal", "tone"],
+      "absurdity": 2,
+      "weight": 0.8
     }
   ]
 }
-

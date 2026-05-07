@@ -31,7 +31,30 @@
       "tags": ["home", "daily"],
       "absurdity": 0,
       "weight": 1.0
+    },
+    {
+      "id": "paper_moon_ticket",
+      "text": "бумажный билет на луну",
+      "category": "object",
+      "tags": ["dream", "surreal"],
+      "absurdity": 2,
+      "weight": 0.9
+    },
+    {
+      "id": "sleeping_vending_machine",
+      "text": "спящий торговый автомат",
+      "category": "object",
+      "tags": ["city", "comic", "surreal"],
+      "absurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "wet_newspaper_bundle",
+      "text": "связку мокрых газет",
+      "category": "object",
+      "tags": ["city", "daily", "decay"],
+      "absurdity": 1,
+      "weight": 0.9
     }
   ]
 }
-

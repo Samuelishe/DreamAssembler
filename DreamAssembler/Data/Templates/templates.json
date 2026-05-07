@@ -21,6 +21,26 @@
       "weight": 1.0
     },
     {
+      "id": "sentence_character_place_twist",
+      "text": "{character} однажды понял, что в {place} {twist}.",
+      "mode": "Sentence",
+      "requiredCategories": ["character", "place", "twist"],
+      "tags": ["story", "surreal"],
+      "minAbsurdity": 1,
+      "maxAbsurdity": 3,
+      "weight": 0.9
+    },
+    {
+      "id": "sentence_place_object_atmosphere",
+      "text": "В {place} даже {object} выглядел {atmosphere}.",
+      "mode": "Sentence",
+      "requiredCategories": ["place", "object", "atmosphere"],
+      "tags": ["scene", "mood"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.8
+    },
+    {
       "id": "idea_character_action_object_place_twist",
       "text": "Идея: {character} должен {action} {object} в {place}, и при этом {twist}.",
       "mode": "Idea",
@@ -39,6 +59,26 @@
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
       "weight": 0.9
+    },
+    {
+      "id": "idea_place_concept_genre",
+      "text": "Идея: история о том, как в {place} возникает {concept}. По тону это {genre}.",
+      "mode": "Idea",
+      "requiredCategories": ["place", "concept", "genre"],
+      "tags": ["story", "concept", "city"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 1.0
+    },
+    {
+      "id": "idea_character_object_style",
+      "text": "Идея: {character} вступает в спор с объектом: {object}. Подать это {style}.",
+      "mode": "Idea",
+      "requiredCategories": ["character", "object", "style"],
+      "tags": ["story", "tone", "comic"],
+      "minAbsurdity": 1,
+      "maxAbsurdity": 3,
+      "weight": 0.8
     },
     {
       "id": "shorttext_intro",
@@ -69,7 +109,26 @@
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
       "weight": 0.9
+    },
+    {
+      "id": "shorttext_observer",
+      "text": "Со стороны это выглядело {emotion}, хотя на деле вокруг зрела {concept}.",
+      "mode": "ShortText",
+      "requiredCategories": ["emotion", "concept"],
+      "tags": ["story", "mood", "surreal"],
+      "minAbsurdity": 1,
+      "maxAbsurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "shorttext_style_note",
+      "text": "Если пересказывать это {style}, все звучит почти убедительно.",
+      "mode": "ShortText",
+      "requiredCategories": ["style"],
+      "tags": ["tone", "story"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.8
     }
   ]
 }
-

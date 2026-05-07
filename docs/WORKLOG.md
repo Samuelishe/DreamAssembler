@@ -23,6 +23,9 @@
 - для стабильного отображения в Rider папка `docs` переведена в отдельный нулевой SDK-проект `docs/docs.csproj`, который показывает markdown-файлы без прикладного кода.
 - добавлен тестовый проект `DreamAssembler.Core.Tests` с первыми unit-тестами для загрузчиков, шаблонного движка и генератора.
 - исправлена загрузка enum-поля `mode` в шаблонах JSON: `TemplateRepository` теперь корректно читает строковые значения через `JsonStringEnumConverter`.
+- расширены словари категорий `character`, `action`, `object`, `place`, `twist`, `atmosphere`, `genre`, `style`, `emotion`, `concept`;
+- добавлены новые шаблоны для `Sentence`, `Idea` и `ShortText`;
+- расширен fallback-набор данных, чтобы улучшения качества работали и при отсутствии JSON-файлов.
 
 ### Какие файлы изменены
 
