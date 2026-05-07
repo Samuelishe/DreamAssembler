@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "note_for_morning_reception",
+      "text": "оставить для утренней смены",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hospitality", "service", "compat:portable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "verify_against_reservation_sheet",
+      "text": "сверить с листом бронирований",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hospitality", "paper", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "prepare_for_absent_guest",
+      "text": "приготовить для отсутствующего гостя",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hospitality", "service", "surreal", "compat:protectable"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "return_to_service_trolley",
+      "text": "вернуть на служебную тележку",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hospitality", "service", "compat:portable", "compat:protectable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "open_before_breakfast",
+      "text": "открыть до завтрака",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hospitality", "night", "compat:openable", "compat:wakeable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "hide_from_early_checkout",
+      "text": "спрятать от раннего выезда",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hospitality", "time", "compat:hideable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "exchange_between_neighbor_rooms",
+      "text": "обменять между соседними номерами",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hospitality", "quiet", "compat:portable", "compat:exchangeable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "wake_for_breakfast_that_wont_start",
+      "text": "разбудить к завтраку, который не начнется",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hospitality", "surreal", "compat:wakeable"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

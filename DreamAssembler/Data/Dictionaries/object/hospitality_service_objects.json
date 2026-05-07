@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "reservation_sheet_bundle",
+      "text": "пачку листов бронирования",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hospitality", "paper", "compat:portable", "compat:searchable", "compat:rewriteable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "breakfast_room_card",
+      "text": "карточку завтрака в номер",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hospitality", "service", "compat:portable", "compat:hideable", "compat:wakeable"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "service_trolley_tag",
+      "text": "бирку служебной тележки",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hospitality", "service", "compat:portable", "compat:searchable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "folded_room_service_menu",
+      "text": "сложенное меню рум-сервиса",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hospitality", "paper", "compat:portable", "compat:rewriteable", "compat:hideable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "door_hanger_without_room",
+      "text": "табличку без номера на дверь",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hospitality", "quiet", "surreal", "compat:portable", "compat:hideable", "compat:protectable"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "checkout_box_key",
+      "text": "ключ от ящика позднего выезда",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hospitality", "service", "compat:portable", "compat:openable", "compat:exchangeable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "unclaimed_breakfast_tray",
+      "text": "невостребованный поднос завтрака",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hospitality", "service", "compat:portable", "compat:hideable", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "guest_list_with_gap",
+      "text": "список гостей с пробелом",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hospitality", "paper", "surreal", "compat:portable", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "concept_hospitality_as_delay",
+      "text": "гостеприимство как форма задержки",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["hospitality", "transit", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "concept_room_service_patience",
+      "text": "терпение рум-сервиса",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["hospitality", "service", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "concept_checkout_without_morning",
+      "text": "выезд без наступления утра",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["hospitality", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "story_about_shifted_breakfast",
+      "text": "история о завтраке, который наступил слишком рано",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["hospitality", "morning", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "story_about_room_service_corridor",
+      "text": "история о коридоре рум-сервиса после последнего звонка",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["hospitality", "service", "night"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_unfinished_departure",
+      "text": "история о незавершенном выезде",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["hospitality", "time", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    }
+  ]
+}

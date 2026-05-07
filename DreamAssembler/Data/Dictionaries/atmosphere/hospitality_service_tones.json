@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "atmosphere_after_last_service_call",
+      "text": "как после последнего служебного звонка",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hospitality", "service", "night"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "atmosphere_soft_breakfast_delay",
+      "text": "как в мягкой задержке завтрака",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hospitality", "morning", "surreal"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_service_memory",
+      "text": "как у службы, которая помнит больше гостей",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hospitality", "memory", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_linen_quiet",
+      "text": "как в тихом бельевом коридоре",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hospitality", "quiet", "service"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_departure_shift",
+      "text": "как у выезда, который сместился вместе с ночью",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hospitality", "time", "night"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

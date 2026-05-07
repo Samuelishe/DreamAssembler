@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "room_service_knows_him",
+      "text": "рум-сервис узнает его раньше регистратора",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["hospitality", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "trolley_waits_for_him",
+      "text": "служебная тележка ведет себя так, будто давно ждала именно его",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["hospitality", "quiet", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    },
+    {
+      "id": "checkout_slip_answers_him",
+      "text": "бланк выезда отвечает ему раньше стойки",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["hospitality", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "breakfast_starts_without_morning",
+      "text": "завтрак начинается без участия утра",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["hospitality", "morning", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    },
+    {
+      "id": "service_shift_repeats_itself",
+      "text": "служебная смена повторяет сама себя без объяснений",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["hospitality", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "departures_move_to_other_floor",
+      "text": "выезды переносятся на другой этаж без участия людей",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["hospitality", "time", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

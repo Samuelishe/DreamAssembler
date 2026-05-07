@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "room_service_corridor",
+      "text": "коридоре рум-сервиса",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hospitality", "service", "night"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "reservation_office_after_midnight",
+      "text": "кабинете бронирований после полуночи",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hospitality", "paper", "night"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "service_elevator_landing",
+      "text": "площадке служебного лифта",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hospitality", "infrastructure", "service"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "breakfast_preparation_room",
+      "text": "комнате подготовки завтрака",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hospitality", "service", "morning"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "floor_of_shifted_departures",
+      "text": "этаже сдвинутых выездов",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hospitality", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "linen_storage_after_wakeup",
+      "text": "бельевом хранилище после пробуждения",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hospitality", "quiet", "service"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "office_where_checkouts_waited",
+      "text": "кабинете, где выезды ждали утра дольше людей,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["hospitality", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "service_room_where_trolleys_listened",
+      "text": "служебной комнате, где тележки слушали внимательнее гостей,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["hospitality", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

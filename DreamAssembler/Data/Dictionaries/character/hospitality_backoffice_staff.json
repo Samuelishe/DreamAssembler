@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "night_room_service_dispatcher",
+      "text": "ночной диспетчер рум-сервиса",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hospitality", "service", "night"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "keeper_of_lost_reservations",
+      "text": "хранитель потерянных бронирований",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hospitality", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "linen_corridor_registrar",
+      "text": "регистратор бельевого коридора",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hospitality", "service", "quiet"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "breakfast_shift_witness",
+      "text": "свидетель смены до завтрака",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hospitality", "night", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "keeper_of_waiting_trolleys",
+      "text": "смотритель ожидающих тележек",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hospitality", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "operator_of_delayed_welcome",
+      "text": "оператор задержанного приветствия",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hospitality", "surreal", "service"],
+      "absurdity": 3,
+      "weight": 0.6
+    },
+    {
+      "id": "attendant_of_unopened_doors",
+      "text": "дежурный по неоткрытым дверям",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hospitality", "quiet", "night"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "porter_of_moved_departures",
+      "text": "портье сдвинутых выездов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hospitality", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

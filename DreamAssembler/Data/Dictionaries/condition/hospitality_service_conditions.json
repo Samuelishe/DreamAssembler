@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "service_shift_never_fully_ended",
+      "text": "смена как будто так и не закончилась до конца",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["hospitality", "service", "night"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "breakfast_waited_too_early",
+      "text": "завтрак уже ждал, хотя утро еще не наступило",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["hospitality", "morning", "surreal"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "trolleys_stood_as_if_listening",
+      "text": "служебные тележки стояли так, будто чего-то слушали",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["hospitality", "quiet", "surreal"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "guest_lists_looked_incomplete",
+      "text": "списки постояльцев выглядели неполными даже без ошибок",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["hospitality", "paper", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "service_rooms_held_back_morning",
+      "text": "служебные комнаты как будто удерживали утро за дверью",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["hospitality", "night", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "hospitality_became_delay",
+      "text": "гостеприимство постепенно становилось формой задержки",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["hospitality", "transit", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "departures_started_waiting_too",
+      "text": "выезды тоже начали ждать своей очереди",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["hospitality", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "service_memory_outlived_people",
+      "text": "служебная память выглядела долговечнее самих постояльцев",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["hospitality", "memory", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}
