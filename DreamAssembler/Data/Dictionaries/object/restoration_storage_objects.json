@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "wrapped_unexhibited_canvas",
+      "text": "завернутый невыставленный холст",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "quiet", "compat:portable", "compat:protectable", "compat:hideable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "return_protocol_folder",
+      "text": "папку протоколов возврата",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "paper", "compat:portable", "compat:searchable", "compat:rewriteable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "numbered_storage_ribbon",
+      "text": "номерную ленту фондохранилища",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "archive", "compat:portable", "compat:hideable", "compat:searchable"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "night_exhibit_cover",
+      "text": "ночной чехол экспоната",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "night", "compat:protectable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "restoration_tag_bundle",
+      "text": "пучок реставрационных бирок",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "paper", "compat:portable", "compat:rewriteable", "compat:searchable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "reserved_frame_corner",
+      "text": "зарезервированный угол рамы",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "surreal", "compat:protectable", "compat:hideable"],
+      "absurdity": 3,
+      "weight": 0.6
+    },
+    {
+      "id": "museum_transport_crate",
+      "text": "музейный транспортный ящик",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "service", "compat:portable", "compat:openable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "inventory_sheet_with_pause",
+      "text": "инвентарный лист с паузой",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "paper", "surreal", "compat:portable", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

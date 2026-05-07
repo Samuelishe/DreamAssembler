@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "atmosphere_afterhours_museum_hush",
+      "text": "как после закрытия музея, где все еще ждут шагов",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["museum", "quiet", "night"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "atmosphere_storage_twilight",
+      "text": "как в сумерках фондохранилища",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["museum", "archive", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "atmosphere_guided_silence",
+      "text": "как в экскурсии, которую ведет одна тишина",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["museum", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_restoration_fatigue",
+      "text": "как в усталой реставрационной смене",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["museum", "service", "night"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_catalog_echo",
+      "text": "как в каталоге, который помнит больше, чем залы",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["museum", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

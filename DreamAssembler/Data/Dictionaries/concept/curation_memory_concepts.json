@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "concept_memory_of_exhibited_things",
+      "text": "память вещей, которые выставляли слишком осторожно",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["museum", "memory", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "concept_hall_waiting_for_explanation",
+      "text": "зал, который дольше ждал объяснения, чем посетителей",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["museum", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "concept_inventory_of_absences",
+      "text": "инвентаризация отсутствий",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["museum", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_night_restoration",
+      "text": "ночная история о реставрации того, что не успело стать прошлым",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["museum", "night", "memory"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "story_about_storage_patience",
+      "text": "история о терпении фондохранилища",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["museum", "archive", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "story_about_guide_silence",
+      "text": "история о тишине, которая научилась вести экскурсию",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["museum", "quiet", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

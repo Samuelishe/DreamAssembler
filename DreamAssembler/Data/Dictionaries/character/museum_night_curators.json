@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "night_curator_of_hushed_halls",
+      "text": "ночной куратор тихих залов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "night", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "restoration_shift_registrar",
+      "text": "регистратор реставрационной смены",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "service", "paper"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "keeper_of_closed_vitrines",
+      "text": "смотритель закрытых витрин",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "night", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "hall_listener",
+      "text": "слушатель музейных залов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "custodian_of_unsigned_frames",
+      "text": "хранитель неподписанных рам",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "paper", "surreal"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "guide_without_visitors",
+      "text": "экскурсовод без посетителей",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "quiet", "night"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "deputy_of_storage_corridor",
+      "text": "дежурный по коридору фондохранилища",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "archive", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "catalog_voice_editor",
+      "text": "редактор музейных голосов в каталоге",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "paper", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

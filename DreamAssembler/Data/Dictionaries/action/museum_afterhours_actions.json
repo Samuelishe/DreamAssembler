@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "relabel_after_closing",
+      "text": "переподписать после закрытия",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "paper", "compat:rewriteable", "compat:searchable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "return_to_storage",
+      "text": "вернуть в фондохранилище",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "archive", "compat:portable", "compat:hideable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "open_with_restoration_key",
+      "text": "открыть реставрационным ключом",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "service", "compat:openable", "compat:repairable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "compare_with_catalog_cards",
+      "text": "сверить с каталожными карточками",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "paper", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "cover_until_morning",
+      "text": "накрыть до утра",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "quiet", "compat:protectable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "wake_from_exhibition_sleep",
+      "text": "разбудить от выставочного сна",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "surreal", "compat:wakeable"],
+      "absurdity": 3,
+      "weight": 0.6
+    },
+    {
+      "id": "exchange_between_halls",
+      "text": "обменять между залами",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "night", "compat:exchangeable", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "hide_from_guided_silence",
+      "text": "спрятать от экскурсионной тишины",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "quiet", "surreal", "compat:hideable"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

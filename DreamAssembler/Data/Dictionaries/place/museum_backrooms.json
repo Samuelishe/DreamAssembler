@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "restoration_corridor_at_night",
+      "text": "ночном реставрационном коридоре",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["museum", "night", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "storage_hall_of_wrapped_objects",
+      "text": "зале упакованных предметов",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["museum", "archive", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "museum_loading_room",
+      "text": "погрузочной комнате музея",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["museum", "service", "infrastructure"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "hall_of_withdrawn_exhibits",
+      "text": "зале снятых экспонатов",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["museum", "memory", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "guide_room_after_visitors",
+      "text": "комнате экскурсоводов после посетителей",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["museum", "night", "service"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "cabinet_of_return_protocols",
+      "text": "кабинете протоколов возврата",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["museum", "paper", "bureaucracy"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "storage_where_labels_whispered",
+      "text": "хранилище, где подписи шептались раньше экспонатов,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["museum", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "passage_where_wrappers_remembered",
+      "text": "проходе, где упаковка помнила форму вещей лучше каталога,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["museum", "archive", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

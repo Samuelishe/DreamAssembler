@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "wrappers_recognize_him",
+      "text": "упаковка узнает его быстрее смотрителей",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["museum", "archive", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "storage_corridor_answers_him",
+      "text": "коридор фондохранилища отвечает ему в служебном тоне",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["museum", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "guide_silence_has_his_route",
+      "text": "экскурсионная тишина будто уже знает его маршрут",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["museum", "quiet", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    },
+    {
+      "id": "storage_reorders_returns",
+      "text": "фондохранилище меняет порядок возвратов без объяснений",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["museum", "archive", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "covers_trade_places",
+      "text": "чехлы на экспонатах обмениваются местами еще до утра",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["museum", "night", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "catalog_leaves_room_for_absence",
+      "text": "каталог оставляет место для того, чего никто не успел выставить",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["museum", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

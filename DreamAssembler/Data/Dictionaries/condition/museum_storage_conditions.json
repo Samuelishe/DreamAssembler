@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "museum_initial_hush",
+      "text": "в воздухе стояла служебная музейная тишина",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["museum", "quiet", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "wrapping_smell_initial",
+      "text": "пахло упаковочной бумагой и поздней пылью",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["museum", "paper", "night"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "numbers_waited_detail",
+      "text": "даже инвентарные номера вели себя терпеливее обычного",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["museum", "paper", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "covers_breathed_detail",
+      "text": "чехлы на экспонатах дышали тише людей",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["museum", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "labels_held_back_detail",
+      "text": "подписи как будто чего-то недоговаривали",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["museum", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "catalog_became_corridor_reveal",
+      "text": "каталог постепенно становился еще одним коридором",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["museum", "archive", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "storage_felt_visited_reveal",
+      "text": "фондохранилище вело себя так, будто его уже кто-то вспоминал",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["museum", "memory", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "silence_started_sorting_reveal",
+      "text": "тишина начала сортировать предметы по собственному порядку",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["museum", "quiet", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}
