@@ -166,6 +166,8 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - после этого открыт следующий manifold `recursive hospitality / nocturnal hotels / ceremonial check-in`: добавлен первый compact pack по `character`, `action`, `place`, `object`, `condition`, `concept`, `atmosphere` и `twist`, чтобы проект начал расти и в сторону ночного гостеприимства, задержанных приездов, коридорного терпения и service-insomnia, не дожидаясь финального output-pass.
 - затем hospitality-field сразу усилен вторым pack вокруг `back office / room-service ritual / shifted departures / breakfast before morning`, чтобы этот manifold быстрее вышел из first-wave состояния и держался не только на лобби и коридорах, но и на service-memory, late checkout logic и внутренней ночной инфраструктуре гостеприимства.
 - политика версионирования данных тоже уточнена: `data-manifest.json` больше не должен прыгать по `minor` на каждый новый pack; для обычного роста корпуса и новых atmospheric packs используется `PATCH`, чтобы версия отражала реальный масштаб изменения.
+- затем выполнен промежуточный большой `samples`-pass по расширенному corpus, после которого последовательно усилены soft manifold-affinity, compat-scoring и прямой action/object candidate filtering, чтобы снизить случайные cross-field склейки и убрать оставшиеся пары уровня `открыть табличку мастер-ключом`.
+- текущее состояние данных на конец этой сессии: `data-manifest.json = 0.5.8`, corpus = `721` entries, а `airport`, `mall`, `museum` и `hospitality` уже находятся в second-wave состоянии.
 - теперь узким местом постепенно становится не только объем словарей, но и richness самих каркасов: это значит, что дальнейшее развитие должно идти параллельно по данным и по template rhythm.
 
 Главное: проект уже умеет давать не только странность, но и настроение.
@@ -337,6 +339,10 @@ DreamAssembler должен развиваться ближе к atmospheric sof
 
 ## Что проверить при следующем шаге
 
+- не нужен ли еще один очень короткий semantic-pass по live output, если утренняя выборка снова покажет локальные пустые action/object связки;
+- если gross-defects больше не всплывают, возвращаться к expansion, а не оставаться в cleanup-loop;
+- следующий expansion-шаг выбирать по силе нового atmospheric space, а не по случайной привлекательности темы;
+- после следующего expansion обязательно снова снимать `DreamAssembler.DataTools -- samples` для `Sentence / Idea / ShortText`;
 - насколько reader-first ощущается текущее окно на реальном чтении;
 - достаточно ли тихо ведут себя hover-only действия на карточках и не падает ли discoverability;
 - нужен ли для коротких словесных режимов более радикальный phrase-centered layout;

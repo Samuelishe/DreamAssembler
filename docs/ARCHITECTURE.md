@@ -201,7 +201,7 @@ DreamAssembler - это не универсальный story engine и не с�
 - `nocturnal airports / fluorescent insomnia` second-wave field;
 - `dead shopping malls / abandoned commerce / fluorescent afterhours` second-wave field;
 - `impossible museums / echo exhibits / ceremonial curation` second-wave field;
-- `recursive hospitality / nocturnal hotels / ceremonial check-in` first-wave field.
+- `recursive hospitality / nocturnal hotels / ceremonial check-in` second-wave field.
 
 Это важно, потому что следующие сессии не должны воспринимать manifolds как чисто концептуальную идею. Они уже являются частью реальной generation architecture на data-слое.
 

@@ -65,9 +65,15 @@ DreamAssembler нельзя воспринимать как:
 - nocturnal airports / fluorescent insomnia - уже second-wave manifold;
 - dead shopping malls / abandoned commerce / fluorescent afterhours - уже second-wave manifold;
 - impossible museums / echo exhibits / ceremonial curation - уже second-wave manifold;
-- recursive hospitality / nocturnal hotels / ceremonial check-in - пока first-wave manifold.
+- recursive hospitality / nocturnal hotels / ceremonial check-in - уже second-wave manifold.
 
 Если нужно быстро понять баланс growth, не гадать по памяти, а запускать `DreamAssembler.DataTools` и смотреть pack-level stats из `data-manifest.json`.
+
+Текущее состояние корпуса на конец этой сессии:
+
+- `data-manifest.json`: `0.5.8`
+- corpus: `721` entries
+- базовый workflow контроля: `DreamAssembler.DataTools` + `samples`
 
 ## Главные направления
 
@@ -138,6 +144,15 @@ DreamAssembler нельзя воспринимать как:
 - `docs/ARCHITECTURE.md` - atmosphere architecture, soft coherence, manifolds как architectural growth model;
 - `docs/IDEAS_BACKLOG.md` - карта следующих manifolds, risky directions и dataset strategy;
 - `DreamAssembler/Data/data-manifest.json` + `DreamAssembler.DataTools` - фактический список уже подключенных packs.
+
+## Что планируется дальше
+
+Если новая сессия продолжает эту же линию, следующий разумный порядок такой:
+
+1. быстро переснять `samples`, если нужен свежий sanity-check после паузы;
+2. решить, нужен ли еще один очень короткий semantic-cleanup pass, или gross-defects уже достаточно погашены;
+3. если gross-defects не всплывают, возвращаться к expansion, а не застревать в локальной полировке;
+4. после следующего expansion снова прогонять `Sentence / Idea / ShortText` через `samples`.
 
 ## Правило обновления документации
 
