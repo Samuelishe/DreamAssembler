@@ -5,7 +5,7 @@
       "text": "разыскать",
       "category": "action",
       "slot": "action_infinitive",
-      "tags": ["mystery", "surreal"],
+      "tags": ["mystery", "surreal", "compat:searchable"],
       "absurdity": 2,
       "weight": 0.9
     },
@@ -14,7 +14,7 @@
       "text": "научить шептать",
       "category": "action",
       "slot": "action_infinitive",
-      "tags": ["surreal", "comic"],
+      "tags": ["surreal", "comic", "compat:whisperable"],
       "absurdity": 3,
       "weight": 0.8
     },
@@ -23,7 +23,7 @@
       "text": "переписать",
       "category": "action",
       "slot": "action_infinitive",
-      "tags": ["language", "surreal"],
+      "tags": ["language", "surreal", "compat:rewriteable"],
       "absurdity": 3,
       "weight": 0.7
     },
@@ -32,10 +32,9 @@
       "text": "разбудить до рассвета",
       "category": "action",
       "slot": "action_infinitive",
-      "tags": ["night", "surreal"],
+      "tags": ["night", "surreal", "compat:wakeable"],
       "absurdity": 2,
       "weight": 0.8
     }
   ]
 }
-

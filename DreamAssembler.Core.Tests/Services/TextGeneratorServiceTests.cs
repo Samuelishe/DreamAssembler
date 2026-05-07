@@ -262,6 +262,74 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что action и object с общими compat-тегами получают приоритет над несовместимой парой.
+    /// </summary>
+    [Fact]
+    public void Generate_PrefersCompatibleActionObjectPair_WhenCompatTagsExist()
+    {
+        var template = new TemplateDefinition
+        {
+            Id = "action_object_compat_test",
+            Text = "{object} нужно {action}.",
+            Mode = GenerationMode.Sentence,
+            RequiredCategories = ["object", "action"],
+            SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["object"] = "object_direct",
+                ["action"] = "action_infinitive"
+            },
+            Weight = 1.0
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new()
+            {
+                Id = "object_repairable",
+                Category = "object",
+                Slot = "object_direct",
+                Text = "сломанные часы",
+                Tags = ["compat:repairable"],
+                Weight = 1.0
+            },
+            new()
+            {
+                Id = "action_wrong",
+                Category = "action",
+                Slot = "action_infinitive",
+                Text = "тайно обменять",
+                Tags = ["compat:exchangeable"],
+                Weight = 3.0
+            },
+            new()
+            {
+                Id = "action_right",
+                Category = "action",
+                Slot = "action_infinitive",
+                Text = "чинить по ночам",
+                Tags = ["compat:repairable"],
+                Weight = 1.0
+            }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            [template],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.Sentence,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 1
+        });
+
+        Assert.Equal("сломанные часы нужно чинить по ночам.", Assert.Single(result).Text);
+    }
+
+    /// <summary>
     /// Проверяет, что короткий текст не начинается с meta-шаблона и не повторяет его несколько раз при наличии альтернатив.
     /// </summary>
     [Fact]

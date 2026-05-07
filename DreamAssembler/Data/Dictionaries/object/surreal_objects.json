@@ -5,7 +5,7 @@
       "text": "ржавый лифт",
       "category": "object",
       "slot": "object_direct",
-      "tags": ["city", "decay", "industrial"],
+      "tags": ["city", "decay", "industrial", "compat:repairable"],
       "absurdity": 1,
       "weight": 1.0
     },
@@ -14,7 +14,7 @@
       "text": "забытые будильники",
       "category": "object",
       "slot": "object_direct",
-      "tags": ["home", "absurd", "daily"],
+      "tags": ["home", "absurd", "daily", "compat:portable", "compat:repairable", "compat:wakeable", "compat:hideable"],
       "absurdity": 2,
       "weight": 1.0
     },
@@ -23,7 +23,7 @@
       "text": "собственный голос",
       "category": "object",
       "slot": "object_direct",
-      "tags": ["inner", "surreal"],
+      "tags": ["inner", "surreal", "compat:whisperable", "compat:rewriteable"],
       "absurdity": 3,
       "weight": 0.8
     },
@@ -32,7 +32,7 @@
       "text": "бумажный билет на луну",
       "category": "object",
       "slot": "object_direct",
-      "tags": ["dream", "surreal"],
+      "tags": ["dream", "surreal", "compat:portable", "compat:hideable", "compat:exchangeable", "compat:rewriteable", "compat:searchable"],
       "absurdity": 2,
       "weight": 0.9
     },
@@ -41,7 +41,7 @@
       "text": "спящий торговый автомат",
       "category": "object",
       "slot": "object_direct",
-      "tags": ["city", "comic", "surreal"],
+      "tags": ["city", "comic", "surreal", "compat:repairable", "compat:wakeable"],
       "absurdity": 3,
       "weight": 0.8
     },
@@ -50,10 +50,9 @@
       "text": "хор кассовых чеков",
       "category": "object",
       "slot": "object_direct",
-      "tags": ["bureaucracy", "comic", "surreal"],
+      "tags": ["bureaucracy", "comic", "surreal", "compat:whisperable", "compat:rewriteable", "compat:portable"],
       "absurdity": 3,
       "weight": 0.7
     }
   ]
 }
-

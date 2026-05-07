@@ -5,7 +5,7 @@
       "text": "спрятать",
       "category": "action",
       "slot": "action_infinitive",
-      "tags": ["secret", "daily"],
+      "tags": ["secret", "daily", "compat:hideable"],
       "absurdity": 0,
       "weight": 1.0
     },
@@ -14,7 +14,7 @@
       "text": "открыть",
       "category": "action",
       "slot": "action_infinitive",
-      "tags": ["business", "daily"],
+      "tags": ["business", "daily", "compat:openable"],
       "absurdity": 0,
       "weight": 1.0
     },
@@ -23,7 +23,7 @@
       "text": "провезти через весь город",
       "category": "action",
       "slot": "action_infinitive",
-      "tags": ["city", "daily"],
+      "tags": ["city", "daily", "compat:portable"],
       "absurdity": 0,
       "weight": 1.0
     },
@@ -32,7 +32,7 @@
       "text": "чинить по ночам",
       "category": "action",
       "slot": "action_infinitive",
-      "tags": ["night", "daily"],
+      "tags": ["night", "daily", "compat:repairable"],
       "absurdity": 1,
       "weight": 0.9
     },
@@ -41,7 +41,7 @@
       "text": "тайно обменять",
       "category": "action",
       "slot": "action_infinitive",
-      "tags": ["secret", "story"],
+      "tags": ["secret", "story", "compat:exchangeable"],
       "absurdity": 1,
       "weight": 0.9
     },
@@ -50,7 +50,7 @@
       "text": "пронести в архив",
       "category": "action",
       "slot": "action_infinitive",
-      "tags": ["bureaucracy", "city"],
+      "tags": ["bureaucracy", "city", "compat:portable"],
       "absurdity": 1,
       "weight": 0.8
     },
@@ -59,10 +59,9 @@
       "text": "спрятать от дождя",
       "category": "action",
       "slot": "action_infinitive",
-      "tags": ["city", "daily"],
+      "tags": ["city", "daily", "compat:protectable"],
       "absurdity": 0,
       "weight": 0.9
     }
   ]
 }
-

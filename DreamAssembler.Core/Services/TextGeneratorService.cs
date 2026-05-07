@@ -359,9 +359,50 @@ public sealed class TextGeneratorService
             {
                 score *= 0.92d;
             }
+
+            score *= CalculateActionObjectCompatibility(entry, selectedEntry);
         }
 
         return Math.Max(0.55d, score);
+    }
+
+    private static double CalculateActionObjectCompatibility(DictionaryEntry entry, DictionaryEntry selectedEntry)
+    {
+        if (!IsActionObjectPair(entry, selectedEntry))
+        {
+            return 1d;
+        }
+
+        var entryCompatibilityKeys = GetCompatibilityKeys(entry);
+        var selectedCompatibilityKeys = GetCompatibilityKeys(selectedEntry);
+
+        if (entryCompatibilityKeys.Count == 0 || selectedCompatibilityKeys.Count == 0)
+        {
+            return 0.88d;
+        }
+
+        var sharedCompatibilityKeys = entryCompatibilityKeys.Intersect(selectedCompatibilityKeys, StringComparer.OrdinalIgnoreCase).Count();
+        if (sharedCompatibilityKeys > 0)
+        {
+            return 1.8d + ((sharedCompatibilityKeys - 1) * 0.2d);
+        }
+
+        return 0.16d;
+    }
+
+    private static bool IsActionObjectPair(DictionaryEntry entry, DictionaryEntry selectedEntry)
+    {
+        return (string.Equals(entry.Category, "action", StringComparison.OrdinalIgnoreCase)
+                && string.Equals(selectedEntry.Category, "object", StringComparison.OrdinalIgnoreCase))
+               || (string.Equals(entry.Category, "object", StringComparison.OrdinalIgnoreCase)
+                   && string.Equals(selectedEntry.Category, "action", StringComparison.OrdinalIgnoreCase));
+    }
+
+    private static HashSet<string> GetCompatibilityKeys(DictionaryEntry entry)
+    {
+        return entry.Tags
+            .Where(tag => tag.StartsWith("compat:", StringComparison.OrdinalIgnoreCase))
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
     }
 
     private void RememberTemplate(string templateId, GenerationContext context)

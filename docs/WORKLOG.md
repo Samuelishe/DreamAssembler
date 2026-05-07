@@ -58,6 +58,9 @@
 - добавлен новый short-text шаблон сценической детали и тесты на `condition`-slot и порядок narrative-ролей.
 - для сложных мест с придаточной частью введен slot `place_in_clause` и отдельные шаблоны, которые ожидают закрывающую запятую после такого места;
 - добавлен тест на clause-slot для `place`, чтобы конструкции вида `в дворе, где ... ,` не откатывались назад к сломанной пунктуации.
+- для `action` и `object` введена смысловая совместимость через `compat:*`-теги;
+- `TextGeneratorService` теперь отдельно усиливает пары `action`/`object` с общими compat-ключами и резко штрафует несовместимые пары;
+- добавлен тест на выбор совместимой пары `action`/`object` даже при наличии более тяжелой, но семантически слабой альтернативы.
 
 ### Какие файлы изменены
 
@@ -90,6 +93,10 @@
 - `DreamAssembler/Data/Dictionaries/concept/story_concepts.json`
 - `DreamAssembler/Data/Dictionaries/condition/scene_conditions.json`
 - `DreamAssembler/Data/Dictionaries/place/surreal_places.json`
+- `DreamAssembler/Data/Dictionaries/action/everyday_actions.json`
+- `DreamAssembler/Data/Dictionaries/action/surreal_actions.json`
+- `DreamAssembler/Data/Dictionaries/object/everyday_objects.json`
+- `DreamAssembler/Data/Dictionaries/object/surreal_objects.json`
 - `DreamAssembler/Data/Templates/templates.json`
 - `DreamAssembler/MainWindow.xaml.cs`
 - `DreamAssembler/Services/IUserSettingsService.cs`
@@ -117,3 +124,4 @@
 - рефлексивные short-text конструкции берут `concept` только из `concept_reflection`, а idea-шаблоны с сюжетной темой используют `concept_story_frame`.
 - ранние short-text шаблоны берут только стартовые `condition`, а поздние reveal-шаблоны не используют начальные сценические состояния.
 - сложные `place` с придаточной частью попадают только в clause-шаблоны и не ломают запятые в вынесенных позициях.
+- пары `action`/`object` чаще выбираются по смысловой совместимости, а не только по общей странности и случайному весу.
