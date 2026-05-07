@@ -12,7 +12,8 @@ Console.WriteLine();
 var loader = new GeneratorDataLoader(
     new DictionaryRepository(),
     new TemplateRepository(),
-    new DataSetManifestRepository());
+    new DataSetManifestRepository(),
+    new AssociationFragmentRepository());
 
 var bundle = loader.Load(dataPath);
 var analyzer = new DataSetAnalyzer();
@@ -28,6 +29,7 @@ static void PrintSummary(DataValidationReport report)
     Console.WriteLine($"Data set: {report.DataSetId} ({report.Version})");
     Console.WriteLine($"Entries: {report.EntryCount}");
     Console.WriteLine($"Templates: {report.TemplateCount}");
+    Console.WriteLine($"Association fragments: {report.AssociationFragmentCount}");
     Console.WriteLine();
 
     Console.WriteLine("Categories:");
@@ -39,6 +41,13 @@ static void PrintSummary(DataValidationReport report)
     Console.WriteLine();
     Console.WriteLine("Slots:");
     foreach (var pair in report.SlotCounts.OrderBy(pair => pair.Key, StringComparer.OrdinalIgnoreCase))
+    {
+        Console.WriteLine($"  - {pair.Key}: {pair.Value}");
+    }
+
+    Console.WriteLine();
+    Console.WriteLine("Association kinds:");
+    foreach (var pair in report.AssociationKindCounts.OrderBy(pair => pair.Key, StringComparer.OrdinalIgnoreCase))
     {
         Console.WriteLine($"  - {pair.Key}: {pair.Value}");
     }
@@ -60,4 +69,3 @@ static void PrintIssues(IReadOnlyList<DataValidationIssue> issues)
         Console.WriteLine($"  [{issue.Severity}] {issue.Code}: {issue.Message}");
     }
 }
-

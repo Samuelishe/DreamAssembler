@@ -30,7 +30,8 @@ public partial class MainViewModel : ObservableObject
         [
             new OptionItem<GenerationMode> { DisplayName = "Предложение", Value = GenerationMode.Sentence },
             new OptionItem<GenerationMode> { DisplayName = "Короткий текст", Value = GenerationMode.ShortText },
-            new OptionItem<GenerationMode> { DisplayName = "Идея", Value = GenerationMode.Idea }
+            new OptionItem<GenerationMode> { DisplayName = "Идея", Value = GenerationMode.Idea },
+            new OptionItem<GenerationMode> { DisplayName = "До 4 слов пойдет", Value = GenerationMode.Association }
         ];
 
         AbsurdityLevels =
@@ -49,7 +50,8 @@ public partial class MainViewModel : ObservableObject
         var dataLoader = new GeneratorDataLoader(
             new DictionaryRepository(),
             new TemplateRepository(),
-            new DataSetManifestRepository());
+            new DataSetManifestRepository(),
+            new AssociationFragmentRepository());
         var dataBundle = dataLoader.Load(dataPath);
 
         IsFallbackActive = dataBundle.UsedFallback;
@@ -58,6 +60,7 @@ public partial class MainViewModel : ObservableObject
         _textGeneratorService = new TextGeneratorService(
             dataBundle.DictionaryEntries,
             dataBundle.Templates,
+            dataBundle.AssociationFragments,
             new WeightedRandomSelector(Random.Shared),
             new TemplateEngine());
 
@@ -150,6 +153,18 @@ public partial class MainViewModel : ObservableObject
     private bool isFallbackActive;
 
     /// <summary>
+    /// Получает признак доступности выбора уровня абсурдности для текущего режима.
+    /// </summary>
+    public bool IsAbsurditySelectionEnabled => SelectedMode?.Value != GenerationMode.Association;
+
+    /// <summary>
+    /// Получает пояснение для режима, который не использует уровень абсурдности.
+    /// </summary>
+    public string AbsurdityModeNote => SelectedMode?.Value == GenerationMode.Association
+        ? "В этом режиме уровень абсурдности не влияет на выдачу."
+        : string.Empty;
+
+    /// <summary>
     /// Выполняет генерацию результатов по текущим настройкам.
     /// </summary>
     [RelayCommand]
@@ -235,6 +250,8 @@ public partial class MainViewModel : ObservableObject
 
     partial void OnSelectedModeChanged(OptionItem<GenerationMode> value)
     {
+        OnPropertyChanged(nameof(IsAbsurditySelectionEnabled));
+        OnPropertyChanged(nameof(AbsurdityModeNote));
         SaveSettingsIfNeeded();
     }
 

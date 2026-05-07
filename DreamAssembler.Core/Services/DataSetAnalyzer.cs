@@ -19,6 +19,7 @@ public sealed class DataSetAnalyzer
         var issues = new List<DataValidationIssue>();
         var entries = dataBundle.DictionaryEntries;
         var templates = dataBundle.Templates;
+        var associationFragments = dataBundle.AssociationFragments;
 
         var categoryCounts = entries
             .GroupBy(entry => entry.Category, StringComparer.OrdinalIgnoreCase)
@@ -29,11 +30,16 @@ public sealed class DataSetAnalyzer
             .GroupBy(entry => entry.Slot!, StringComparer.OrdinalIgnoreCase)
             .ToDictionary(group => group.Key, group => group.Count(), StringComparer.OrdinalIgnoreCase);
 
+        var associationKindCounts = associationFragments
+            .GroupBy(entry => entry.Kind, StringComparer.OrdinalIgnoreCase)
+            .ToDictionary(group => group.Key, group => group.Count(), StringComparer.OrdinalIgnoreCase);
+
         AddDuplicateIdIssues(entries, issues);
         AddDuplicateTextIssues(entries, issues);
         AddMissingSlotIssues(entries, issues);
         AddCategoryDensityWarnings(categoryCounts, issues);
         AddTemplateCoverageIssues(templates, categoryCounts, slotCounts, issues);
+        AddAssociationFragmentIssues(associationFragments, associationKindCounts, issues);
 
         var manifest = dataBundle.Manifest;
         return new DataValidationReport
@@ -42,8 +48,10 @@ public sealed class DataSetAnalyzer
             Version = manifest?.Version ?? "fallback",
             EntryCount = entries.Count,
             TemplateCount = templates.Count,
+            AssociationFragmentCount = associationFragments.Count,
             CategoryCounts = categoryCounts,
             SlotCounts = slotCounts,
+            AssociationKindCounts = associationKindCounts,
             Issues = issues
         };
     }
@@ -153,5 +161,84 @@ public sealed class DataSetAnalyzer
             }
         }
     }
-}
 
+    private static void AddAssociationFragmentIssues(
+        IReadOnlyList<AssociationFragmentEntry> associationFragments,
+        IReadOnlyDictionary<string, int> associationKindCounts,
+        ICollection<DataValidationIssue> issues)
+    {
+        foreach (var group in associationFragments
+                     .GroupBy(entry => entry.Id, StringComparer.OrdinalIgnoreCase)
+                     .Where(group => group.Count() > 1))
+        {
+            issues.Add(new DataValidationIssue
+            {
+                Severity = DataValidationSeverity.Error,
+                Code = "duplicate-association-id",
+                Message = $"Повторяющийся id ассоциативной записи: '{group.Key}'."
+            });
+        }
+
+        foreach (var group in associationFragments
+                     .GroupBy(entry => $"{entry.Kind}::{entry.Text}", StringComparer.OrdinalIgnoreCase)
+                     .Where(group => group.Count() > 1))
+        {
+            var sample = group.First();
+            issues.Add(new DataValidationIssue
+            {
+                Severity = DataValidationSeverity.Warning,
+                Code = "duplicate-association-text",
+                Message = $"Повторяющийся text у ассоциативных слов типа '{sample.Kind}': '{sample.Text}'."
+            });
+        }
+
+        var hasNouns = associationKindCounts.Keys.Any(kind => kind.StartsWith("noun_", StringComparison.OrdinalIgnoreCase));
+        var hasAdjectives = associationKindCounts.Keys.Any(kind => kind.StartsWith("adjective_", StringComparison.OrdinalIgnoreCase));
+
+        if (!hasNouns)
+        {
+            issues.Add(new DataValidationIssue
+            {
+                Severity = DataValidationSeverity.Error,
+                Code = "missing-association-nouns",
+                Message = "Для ассоциативного режима не найдены существительные."
+            });
+        }
+
+        if (!hasAdjectives)
+        {
+            issues.Add(new DataValidationIssue
+            {
+                Severity = DataValidationSeverity.Error,
+                Code = "missing-association-adjectives",
+                Message = "Для ассоциативного режима не найдены прилагательные."
+            });
+        }
+
+        foreach (var gender in new[] { "m", "f", "n" })
+        {
+            var nounKind = $"noun_{gender}";
+            var adjectiveKind = $"adjective_{gender}";
+
+            if (!associationKindCounts.ContainsKey(nounKind))
+            {
+                issues.Add(new DataValidationIssue
+                {
+                    Severity = DataValidationSeverity.Warning,
+                    Code = "missing-association-gender-nouns",
+                    Message = $"Для ассоциативного режима пока нет существительных типа '{nounKind}'."
+                });
+            }
+
+            if (!associationKindCounts.ContainsKey(adjectiveKind))
+            {
+                issues.Add(new DataValidationIssue
+                {
+                    Severity = DataValidationSeverity.Warning,
+                    Code = "missing-association-gender-adjectives",
+                    Message = $"Для ассоциативного режима пока нет прилагательных типа '{adjectiveKind}'."
+                });
+            }
+        }
+    }
+}

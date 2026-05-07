@@ -16,6 +16,11 @@ public sealed class GeneratorDataBundle
     public IReadOnlyList<TemplateDefinition> Templates { get; set; } = Array.Empty<TemplateDefinition>();
 
     /// <summary>
+    /// Получает или задает фрагменты для режима ассоциативных фраз.
+    /// </summary>
+    public IReadOnlyList<AssociationFragmentEntry> AssociationFragments { get; set; } = Array.Empty<AssociationFragmentEntry>();
+
+    /// <summary>
     /// Получает или задает признак использования fallback-данных.
     /// </summary>
     public bool UsedFallback { get; set; }

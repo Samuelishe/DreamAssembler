@@ -5,12 +5,13 @@ using DreamAssembler.Core.Models;
 namespace DreamAssembler.Core.Services;
 
 /// <summary>
-/// Выполняет генерацию предложений, коротких текстов и идей.
+/// Выполняет генерацию предложений, коротких текстов, идей и ассоциативных фраз.
 /// </summary>
 public sealed class TextGeneratorService
 {
     private const int RecentTemplateLimit = 8;
     private const int RecentEntryLimitPerCategory = 6;
+    private const int RecentAssociationFragmentLimit = 10;
     private static readonly string[] PreferredOpeningRoles = ["setup", "scene"];
     private static readonly string[] OpeningRoles = ["setup", "scene"];
     private static readonly string[] LateRoles = ["reflection", "interpretation", "meta"];
@@ -18,29 +19,34 @@ public sealed class TextGeneratorService
 
     private readonly IReadOnlyList<DictionaryEntry> _dictionaryEntries;
     private readonly IReadOnlyList<TemplateDefinition> _templates;
+    private readonly IReadOnlyList<AssociationFragmentEntry> _associationFragments;
     private readonly WeightedRandomSelector _selector;
     private readonly TemplateEngine _templateEngine;
     private readonly Random _random;
     private readonly Queue<string> _recentTemplateIds = new();
     private readonly Dictionary<string, Queue<string>> _recentEntryIdsByCategory = new(StringComparer.OrdinalIgnoreCase);
+    private readonly Queue<string> _recentAssociationFragmentIds = new();
 
     /// <summary>
     /// Создает сервис генерации текста.
     /// </summary>
     /// <param name="dictionaryEntries">Список словарных записей.</param>
     /// <param name="templates">Список шаблонов.</param>
+    /// <param name="associationFragments">Список словарных записей для ассоциативного режима.</param>
     /// <param name="selector">Селектор случайного выбора по весам.</param>
     /// <param name="templateEngine">Движок подстановки значений.</param>
     /// <param name="random">Источник случайности для композиции коротких текстов.</param>
     public TextGeneratorService(
         IReadOnlyList<DictionaryEntry> dictionaryEntries,
         IReadOnlyList<TemplateDefinition> templates,
+        IReadOnlyList<AssociationFragmentEntry> associationFragments,
         WeightedRandomSelector selector,
         TemplateEngine templateEngine,
         Random? random = null)
     {
         _dictionaryEntries = dictionaryEntries;
         _templates = templates;
+        _associationFragments = associationFragments;
         _selector = selector;
         _templateEngine = templateEngine;
         _random = random ?? Random.Shared;
@@ -61,9 +67,12 @@ public sealed class TextGeneratorService
 
         for (var index = 0; index < resultCount; index++)
         {
-            var text = options.Mode == GenerationMode.ShortText
-                ? GenerateShortText(options, context)
-                : GenerateSingleTemplateText(options.Mode, options.AbsurdityLevel, context);
+            var text = options.Mode switch
+            {
+                GenerationMode.ShortText => GenerateShortText(options, context),
+                GenerationMode.Association => GenerateAssociationPhrase(),
+                _ => GenerateSingleTemplateText(options.Mode, options.AbsurdityLevel, context)
+            };
 
             results.Add(new TextGenerationResult
             {
@@ -75,6 +84,32 @@ public sealed class TextGeneratorService
         }
 
         return results;
+    }
+
+    private string GenerateAssociationPhrase()
+    {
+        if (_associationFragments.Count == 0)
+        {
+            throw new InvalidOperationException("Не найдены фрагменты для ассоциативного режима.");
+        }
+
+        var supportedGenders = new List<string>();
+        foreach (var gender in new[] { "m", "f", "n" })
+        {
+            if (GetAssociationFragmentsByKind($"noun_{gender}").Count > 0
+                && GetAssociationFragmentsByKind($"adjective_{gender}").Count > 0)
+            {
+                supportedGenders.Add(gender);
+            }
+        }
+
+        if (supportedGenders.Count == 0)
+        {
+            throw new InvalidOperationException("Ассоциативные словари загружены, но не содержат совместимых прилагательных и существительных.");
+        }
+
+        var genderKey = _selector.Select(supportedGenders, _ => 1.0);
+        return RenderAssociationPhraseForGender(genderKey);
     }
 
     private string GenerateShortText(TextGenerationOptions options, GenerationContext context)
@@ -275,6 +310,104 @@ public sealed class TextGeneratorService
     {
         roleUsageCounts.TryGetValue(role, out var count);
         roleUsageCounts[role] = count + 1;
+    }
+
+    private IReadOnlyList<AssociationFragmentEntry> GetAssociationFragmentsByKind(string kind)
+    {
+        return _associationFragments
+            .Where(entry => string.Equals(entry.Kind, kind, StringComparison.OrdinalIgnoreCase))
+            .ToList();
+    }
+
+    private double GetAssociationPatternWeight(int adjectiveCount)
+    {
+        return adjectiveCount switch
+        {
+            1 => 1.0,
+            2 => 0.85,
+            3 => 0.6,
+            _ => 0.5
+        };
+    }
+
+    private string RenderAssociationPhraseForGender(string genderKey)
+    {
+        var nouns = GetAssociationFragmentsByKind($"noun_{genderKey}");
+        var adjectives = GetAssociationFragmentsByKind($"adjective_{genderKey}");
+
+        if (nouns.Count == 0 || adjectives.Count == 0)
+        {
+            throw new InvalidOperationException($"Не найдены данные для ассоциативного режима по роду '{genderKey}'.");
+        }
+
+        var noun = SelectAssociationFragment(nouns);
+        RememberAssociationFragment(noun.Id);
+
+        var adjectiveCounts = new[] { 1, 2, 3 };
+        var adjectiveCount = _selector.Select(adjectiveCounts, GetAssociationPatternWeight);
+        var phraseAdjectives = new List<AssociationFragmentEntry>(adjectiveCount);
+        var usedIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+        var availableAdjectives = adjectives
+            .Where(entry => !string.Equals(entry.Text, noun.Text, StringComparison.OrdinalIgnoreCase))
+            .ToList();
+
+        while (phraseAdjectives.Count < adjectiveCount && availableAdjectives.Count > 0)
+        {
+            var eligibleAdjectives = availableAdjectives
+                .Where(entry => !usedIds.Contains(entry.Id))
+                .ToList();
+
+            if (eligibleAdjectives.Count == 0)
+            {
+                break;
+            }
+
+            var nextAdjective = SelectAssociationFragment(eligibleAdjectives);
+
+            phraseAdjectives.Add(nextAdjective);
+            usedIds.Add(nextAdjective.Id);
+            RememberAssociationFragment(nextAdjective.Id);
+        }
+
+        if (phraseAdjectives.Count == 0)
+        {
+            throw new InvalidOperationException("Не удалось подобрать прилагательные для ассоциативного режима.");
+        }
+
+        var words = phraseAdjectives
+            .Select(entry => entry.Text)
+            .Append(noun.Text)
+            .ToArray();
+
+        if (words.Length is < 2 or > 4)
+        {
+            throw new InvalidOperationException("Ассоциативный режим собрал фразу за пределами 2-4 слов.");
+        }
+
+        return string.Join(' ', words);
+    }
+
+    private AssociationFragmentEntry SelectAssociationFragment(IReadOnlyList<AssociationFragmentEntry> candidates)
+    {
+        if (candidates.Count == 0)
+        {
+            throw new InvalidOperationException("Не найдены подходящие ассоциативные фрагменты.");
+        }
+
+        return _selector.Select(candidates, CalculateAssociationFragmentWeight);
+    }
+
+    private double CalculateAssociationFragmentWeight(AssociationFragmentEntry entry)
+    {
+        var baseWeight = Math.Max(0.1d, entry.Weight);
+        var recentPenalty = _recentAssociationFragmentIds.Contains(entry.Id) ? 0.35d : 1d;
+        return baseWeight * recentPenalty;
+    }
+
+    private void RememberAssociationFragment(string fragmentId)
+    {
+        EnqueueWithLimit(_recentAssociationFragmentIds, fragmentId, RecentAssociationFragmentLimit);
     }
 
     private DictionaryEntry SelectEntry(

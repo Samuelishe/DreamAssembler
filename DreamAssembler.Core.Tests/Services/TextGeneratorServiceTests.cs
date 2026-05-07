@@ -49,6 +49,27 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет генерацию ассоциативной фразы длиной от двух до четырех слов.
+    /// </summary>
+    [Fact]
+    public void Generate_ReturnsAssociationPhrase_WithTwoToFourWords()
+    {
+        var service = CreateService();
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.Association,
+            AbsurdityLevel = AbsurdityLevel.Insane,
+            ResultCount = 1
+        });
+
+        var text = Assert.Single(result).Text;
+        var wordCount = text.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Length;
+
+        Assert.InRange(wordCount, 2, 4);
+    }
+
+    /// <summary>
     /// Проверяет, что генератор использует slot-требования шаблона.
     /// </summary>
     [Fact]
@@ -76,6 +97,7 @@ public sealed class TextGeneratorServiceTests
         var service = new TextGeneratorService(
             entries,
             [template],
+            [],
             new WeightedRandomSelector(new Random(1)),
             new TemplateEngine());
 
@@ -119,6 +141,7 @@ public sealed class TextGeneratorServiceTests
         var service = new TextGeneratorService(
             entries,
             [template],
+            [],
             new WeightedRandomSelector(new Random(1)),
             new TemplateEngine(),
             new Random(1));
@@ -162,6 +185,7 @@ public sealed class TextGeneratorServiceTests
         var service = new TextGeneratorService(
             entries,
             [template],
+            [],
             new WeightedRandomSelector(new Random(1)),
             new TemplateEngine(),
             new Random(1));
@@ -205,6 +229,7 @@ public sealed class TextGeneratorServiceTests
         var service = new TextGeneratorService(
             entries,
             [template],
+            [],
             new WeightedRandomSelector(new Random(1)),
             new TemplateEngine(),
             new Random(1));
@@ -247,6 +272,7 @@ public sealed class TextGeneratorServiceTests
         var service = new TextGeneratorService(
             entries,
             [template],
+            [],
             new WeightedRandomSelector(new Random(1)),
             new TemplateEngine(),
             new Random(1));
@@ -315,6 +341,7 @@ public sealed class TextGeneratorServiceTests
         var service = new TextGeneratorService(
             entries,
             [template],
+            [],
             new WeightedRandomSelector(new Random(1)),
             new TemplateEngine(),
             new Random(1));
@@ -387,6 +414,7 @@ public sealed class TextGeneratorServiceTests
         var service = new TextGeneratorService(
             entries,
             templates,
+            [],
             new WeightedRandomSelector(new Random(1)),
             new TemplateEngine(),
             new Random(0));
@@ -466,6 +494,7 @@ public sealed class TextGeneratorServiceTests
         var service = new TextGeneratorService(
             entries,
             templates,
+            [],
             new WeightedRandomSelector(new Random(1)),
             new TemplateEngine(),
             new Random(3));
@@ -492,6 +521,7 @@ public sealed class TextGeneratorServiceTests
         return new TextGeneratorService(
             FallbackDataProvider.GetDictionaryEntries(),
             FallbackDataProvider.GetTemplates(),
+            FallbackDataProvider.GetAssociationFragments(),
             new WeightedRandomSelector(random),
             new TemplateEngine(),
             random);

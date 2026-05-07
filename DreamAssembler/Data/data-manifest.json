@@ -1,7 +1,7 @@
 {
   "id": "dreamassembler-base-ru",
-  "version": "0.2.0",
-  "description": "Базовый русскоязычный набор словарей и шаблонов для DreamAssembler.",
+  "version": "0.3.0",
+  "description": "Базовый русскоязычный набор словарей, шаблонов и ассоциативных лексиконов для DreamAssembler.",
   "dictionarySets": [
     "character/city_workers",
     "character/surreal_people",
@@ -18,6 +18,9 @@
     "emotion/predicative_states",
     "concept/story_concepts",
     "condition/scene_conditions"
+  ],
+  "associationSets": [
+    "Sources/openrussian-nouns.csv",
+    "Sources/openrussian-adjectives.csv"
   ]
 }
-

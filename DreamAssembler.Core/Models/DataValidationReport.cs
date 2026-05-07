@@ -26,6 +26,11 @@ public sealed class DataValidationReport
     public int TemplateCount { get; set; }
 
     /// <summary>
+    /// Получает или задает общее число ассоциативных фрагментов.
+    /// </summary>
+    public int AssociationFragmentCount { get; set; }
+
+    /// <summary>
     /// Получает или задает количество записей по категориям.
     /// </summary>
     public IReadOnlyDictionary<string, int> CategoryCounts { get; set; } = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
@@ -34,6 +39,11 @@ public sealed class DataValidationReport
     /// Получает или задает количество записей по слотам.
     /// </summary>
     public IReadOnlyDictionary<string, int> SlotCounts { get; set; } = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+
+    /// <summary>
+    /// Получает или задает количество ассоциативных фрагментов по типам.
+    /// </summary>
+    public IReadOnlyDictionary<string, int> AssociationKindCounts { get; set; } = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 
     /// <summary>
     /// Получает или задает список замечаний и ошибок.
@@ -45,4 +55,3 @@ public sealed class DataValidationReport
     /// </summary>
     public bool HasErrors => Issues.Any(issue => issue.Severity == DataValidationSeverity.Error);
 }
-

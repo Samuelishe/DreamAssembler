@@ -50,5 +50,30 @@ public sealed class DataSetAnalyzerTests
         Assert.True(report.HasErrors);
         Assert.Contains(report.Issues, issue => issue.Code == "missing-slot-coverage");
     }
-}
 
+    /// <summary>
+    /// Проверяет, что анализатор находит отсутствие прилагательных для ассоциативного режима.
+    /// </summary>
+    [Fact]
+    public void Analyze_ReturnsError_WhenAssociationAdjectivesAreMissing()
+    {
+        var bundle = new GeneratorDataBundle
+        {
+            AssociationFragments =
+            [
+                new AssociationFragmentEntry
+                {
+                    Id = "noun_m_archive",
+                    Text = "архив",
+                    Kind = "noun_m",
+                    Weight = 1.0
+                }
+            ]
+        };
+
+        var report = new DataSetAnalyzer().Analyze(bundle);
+
+        Assert.True(report.HasErrors);
+        Assert.Contains(report.Issues, issue => issue.Code == "missing-association-adjectives");
+    }
+}

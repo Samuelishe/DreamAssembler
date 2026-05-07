@@ -63,6 +63,9 @@
 - добавлен тест на выбор совместимой пары `action`/`object` даже при наличии более тяжелой, но семантически слабой альтернативы.
 - начато первое крупное расширение боевых JSON-словарей: увеличены `action`, `object`, `place`, `twist`, `condition` и `concept`;
 - после первого пакета данных `DreamAssembler.DataTools` показывает рост с 100 до 141 записей без ошибок структуры и покрытия.
+- для режима `До 4 слов пойдет` скачаны большие внешние CSV-словари существительных и прилагательных из `Badestrand/russian-dictionary`;
+- ассоциативный режим перестроен: вместо hand-made заготовок он теперь собирает фразы из 1-3 прилагательных и 1 существительного с базовым согласованием по роду;
+- `AssociationFragmentRepository` теперь читает и фильтрует внешние CSV-источники, а `DreamAssembler.DataTools` и тесты знают про этот поток данных.
 
 ### Какие файлы изменены
 
@@ -104,6 +107,11 @@
 - `DreamAssembler/MainWindow.xaml.cs`
 - `DreamAssembler/Services/IUserSettingsService.cs`
 - `DreamAssembler/Services/UserSettingsService.cs`
+- `docs/DATA_SOURCES.md`
+- `DreamAssembler/Data/data-manifest.json`
+- `DreamAssembler/Data/AssociationWords/Sources/*`
+- `DreamAssembler/DreamAssembler.csproj`
+- `DreamAssembler.Core/Services/AssociationFragmentRepository.cs`
 - `DreamAssembler/Data/Dictionaries/*.json`
 - `DreamAssembler/Data/Templates/templates.json`
 - `DreamAssembler/ViewModels/*`
@@ -129,3 +137,5 @@
 - сложные `place` с придаточной частью попадают только в clause-шаблоны и не ломают запятые в вынесенных позициях.
 - пары `action`/`object` чаще выбираются по смысловой совместимости, а не только по общей странности и случайному весу.
 - первый крупный пакет данных реально увеличивает вариативность выдачи и не ломает manifest, slot-покрытие и валидацию.
+- режим `До 4 слов пойдет` действительно использует внешние CSV-словари, а не заранее приготовленные phrase-наборы.
+- в ассоциативном режиме выдача держится в диапазоне 2-4 слов и не зависит от уровня абсурдности.

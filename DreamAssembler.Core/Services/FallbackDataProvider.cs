@@ -64,6 +64,34 @@ public static class FallbackDataProvider
     }
 
     /// <summary>
+    /// Возвращает минимальный набор фрагментов для ассоциативных фраз.
+    /// </summary>
+    public static IReadOnlyList<AssociationFragmentEntry> GetAssociationFragments()
+    {
+        return
+        [
+            new AssociationFragmentEntry { Id = "adjective_m_quiet", Text = "тихий", Kind = "adjective_m", Weight = 1.0 },
+            new AssociationFragmentEntry { Id = "adjective_f_quiet", Text = "тихая", Kind = "adjective_f", Weight = 1.0 },
+            new AssociationFragmentEntry { Id = "adjective_n_quiet", Text = "тихое", Kind = "adjective_n", Weight = 1.0 },
+            new AssociationFragmentEntry { Id = "adjective_m_glass", Text = "стеклянный", Kind = "adjective_m", Weight = 0.9 },
+            new AssociationFragmentEntry { Id = "adjective_f_glass", Text = "стеклянная", Kind = "adjective_f", Weight = 0.9 },
+            new AssociationFragmentEntry { Id = "adjective_n_glass", Text = "стеклянное", Kind = "adjective_n", Weight = 0.9 },
+            new AssociationFragmentEntry { Id = "adjective_m_paper", Text = "бумажный", Kind = "adjective_m", Weight = 0.9 },
+            new AssociationFragmentEntry { Id = "adjective_f_paper", Text = "бумажная", Kind = "adjective_f", Weight = 0.9 },
+            new AssociationFragmentEntry { Id = "adjective_n_paper", Text = "бумажное", Kind = "adjective_n", Weight = 0.9 },
+            new AssociationFragmentEntry { Id = "adjective_m_night", Text = "ночной", Kind = "adjective_m", Weight = 0.8 },
+            new AssociationFragmentEntry { Id = "adjective_f_night", Text = "ночная", Kind = "adjective_f", Weight = 0.8 },
+            new AssociationFragmentEntry { Id = "adjective_n_night", Text = "ночное", Kind = "adjective_n", Weight = 0.8 },
+            new AssociationFragmentEntry { Id = "noun_m_archive", Text = "архив", Kind = "noun_m", Weight = 1.0 },
+            new AssociationFragmentEntry { Id = "noun_m_mechanism", Text = "механизм", Kind = "noun_m", Weight = 0.9 },
+            new AssociationFragmentEntry { Id = "noun_f_staircase", Text = "лестница", Kind = "noun_f", Weight = 1.0 },
+            new AssociationFragmentEntry { Id = "noun_f_memory", Text = "память", Kind = "noun_f", Weight = 0.9 },
+            new AssociationFragmentEntry { Id = "noun_n_echo", Text = "эхо", Kind = "noun_n", Weight = 1.0 },
+            new AssociationFragmentEntry { Id = "noun_n_schedule", Text = "расписание", Kind = "noun_n", Weight = 0.8 }
+        ];
+    }
+
+    /// <summary>
     /// Возвращает минимальный набор шаблонов.
     /// </summary>
     public static IReadOnlyList<TemplateDefinition> GetTemplates()

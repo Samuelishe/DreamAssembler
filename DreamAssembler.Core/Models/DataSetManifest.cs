@@ -24,5 +24,9 @@ public sealed class DataSetManifest
     /// Получает или задает список активных словарных наборов.
     /// </summary>
     public IReadOnlyList<string> DictionarySets { get; set; } = Array.Empty<string>();
-}
 
+    /// <summary>
+    /// Получает или задает список наборов фрагментов для ассоциативного режима.
+    /// </summary>
+    public IReadOnlyList<string> AssociationSets { get; set; } = Array.Empty<string>();
+}

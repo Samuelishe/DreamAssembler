@@ -9,7 +9,8 @@
 3. `docs/IDEAS_BACKLOG.md` - идеи, которые еще не стали планом.
 4. `docs/ARCHITECTURE.md` - если нужна структура приложения.
 5. `docs/DICTIONARY_FORMAT.md` - если работа связана с данными.
-6. `docs/WORKLOG.md` - только если нужен журнал изменений.
+6. `docs/DATA_SOURCES.md` - если задача касается внешних словарей и их происхождения.
+7. `docs/WORKLOG.md` - только если нужен журнал изменений.
 
 ## Текущее состояние
 
@@ -32,6 +33,9 @@
 - В `ShortText` усилен порядок narrative-ролей: поздние интерпретации и meta-фразы не должны вылезать слишком рано.
 - Для сложных мест с придаточной частью введен отдельный slot `place_in_clause`, чтобы не ломать пунктуацию в шаблонах.
 - Для `action` и `object` введен слой смысловой совместимости через теги `compat:*`.
+- Добавлен отдельный режим `До 4 слов пойдет`.
+- Этот режим больше не опирается на hand-made фразы: он собирается из больших CSV-словарей прилагательных и существительных.
+- Для ассоциативного режима в проект скачаны внешние словари слов в `DreamAssembler/Data/AssociationWords/Sources`.
 - Проект собирается без ошибок.
 
 ## Важные точки входа в код
@@ -39,6 +43,7 @@
 - `DreamAssembler.Core/Services/TextGeneratorService.cs`
 - `DreamAssembler.Core/Services/DictionaryRepository.cs`
 - `DreamAssembler.Core/Services/TemplateRepository.cs`
+- `DreamAssembler.Core/Services/AssociationFragmentRepository.cs`
 - `DreamAssembler.Core.Tests/Services/*`
 - `DreamAssembler/ViewModels/MainViewModel.cs`
 - `DreamAssembler/MainWindow.xaml`

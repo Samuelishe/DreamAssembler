@@ -18,6 +18,10 @@ public enum GenerationMode
     /// <summary>
     /// Генерирует идею, концепт или странный замысел.
     /// </summary>
-    Idea
-}
+    Idea,
 
+    /// <summary>
+    /// Генерирует короткую ассоциативную фразу из 2-4 слов.
+    /// </summary>
+    Association
+}

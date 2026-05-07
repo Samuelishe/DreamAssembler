@@ -1,6 +1,6 @@
 # DreamAssembler
 
-DreamAssembler is a Windows desktop application for generating Russian sentences, short texts, and absurd ideas with a rule-based engine.
+DreamAssembler is a Windows desktop application for generating Russian sentences, short texts, absurd ideas, and short associative phrases with a rule-based engine.
 
 It is intentionally not an AI text generator. The project combines JSON dictionaries, templates, tags, weights, and absurdity levels to produce results that can range from ordinary to surreal.
 
@@ -10,6 +10,7 @@ It is intentionally not an AI text generator. The project combines JSON dictiona
 - MVVM with CommunityToolkit.Mvvm
 - Core generation logic separated from UI
 - JSON-based dictionaries and templates
+- Separate large CSV lexicons for the 2-4 word associative mode
 - Fallback data when JSON files are missing or broken
 - Project documentation in [`docs`](docs)
 
@@ -19,6 +20,7 @@ It is intentionally not an AI text generator. The project combines JSON dictiona
 - Architecture: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 - Current state and next steps: [`docs/PROJECT_STATE.md`](docs/PROJECT_STATE.md)
 - Ideas backlog: [`docs/IDEAS_BACKLOG.md`](docs/IDEAS_BACKLOG.md)
+- External data sources: [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md)
 
 ## Run locally
 
