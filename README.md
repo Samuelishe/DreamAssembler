@@ -14,6 +14,7 @@ It is intentionally not an AI text generator. The project combines JSON dictiona
 - Fallback data when JSON files are missing or broken
 - Reader-first UI with fullscreen reading mode, theme switching, and bundled reading fonts
 - Bundled desktop icon embedded into the WPF window and the built Windows executable
+- Growth direction centered on curated atmospheric fields rather than genre presets or AI storytelling
 - Project documentation in [`docs`](docs)
 
 ## Repository guide
@@ -47,6 +48,7 @@ The application is moving toward a calmer reading surface rather than a control-
 - multiple curated light and dark themes instead of unbounded theme sprawl
 - a small bundled font set chosen for Cyrillic support and mood fit
 - a custom app icon that carries the same quiet surreal / infrastructural mood into Windows shell surfaces
+- fullscreen reading as a core experience rather than a secondary preview mode
 
 ## Run locally
 

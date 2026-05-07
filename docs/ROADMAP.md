@@ -2,7 +2,7 @@
 
 Этот roadmap фиксирует не только последовательность задач, но и порядок ценностей.
 
-DreamAssembler не должен пытаться делать все сразу. Его развитие должно усиливать identity проекта: atmospheric reading, curated surrealism, quiet absurdity, semantic density и controlled weirdness.
+DreamAssembler не должен пытаться делать все сразу. Его развитие должно усиливать identity проекта: atmospheric reading, curated surrealism, quiet absurdity, semantic density, controlled weirdness и постепенное расширение в несколько coherent atmospheric spaces без ухода в жанровость.
 
 ## Зафиксированные приоритеты
 
@@ -42,7 +42,9 @@ DreamAssembler не должен пытаться делать все сразу
 - увести действия над карточкой в более тихий режим;
 - продумать fullscreen reading mode;
 - развить phrase-centered presentation для коротких режимов;
-- улучшить typography hierarchy, spacing и breathing room.
+- улучшить typography hierarchy, spacing и breathing room;
+- постепенно ослабить оставшийся standard WPF / utility feel в controls и surfaces;
+- сделать fullscreen reading mode одним из strongest ritual-reading сценариев проекта.
 
 ## Этап 2. Atmospheric Presentation
 
@@ -54,7 +56,9 @@ DreamAssembler не должен пытаться делать все сразу
 - более зрелые atmospheric palettes;
 - спокойные переходы между состояниями UI;
 - более cinematic подача одиночной фразы;
-- разные режимы визуального чтения для короткой фразы, предложения и короткого текста.
+- разные режимы визуального чтения для короткой фразы, предложения и короткого текста;
+- distinct curated palettes вроде `archive-like`, `rainy`, `nocturnal`, `sterile`, `industrial`, `soft-light`, `fluorescent`, но без theme-sprawl;
+- ослабление obvious cards, borders и visually loud interaction zones.
 
 ## Этап 3. Curated Datasets Quality
 
@@ -105,6 +109,35 @@ DreamAssembler не должен пытаться делать все сразу
 
 Важно: это не жанры, а эмоционально-атмосферные пространства.
 
+Следующий уровень после этого:
+
+- endless transit;
+- fluorescent insomnia;
+- impossible domesticity;
+- sacred machinery;
+- procedural ritual;
+- recursive hospitality;
+- exhausted utopia;
+- abandoned commerce;
+- synthetic loneliness;
+- ritualized infrastructure;
+- biological infrastructure;
+- impossible bureaucracy;
+- ceremonial administration;
+- archival divinity;
+- quiet cosmic isolation;
+- decaying luxury;
+- provincial futurism;
+- underwater transport systems;
+- impossible museums;
+- nocturnal airports;
+- dead shopping malls;
+- emotional automation;
+- dreamlike logistics;
+- silent gigantism.
+
+Их нужно выращивать медленно, как curated fields со своими motifs и emotional logic, а не как "новые режимы".
+
 ## Этап 6. Atmosphere System
 
 Цель: начать мыслить генерацию как единое эмоциональное пространство.
@@ -120,6 +153,13 @@ DreamAssembler не должен пытаться делать все сразу
 - curated semantic layers.
 
 Важно: это должен быть soft system поверх текущих тегов, слотов и весов, а не новая тяжеловесная подсистема.
+
+Отдельно важно:
+
+- atmosphere continuity важнее feature-count;
+- atmospheric mixing важнее переключателя "режимов";
+- symbolic interference важнее прямолинейной тематической маркировки;
+- emotional drift важнее жесткой deterministic consistency.
 
 ## Этап 7. Better Narrative Rhythm
 
@@ -173,6 +213,7 @@ DreamAssembler не должен пытаться делать все сразу
 - делает проект умнее, но менее атмосферным;
 - увеличивает количество настроек, но ухудшает чтение;
 - повышает логическую связность, но убирает dream-like feeling;
-- усложняет архитектуру, но не усиливает controllability и curated feel,
+- усложняет архитектуру, но не усиливает controllability и curated feel;
+- делает UI "красивее", но разрушает visual silence и content dominance,
 
 то это не приоритет, даже если идея технически "интересная".

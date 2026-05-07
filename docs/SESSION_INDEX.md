@@ -30,7 +30,7 @@ DreamAssembler нельзя воспринимать как:
 - quiet absurdity engine;
 - reader-first creative tool;
 - procedural atmosphere system;
-- liminal / post-soviet mood machine.
+- atmospheric dream-core engine.
 
 ## Ключевая философия
 
@@ -42,7 +42,10 @@ DreamAssembler нельзя воспринимать как:
 - quiet absurdity;
 - dream-like logic;
 - atmosphere over plot;
-- reader-first presentation.
+- reader-first presentation;
+- emotional coherence over logical coherence;
+- symbolic motifs over raw randomness;
+- semantic density over verbosity.
 
 ## Текущее состояние
 
@@ -50,7 +53,9 @@ DreamAssembler нельзя воспринимать как:
 - Core построен вокруг шаблонов, JSON-словарей, тегов, `slot`, `compat:*` и anti-repeat логики.
 - `ShortText` уже использует композиционные роли и базовый narrative rhythm.
 - WPF UI уже движется в reader-first сторону: кастомный chrome, темы, встроенные шрифты, крупнее текст, спокойнее карточки.
+- UI должен ощущаться не как панель управления генератором, а как atmospheric reading instrument: strange literary machine, quiet reading surface, procedural literature device.
 - Основная сила проекта уже сейчас не в сюжетности, а в atmosphere, emotional consistency и symbolic language.
+- Текущий archive / transport / bureaucracy слой - это первый strongest coherent atmospheric field проекта, а не его конечная форма.
 
 ## Главные направления
 
@@ -58,7 +63,41 @@ DreamAssembler нельзя воспринимать как:
 - coherence over randomness;
 - symbolic consistency over raw variety;
 - semantic density over word count;
-- emotional texture over "smartness".
+- emotional texture over "smartness";
+- deeper atmosphere over bigger feature-count.
+
+## Как мыслить expansion
+
+Не через жанровые режимы вроде `horror`, `sci-fi`, `fantasy` или `cyberpunk`.
+
+А через atmospheric semantic spaces:
+
+- endless transit;
+- fluorescent insomnia;
+- impossible domesticity;
+- sacred machinery;
+- procedural ritual;
+- recursive hospitality;
+- exhausted utopia;
+- abandoned commerce;
+- synthetic loneliness;
+- ritualized infrastructure;
+- biological infrastructure;
+- impossible bureaucracy;
+- ceremonial administration;
+- archival divinity;
+- quiet cosmic isolation;
+- decaying luxury;
+- provincial futurism;
+- underwater transport systems;
+- impossible museums;
+- nocturnal airports;
+- dead shopping malls;
+- emotional automation;
+- dreamlike logistics;
+- silent gigantism.
+
+Это не жанры, а emotional-atmospheric manifolds.
 
 ## Что может уничтожить charm проекта
 
@@ -67,7 +106,8 @@ DreamAssembler нельзя воспринимать как:
 - чрезмерная логизация dream-like связок;
 - AI-слой поверх rule-based identity;
 - enterprise overengineering;
-- dashboard-style UI вместо reading tool.
+- dashboard-style UI вместо reading tool;
+- standard WPF / enterprise-clean controls, если они начинают спорить с текстом и ломают visual silence.
 
 ## Важные точки входа в код
 

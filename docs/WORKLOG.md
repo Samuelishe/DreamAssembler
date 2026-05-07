@@ -4,6 +4,11 @@
 
 - проведен еще один короткий output-driven pass по `Sentence`, `Idea` и `ShortText`: убраны несколько оставшихся гендерно жестких формулировок с `{character}` и ослаблены слабые каркасы, которые давали неестественные падежные и смысловые связки на живой выборке;
 
+## 2026-05-08
+
+- расширена продуктовая и архитектурная формулировка identity проекта: в документации зафиксировано, что текущий archive / transport / bureaucracy слой - это только первый strongest coherent atmospheric field, а дальнейшее развитие должно идти в сторону нескольких curated atmospheric manifolds, их мягкого смешивания, emotional drift и symbolic interference без жанровых пресетов и без тяжелых "умных" систем;
+- дополнительно расширено UI / UX / presentation-направление: DreamAssembler теперь еще явнее зафиксирован как atmospheric reading instrument, где fullscreen reading, visual silence, phrase-centered presentation, softer controls и content dominance важнее dashboard-feel и стандартной utility-подачи;
+
 ### Что сделано
 
 - создан план первого этапа;

@@ -12,8 +12,10 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - curated surrealism engine;
 - quiet absurdity engine;
 - reader-first creative tool;
-- liminal / post-soviet mood machine;
+- atmospheric dream-core engine;
 - procedural atmosphere system.
+
+Важно: текущий liminal / post-soviet / archive / transport слой - это первый strongest coherent atmospheric field проекта, а не его окончательная форма.
 
 ## Текущая tonal identity
 
@@ -28,6 +30,35 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - quiet surrealism вместо громкого абсурда.
 
 Это не жанровая машина и не engine для "историй обо всем". Ее сила в curated emotional field.
+
+При этом проект не должен зацементироваться только в одном поле. Его следующая зрелость - уметь выращивать и мягко смешивать разные atmospheric semantic spaces, не превращаясь при этом в набор жанровых режимов.
+
+Примеры таких пространств:
+
+- endless transit;
+- fluorescent insomnia;
+- impossible domesticity;
+- sacred machinery;
+- procedural ritual;
+- recursive hospitality;
+- exhausted utopia;
+- abandoned commerce;
+- synthetic loneliness;
+- ritualized infrastructure;
+- biological infrastructure;
+- impossible bureaucracy;
+- ceremonial administration;
+- archival divinity;
+- quiet cosmic isolation;
+- decaying luxury;
+- provincial futurism;
+- underwater transport systems;
+- impossible museums;
+- nocturnal airports;
+- dead shopping malls;
+- emotional automation;
+- dreamlike logistics;
+- silent gigantism.
 
 ## Что уже сделано
 
@@ -150,7 +181,8 @@ Curated surrealism в DreamAssembler значит:
 - бытовая и инфраструктурная опора сохраняется даже в сюрреалистических местах;
 - текст должен звучать как "это почти возможно", а не как случайная нелепость;
 - символические мотивы важнее разового вау-эффекта;
-- проект должен оставаться узнаваемым по тону, а не только по набору категорий.
+- проект должен оставаться узнаваемым по тону, а не только по набору категорий;
+- новые atmospheric fields должны расти как curated manifolds со своими recurring objects, emotional logic, symbolic vocabulary и internal dream-rules, а не как пачка новых слов.
 
 ## Philosophy Of Quiet Absurdity
 
@@ -164,6 +196,14 @@ Quiet absurdity - это не комедийный хаос и не абстра
 - ощущение, что мир слегка не совпадает сам с собой;
 - фразы, которые не кричат абсурдом, а просачиваются в читателя.
 
+Нужный эффект не "сюжет", а:
+
+- resonance;
+- emotional aftertaste;
+- ощущение скрытой системы;
+- чувство найденного фрагмента;
+- ощущение "чужого сна, который почти логичен".
+
 ## Philosophy Of UI
 
 DreamAssembler должен развиваться не как control-heavy utility, а как спокойный reader-first инструмент.
@@ -175,7 +215,18 @@ DreamAssembler должен развиваться не как control-heavy uti
 - типографика важнее насыщенности контролами;
 - чтение важнее демонстрации функциональности;
 - визуальная тишина важнее "богатого" интерфейса;
-- cinematic calm лучше, чем dashboard density.
+- cinematic calm лучше, чем dashboard density;
+- пустота и воздух являются частью атмосферы, а не незаполненным местом;
+- fullscreen reading mode является одним из core experiences проекта;
+- пользователь должен ощущать не "генерацию текста", а ритуал чтения странного атмосферного фрагмента.
+
+Нужное ощущение:
+
+- strange literary machine;
+- atmospheric terminal;
+- найденная dream-machine;
+- quiet reading surface;
+- procedural literature device.
 
 ## Philosophy Of Reader-First Interaction
 
@@ -186,7 +237,62 @@ Reader-first interaction значит:
 - вторичные действия должны быть мягкими и не мешать восприятию;
 - fullscreen reading mode логично продолжает уже начатое направление;
 - шрифты, палитры, spacing и размер текста должны работать на атмосферу чтения;
-- короткие режимы заслуживают почти phrase-centered presentation.
+- короткие режимы заслуживают почти phrase-centered presentation;
+- кнопки и dropdowns не должны становиться главными объектами экрана;
+- пользователь должен чувствовать, что он настраивает атмосферный приемник, а не крутит control surface сюрреализма.
+
+Что важно ослаблять постепенно:
+
+- standard WPF-like прямоугольность;
+- механически очевидный chrome;
+- агрессивные borders;
+- visually loud cards;
+- dashboard-like separation;
+- utility-oriented control emphasis.
+
+Что не нужно тащить в интерфейс:
+
+- glassmorphism;
+- RGB / glow;
+- decorative cyberpunk;
+- VHS overlays;
+- excessive animations;
+- visual gimmicks ради самих gimmicks.
+
+DreamAssembler не должен быть дизайнерским аттракционом. Visual polish здесь нужен не для демонстрации красоты интерфейса, а для усиления атмосферы и reading pace.
+
+## Guidance For UI Presentation
+
+Presentation должна развиваться как:
+
+- typography-first;
+- calm;
+- cinematic;
+- fullscreen-reading-oriented;
+- minimal chrome;
+- content-dominant;
+- phrase-centered;
+- visually restrained.
+
+Практически это значит:
+
+- текст должен побеждать интерфейс;
+- короткая фраза должна ощущаться не как list item, а как atmospheric object;
+- spotlight presentation важнее обычной карточечной логики для коротких режимов;
+- isolated fragments и большие пустые зоны допустимы и полезны;
+- интерфейс должен "дышать", а не заполнять каждый участок окна.
+
+Typography здесь не decoration, а часть generation experience:
+
+- reading rhythm;
+- line width;
+- spacing;
+- cinematic wrapping;
+- phrase pacing;
+- visual density;
+- atmospheric hierarchy.
+
+Иногда фраза должна ощущаться почти как стих.
 
 ## Guidance For Atmospheric / Emotional Direction
 
@@ -199,6 +305,16 @@ Reader-first interaction значит:
 - не исчез ли тихий dream-logic;
 - не стала ли выдача слишком generic.
 
+Дополнительно важно:
+
+- удерживает ли новая зона atmosphere continuity;
+- умеет ли одна атмосфера мягко просачиваться в другую;
+- появился ли emotional drift без жанровой вывески;
+- возникла ли symbolic interference между мотивами;
+- осталась ли dream-like ambiguity живой, а не объясненной до конца.
+
+DreamAssembler должен развиваться ближе к atmospheric software artifact, procedural dream instrument и quiet surreal reading environment, чем к storytelling engine.
+
 ## Что проверить при следующем шаге
 
 - насколько reader-first ощущается текущее окно на реальном чтении;
@@ -206,6 +322,10 @@ Reader-first interaction значит:
 - нужен ли для коротких словесных режимов более радикальный phrase-centered layout;
 - не стоит ли следующими шагами ослабить верхний заголовок и мета-информацию в lexical modes еще сильнее;
 - достаточно ли удачен новый spotlight-паттерн, или список истории стоит дальше отделять от выбранного фрагмента;
+- не слишком ли стандартно и enterprise-clean ощущаются оставшиеся controls;
+- какие dropdowns, buttons и surfaces еще слишком WPF-like и визуально агрессивны;
+- достаточно ли много воздуха остается вокруг коротких фрагментов;
+- не спорят ли cards и borders с текстом как главным объектом окна;
 - действительно ли все встроенные шрифты визуально различимы на реальном рендере WPF и разных DPI;
 - достаточно ли мягко ощущаются новые micro-transitions и не выглядят ли они декоративными ради декоративности;
 - не стоит ли позже уводить историю lexical-фрагментов в более компактный rail или strip вместо обычного вертикального списка;
