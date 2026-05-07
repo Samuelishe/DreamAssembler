@@ -221,32 +221,44 @@ public partial class MainViewModel : ObservableObject
     /// <summary>
     /// Получает ширину панели управления.
     /// </summary>
-    public GridLength ControlPanelWidth => new(IsLexicalMode ? 248d : 300d);
+    public GridLength ControlPanelWidth => new(IsLexicalMode ? 224d : 286d);
 
     /// <summary>
     /// Получает ширину промежутка между панелями.
     /// </summary>
-    public GridLength ContentGapWidth => new(IsLexicalMode ? 26d : 18d);
+    public GridLength ContentGapWidth => new(IsLexicalMode ? 34d : 24d);
 
     /// <summary>
     /// Получает максимальную ширину карточки результата для текущего режима.
     /// </summary>
-    public double ResultCardMaxWidth => IsLexicalMode ? 760d : 840d;
+    public double ResultCardMaxWidth => IsLexicalMode ? 700d : 820d;
 
     /// <summary>
     /// Получает минимальную ширину карточки результата для текущего режима.
     /// </summary>
-    public double ResultCardMinWidth => IsLexicalMode ? 340d : 260d;
+    public double ResultCardMinWidth => IsLexicalMode ? 320d : 260d;
 
     /// <summary>
     /// Получает рекомендуемый размер шрифта основного текста результата.
     /// </summary>
-    public double ResultTextFontSize => IsLexicalMode ? 32d : 21d;
+    public double ResultTextFontSize => IsLexicalMode ? 34d : 21d;
 
     /// <summary>
     /// Получает рекомендуемую высоту строки для основного текста результата.
     /// </summary>
-    public double ResultTextLineHeight => IsLexicalMode ? 40d : 30d;
+    public double ResultTextLineHeight => IsLexicalMode ? 44d : 30d;
+
+    /// <summary>
+    /// Получает заголовок панели настройки.
+    /// </summary>
+    public string ControlPanelTitle => IsLexicalMode ? "Тихая настройка" : "Настройка атмосферы";
+
+    /// <summary>
+    /// Получает вспомогательный текст панели настройки.
+    /// </summary>
+    public string ControlPanelHint => IsLexicalMode
+        ? "Спокойная настройка следующей выдачи."
+        : "Выберите тон и форму следующего фрагмента.";
 
     /// <summary>
     /// Получает заголовок секции результатов.
@@ -265,12 +277,12 @@ public partial class MainViewModel : ObservableObject
     /// <summary>
     /// Получает подпись для выделенного фрагмента в словесных режимах.
     /// </summary>
-    public string LexicalSpotlightTitle => HasSelectedLexicalAtmosphere ? "Текущий фрагмент" : "Выбранный фрагмент";
+    public string LexicalSpotlightTitle => HasSelectedLexicalAtmosphere ? "Один фрагмент впереди" : "Выбранный фрагмент";
 
     /// <summary>
     /// Получает подпись для списка истории в словесных режимах.
     /// </summary>
-    public string ResultsListCaption => IsLexicalMode ? "Остальные фрагменты" : string.Empty;
+    public string ResultsListCaption => IsLexicalMode ? "Тихая история" : string.Empty;
 
     /// <summary>
     /// Получает подпись атмосферного header для словесных режимов.
@@ -439,9 +451,12 @@ public partial class MainViewModel : ObservableObject
         OnPropertyChanged(nameof(ResultCardMinWidth));
         OnPropertyChanged(nameof(ResultTextFontSize));
         OnPropertyChanged(nameof(ResultTextLineHeight));
+        OnPropertyChanged(nameof(ControlPanelTitle));
+        OnPropertyChanged(nameof(ControlPanelHint));
         OnPropertyChanged(nameof(ResultsSectionTitle));
         OnPropertyChanged(nameof(ResultsSectionHint));
         OnPropertyChanged(nameof(LexicalSpotlightTitle));
+        OnPropertyChanged(nameof(ResultsListCaption));
         OnPropertyChanged(nameof(LexicalAtmosphereEyebrow));
         OnPropertyChanged(nameof(SelectedLexicalAtmosphereLabel));
         OnPropertyChanged(nameof(SelectedLexicalAtmosphereDescription));

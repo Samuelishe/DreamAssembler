@@ -8,6 +8,8 @@
 
 - расширена продуктовая и архитектурная формулировка identity проекта: в документации зафиксировано, что текущий archive / transport / bureaucracy слой - это только первый strongest coherent atmospheric field, а дальнейшее развитие должно идти в сторону нескольких curated atmospheric manifolds, их мягкого смешивания, emotional drift и symbolic interference без жанровых пресетов и без тяжелых "умных" систем;
 - дополнительно расширено UI / UX / presentation-направление: DreamAssembler теперь еще явнее зафиксирован как atmospheric reading instrument, где fullscreen reading, visual silence, phrase-centered presentation, softer controls и content dominance важнее dashboard-feel и стандартной utility-подачи;
+- реализован первый soft-controls pass в `MainWindow.xaml`: смягчены основные кнопки и dropdowns, ослаблен utility-feel у spotlight/result cards/settings popup, а fullscreen reading mode стал тише и менее механически-виджетным по подаче;
+- затем начат следующий UI-этап по layout rhythm: control panel визуально отодвинута назад, lexical history стала еще менее card-heavy, а fullscreen reading overlay приблизился к более изолированной, centered и ritual-reading presentation;
 
 ### Что сделано
 
