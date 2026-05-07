@@ -5,19 +5,27 @@
   "dictionarySets": [
     "character/city_workers",
     "character/surreal_people",
+    "character/municipal_characters",
     "action/everyday_actions",
     "action/surreal_actions",
+    "action/quiet_infrastructure_actions",
     "object/everyday_objects",
     "object/surreal_objects",
+    "object/archive_transport_objects",
     "place/urban_places",
     "place/surreal_places",
+    "place/liminal_infrastructure",
     "twist/rules_and_reactions",
+    "twist/quiet_rules_pack",
     "atmosphere/scene_tones",
+    "atmosphere/quiet_tones",
     "genre/base_genres",
     "style/base_styles",
     "emotion/predicative_states",
     "concept/story_concepts",
-    "condition/scene_conditions"
+    "concept/atmospheric_concepts",
+    "condition/scene_conditions",
+    "condition/atmospheric_scene_conditions"
   ],
   "associationSets": [
     "Sources/openrussian-nouns.csv",

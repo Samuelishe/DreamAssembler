@@ -1,0 +1,112 @@
+{
+  "entries": [
+    {
+      "id": "archive_tremor_of_city",
+      "text": "архивное дрожание города",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["archive", "city", "story"],
+      "absurdity": 1,
+      "weight": 0.9
+    },
+    {
+      "id": "conversation_with_infrastructure",
+      "text": "затянувшийся разговор с инфраструктурой",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["city", "industrial", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "night_biography_of_service_rooms",
+      "text": "ночная биография служебных помещений",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["night", "bureaucracy", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "shift_change_of_reality",
+      "text": "медленная пересменка реальности",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["night", "surreal", "story"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "provincial_theory_of_rain",
+      "text": "провинциальная теория дождя",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["weather", "provincial", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "transport_legend_of_lost_time",
+      "text": "транспортная легенда о потерянном времени",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["transport", "time", "story"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "polite_anxiety_of_things",
+      "text": "вежливая тревога вещей",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["mood", "surreal", "quiet"],
+      "absurdity": 1,
+      "weight": 0.9
+    },
+    {
+      "id": "weather_of_duty_rooms",
+      "text": "внутренняя погода дежурных комнат",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["night", "bureaucracy", "mood"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "discipline_of_wet_papers",
+      "text": "дисциплина мокрых бумаг",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["paper", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "city_whispers_through_glass",
+      "text": "привычка города шептать через стекло",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["city", "quiet", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "memory_of_unfiled_things",
+      "text": "память о том, чего никто не оформлял",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["memory", "bureaucracy", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "service_kinship_of_strangers",
+      "text": "тихое служебное родство незнакомцев",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["bureaucracy", "story", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    }
+  ]
+}

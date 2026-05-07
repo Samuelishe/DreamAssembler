@@ -1,0 +1,112 @@
+{
+  "entries": [
+    {
+      "id": "send_by_internal_mail",
+      "text": "отправить по внутренней почте",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["bureaucracy", "paper", "compat:portable", "compat:exchangeable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "mark_in_journal",
+      "text": "отметить в журнале",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["bureaucracy", "paper", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "return_to_lost_and_found",
+      "text": "вернуть в отдел находок",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["transport", "story", "compat:portable", "compat:exchangeable", "compat:searchable"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "hide_in_desk_drawer",
+      "text": "спрятать в ящик дежурного стола",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["bureaucracy", "quiet", "compat:portable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "carry_to_last_wagon",
+      "text": "донести до последнего вагона",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["transport", "night", "compat:portable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "unfold_under_lamp",
+      "text": "развернуть под лампой",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["quiet", "night", "compat:portable", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "lock_until_shift_end",
+      "text": "запереть до конца смены",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["night", "bureaucracy", "compat:openable", "compat:hideable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "place_on_duty_window",
+      "text": "оставить у окна выдачи",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["bureaucracy", "daily", "compat:portable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "check_against_light",
+      "text": "проверить на свету",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["quiet", "story", "compat:portable", "compat:searchable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "move_to_metal_cabinet",
+      "text": "убрать в металлический шкаф",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["archive", "bureaucracy", "compat:portable", "compat:hideable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "copy_for_night_shift",
+      "text": "переписать для ночной смены",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["night", "paper", "compat:rewriteable", "compat:searchable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "carry_through_service_tunnel",
+      "text": "пронести через служебный тоннель",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["transport", "surreal", "compat:portable", "compat:hideable", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    }
+  ]
+}

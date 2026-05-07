@@ -1,0 +1,130 @@
+{
+  "entries": [
+    {
+      "id": "service_corridor_archive",
+      "text": "служебном коридоре районного архива",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["archive", "bureaucracy", "quiet"],
+      "absurdity": 0,
+      "weight": 1.0
+    },
+    {
+      "id": "duty_room_depot",
+      "text": "дежурной комнате пустого депо",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["transport", "night", "industrial"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "lost_and_found_room",
+      "text": "комнате забытых вещей",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["transport", "story", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "permit_issue_room",
+      "text": "комнате выдачи пропусков",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["bureaucracy", "city", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "station_cash_hall",
+      "text": "кассовом зале пригородного вокзала",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["transport", "city", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "reading_room_twilight",
+      "text": "полутемном читальном зале",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["archive", "quiet", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "newsstand_backroom",
+      "text": "подсобке газетного киоска",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["city", "paper", "daily"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "elevator_machine_room",
+      "text": "лифтовом машинном отделении",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["city", "industrial", "surreal"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "station_buffet",
+      "text": "буфете при автостанции",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["transport", "provincial", "daily"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "yard_behind_household_center",
+      "text": "узком дворике за домом быта",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["city", "provincial", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "archive_passage_clause",
+      "text": "служебном проходе, где пахло мокрой бумагой,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["archive", "paper", "surreal"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "tram_ring_clause",
+      "text": "дворе у трамвайного кольца, где фонари считали вагоны,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["transport", "night", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "pass_office_clause",
+      "text": "бюро пропусков, где стекло запоминало лица,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["bureaucracy", "city", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "station_tunnel_clause",
+      "text": "тоннеле под платформой, где эхо отвечало по очереди,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["transport", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

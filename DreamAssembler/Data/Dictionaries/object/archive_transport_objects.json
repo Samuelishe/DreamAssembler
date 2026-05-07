@@ -1,0 +1,112 @@
+{
+  "entries": [
+    {
+      "id": "wet_statements_folder",
+      "text": "папку с мокрыми заявлениями",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["bureaucracy", "paper", "compat:portable", "compat:hideable", "compat:searchable", "compat:rewriteable", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.9
+    },
+    {
+      "id": "service_key_bundle",
+      "text": "связку служебных ключей",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["city", "daily", "compat:portable", "compat:hideable", "compat:searchable", "compat:exchangeable"],
+      "absurdity": 0,
+      "weight": 1.0
+    },
+    {
+      "id": "route_number_plate",
+      "text": "табличку с выцветшим номером маршрута",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["transport", "city", "compat:portable", "compat:hideable", "compat:searchable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "metal_tokens_jar",
+      "text": "банку железных жетонов",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["transport", "story", "compat:portable", "compat:hideable", "compat:exchangeable", "compat:searchable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "archive_cards_box",
+      "text": "коробку с архивными карточками",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["archive", "paper", "compat:portable", "compat:hideable", "compat:searchable", "compat:rewriteable", "compat:protectable", "compat:openable"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "blank_forms_briefcase",
+      "text": "портфель с незаполненными бланками",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["bureaucracy", "paper", "compat:portable", "compat:hideable", "compat:rewriteable", "compat:searchable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "underpass_scheme",
+      "text": "свернутую схему подземных переходов",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["city", "transport", "compat:portable", "compat:hideable", "compat:searchable", "compat:rewriteable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "duty_logs_stack",
+      "text": "стопку дежурных журналов",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["bureaucracy", "archive", "compat:portable", "compat:hideable", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "signal_wire_coil",
+      "text": "моток сигнального провода",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["industrial", "transport", "compat:portable", "compat:repairable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "lost_tickets_packet",
+      "text": "пакет потерянных билетов",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["transport", "paper", "compat:portable", "compat:hideable", "compat:searchable", "compat:exchangeable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "dusty_radio_receiver",
+      "text": "пыльный радиоприемник",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["night", "city", "compat:portable", "compat:repairable", "compat:hideable", "compat:openable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "metal_composter",
+      "text": "металлический компостер",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["transport", "city", "compat:portable", "compat:repairable", "compat:hideable"],
+      "absurdity": 1,
+      "weight": 0.7
+    }
+  ]
+}

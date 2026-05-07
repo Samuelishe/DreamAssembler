@@ -1,0 +1,112 @@
+{
+  "entries": [
+    {
+      "id": "turnstile_lets_him_pass",
+      "text": "турникет пропускает его без очереди и без причины",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["transport", "surreal", "city"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "cash_window_knows_steps",
+      "text": "кассовое окно узнает его по шагам",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["bureaucracy", "city", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "duty_speaker_answers_personally",
+      "text": "дежурный динамик отвечает ему слишком лично",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["transport", "night", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "wet_ticket_returns_to_pocket",
+      "text": "мокрый билет упрямо возвращается к нему в карман",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["transport", "weather", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "stairs_lead_him_elsewhere",
+      "text": "лестница старается вывести его не туда",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["city", "surreal", "story"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "receipts_correct_his_memory",
+      "text": "каждая квитанция понемногу исправляет его память",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["memory", "bureaucracy", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "stamps_delayed_by_one_day",
+      "text": "все штампы ставятся с опозданием на один день",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["bureaucracy", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "board_shows_only_yesterday_routes",
+      "text": "после полуночи табло показывает только вчерашние маршруты",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["transport", "time", "night"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "rain_waits_for_permission",
+      "text": "дождь ждет отдельного разрешения на вход",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["weather", "bureaucracy", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "waiting_rooms_wait_themselves",
+      "text": "комнаты ожидания постепенно начинают ждать сами",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["transport", "quiet", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "corridors_lead_to_earlier_building",
+      "text": "каждый коридор ведет к более ранней версии здания",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["city", "time", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "windows_accept_written_requests_only",
+      "text": "окна принимают обращения только в письменном виде",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["bureaucracy", "comic", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    }
+  ]
+}

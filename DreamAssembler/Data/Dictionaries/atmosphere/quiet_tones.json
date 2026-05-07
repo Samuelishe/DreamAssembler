@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "archive_damp",
+      "text": "архивно сырой",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["archive", "quiet"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "station_hesitant",
+      "text": "вокзально настороженной",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["transport", "night"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "paper_trembling",
+      "text": "бумажно дрожащей",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "duty_room_sleepy",
+      "text": "дежурно сонной",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["night", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "rain_heavy_quiet",
+      "text": "дождливо отяжелевшей",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["weather", "mood"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "service_formal",
+      "text": "служебно притихшей",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["bureaucracy", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "metallic_patience",
+      "text": "металлически терпеливой",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["industrial", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "provincial_listening",
+      "text": "провинциально прислушивающейся",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["provincial", "story"],
+      "absurdity": 1,
+      "weight": 0.7
+    }
+  ]
+}

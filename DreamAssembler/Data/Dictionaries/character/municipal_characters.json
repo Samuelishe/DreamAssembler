@@ -1,0 +1,112 @@
+{
+  "entries": [
+    {
+      "id": "archive_shift_keeper",
+      "text": "дежурный по архивному корпусу",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["archive", "bureaucracy", "night", "daily"],
+      "absurdity": 0,
+      "weight": 1.0
+    },
+    {
+      "id": "tram_ring_dispatcher",
+      "text": "диспетчер трамвайного кольца",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["transport", "city", "daily"],
+      "absurdity": 0,
+      "weight": 1.0
+    },
+    {
+      "id": "lost_and_found_clerk",
+      "text": "приемщик забытых вещей",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["transport", "story", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "night_depot_electrician",
+      "text": "ночной электрик депо",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["transport", "night", "industrial", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "district_newspaper_corrector",
+      "text": "корректор районной газеты",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["city", "paper", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "elevator_mechanic",
+      "text": "механик лифтового хозяйства",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["city", "industrial", "daily"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "waybill_operator",
+      "text": "оператор служебной радиорубки",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["city", "night", "bureaucracy", "daily"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "household_center_watchman",
+      "text": "вахтер из дома быта",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["city", "provincial", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "intercity_station_cashier",
+      "text": "кассир междугородней автостанции",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["transport", "bureaucracy", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "inventory_tabulator",
+      "text": "табельщик ночной смены",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["bureaucracy", "night", "industrial", "daily"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "route_keeper",
+      "text": "хранитель списанных расписаний",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["transport", "archive", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "pass_office_attendant",
+      "text": "дежурный бюро пропусков",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["bureaucracy", "city", "daily"],
+      "absurdity": 0,
+      "weight": 0.9
+    }
+  ]
+}

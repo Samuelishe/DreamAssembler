@@ -1,0 +1,112 @@
+{
+  "entries": [
+    {
+      "id": "everybody_waited_for_board",
+      "text": "все ждали, когда загорится табло",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["transport", "quiet", "daily"],
+      "absurdity": 0,
+      "weight": 1.0
+    },
+    {
+      "id": "nobody_closed_window",
+      "text": "никто не спешил закрывать форточку",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["quiet", "daily", "story"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "everyone_spoke_yesterday",
+      "text": "каждый говорил так, будто опаздывал вчера",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["time", "quiet", "surreal"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "nobody_touched_stamps",
+      "text": "никто не решался трогать мокрые штампы",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["bureaucracy", "paper", "quiet"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "tea_cooling_on_windowsill",
+      "text": "на подоконнике остывал чай в граненом стакане",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["quiet", "daily", "provincial"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "corridor_smelled_of_cardboard",
+      "text": "из дальнего коридора тянуло сырым картоном",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["archive", "paper", "story"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "route_sheet_shivered",
+      "text": "под лампой дрожал лист с исправленным маршрутом",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["transport", "paper", "night"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "wall_map_marked_by_strangers",
+      "text": "на стене висела карта с чужими пометками",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["city", "story", "mystery"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "schedule_moved_without_looking",
+      "text": "расписание шевелилось, когда на него не смотрели",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["transport", "surreal", "time"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "queue_continued_after_closing",
+      "text": "очередь продолжалась даже после закрытия",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["bureaucracy", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "sign_answered_first",
+      "text": "дверная табличка отвечала на вопросы раньше дежурного",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["bureaucracy", "city", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "change_returned_to_other_pockets",
+      "text": "сдача возвращалась в чужие карманы",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["transport", "city", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}
