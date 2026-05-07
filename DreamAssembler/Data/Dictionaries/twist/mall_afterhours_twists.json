@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "loyalty_card_remembers_him",
+      "text": "карта покупателя помнит его дольше, чем это предусмотрено системой",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["mall", "commerce_decay", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "mannequin_waits_for_him",
+      "text": "манекен в витрине ведет себя так, будто давно ждал именно его",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["mall", "surreal", "quiet"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "shutter_closes_politely",
+      "text": "роллета закрывается с такой вежливостью, будто извиняется перед ним",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["mall", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "discounts_outlive_time",
+      "text": "старые скидки продолжают действовать для вещей, которых давно нет в продаже",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["mall", "time", "surreal"],
+      "absurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "music_refuses_to_leave",
+      "text": "фоновая музыка не может покинуть этот этаж вместе с покупателями",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["mall", "night", "quiet"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "mall_forgets_daytime",
+      "text": "торговый центр постепенно забывает, что когда-то работал днем",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["mall", "commerce_decay", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    }
+  ]
+}

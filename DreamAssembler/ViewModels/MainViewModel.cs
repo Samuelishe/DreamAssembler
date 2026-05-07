@@ -236,22 +236,37 @@ public partial class MainViewModel : ObservableObject
     /// <summary>
     /// Получает максимальную ширину карточки результата для текущего режима.
     /// </summary>
-    public double ResultCardMaxWidth => IsLexicalMode ? 700d : 780d;
+    public double ResultCardMaxWidth => IsLexicalMode ? 700d : 660d;
 
     /// <summary>
     /// Получает минимальную ширину карточки результата для текущего режима.
     /// </summary>
-    public double ResultCardMinWidth => IsLexicalMode ? 320d : 260d;
+    public double ResultCardMinWidth => IsLexicalMode ? 320d : 280d;
 
     /// <summary>
     /// Получает рекомендуемый размер шрифта основного текста результата.
     /// </summary>
-    public double ResultTextFontSize => IsLexicalMode ? 34d : 22d;
+    public double ResultTextFontSize => IsLexicalMode ? 34d : 19d;
 
     /// <summary>
     /// Получает рекомендуемую высоту строки для основного текста результата.
     /// </summary>
-    public double ResultTextLineHeight => IsLexicalMode ? 44d : 30d;
+    public double ResultTextLineHeight => IsLexicalMode ? 44d : 28d;
+
+    /// <summary>
+    /// Получает максимальную ширину поверхности режима чтения.
+    /// </summary>
+    public double ReadingModeSurfaceMaxWidth => IsLexicalMode ? 980d : 920d;
+
+    /// <summary>
+    /// Получает размер шрифта для режима чтения.
+    /// </summary>
+    public double ReadingModeTextFontSize => IsLexicalMode ? 44d : 38d;
+
+    /// <summary>
+    /// Получает высоту строки для режима чтения.
+    /// </summary>
+    public double ReadingModeTextLineHeight => IsLexicalMode ? 58d : 52d;
 
     /// <summary>
     /// Получает заголовок панели настройки.

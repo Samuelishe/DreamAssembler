@@ -122,6 +122,7 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - после этого выполнен targeted curated data pass по `action / object / place`: сужены слишком широкие `compat`-связки, исправлена проблемная формулировка `place_in_clause` для платформы и ослаблены несколько пар, которые давали пустоватые или неестественные действия на живой выборке;
 - затем выполнен короткий output-driven pass по `character` и `ShortText` rhythm: исправлена форма `дежурный по бюро пропусков` и разведены два слишком доминирующих atmospheric-каркаса, чтобы short-text выдача чуть реже повторяла одну и ту же интонацию;
 - затем начато controlled expansion вне archive/transport ядра: добавлен первый компактный curated field `nocturnal airports / fluorescent insomnia` по `place / object / condition / concept / atmosphere / twist`, чтобы проект рос не жанрами, а новыми atmospheric manifolds;
+- затем добавлен еще один distinct manifold `dead shopping malls / abandoned commerce / fluorescent afterhours`: проект начал выходить и в пространство пустых галерей, закрытых витрин, усталой торговой вежливости и послезакрытной инфраструктуры;
 - проведен первый quality-pass по semantic coherence: из шаблонов убраны несколько явно gendered конструкций без морфологии, а lexical CSV-фильтр стал жестче к техническим, медицинским и слишком абстрактным словам;
 - для lexical modes добавлен первый curated subset layer: поверх общего CSV-пула появились предпочтительные nouns / adjectives / verbs, которые усиливают атмосферный semantic field без жесткой тематической блокировки;
 - поверх этого слоя добавлены первые atmospheric clusters для lexical batch coherence: `archive`, `rainy-city`, `night-route`;
@@ -136,6 +137,7 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - шаблонный слой тоже начал догонять выросший корпус: добавлен новый пакет `Sentence`, `Idea` и особенно `ShortText` templates, чтобы новые `condition / concept / style / genre / atmosphere / twist` использовались шире и музыкальнее;
 - после контрольной выборки проведен первый output-driven pass: убраны оставшиеся gender-sensitive каркасы без морфологии и исправлены несколько реальных словарных шероховатостей в `genre` и `place`;
 - output-driven quality pass теперь рассматривается как постоянный рабочий цикл: после каждого заметного расширения корпуса нужно снимать живую выборку и точечно чинить реальные слабые каркасы, а не спорить с абстрактным качеством на уровне теории;
+- `DreamAssembler.DataTools` теперь умеет показывать не только общую сводку по категориям и слотам, но и pack-level статистику по каждому JSON-набору из `data-manifest.json`, а также обзор CSV-источников словесных режимов; это должно стать базовым инструментом контроля growth и перекосов между atmospheric fields;
 - проект собирается без ошибок.
 
 ## Сильные стороны текущей генерации
@@ -148,6 +150,7 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - narrative-роли в `ShortText` уже уменьшают грубые композиционные повторы;
 - JSON-структура со `slot` удерживает controllability без чрезмерной сложности;
 - данные уже содержат правильную tonal base: город, ночь, транспорт, бюрократия, архивность, тихая сюрреальность.
+- новые поля уже начали расходиться в правильные стороны: помимо archive/transport base и airport-insomnia слоя появился mall/abandoned-commerce слой, что подтверждает работоспособность стратегии growth through curated manifolds.
 - lexical modes больше не полностью отданы сырому словарю: curated preference layer уже помогает удерживать городской, дождливый, архивный и инфраструктурный mood.
 - lexical modes получили первый мягкий cluster-pass: внутри одной серии коротких фрагментов атмосфера чаще держится вокруг локального emotional space, а не распадается на полностью независимые лексические вспышки.
 - lexical modes все еще должны развиваться прежде всего через curated dataset quality, а не через усложнение алгоритма: это подтверждено реальными пользовательскими примерами слабых слов.

@@ -39,6 +39,17 @@ static void PrintSummary(DataValidationReport report)
     }
 
     Console.WriteLine();
+    Console.WriteLine("Dictionary sets:");
+    foreach (var set in report.DictionarySetStats.OrderByDescending(set => set.EntryCount).ThenBy(set => set.SetName, StringComparer.OrdinalIgnoreCase))
+    {
+        var categories = string.Join(", ", set.CategoryCounts.OrderBy(pair => pair.Key, StringComparer.OrdinalIgnoreCase).Select(pair => $"{pair.Key}:{pair.Value}"));
+        var slots = string.Join(", ", set.SlotCounts.OrderBy(pair => pair.Key, StringComparer.OrdinalIgnoreCase).Select(pair => $"{pair.Key}:{pair.Value}"));
+        Console.WriteLine($"  - {set.SetName}: {set.EntryCount}");
+        Console.WriteLine($"    categories: {categories}");
+        Console.WriteLine($"    slots: {(string.IsNullOrWhiteSpace(slots) ? "-" : slots)}");
+    }
+
+    Console.WriteLine();
     Console.WriteLine("Slots:");
     foreach (var pair in report.SlotCounts.OrderBy(pair => pair.Key, StringComparer.OrdinalIgnoreCase))
     {
@@ -50,6 +61,13 @@ static void PrintSummary(DataValidationReport report)
     foreach (var pair in report.AssociationKindCounts.OrderBy(pair => pair.Key, StringComparer.OrdinalIgnoreCase))
     {
         Console.WriteLine($"  - {pair.Key}: {pair.Value}");
+    }
+
+    Console.WriteLine();
+    Console.WriteLine("Association sources:");
+    foreach (var set in report.AssociationSetStats.OrderByDescending(set => set.RowCount).ThenBy(set => set.SetName, StringComparer.OrdinalIgnoreCase))
+    {
+        Console.WriteLine($"  - {set.SetName}: {set.RowCount} rows ({set.SourceKind})");
     }
 
     Console.WriteLine();

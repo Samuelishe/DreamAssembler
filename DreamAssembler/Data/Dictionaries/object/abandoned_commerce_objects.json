@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "faded_discount_banner",
+      "text": "выцветший баннер скидок",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "paper", "compat:portable", "compat:hideable", "compat:rewriteable"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "forgotten_plastic_loyalty_card",
+      "text": "забытую пластиковую карту покупателя",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "plastic", "compat:portable", "compat:hideable", "compat:searchable", "compat:exchangeable"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "stack_of_expired_receipts",
+      "text": "стопку просроченных чеков",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "paper", "compat:portable", "compat:hideable", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "silent_cash_register_drawer",
+      "text": "немой кассовый ящик",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "commerce_decay", "compat:portable", "compat:openable", "compat:repairable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "rolled_security_shutter_key",
+      "text": "ключ от роллеты закрытого павильона",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "service", "compat:portable", "compat:hideable", "compat:exchangeable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "dusty_mannequin_hand",
+      "text": "пыльную руку манекена",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "surreal", "compat:portable", "compat:hideable", "compat:protectable"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "folded_store_directory",
+      "text": "складную схему торгового центра",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "commerce_decay", "compat:portable", "compat:searchable", "compat:rewriteable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "fluorescent_cleaning_sign",
+      "text": "флуоресцентную табличку уборки",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "service", "fluorescent", "compat:portable", "compat:hideable", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    }
+  ]
+}

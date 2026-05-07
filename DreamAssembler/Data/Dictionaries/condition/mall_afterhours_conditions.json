@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "nobody_expected_buyers",
+      "text": "никто уже не ждал настоящих покупателей",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["mall", "commerce_decay", "quiet"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "everything_closed_too_carefully",
+      "text": "все было закрыто слишком аккуратно и слишком заранее",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["mall", "night", "service"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "air_smelt_of_detergent",
+      "text": "воздух пах моющим средством, пластиком и усталой музыкой",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["mall", "fluorescent", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "escalator_held_its_breath",
+      "text": "эскалатор стоял так тихо, будто боялся снова включиться",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["mall", "infrastructure", "surreal"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "showcases_reflected_without_goods",
+      "text": "витрины отражали больше пустоты, чем товара",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["mall", "empty", "commerce_decay"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "discounts_outlived_season",
+      "text": "скидки пережили сезон и теперь выглядели как вид памяти",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["mall", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "music_returned_to_same_note",
+      "text": "тихая музыка каждый раз возвращалась к одной и той же ноте",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["mall", "surreal", "night"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "mannequins_looked_more_patient",
+      "text": "манекены выглядели так, будто лучше понимали расписание закрытия",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["mall", "surreal", "service"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

@@ -46,6 +46,16 @@ public sealed class DataValidationReport
     public IReadOnlyDictionary<string, int> AssociationKindCounts { get; set; } = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 
     /// <summary>
+    /// Получает или задает статистику по JSON-пакам словарей.
+    /// </summary>
+    public IReadOnlyList<DictionarySetStatistics> DictionarySetStats { get; set; } = Array.Empty<DictionarySetStatistics>();
+
+    /// <summary>
+    /// Получает или задает статистику по CSV-источникам словесных режимов.
+    /// </summary>
+    public IReadOnlyList<AssociationSetStatistics> AssociationSetStats { get; set; } = Array.Empty<AssociationSetStatistics>();
+
+    /// <summary>
     /// Получает или задает список замечаний и ошибок.
     /// </summary>
     public IReadOnlyList<DataValidationIssue> Issues { get; set; } = Array.Empty<DataValidationIssue>();

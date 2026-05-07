@@ -1,4 +1,5 @@
 using DreamAssembler.Core.Models;
+using System.Text.Json;
 
 namespace DreamAssembler.Core.Services;
 
@@ -34,6 +35,9 @@ public sealed class DataSetAnalyzer
             .GroupBy(entry => entry.Kind, StringComparer.OrdinalIgnoreCase)
             .ToDictionary(group => group.Key, group => group.Count(), StringComparer.OrdinalIgnoreCase);
 
+        var dictionarySetStats = new List<DictionarySetStatistics>();
+        var associationSetStats = new List<AssociationSetStatistics>();
+
         AddDuplicateIdIssues(entries, issues);
         AddDuplicateTextIssues(entries, issues);
         AddMissingSlotIssues(entries, issues);
@@ -42,6 +46,8 @@ public sealed class DataSetAnalyzer
         AddAssociationFragmentIssues(associationFragments, associationKindCounts, issues);
 
         var manifest = dataBundle.Manifest;
+        AddManifestSetStatistics(dataBundle.DataRootPath, manifest, dictionarySetStats, associationSetStats, issues);
+
         return new DataValidationReport
         {
             DataSetId = manifest?.Id ?? "fallback",
@@ -52,8 +58,230 @@ public sealed class DataSetAnalyzer
             CategoryCounts = categoryCounts,
             SlotCounts = slotCounts,
             AssociationKindCounts = associationKindCounts,
+            DictionarySetStats = dictionarySetStats,
+            AssociationSetStats = associationSetStats,
             Issues = issues
         };
+    }
+
+    private static void AddManifestSetStatistics(
+        string dataRootPath,
+        DataSetManifest? manifest,
+        ICollection<DictionarySetStatistics> dictionarySetStats,
+        ICollection<AssociationSetStatistics> associationSetStats,
+        ICollection<DataValidationIssue> issues)
+    {
+        if (manifest is null || string.IsNullOrWhiteSpace(dataRootPath) || !Directory.Exists(dataRootPath))
+        {
+            return;
+        }
+
+        foreach (var setName in manifest.DictionarySets)
+        {
+            var relativePath = $"{setName.Replace('/', Path.DirectorySeparatorChar)}.json";
+            var filePath = Path.Combine(dataRootPath, "Dictionaries", relativePath);
+            if (!File.Exists(filePath))
+            {
+                issues.Add(new DataValidationIssue
+                {
+                    Severity = DataValidationSeverity.Warning,
+                    Code = "missing-dictionary-set-file",
+                    Message = $"Файл JSON-пака '{setName}' не найден по пути '{filePath}'."
+                });
+                continue;
+            }
+
+            try
+            {
+                using var document = JsonDocument.Parse(File.ReadAllText(filePath));
+                if (!document.RootElement.TryGetProperty("entries", out var entriesElement) || entriesElement.ValueKind != JsonValueKind.Array)
+                {
+                    issues.Add(new DataValidationIssue
+                    {
+                        Severity = DataValidationSeverity.Warning,
+                        Code = "invalid-dictionary-set-file",
+                        Message = $"Файл JSON-пака '{setName}' не содержит массива 'entries'."
+                    });
+                    continue;
+                }
+
+                var categoryCounts = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+                var slotCounts = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+                var entryCount = 0;
+
+                foreach (var entryElement in entriesElement.EnumerateArray())
+                {
+                    if (!TryReadDictionaryEntry(entryElement, out var category, out var slot))
+                    {
+                        continue;
+                    }
+
+                    entryCount++;
+                    categoryCounts[category] = categoryCounts.GetValueOrDefault(category) + 1;
+
+                    if (!string.IsNullOrWhiteSpace(slot))
+                    {
+                        slotCounts[slot] = slotCounts.GetValueOrDefault(slot) + 1;
+                    }
+                }
+
+                dictionarySetStats.Add(new DictionarySetStatistics
+                {
+                    SetName = setName,
+                    EntryCount = entryCount,
+                    CategoryCounts = categoryCounts,
+                    SlotCounts = slotCounts
+                });
+            }
+            catch (IOException)
+            {
+                issues.Add(new DataValidationIssue
+                {
+                    Severity = DataValidationSeverity.Warning,
+                    Code = "unreadable-dictionary-set-file",
+                    Message = $"Не удалось прочитать JSON-пак '{setName}'."
+                });
+            }
+            catch (UnauthorizedAccessException)
+            {
+                issues.Add(new DataValidationIssue
+                {
+                    Severity = DataValidationSeverity.Warning,
+                    Code = "unreadable-dictionary-set-file",
+                    Message = $"Нет доступа к JSON-паку '{setName}'."
+                });
+            }
+            catch (JsonException)
+            {
+                issues.Add(new DataValidationIssue
+                {
+                    Severity = DataValidationSeverity.Warning,
+                    Code = "invalid-dictionary-set-file",
+                    Message = $"Файл JSON-пака '{setName}' поврежден или имеет неверный JSON-формат."
+                });
+            }
+        }
+
+        foreach (var setName in manifest.AssociationSets)
+        {
+            var relativePath = setName.Replace('/', Path.DirectorySeparatorChar);
+            var filePath = Path.Combine(dataRootPath, "AssociationWords", relativePath);
+            if (!File.Exists(filePath))
+            {
+                issues.Add(new DataValidationIssue
+                {
+                    Severity = DataValidationSeverity.Warning,
+                    Code = "missing-association-set-file",
+                    Message = $"CSV-источник '{setName}' не найден по пути '{filePath}'."
+                });
+                continue;
+            }
+
+            try
+            {
+                var rowCount = File.ReadLines(filePath)
+                    .Skip(1)
+                    .Count(line => !string.IsNullOrWhiteSpace(line));
+
+                associationSetStats.Add(new AssociationSetStatistics
+                {
+                    SetName = setName,
+                    SourceKind = InferAssociationSourceKind(filePath),
+                    RowCount = rowCount
+                });
+            }
+            catch (IOException)
+            {
+                issues.Add(new DataValidationIssue
+                {
+                    Severity = DataValidationSeverity.Warning,
+                    Code = "unreadable-association-set-file",
+                    Message = $"Не удалось прочитать CSV-источник '{setName}'."
+                });
+            }
+            catch (UnauthorizedAccessException)
+            {
+                issues.Add(new DataValidationIssue
+                {
+                    Severity = DataValidationSeverity.Warning,
+                    Code = "unreadable-association-set-file",
+                    Message = $"Нет доступа к CSV-источнику '{setName}'."
+                });
+            }
+        }
+    }
+
+    private static bool TryReadDictionaryEntry(JsonElement entryElement, out string category, out string? slot)
+    {
+        category = string.Empty;
+        slot = null;
+
+        if (entryElement.ValueKind != JsonValueKind.Object)
+        {
+            return false;
+        }
+
+        var id = ReadString(entryElement, "id");
+        var text = ReadString(entryElement, "text");
+        category = ReadString(entryElement, "category");
+        slot = ReadString(entryElement, "slot");
+        var weight = ReadDouble(entryElement, "weight");
+
+        return !string.IsNullOrWhiteSpace(id)
+               && !string.IsNullOrWhiteSpace(text)
+               && !string.IsNullOrWhiteSpace(category)
+               && weight > 0d;
+    }
+
+    private static string ReadString(JsonElement element, string propertyName)
+    {
+        if (!element.TryGetProperty(propertyName, out var property) || property.ValueKind != JsonValueKind.String)
+        {
+            return string.Empty;
+        }
+
+        return property.GetString() ?? string.Empty;
+    }
+
+    private static double ReadDouble(JsonElement element, string propertyName)
+    {
+        if (!element.TryGetProperty(propertyName, out var property))
+        {
+            return 0d;
+        }
+
+        if (property.ValueKind == JsonValueKind.Number && property.TryGetDouble(out var number))
+        {
+            return number;
+        }
+
+        return 0d;
+    }
+
+    private static string InferAssociationSourceKind(string filePath)
+    {
+        var fileName = Path.GetFileName(filePath);
+        if (fileName.Contains("nouns", StringComparison.OrdinalIgnoreCase))
+        {
+            return "nouns";
+        }
+
+        if (fileName.Contains("adjectives", StringComparison.OrdinalIgnoreCase))
+        {
+            return "adjectives";
+        }
+
+        if (fileName.Contains("verbs", StringComparison.OrdinalIgnoreCase))
+        {
+            return "verbs";
+        }
+
+        if (fileName.Contains("others", StringComparison.OrdinalIgnoreCase))
+        {
+            return "others";
+        }
+
+        return "unknown";
     }
 
     private static void AddDuplicateIdIssues(IReadOnlyList<DictionaryEntry> entries, ICollection<DataValidationIssue> issues)

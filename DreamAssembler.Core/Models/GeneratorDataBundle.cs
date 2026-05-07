@@ -34,4 +34,9 @@ public sealed class GeneratorDataBundle
     /// Получает или задает manifest набора данных, если он был найден.
     /// </summary>
     public DataSetManifest? Manifest { get; set; }
+
+    /// <summary>
+    /// Получает или задает корневой путь папки данных.
+    /// </summary>
+    public string DataRootPath { get; set; } = string.Empty;
 }

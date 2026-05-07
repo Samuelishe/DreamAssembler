@@ -762,7 +762,7 @@
                                         <Border.Style>
                                             <Style TargetType="Border">
                                                 <Setter Property="HorizontalAlignment" Value="Center" />
-                                                <Setter Property="Padding" Value="20,18,20,22" />
+                                                <Setter Property="Padding" Value="18,16,18,20" />
                                                 <Setter Property="CornerRadius" Value="13" />
                                                 <Setter Property="Background" Value="{DynamicResource ResultCardBackgroundBrush}" />
                                                 <Style.Triggers>
@@ -973,7 +973,7 @@
                     <Border Margin="0,12,0,0"
                             Padding="10"
                             Background="#0A000000"
-                            BorderBrush="#DDD5C9"
+                            BorderBrush="{DynamicResource PanelBorderBrush}"
                             BorderThickness="1"
                             CornerRadius="10">
                         <StackPanel>
@@ -1034,8 +1034,8 @@
 
             <Grid Grid.Row="1"
                   Margin="72,36,72,56">
-                <Border MaxWidth="1080"
-                        Padding="48,44"
+                <Border MaxWidth="{Binding ReadingModeSurfaceMaxWidth}"
+                        Padding="42,38"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Background="#0AFFFFFF"
@@ -1064,9 +1064,9 @@
                         </TextBlock>
                         <TextBlock Margin="0,22,0,0"
                                    FontFamily="{DynamicResource ReadingFontFamily}"
-                                   FontSize="46"
+                                   FontSize="{Binding ReadingModeTextFontSize}"
                                    FontWeight="SemiBold"
-                                   LineHeight="62"
+                                   LineHeight="{Binding ReadingModeTextLineHeight}"
                                    Foreground="White"
                                    TextAlignment="Center"
                                    TextWrapping="Wrap"

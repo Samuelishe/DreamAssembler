@@ -76,7 +76,8 @@ public sealed class GeneratorDataLoader
             AssociationFragments = associationFragmentResult.Data,
             UsedFallback = dictionaryResult.UsedFallback || templateResult.UsedFallback || associationFragmentResult.UsedFallback,
             StatusMessage = string.Join(" ", messages),
-            Manifest = manifest
+            Manifest = manifest,
+            DataRootPath = dataRootPath
         };
     }
 }

@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "fluorescent_tired",
+      "text": "флуоресцентно утомленной",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["mall", "fluorescent", "night"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "commercially_hollow",
+      "text": "торгово опустевшей",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["mall", "commerce_decay", "empty"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "sterile_afterhours",
+      "text": "стерильно послезакрытной",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["mall", "night", "service"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "discount_coloured",
+      "text": "скидочно выцветшей",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["mall", "commerce_decay", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "echoing_clean",
+      "text": "эхом вымытой",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["mall", "quiet", "fluorescent"],
+      "absurdity": 1,
+      "weight": 0.8
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "abandoned_commerce",
+      "text": "заброшенная вежливость торговли",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["mall", "commerce_decay", "quiet"],
+      "absurdity": 1,
+      "weight": 0.9
+    },
+    {
+      "id": "afterhours_shopping_ritual",
+      "text": "ритуал покупок после окончания дня",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["mall", "ritual", "night"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "fluorescent_commerce_fatigue",
+      "text": "флуоресцентная усталость торговли",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["mall", "fluorescent", "mood"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "temporary_life_of_showcases",
+      "text": "временная жизнь витрин",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["mall", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "commerce_without_buyers",
+      "text": "торговля, которая пережила покупателей",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["mall", "commerce_decay", "time"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "empty_promise_of_opening_hours",
+      "text": "пустое обещание часов работы",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["mall", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

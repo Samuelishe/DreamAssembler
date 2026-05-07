@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "empty_food_court",
+      "text": "пустом фуд-корте после закрытия",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["mall", "commerce_decay", "night", "fluorescent"],
+      "absurdity": 1,
+      "weight": 0.9
+    },
+    {
+      "id": "darkened_atrium",
+      "text": "приглушенном атриуме торгового центра",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["mall", "commerce_decay", "quiet"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "closed_escalator_zone",
+      "text": "у остановленного эскалатора",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["mall", "infrastructure", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "mall_corridor_with_echo",
+      "text": "длинном коридоре между закрытыми витринами",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["mall", "commerce_decay", "empty"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "sleeping_anchor_store",
+      "text": "заснувшем якорном магазине",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["mall", "night", "dreamlike"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "service_passage_behind_shopfronts",
+      "text": "служебном проходе за витринами",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["mall", "service", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "atrium_where_music_lingered",
+      "text": "атриуме, где старая музыка не успела закончиться,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["mall", "commerce_decay", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "showcase_where_mannequins_waited",
+      "text": "галерее, где манекены выглядели терпеливее посетителей,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["mall", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}
