@@ -21,7 +21,7 @@ public static class FallbackDataProvider
             new DictionaryEntry { Id = "retired_projectionist", Text = "пенсионер-киномеханик", Category = "character", Tags = ["city", "nostalgia"], Absurdity = 0, Weight = 1.0 },
             new DictionaryEntry { Id = "hide", Text = "спрятать", Category = "action", Tags = ["secret"], Absurdity = 0, Weight = 1.0 },
             new DictionaryEntry { Id = "open", Text = "открыть", Category = "action", Tags = ["business"], Absurdity = 0, Weight = 1.0 },
-            new DictionaryEntry { Id = "search_manual", Text = "искать инструкцию к", Category = "action", Tags = ["mystery"], Absurdity = 2, Weight = 0.9 },
+            new DictionaryEntry { Id = "trace", Text = "разыскать", Category = "action", Tags = ["mystery"], Absurdity = 2, Weight = 0.9 },
             new DictionaryEntry { Id = "carry_through_city", Text = "провезти через весь город", Category = "action", Tags = ["city", "daily"], Absurdity = 0, Weight = 1.0 },
             new DictionaryEntry { Id = "rusty_elevator", Text = "ржавый лифт", Category = "object", Tags = ["city", "decay", "industrial"], Absurdity = 1, Weight = 1.0 },
             new DictionaryEntry { Id = "forgotten_alarm_clocks", Text = "забытые будильники", Category = "object", Tags = ["home", "absurd"], Absurdity = 2, Weight = 1.0 },
@@ -38,8 +38,8 @@ public static class FallbackDataProvider
             new DictionaryEntry { Id = "foggy", Text = "туманной", Category = "atmosphere", Tags = ["mood"], Absurdity = 0, Weight = 1.0 },
             new DictionaryEntry { Id = "whispering", Text = "шепчущей", Category = "atmosphere", Tags = ["mood", "surreal"], Absurdity = 2, Weight = 0.9 },
             new DictionaryEntry { Id = "ceremonially_quiet", Text = "церемонно тихой", Category = "atmosphere", Tags = ["quiet", "story"], Absurdity = 1, Weight = 0.9 },
-            new DictionaryEntry { Id = "melancholic", Text = "меланхоличной", Category = "emotion", Tags = ["mood"], Absurdity = 0, Weight = 1.0 },
-            new DictionaryEntry { Id = "quietly_anxious", Text = "тихо тревожным", Category = "emotion", Tags = ["mood", "story"], Absurdity = 0, Weight = 0.9 },
+            new DictionaryEntry { Id = "melancholic", Text = "меланхолично", Category = "emotion", Tags = ["mood"], Absurdity = 0, Weight = 1.0 },
+            new DictionaryEntry { Id = "quietly_anxious", Text = "тихо тревожно", Category = "emotion", Tags = ["mood", "story"], Absurdity = 0, Weight = 0.9 },
             new DictionaryEntry { Id = "bureaucratic_fantasy", Text = "бюрократическое фэнтези", Category = "genre", Tags = ["story"], Absurdity = 2, Weight = 0.8 },
             new DictionaryEntry { Id = "city_parable", Text = "городская притча", Category = "genre", Tags = ["story", "daily"], Absurdity = 0, Weight = 1.0 },
             new DictionaryEntry { Id = "deadpan_style", Text = "с серьезной интонацией", Category = "style", Tags = ["tone"], Absurdity = 0, Weight = 1.0 },
@@ -122,6 +122,17 @@ public static class FallbackDataProvider
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
                 Weight = 1.0
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_reflection",
+                Text = "Из-за этого всем стало {emotion}, и всем показалось, что это {concept}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["emotion", "concept"],
+                Tags = ["story", "mood", "concept"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.9
             },
             new TemplateDefinition
             {

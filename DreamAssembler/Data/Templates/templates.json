@@ -31,16 +31,6 @@
       "weight": 0.9
     },
     {
-      "id": "sentence_place_object_atmosphere",
-      "text": "В {place} даже {object} выглядел {atmosphere}.",
-      "mode": "Sentence",
-      "requiredCategories": ["place", "object", "atmosphere"],
-      "tags": ["scene", "mood"],
-      "minAbsurdity": 0,
-      "maxAbsurdity": 3,
-      "weight": 0.8
-    },
-    {
       "id": "idea_character_action_object_place_twist",
       "text": "Идея: {character} должен {action} {object} в {place}, и при этом {twist}.",
       "mode": "Idea",
@@ -102,7 +92,7 @@
     },
     {
       "id": "shorttext_reflection",
-      "text": "Из-за этого настроение стало {emotion}, и всем показалось, что это {concept}.",
+      "text": "Из-за этого всем стало {emotion}, и всем показалось, что это {concept}.",
       "mode": "ShortText",
       "requiredCategories": ["emotion", "concept"],
       "tags": ["story", "mood", "concept"],
@@ -112,7 +102,7 @@
     },
     {
       "id": "shorttext_observer",
-      "text": "Со стороны это выглядело {emotion}, хотя на деле вокруг зрела {concept}.",
+      "text": "Со стороны все звучало {emotion}, хотя на деле вокруг зрела {concept}.",
       "mode": "ShortText",
       "requiredCategories": ["emotion", "concept"],
       "tags": ["story", "mood", "surreal"],

@@ -17,8 +17,8 @@
       "weight": 1.0
     },
     {
-      "id": "search_manual_for",
-      "text": "искать инструкцию к",
+      "id": "trace",
+      "text": "разыскать",
       "category": "action",
       "tags": ["mystery", "surreal"],
       "absurdity": 2,
@@ -41,8 +41,8 @@
       "weight": 1.0
     },
     {
-      "id": "translate_for",
-      "text": "перевести с молчания на русский для",
+      "id": "rewrite",
+      "text": "переписать",
       "category": "action",
       "tags": ["language", "surreal"],
       "absurdity": 3,

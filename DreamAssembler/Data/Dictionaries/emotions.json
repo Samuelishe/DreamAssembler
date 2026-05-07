@@ -2,7 +2,7 @@
   "entries": [
     {
       "id": "melancholic",
-      "text": "меланхоличной",
+      "text": "меланхолично",
       "category": "emotion",
       "tags": ["mood"],
       "absurdity": 0,
@@ -10,7 +10,7 @@
     },
     {
       "id": "suspiciously_cheerful",
-      "text": "подозрительно бодрой",
+      "text": "подозрительно бодро",
       "category": "emotion",
       "tags": ["mood", "comic"],
       "absurdity": 1,
@@ -18,7 +18,7 @@
     },
     {
       "id": "administratively_calm",
-      "text": "административно спокойным",
+      "text": "административно спокойно",
       "category": "emotion",
       "tags": ["bureaucracy", "comic"],
       "absurdity": 2,
@@ -26,7 +26,7 @@
     },
     {
       "id": "quietly_anxious",
-      "text": "тихо тревожным",
+      "text": "тихо тревожно",
       "category": "emotion",
       "tags": ["mood", "story"],
       "absurdity": 0,
