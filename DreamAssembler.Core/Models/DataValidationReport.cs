@@ -26,7 +26,7 @@ public sealed class DataValidationReport
     public int TemplateCount { get; set; }
 
     /// <summary>
-    /// Получает или задает общее число ассоциативных фрагментов.
+    /// Получает или задает общее число словарных записей словесных режимов.
     /// </summary>
     public int AssociationFragmentCount { get; set; }
 
@@ -41,7 +41,7 @@ public sealed class DataValidationReport
     public IReadOnlyDictionary<string, int> SlotCounts { get; set; } = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 
     /// <summary>
-    /// Получает или задает количество ассоциативных фрагментов по типам.
+    /// Получает или задает количество словарных записей словесных режимов по типам.
     /// </summary>
     public IReadOnlyDictionary<string, int> AssociationKindCounts { get; set; } = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 

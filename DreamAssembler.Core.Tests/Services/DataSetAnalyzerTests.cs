@@ -52,7 +52,7 @@ public sealed class DataSetAnalyzerTests
     }
 
     /// <summary>
-    /// Проверяет, что анализатор находит отсутствие прилагательных для ассоциативного режима.
+    /// Проверяет, что анализатор находит отсутствие прилагательных для словесных режимов.
     /// </summary>
     [Fact]
     public void Analyze_ReturnsError_WhenAssociationAdjectivesAreMissing()
@@ -75,5 +75,37 @@ public sealed class DataSetAnalyzerTests
 
         Assert.True(report.HasErrors);
         Assert.Contains(report.Issues, issue => issue.Code == "missing-association-adjectives");
+    }
+
+    /// <summary>
+    /// Проверяет, что анализатор предупреждает об отсутствии глаголов для режима нескольких слов.
+    /// </summary>
+    [Fact]
+    public void Analyze_ReturnsWarning_WhenAssociationVerbsAreMissing()
+    {
+        var bundle = new GeneratorDataBundle
+        {
+            AssociationFragments =
+            [
+                new AssociationFragmentEntry
+                {
+                    Id = "noun_m_archive",
+                    Text = "архив",
+                    Kind = "noun_m",
+                    Weight = 1.0
+                },
+                new AssociationFragmentEntry
+                {
+                    Id = "adjective_m_tihii",
+                    Text = "тихий",
+                    Kind = "adjective_m",
+                    Weight = 1.0
+                }
+            ]
+        };
+
+        var report = new DataSetAnalyzer().Analyze(bundle);
+
+        Assert.Contains(report.Issues, issue => issue.Code == "missing-association-verbs");
     }
 }

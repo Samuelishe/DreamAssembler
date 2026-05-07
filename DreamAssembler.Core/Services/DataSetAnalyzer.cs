@@ -201,7 +201,7 @@ public sealed class DataSetAnalyzer
             {
                 Severity = DataValidationSeverity.Error,
                 Code = "missing-association-nouns",
-                Message = "Для ассоциативного режима не найдены существительные."
+                Message = "Для словесных режимов не найдены существительные."
             });
         }
 
@@ -211,7 +211,18 @@ public sealed class DataSetAnalyzer
             {
                 Severity = DataValidationSeverity.Error,
                 Code = "missing-association-adjectives",
-                Message = "Для ассоциативного режима не найдены прилагательные."
+                Message = "Для словесных режимов не найдены прилагательные."
+            });
+        }
+
+        var hasVerbs = associationKindCounts.Keys.Any(kind => kind.StartsWith("verb_past_", StringComparison.OrdinalIgnoreCase));
+        if (!hasVerbs)
+        {
+            issues.Add(new DataValidationIssue
+            {
+                Severity = DataValidationSeverity.Warning,
+                Code = "missing-association-verbs",
+                Message = "Для режима нескольких слов пока не найдены глаголы прошедшего времени."
             });
         }
 
@@ -219,6 +230,7 @@ public sealed class DataSetAnalyzer
         {
             var nounKind = $"noun_{gender}";
             var adjectiveKind = $"adjective_{gender}";
+            var verbKind = $"verb_past_{gender}";
 
             if (!associationKindCounts.ContainsKey(nounKind))
             {
@@ -226,7 +238,7 @@ public sealed class DataSetAnalyzer
                 {
                     Severity = DataValidationSeverity.Warning,
                     Code = "missing-association-gender-nouns",
-                    Message = $"Для ассоциативного режима пока нет существительных типа '{nounKind}'."
+                    Message = $"Для словесных режимов пока нет существительных типа '{nounKind}'."
                 });
             }
 
@@ -236,7 +248,17 @@ public sealed class DataSetAnalyzer
                 {
                     Severity = DataValidationSeverity.Warning,
                     Code = "missing-association-gender-adjectives",
-                    Message = $"Для ассоциативного режима пока нет прилагательных типа '{adjectiveKind}'."
+                    Message = $"Для словесных режимов пока нет прилагательных типа '{adjectiveKind}'."
+                });
+            }
+
+            if (!associationKindCounts.ContainsKey(verbKind))
+            {
+                issues.Add(new DataValidationIssue
+                {
+                    Severity = DataValidationSeverity.Warning,
+                    Code = "missing-association-gender-verbs",
+                    Message = $"Для режима нескольких слов пока нет глаголов типа '{verbKind}'."
                 });
             }
         }

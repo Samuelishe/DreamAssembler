@@ -18,7 +18,7 @@ public sealed class GeneratorDataLoader
     /// <param name="dictionaryRepository">Репозиторий словарей.</param>
     /// <param name="templateRepository">Репозиторий шаблонов.</param>
     /// <param name="dataSetManifestRepository">Репозиторий manifest-файла набора данных.</param>
-    /// <param name="associationFragmentRepository">Репозиторий словарей ассоциативного режима.</param>
+    /// <param name="associationFragmentRepository">Репозиторий словарей словесных режимов.</param>
     public GeneratorDataLoader(
         DictionaryRepository dictionaryRepository,
         TemplateRepository templateRepository,

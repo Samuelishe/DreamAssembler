@@ -3,7 +3,7 @@ using DreamAssembler.Core.Models;
 namespace DreamAssembler.Core.Services;
 
 /// <summary>
-/// Загружает словарные данные для ассоциативного режима из внешних CSV-источников.
+/// Загружает словарные данные для словесных режимов из внешних CSV-источников.
 /// </summary>
 public sealed class AssociationFragmentRepository
 {
@@ -30,8 +30,16 @@ public sealed class AssociationFragmentRepository
         "данный"
     ];
 
+    private static readonly HashSet<string> VerbStopWords =
+    [
+        "быть",
+        "мочь",
+        "стать",
+        "являться"
+    ];
+
     /// <summary>
-    /// Загружает словарные данные для ассоциативного режима из указанной папки.
+    /// Загружает словарные данные для словесных режимов из указанной папки.
     /// </summary>
     /// <param name="directoryPath">Путь к папке с CSV-источниками слов.</param>
     /// <returns>Результат загрузки с данными и статусом fallback.</returns>
@@ -43,7 +51,7 @@ public sealed class AssociationFragmentRepository
             {
                 Data = FallbackDataProvider.GetAssociationFragments(),
                 UsedFallback = true,
-                Message = "Папка ассоциативных фрагментов не найдена. Использованы встроенные fallback-данные."
+                Message = "Папка словесных словарей не найдена. Использованы встроенные fallback-данные."
             };
         }
 
@@ -64,6 +72,14 @@ public sealed class AssociationFragmentRepository
                 {
                     entries.AddRange(ParseAdjectives(file));
                 }
+                else if (fileName.Contains("verbs", StringComparison.OrdinalIgnoreCase))
+                {
+                    entries.AddRange(ParseVerbs(file));
+                }
+                else if (fileName.Contains("others", StringComparison.OrdinalIgnoreCase))
+                {
+                    entries.AddRange(ParseOthers(file));
+                }
             }
 
             entries = entries
@@ -78,7 +94,7 @@ public sealed class AssociationFragmentRepository
                 {
                     Data = FallbackDataProvider.GetAssociationFragments(),
                     UsedFallback = true,
-                    Message = "CSV-источники ассоциативного режима пусты или не содержат корректных записей. Использованы fallback-данные."
+                    Message = "CSV-источники словесных режимов пусты или не содержат корректных записей. Использованы fallback-данные."
                 };
             }
 
@@ -86,7 +102,7 @@ public sealed class AssociationFragmentRepository
             {
                 Data = entries,
                 UsedFallback = false,
-                Message = "Словари ассоциативного режима успешно загружены."
+                Message = "Словари словесных режимов успешно загружены."
             };
         }
         catch (IOException)
@@ -95,7 +111,7 @@ public sealed class AssociationFragmentRepository
             {
                 Data = FallbackDataProvider.GetAssociationFragments(),
                 UsedFallback = true,
-                Message = "Не удалось прочитать словари ассоциативного режима. Использованы fallback-данные."
+                Message = "Не удалось прочитать словари словесных режимов. Использованы fallback-данные."
             };
         }
         catch (UnauthorizedAccessException)
@@ -104,7 +120,7 @@ public sealed class AssociationFragmentRepository
             {
                 Data = FallbackDataProvider.GetAssociationFragments(),
                 UsedFallback = true,
-                Message = "Нет доступа к словарям ассоциативного режима. Использованы fallback-данные."
+                Message = "Нет доступа к словарям словесных режимов. Использованы fallback-данные."
             };
         }
 
@@ -114,7 +130,7 @@ public sealed class AssociationFragmentRepository
             {
                 Data = FallbackDataProvider.GetAssociationFragments(),
                 UsedFallback = true,
-                Message = "CSV-источники ассоциативного режима повреждены или имеют неверный формат. Использованы fallback-данные."
+                Message = "CSV-источники словесных режимов повреждены или имеют неверный формат. Использованы fallback-данные."
             };
         }
     }
@@ -212,6 +228,99 @@ public sealed class AssociationFragmentRepository
                 Id = $"adjective_n_{neuter}",
                 Text = neuter,
                 Kind = "adjective_n",
+                Weight = 1.0
+            });
+        }
+
+        return entries;
+    }
+
+    private static IReadOnlyList<AssociationFragmentEntry> ParseVerbs(string filePath)
+    {
+        var rows = File.ReadLines(filePath).ToList();
+        if (rows.Count <= 1)
+        {
+            return [];
+        }
+
+        var header = BuildHeaderMap(rows[0]);
+        var entries = new List<AssociationFragmentEntry>();
+
+        foreach (var row in rows.Skip(1))
+        {
+            var columns = row.Split('\t');
+            var bare = NormalizeWord(GetColumnValue(columns, header, "bare"));
+            if (!IsSingleRussianWord(bare) || VerbStopWords.Contains(bare))
+            {
+                continue;
+            }
+
+            var pastMasculine = NormalizeWord(GetColumnValue(columns, header, "past_m"));
+            var pastFeminine = NormalizeWord(GetColumnValue(columns, header, "past_f"));
+            var pastNeuter = NormalizeWord(GetColumnValue(columns, header, "past_n"));
+
+            if (IsSingleRussianWord(pastMasculine))
+            {
+                entries.Add(new AssociationFragmentEntry
+                {
+                    Id = $"verb_past_m_{pastMasculine}",
+                    Text = pastMasculine,
+                    Kind = "verb_past_m",
+                    Weight = 1.0
+                });
+            }
+
+            if (IsSingleRussianWord(pastFeminine))
+            {
+                entries.Add(new AssociationFragmentEntry
+                {
+                    Id = $"verb_past_f_{pastFeminine}",
+                    Text = pastFeminine,
+                    Kind = "verb_past_f",
+                    Weight = 1.0
+                });
+            }
+
+            if (IsSingleRussianWord(pastNeuter))
+            {
+                entries.Add(new AssociationFragmentEntry
+                {
+                    Id = $"verb_past_n_{pastNeuter}",
+                    Text = pastNeuter,
+                    Kind = "verb_past_n",
+                    Weight = 1.0
+                });
+            }
+        }
+
+        return entries;
+    }
+
+    private static IReadOnlyList<AssociationFragmentEntry> ParseOthers(string filePath)
+    {
+        var rows = File.ReadLines(filePath).ToList();
+        if (rows.Count <= 1)
+        {
+            return [];
+        }
+
+        var header = BuildHeaderMap(rows[0]);
+        var entries = new List<AssociationFragmentEntry>();
+
+        foreach (var row in rows.Skip(1))
+        {
+            var columns = row.Split('\t');
+            var bare = NormalizeWord(GetColumnValue(columns, header, "bare"));
+            if (!IsSingleRussianWord(bare))
+            {
+                continue;
+            }
+
+            entries.Add(new AssociationFragmentEntry
+            {
+                Id = $"other_raw_{bare}",
+                Text = bare,
+                Kind = "other_raw",
                 Weight = 1.0
             });
         }

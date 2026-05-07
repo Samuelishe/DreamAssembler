@@ -3,12 +3,12 @@ using DreamAssembler.Core.Services;
 namespace DreamAssembler.Core.Tests.Services;
 
 /// <summary>
-/// Содержит тесты для загрузки словарей ассоциативного режима.
+/// Содержит тесты для загрузки словарей словесных режимов.
 /// </summary>
 public sealed class AssociationFragmentRepositoryTests
 {
     /// <summary>
-    /// Проверяет использование fallback-данных при отсутствии папки словарей ассоциативного режима.
+    /// Проверяет использование fallback-данных при отсутствии папки словарей словесных режимов.
     /// </summary>
     [Fact]
     public void Load_UsesFallback_WhenDirectoryDoesNotExist()

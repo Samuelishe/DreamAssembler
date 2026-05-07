@@ -49,16 +49,16 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
-    /// Проверяет генерацию ассоциативной фразы длиной от двух до четырех слов.
+    /// Проверяет генерацию словосочетания ровно из двух слов.
     /// </summary>
     [Fact]
-    public void Generate_ReturnsAssociationPhrase_WithTwoToFourWords()
+    public void Generate_ReturnsWordPair_WithTwoWords()
     {
         var service = CreateService();
 
         var result = service.Generate(new TextGenerationOptions
         {
-            Mode = GenerationMode.Association,
+            Mode = GenerationMode.WordPair,
             AbsurdityLevel = AbsurdityLevel.Insane,
             ResultCount = 1
         });
@@ -66,7 +66,28 @@ public sealed class TextGeneratorServiceTests
         var text = Assert.Single(result).Text;
         var wordCount = text.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Length;
 
-        Assert.InRange(wordCount, 2, 4);
+        Assert.Equal(2, wordCount);
+    }
+
+    /// <summary>
+    /// Проверяет генерацию короткой фразы длиной от трех до четырех слов.
+    /// </summary>
+    [Fact]
+    public void Generate_ReturnsWordCluster_WithThreeToFourWords()
+    {
+        var service = CreateService();
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.WordCluster,
+            AbsurdityLevel = AbsurdityLevel.Insane,
+            ResultCount = 1
+        });
+
+        var text = Assert.Single(result).Text;
+        var wordCount = text.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Length;
+
+        Assert.InRange(wordCount, 3, 4);
     }
 
     /// <summary>

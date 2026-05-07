@@ -26,7 +26,7 @@ public sealed class DataSetManifest
     public IReadOnlyList<string> DictionarySets { get; set; } = Array.Empty<string>();
 
     /// <summary>
-    /// Получает или задает список наборов фрагментов для ассоциативного режима.
+    /// Получает или задает список внешних словарей для словесных режимов.
     /// </summary>
     public IReadOnlyList<string> AssociationSets { get; set; } = Array.Empty<string>();
 }

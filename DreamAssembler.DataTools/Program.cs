@@ -29,7 +29,7 @@ static void PrintSummary(DataValidationReport report)
     Console.WriteLine($"Data set: {report.DataSetId} ({report.Version})");
     Console.WriteLine($"Entries: {report.EntryCount}");
     Console.WriteLine($"Templates: {report.TemplateCount}");
-    Console.WriteLine($"Association fragments: {report.AssociationFragmentCount}");
+    Console.WriteLine($"Word lexicon entries: {report.AssociationFragmentCount}");
     Console.WriteLine();
 
     Console.WriteLine("Categories:");
@@ -46,7 +46,7 @@ static void PrintSummary(DataValidationReport report)
     }
 
     Console.WriteLine();
-    Console.WriteLine("Association kinds:");
+    Console.WriteLine("Word lexicon kinds:");
     foreach (var pair in report.AssociationKindCounts.OrderBy(pair => pair.Key, StringComparer.OrdinalIgnoreCase))
     {
         Console.WriteLine($"  - {pair.Key}: {pair.Value}");

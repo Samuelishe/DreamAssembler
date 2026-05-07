@@ -87,7 +87,15 @@ public static class FallbackDataProvider
             new AssociationFragmentEntry { Id = "noun_f_staircase", Text = "лестница", Kind = "noun_f", Weight = 1.0 },
             new AssociationFragmentEntry { Id = "noun_f_memory", Text = "память", Kind = "noun_f", Weight = 0.9 },
             new AssociationFragmentEntry { Id = "noun_n_echo", Text = "эхо", Kind = "noun_n", Weight = 1.0 },
-            new AssociationFragmentEntry { Id = "noun_n_schedule", Text = "расписание", Kind = "noun_n", Weight = 0.8 }
+            new AssociationFragmentEntry { Id = "noun_n_schedule", Text = "расписание", Kind = "noun_n", Weight = 0.8 },
+            new AssociationFragmentEntry { Id = "verb_past_m_trembled", Text = "дрожал", Kind = "verb_past_m", Weight = 1.0 },
+            new AssociationFragmentEntry { Id = "verb_past_f_trembled", Text = "дрожала", Kind = "verb_past_f", Weight = 1.0 },
+            new AssociationFragmentEntry { Id = "verb_past_n_trembled", Text = "дрожало", Kind = "verb_past_n", Weight = 1.0 },
+            new AssociationFragmentEntry { Id = "verb_past_m_listened", Text = "слушал", Kind = "verb_past_m", Weight = 0.8 },
+            new AssociationFragmentEntry { Id = "verb_past_f_listened", Text = "слушала", Kind = "verb_past_f", Weight = 0.8 },
+            new AssociationFragmentEntry { Id = "verb_past_n_listened", Text = "слушало", Kind = "verb_past_n", Weight = 0.8 },
+            new AssociationFragmentEntry { Id = "other_raw_softly", Text = "тихо", Kind = "other_raw", Weight = 1.0 },
+            new AssociationFragmentEntry { Id = "other_raw_perhaps", Text = "будто", Kind = "other_raw", Weight = 0.8 }
         ];
     }
 

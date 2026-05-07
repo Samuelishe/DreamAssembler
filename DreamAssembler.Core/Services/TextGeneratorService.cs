@@ -5,7 +5,7 @@ using DreamAssembler.Core.Models;
 namespace DreamAssembler.Core.Services;
 
 /// <summary>
-/// Выполняет генерацию предложений, коротких текстов, идей и ассоциативных фраз.
+/// Выполняет генерацию предложений, коротких текстов, идей, словосочетаний и коротких фраз.
 /// </summary>
 public sealed class TextGeneratorService
 {
@@ -32,7 +32,7 @@ public sealed class TextGeneratorService
     /// </summary>
     /// <param name="dictionaryEntries">Список словарных записей.</param>
     /// <param name="templates">Список шаблонов.</param>
-    /// <param name="associationFragments">Список словарных записей для ассоциативного режима.</param>
+    /// <param name="associationFragments">Список словарных записей для словесных режимов.</param>
     /// <param name="selector">Селектор случайного выбора по весам.</param>
     /// <param name="templateEngine">Движок подстановки значений.</param>
     /// <param name="random">Источник случайности для композиции коротких текстов.</param>
@@ -70,7 +70,8 @@ public sealed class TextGeneratorService
             var text = options.Mode switch
             {
                 GenerationMode.ShortText => GenerateShortText(options, context),
-                GenerationMode.Association => GenerateAssociationPhrase(),
+                GenerationMode.WordPair => GenerateWordPair(),
+                GenerationMode.WordCluster => GenerateWordCluster(),
                 _ => GenerateSingleTemplateText(options.Mode, options.AbsurdityLevel, context)
             };
 
@@ -86,11 +87,11 @@ public sealed class TextGeneratorService
         return results;
     }
 
-    private string GenerateAssociationPhrase()
+    private string GenerateWordPair()
     {
         if (_associationFragments.Count == 0)
         {
-            throw new InvalidOperationException("Не найдены фрагменты для ассоциативного режима.");
+            throw new InvalidOperationException("Не найдены словари для режима словосочетаний.");
         }
 
         var supportedGenders = new List<string>();
@@ -105,11 +106,41 @@ public sealed class TextGeneratorService
 
         if (supportedGenders.Count == 0)
         {
-            throw new InvalidOperationException("Ассоциативные словари загружены, но не содержат совместимых прилагательных и существительных.");
+            throw new InvalidOperationException("Словари словосочетаний загружены, но не содержат совместимых прилагательных и существительных.");
         }
 
         var genderKey = _selector.Select(supportedGenders, _ => 1.0);
-        return RenderAssociationPhraseForGender(genderKey);
+        return RenderAssociationNominalPhrase(genderKey, 1);
+    }
+
+    private string GenerateWordCluster()
+    {
+        if (_associationFragments.Count == 0)
+        {
+            throw new InvalidOperationException("Не найдены словари для режима нескольких слов.");
+        }
+
+        var supportedGenders = new List<string>();
+        foreach (var gender in new[] { "m", "f", "n" })
+        {
+            if (GetAssociationFragmentsByKind($"noun_{gender}").Count > 0
+                && GetAssociationFragmentsByKind($"adjective_{gender}").Count > 0
+                && GetAssociationFragmentsByKind($"verb_past_{gender}").Count > 0)
+            {
+                supportedGenders.Add(gender);
+            }
+        }
+
+        if (supportedGenders.Count == 0)
+        {
+            throw new InvalidOperationException("Словари нескольких слов загружены, но не содержат согласованных существительных, прилагательных и глаголов.");
+        }
+
+        var genderKey = _selector.Select(supportedGenders, _ => 1.0);
+        var patterns = new[] { 2, 3 };
+        var adjectiveCount = _selector.Select(patterns, GetWordClusterPatternWeight);
+
+        return RenderAssociationPredicatePhrase(genderKey, adjectiveCount);
     }
 
     private string GenerateShortText(TextGenerationOptions options, GenerationContext context)
@@ -319,32 +350,69 @@ public sealed class TextGeneratorService
             .ToList();
     }
 
-    private double GetAssociationPatternWeight(int adjectiveCount)
+    private double GetWordClusterPatternWeight(int adjectiveCount)
     {
         return adjectiveCount switch
         {
-            1 => 1.0,
-            2 => 0.85,
-            3 => 0.6,
+            2 => 1.0,
+            3 => 0.8,
             _ => 0.5
         };
     }
 
-    private string RenderAssociationPhraseForGender(string genderKey)
+    private string RenderAssociationNominalPhrase(string genderKey, int adjectiveCount)
     {
         var nouns = GetAssociationFragmentsByKind($"noun_{genderKey}");
         var adjectives = GetAssociationFragmentsByKind($"adjective_{genderKey}");
 
         if (nouns.Count == 0 || adjectives.Count == 0)
         {
-            throw new InvalidOperationException($"Не найдены данные для ассоциативного режима по роду '{genderKey}'.");
+            throw new InvalidOperationException($"Не найдены данные для режима словосочетаний по роду '{genderKey}'.");
         }
 
         var noun = SelectAssociationFragment(nouns);
         RememberAssociationFragment(noun.Id);
+        var phraseAdjectives = SelectUniqueAssociationAdjectives(adjectives, noun, adjectiveCount);
 
-        var adjectiveCounts = new[] { 1, 2, 3 };
-        var adjectiveCount = _selector.Select(adjectiveCounts, GetAssociationPatternWeight);
+        var words = phraseAdjectives
+            .Select(entry => entry.Text)
+            .Append(noun.Text)
+            .ToArray();
+
+        return ValidateAssociationWordCount(words, 2, 2);
+    }
+
+    private string RenderAssociationPredicatePhrase(string genderKey, int adjectiveCount)
+    {
+        var nouns = GetAssociationFragmentsByKind($"noun_{genderKey}");
+        var adjectives = GetAssociationFragmentsByKind($"adjective_{genderKey}");
+        var verbs = GetAssociationFragmentsByKind($"verb_past_{genderKey}");
+
+        if (nouns.Count == 0 || adjectives.Count == 0 || verbs.Count == 0)
+        {
+            throw new InvalidOperationException($"Не найдены данные для режима нескольких слов по роду '{genderKey}'.");
+        }
+
+        var noun = SelectAssociationFragment(nouns);
+        RememberAssociationFragment(noun.Id);
+        var phraseAdjectives = SelectUniqueAssociationAdjectives(adjectives, noun, adjectiveCount);
+        var verb = SelectAssociationFragment(verbs);
+        RememberAssociationFragment(verb.Id);
+
+        var words = phraseAdjectives
+            .Select(entry => entry.Text)
+            .Append(noun.Text)
+            .Append(verb.Text)
+            .ToArray();
+
+        return ValidateAssociationWordCount(words, 3, 4);
+    }
+
+    private List<AssociationFragmentEntry> SelectUniqueAssociationAdjectives(
+        IReadOnlyList<AssociationFragmentEntry> adjectives,
+        AssociationFragmentEntry noun,
+        int adjectiveCount)
+    {
         var phraseAdjectives = new List<AssociationFragmentEntry>(adjectiveCount);
         var usedIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
@@ -372,17 +440,17 @@ public sealed class TextGeneratorService
 
         if (phraseAdjectives.Count == 0)
         {
-            throw new InvalidOperationException("Не удалось подобрать прилагательные для ассоциативного режима.");
+            throw new InvalidOperationException("Не удалось подобрать прилагательные для словесного режима.");
         }
 
-        var words = phraseAdjectives
-            .Select(entry => entry.Text)
-            .Append(noun.Text)
-            .ToArray();
+        return phraseAdjectives;
+    }
 
-        if (words.Length is < 2 or > 4)
+    private static string ValidateAssociationWordCount(string[] words, int minCount, int maxCount)
+    {
+        if (words.Length < minCount || words.Length > maxCount)
         {
-            throw new InvalidOperationException("Ассоциативный режим собрал фразу за пределами 2-4 слов.");
+            throw new InvalidOperationException($"Режим словесной генерации собрал фразу за пределами {minCount}-{maxCount} слов.");
         }
 
         return string.Join(' ', words);

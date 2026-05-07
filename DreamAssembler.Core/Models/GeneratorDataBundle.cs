@@ -16,7 +16,7 @@ public sealed class GeneratorDataBundle
     public IReadOnlyList<TemplateDefinition> Templates { get; set; } = Array.Empty<TemplateDefinition>();
 
     /// <summary>
-    /// Получает или задает фрагменты для режима ассоциативных фраз.
+    /// Получает или задает словарные записи для словесных режимов.
     /// </summary>
     public IReadOnlyList<AssociationFragmentEntry> AssociationFragments { get; set; } = Array.Empty<AssociationFragmentEntry>();
 

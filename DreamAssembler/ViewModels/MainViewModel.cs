@@ -31,7 +31,8 @@ public partial class MainViewModel : ObservableObject
             new OptionItem<GenerationMode> { DisplayName = "Предложение", Value = GenerationMode.Sentence },
             new OptionItem<GenerationMode> { DisplayName = "Короткий текст", Value = GenerationMode.ShortText },
             new OptionItem<GenerationMode> { DisplayName = "Идея", Value = GenerationMode.Idea },
-            new OptionItem<GenerationMode> { DisplayName = "До 4 слов пойдет", Value = GenerationMode.Association }
+            new OptionItem<GenerationMode> { DisplayName = "Словосочетание", Value = GenerationMode.WordPair },
+            new OptionItem<GenerationMode> { DisplayName = "Несколько слов", Value = GenerationMode.WordCluster }
         ];
 
         AbsurdityLevels =
@@ -155,12 +156,14 @@ public partial class MainViewModel : ObservableObject
     /// <summary>
     /// Получает признак доступности выбора уровня абсурдности для текущего режима.
     /// </summary>
-    public bool IsAbsurditySelectionEnabled => SelectedMode?.Value != GenerationMode.Association;
+    public bool IsAbsurditySelectionEnabled
+        => SelectedMode?.Value != GenerationMode.WordPair
+           && SelectedMode?.Value != GenerationMode.WordCluster;
 
     /// <summary>
     /// Получает пояснение для режима, который не использует уровень абсурдности.
     /// </summary>
-    public string AbsurdityModeNote => SelectedMode?.Value == GenerationMode.Association
+    public string AbsurdityModeNote => SelectedMode?.Value is GenerationMode.WordPair or GenerationMode.WordCluster
         ? "В этом режиме уровень абсурдности не влияет на выдачу."
         : string.Empty;
 

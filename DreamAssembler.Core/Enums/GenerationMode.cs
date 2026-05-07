@@ -21,7 +21,12 @@ public enum GenerationMode
     Idea,
 
     /// <summary>
-    /// Генерирует короткую ассоциативную фразу из 2-4 слов.
+    /// Генерирует словосочетание из двух слов.
     /// </summary>
-    Association
+    WordPair,
+
+    /// <summary>
+    /// Генерирует короткую фразу из трех-четырех слов.
+    /// </summary>
+    WordCluster
 }
