@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "night_terminal_hall",
+      "text": "ночном зале вылета",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["airport", "night", "transit", "sterile_light"],
+      "absurdity": 1,
+      "weight": 0.9
+    },
+    {
+      "id": "transfer_corridor",
+      "text": "длинном коридоре пересадки",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["airport", "transit", "quiet"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "empty_gate_zone",
+      "text": "пустой зоне выхода на посадку",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["airport", "night", "quiet"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "duty_free_after_midnight",
+      "text": "дежурном duty free после полуночи",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["airport", "commerce_decay", "night"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "sleeping_baggage_belt",
+      "text": "заснувшей зоне выдачи багажа",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["airport", "night", "dreamlike"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "sterile_waiting_lounge",
+      "text": "стерильном зале ожидания",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["airport", "sterile_light", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "gate_with_endless_announcement",
+      "text": "выходе на посадку, где одно и то же объявление длилось слишком долго,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["airport", "night", "transit", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "corridor_where_light_never_sleeps",
+      "text": "коридоре, где белый свет не умел уставать,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["airport", "sterile_light", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

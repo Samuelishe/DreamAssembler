@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "boarding_pass_remembers_him",
+      "text": "посадочный талон знает о нем чуть больше, чем положено",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["airport", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "intercom_repeats_his_breath",
+      "text": "переговорное устройство повторяет его дыхание с короткой задержкой",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["airport", "night", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "scanner_allows_without_alarm",
+      "text": "рамка досмотра пропускает его слишком вежливо и слишком рано",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["airport", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "announcements_never_finish",
+      "text": "одно и то же объявление не может закончиться с первого раза",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["airport", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "departure_board_rewrites_night",
+      "text": "табло вылета медленно переписывает ночь под собственное расписание",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["airport", "night", "time"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "terminal_forgets_arrivals",
+      "text": "терминал постепенно забывает, что такое прибытие",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["airport", "transit", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    }
+  ]
+}

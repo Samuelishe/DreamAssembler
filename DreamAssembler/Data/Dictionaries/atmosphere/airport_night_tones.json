@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "fluorescent_hushed",
+      "text": "флуоресцентно притихшей",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["airport", "sterile_light", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "transit_weary",
+      "text": "транзитно утомленной",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["airport", "transit", "night"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "sterile_bright",
+      "text": "стерильно настороженной",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["airport", "sterile_light", "mood"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "departure_hollow",
+      "text": "пустовато вылетной",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["airport", "night", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "air_conditioned_lonesome",
+      "text": "кондиционированно одинокой",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["airport", "quiet", "mood"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

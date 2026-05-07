@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "everyone_waited_without_sleep",
+      "text": "все ждали так, будто ночь не кончится вовремя",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["airport", "night", "quiet"],
+      "absurdity": 1,
+      "weight": 0.9
+    },
+    {
+      "id": "nobody_put_bags_down",
+      "text": "никто не решался поставить сумки на пол",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["airport", "quiet", "story"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "fluorescent_light_hummed",
+      "text": "белый свет гудел едва заметно и неотступно",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["airport", "sterile_light", "night"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "suitcases_stood_like_queue",
+      "text": "чемоданы стояли так ровно, будто уже знали порядок ожидания",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["airport", "transit", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "coffee_smelled_tired",
+      "text": "кофе пах усталостью и кондиционированным воздухом",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["airport", "night", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "announcements_lagged_behind_time",
+      "text": "объявления приходили с опозданием в несколько чужих минут",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["airport", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "gate_remembered_departures",
+      "text": "выход на посадку помнил прежние отлеты лучше людей",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["airport", "memory", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "baggage_belt_moved_without_bags",
+      "text": "лента выдачи багажа начинала двигаться без видимой причины",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["airport", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

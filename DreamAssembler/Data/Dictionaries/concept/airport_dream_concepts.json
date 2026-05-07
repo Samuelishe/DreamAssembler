@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "fluorescent_insomnia",
+      "text": "флуоресцентная бессонница пересадок",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["airport", "night", "transit"],
+      "absurdity": 1,
+      "weight": 0.9
+    },
+    {
+      "id": "temporary_life_of_terminals",
+      "text": "временная жизнь терминалов",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["airport", "sterile_light", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "ceremony_of_departure_delays",
+      "text": "церемония задержанного вылета",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["airport", "ritual", "time"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "sleep_of_transit_people",
+      "text": "сон людей, существующих только между рейсами",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["airport", "night", "quiet"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "sterile_loneliness",
+      "text": "стерильное одиночество ожидания",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["airport", "sterile_light", "mood"],
+      "absurdity": 1,
+      "weight": 0.9
+    },
+    {
+      "id": "temporary_identity_of_boarding",
+      "text": "временная личность посадки",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["airport", "transit", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

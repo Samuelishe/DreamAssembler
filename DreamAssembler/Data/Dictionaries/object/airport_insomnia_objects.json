@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "boarding_pass_stack",
+      "text": "стопку посадочных талонов",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["airport", "paper", "compat:portable", "compat:hideable", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "transparent_security_tray",
+      "text": "прозрачный лоток досмотра",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["airport", "sterile_light", "compat:portable", "compat:protectable", "compat:hideable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "silent_arrivals_board",
+      "text": "немое табло прилета",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["airport", "time", "compat:portable", "compat:repairable", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "abandoned_neck_pillow",
+      "text": "забытый дорожный подголовник",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["airport", "quiet", "compat:portable", "compat:hideable", "compat:exchangeable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "sealed_customs_envelope",
+      "text": "запечатанный таможенный конверт",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["airport", "bureaucracy", "compat:portable", "compat:hideable", "compat:openable", "compat:exchangeable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "plastic_airport_map",
+      "text": "ламинированную схему терминала",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["airport", "transit", "compat:portable", "compat:searchable", "compat:rewriteable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "baggage_tag_bundle",
+      "text": "связку багажных бирок",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["airport", "paper", "compat:portable", "compat:hideable", "compat:searchable", "compat:rewriteable", "compat:exchangeable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "sleeping_intercom",
+      "text": "сонное переговорное устройство",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["airport", "night", "surreal", "compat:portable", "compat:repairable", "compat:wakeable"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}
