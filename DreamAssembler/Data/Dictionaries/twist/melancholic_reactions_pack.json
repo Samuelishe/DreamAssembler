@@ -1,0 +1,94 @@
+{
+  "entries": [
+    {
+      "id": "old_turnstile_sympathizes",
+      "text": "старый турникет сочувствует ему громче людей",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["transport", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "ink_stays_on_his_hands",
+      "text": "чернила ведут себя так, будто давно его знают",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["paper", "memory", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "rain_adjusts_his_route",
+      "text": "дождь терпеливо корректирует его маршрут",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["weather", "transport", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "duty_room_hides_him",
+      "text": "дежурная комната делает вид, что его здесь не было",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["night", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "ticket_window_recites_his_name",
+      "text": "кассовое окно произносит его имя по слогам",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["transport", "city", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "reports_require_older_date",
+      "text": "все отчеты требуют более старую дату",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["paper", "time", "bureaucracy"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "benches_keep_roll_call",
+      "text": "скамейки перекликаются перед закрытием",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["transport", "night", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    },
+    {
+      "id": "corridors_request_signature",
+      "text": "коридоры требуют подписи внизу страницы",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["bureaucracy", "surreal", "comic"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "archives_sort_people_by_silence",
+      "text": "архивы начинают сортировать людей по степени молчания",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["archive", "quiet", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    },
+    {
+      "id": "night_shift_repeats_softly",
+      "text": "ночная смена повторяется чуть мягче прежней",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["night", "time", "mood"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

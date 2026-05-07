@@ -1,0 +1,94 @@
+{
+  "entries": [
+    {
+      "id": "administratively_sad",
+      "text": "как-то служебно грустно",
+      "category": "emotion",
+      "slot": "emotion_group_state",
+      "tags": ["bureaucracy", "mood"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "rain_soaked_uneasy",
+      "text": "сыровато и тревожно",
+      "category": "emotion",
+      "slot": "emotion_group_state",
+      "tags": ["weather", "mood"],
+      "absurdity": 0,
+      "weight": 0.9
+    },
+    {
+      "id": "provincially_lonely",
+      "text": "по-провинциальному одиноко",
+      "category": "emotion",
+      "slot": "emotion_group_state",
+      "tags": ["provincial", "mood"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "paper_nervous",
+      "text": "будто вокруг нервничала бумага",
+      "category": "emotion",
+      "slot": "emotion_group_state",
+      "tags": ["paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "patiently_oppressive",
+      "text": "терпеливо не по себе",
+      "category": "emotion",
+      "slot": "emotion_group_state",
+      "tags": ["quiet", "mood"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "echoingly_suspicious",
+      "text": "эхом настороженно",
+      "category": "emotion",
+      "slot": "emotion_observer_state",
+      "tags": ["quiet", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "damply_convincing",
+      "text": "сыровато убедительно",
+      "category": "emotion",
+      "slot": "emotion_observer_state",
+      "tags": ["weather", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "officially_dreamlike",
+      "text": "официально как во сне",
+      "category": "emotion",
+      "slot": "emotion_observer_state",
+      "tags": ["bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "tiredly_ritual",
+      "text": "устало ритуально",
+      "category": "emotion",
+      "slot": "emotion_observer_state",
+      "tags": ["night", "mood"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "softly_inadmissible",
+      "text": "мягко недопустимо",
+      "category": "emotion",
+      "slot": "emotion_observer_state",
+      "tags": ["bureaucracy", "comic"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

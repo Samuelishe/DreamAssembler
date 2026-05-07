@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "as_archival_note",
+      "text": "как архивную пометку на полях",
+      "category": "style",
+      "slot": "style_note",
+      "tags": ["archive", "paper", "tone"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "as_late_platform_monologue",
+      "text": "как монолог на пустой платформе",
+      "category": "style",
+      "slot": "style_note",
+      "tags": ["transport", "night", "tone"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "with_provincial_patience",
+      "text": "с провинциальным терпением",
+      "category": "style",
+      "slot": "style_note",
+      "tags": ["provincial", "quiet", "tone"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "like_report_written_in_rain",
+      "text": "как рапорт, написанный под дождем",
+      "category": "style",
+      "slot": "style_note",
+      "tags": ["weather", "bureaucracy", "tone"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "with_faded_municipal_gravity",
+      "text": "с выцветшей муниципальной важностью",
+      "category": "style",
+      "slot": "style_note",
+      "tags": ["bureaucracy", "city", "comic"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "as_half_remembered_instruction",
+      "text": "как полузабытую инструкцию",
+      "category": "style",
+      "slot": "style_note",
+      "tags": ["paper", "memory", "tone"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "like_night_duty_confession",
+      "text": "как признание ночного дежурного",
+      "category": "style",
+      "slot": "style_note",
+      "tags": ["night", "story", "tone"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "with_tired_documentary_calm",
+      "text": "с усталой документальной точностью",
+      "category": "style",
+      "slot": "style_note",
+      "tags": ["bureaucracy", "quiet", "tone"],
+      "absurdity": 0,
+      "weight": 0.8
+    }
+  ]
+}

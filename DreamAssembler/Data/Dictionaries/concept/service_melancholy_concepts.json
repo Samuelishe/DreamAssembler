@@ -1,0 +1,94 @@
+{
+  "entries": [
+    {
+      "id": "administration_of_rain",
+      "text": "администрирование дождя",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["weather", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "waiting_room_cosmology",
+      "text": "космология зала ожидания",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["transport", "surreal", "story"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "instruction_for_losing_things",
+      "text": "инструкция по утрате вещей",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["paper", "mystery", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "late_urban_liturgy",
+      "text": "поздняя городская литургия",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["city", "night", "tone"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "paper_afterlife",
+      "text": "посмертие бумаги",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["paper", "archive", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "municipal_tenderness",
+      "text": "неожиданная муниципальная нежность",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["city", "bureaucracy", "mood"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "habit_of_waiting_together",
+      "text": "привычка ждать вместе",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["quiet", "story", "transport"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "soft_fatigue_of_routes",
+      "text": "мягкая усталость маршрутов",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["transport", "night", "mood"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "bureaucratic_mercy",
+      "text": "бюрократическое милосердие",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["bureaucracy", "comic", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "city_memory_under_glass",
+      "text": "городская память под стеклом",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["city", "memory", "archive"],
+      "absurdity": 1,
+      "weight": 0.8
+    }
+  ]
+}

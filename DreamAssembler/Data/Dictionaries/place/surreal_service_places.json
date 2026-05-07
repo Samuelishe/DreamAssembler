@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "window_of_unfinished_reports",
+      "text": "окошке недописанных отчетов",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["bureaucracy", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "wardrobe_of_night_coats",
+      "text": "гардеробе ночных пальто",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["night", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "depot_of_sleeping_routes",
+      "text": "депо уснувших маршрутов",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["transport", "night", "surreal"],
+      "absurdity": 2,
+      "weight": 0.8
+    },
+    {
+      "id": "corridor_of_duplicate_keys",
+      "text": "коридоре дубликатов ключей",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["archive", "mystery", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "hall_where_receipts_whisper",
+      "text": "зале, где квитанции шептались между собой,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["paper", "surreal", "quiet"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "booth_where_time_waits_stamp",
+      "text": "будке, где время ждало штампа,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["time", "bureaucracy", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "archive_annex_with_rain",
+      "text": "архивной пристройке, куда дождь приходил по спискам,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["archive", "weather", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "platform_where_lamps_take_notes",
+      "text": "платформе, где фонари вели заметки,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["transport", "night", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "nobody_argued_with_silence",
+      "text": "никто уже не спорил с тишиной",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["quiet", "story"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "everyone_waited_without_signal",
+      "text": "все продолжали ждать без сигнала",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["transport", "quiet", "daily"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "steel_smelled_of_rain",
+      "text": "металл пах дождем и усталостью",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["industrial", "weather", "mood"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "speaker_hummed_apology",
+      "text": "динамик тихо гудел, будто извинялся",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["transport", "night", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "paper_dust_settled_on_shoulders",
+      "text": "бумажная пыль оседала даже на плечи",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["archive", "paper", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "clock_went_back_for_documents",
+      "text": "часы ненадолго возвращались за забытыми бумагами",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["time", "paper", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    },
+    {
+      "id": "window_remembered_previous_shift",
+      "text": "окно помнило предыдущую смену лучше людей",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["night", "memory", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "announcements_spoke_from_tomorrow",
+      "text": "объявления приходили из завтрашнего дня",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["transport", "time", "surreal"],
+      "absurdity": 3,
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "archive_nocturne",
+      "text": "архивный ноктюрн",
+      "category": "genre",
+      "slot": "genre_label",
+      "tags": ["archive", "night", "tone"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "transport_mystery",
+      "text": "транспортная мистерия",
+      "category": "genre",
+      "slot": "genre_label",
+      "tags": ["transport", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "provincial_documentary_dream",
+      "text": "провинциальный документальный сон",
+      "category": "genre",
+      "slot": "genre_label",
+      "tags": ["provincial", "surreal", "tone"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "rain_bureaucratic_fable",
+      "text": "дождливая канцелярская сказка",
+      "category": "genre",
+      "slot": "genre_label",
+      "tags": ["weather", "bureaucracy", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "infrastructural_melodrama",
+      "text": "инфраструктурная мелодрама",
+      "category": "genre",
+      "slot": "genre_label",
+      "tags": ["city", "industrial", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "quiet_shift_legend",
+      "text": "легенда тихой смены",
+      "category": "genre",
+      "slot": "genre_label",
+      "tags": ["night", "quiet", "story"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "paper_gothic",
+      "text": "бумажная готика",
+      "category": "genre",
+      "slot": "genre_label",
+      "tags": ["paper", "surreal", "tone"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "municipal_magic_realism",
+      "text": "муниципальный магический реализм",
+      "category": "genre",
+      "slot": "genre_label",
+      "tags": ["city", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

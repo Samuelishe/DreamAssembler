@@ -1,6 +1,6 @@
 {
   "id": "dreamassembler-base-ru",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Базовый русскоязычный набор словарей, шаблонов и внешних лексиконов для DreamAssembler.",
   "dictionarySets": [
     "character/city_workers",
@@ -14,18 +14,25 @@
     "object/archive_transport_objects",
     "place/urban_places",
     "place/surreal_places",
+    "place/surreal_service_places",
     "place/liminal_infrastructure",
     "twist/rules_and_reactions",
     "twist/quiet_rules_pack",
+    "twist/melancholic_reactions_pack",
     "atmosphere/scene_tones",
     "atmosphere/quiet_tones",
     "genre/base_genres",
+    "genre/quiet_genres",
     "style/base_styles",
+    "style/atmospheric_styles",
     "emotion/predicative_states",
+    "emotion/quiet_observer_states",
     "concept/story_concepts",
     "concept/atmospheric_concepts",
+    "concept/service_melancholy_concepts",
     "condition/scene_conditions",
-    "condition/atmospheric_scene_conditions"
+    "condition/atmospheric_scene_conditions",
+    "condition/quiet_reveal_conditions"
   ],
   "associationSets": [
     "Sources/openrussian-nouns.csv",
