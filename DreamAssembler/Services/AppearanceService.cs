@@ -148,8 +148,10 @@ public sealed class AppearanceService
     {
         return readingFont switch
         {
+            ReadingFontOption.Literata => new FontFamily("pack://application:,,,/DreamAssembler.App;component/Assets/Fonts/#Literata 12pt"),
+            ReadingFontOption.Manrope => new FontFamily("pack://application:,,,/DreamAssembler.App;component/Assets/Fonts/#Manrope"),
             ReadingFontOption.Inter => new FontFamily("pack://application:,,,/DreamAssembler.App;component/Assets/Fonts/#Inter"),
-            _ => new FontFamily("pack://application:,,,/DreamAssembler.App;component/Assets/Fonts/#Literata")
+            _ => new FontFamily("pack://application:,,,/DreamAssembler.App;component/Assets/Fonts/#Literata 12pt")
         };
     }
 

@@ -6,12 +6,17 @@ namespace DreamAssembler.App.Models;
 public enum ReadingFontOption
 {
     /// <summary>
-    /// Нейтральный современный шрифт интерфейса.
-    /// </summary>
-    Inter,
-
-    /// <summary>
     /// Более мягкий книжный шрифт для чтения.
     /// </summary>
-    Literata
+    Literata,
+
+    /// <summary>
+    /// Современный геометрический шрифт для чистого чтения.
+    /// </summary>
+    Manrope,
+
+    /// <summary>
+    /// Нейтральный современный гротеск.
+    /// </summary>
+    Inter
 }

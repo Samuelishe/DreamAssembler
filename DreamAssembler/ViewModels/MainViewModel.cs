@@ -59,6 +59,7 @@ public partial class MainViewModel : ObservableObject
         ReadingFontOptions =
         [
             new OptionItem<ReadingFontOption> { DisplayName = "Literata", Value = ReadingFontOption.Literata },
+            new OptionItem<ReadingFontOption> { DisplayName = "Manrope", Value = ReadingFontOption.Manrope },
             new OptionItem<ReadingFontOption> { DisplayName = "Inter", Value = ReadingFontOption.Inter }
         ];
 
