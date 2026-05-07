@@ -381,6 +381,36 @@
                                    FontWeight="SemiBold"
                                    Foreground="{DynamicResource PrimaryTextBrush}"
                                    Text="{Binding ResultsSectionTitle}" />
+                        <Border Margin="0,8,0,0"
+                                Padding="10,4"
+                                HorizontalAlignment="Left"
+                                Background="{DynamicResource AccentSoftBrush}"
+                                BorderBrush="{DynamicResource PanelBorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="999">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding IsLexicalMode}" Value="True" />
+                                                <Condition Binding="{Binding HasSelectedLexicalAtmosphere}" Value="True" />
+                                            </MultiDataTrigger.Conditions>
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </MultiDataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Foreground="{DynamicResource MutedTextBrush}"
+                                           Text="{Binding LexicalAtmosphereEyebrow}" />
+                                <TextBlock Margin="8,0,0,0"
+                                           FontWeight="SemiBold"
+                                           Foreground="{DynamicResource PrimaryTextBrush}"
+                                           Text="{Binding SelectedLexicalAtmosphereLabel}" />
+                            </StackPanel>
+                        </Border>
                         <TextBlock Margin="0,5,0,0"
                                    Foreground="{DynamicResource SecondaryTextBrush}"
                                    Text="{Binding SummaryText}">
@@ -405,6 +435,7 @@
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding IsLexicalMode}" Value="True">
                                             <Setter Property="Visibility" Value="Visible" />
+                                            <Setter Property="Margin" Value="0,8,0,0" />
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
@@ -456,14 +487,15 @@
                                    FontWeight="SemiBold"
                                    Foreground="{DynamicResource MutedTextBrush}"
                                    Text="{Binding LexicalSpotlightTitle}" />
-                        <TextBlock Margin="0,10,0,0"
-                                   FontSize="13"
-                                   FontWeight="SemiBold"
-                                   Foreground="{DynamicResource SecondaryTextBrush}"
-                                   TextAlignment="Center"
-                                   Text="{Binding SelectedLexicalAtmosphereLabel}">
-                            <TextBlock.Style>
-                                <Style TargetType="TextBlock">
+                        <Border Margin="0,12,0,0"
+                                Padding="11,5"
+                                HorizontalAlignment="Center"
+                                Background="{DynamicResource AccentSoftBrush}"
+                                BorderBrush="{DynamicResource PanelBorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="999">
+                            <Border.Style>
+                                <Style TargetType="Border">
                                     <Setter Property="Visibility" Value="Collapsed" />
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding HasSelectedLexicalAtmosphere}" Value="True">
@@ -471,24 +503,12 @@
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
-                        <TextBlock Margin="0,6,0,0"
-                                   Foreground="{DynamicResource MutedTextBrush}"
-                                   TextAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   Text="{Binding SelectedLexicalAtmosphereDescription}">
-                            <TextBlock.Style>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="Visibility" Value="Collapsed" />
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding HasSelectedLexicalAtmosphere}" Value="True">
-                                            <Setter Property="Visibility" Value="Visible" />
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
+                            </Border.Style>
+                            <TextBlock FontSize="13"
+                                       FontWeight="SemiBold"
+                                       Foreground="{DynamicResource PrimaryTextBrush}"
+                                       Text="{Binding SelectedLexicalAtmosphereLabel}" />
+                        </Border>
                         <TextBlock Margin="0,16,0,0"
                                    FontFamily="{DynamicResource ReadingFontFamily}"
                                    FontSize="44"

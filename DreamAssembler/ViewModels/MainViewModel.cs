@@ -257,18 +257,25 @@ public partial class MainViewModel : ObservableObject
     /// Получает дополнительное пояснение для словесных режимов.
     /// </summary>
     public string ResultsSectionHint => IsLexicalMode
-        ? "Короткие фразы лучше читать как отдельные найденные обрывки."
+        ? (HasSelectedLexicalAtmosphere
+            ? SelectedLexicalAtmosphereDescription
+            : "Короткие фразы лучше читать как отдельные найденные обрывки.")
         : string.Empty;
 
     /// <summary>
     /// Получает подпись для выделенного фрагмента в словесных режимах.
     /// </summary>
-    public string LexicalSpotlightTitle => "Выбранный фрагмент";
+    public string LexicalSpotlightTitle => HasSelectedLexicalAtmosphere ? "Текущий фрагмент" : "Выбранный фрагмент";
 
     /// <summary>
     /// Получает подпись для списка истории в словесных режимах.
     /// </summary>
     public string ResultsListCaption => IsLexicalMode ? "Остальные фрагменты" : string.Empty;
+
+    /// <summary>
+    /// Получает подпись атмосферного header для словесных режимов.
+    /// </summary>
+    public string LexicalAtmosphereEyebrow => "Локальное пространство";
 
     /// <summary>
     /// Получает reader-facing подпись текущего lexical mood.
@@ -434,6 +441,8 @@ public partial class MainViewModel : ObservableObject
         OnPropertyChanged(nameof(ResultTextLineHeight));
         OnPropertyChanged(nameof(ResultsSectionTitle));
         OnPropertyChanged(nameof(ResultsSectionHint));
+        OnPropertyChanged(nameof(LexicalSpotlightTitle));
+        OnPropertyChanged(nameof(LexicalAtmosphereEyebrow));
         OnPropertyChanged(nameof(SelectedLexicalAtmosphereLabel));
         OnPropertyChanged(nameof(SelectedLexicalAtmosphereDescription));
         OnPropertyChanged(nameof(HasSelectedLexicalAtmosphere));
@@ -505,6 +514,8 @@ public partial class MainViewModel : ObservableObject
 
     partial void OnSelectedResultChanged(ResultItemViewModel? value)
     {
+        OnPropertyChanged(nameof(ResultsSectionHint));
+        OnPropertyChanged(nameof(LexicalSpotlightTitle));
         OnPropertyChanged(nameof(SelectedLexicalAtmosphereLabel));
         OnPropertyChanged(nameof(SelectedLexicalAtmosphereDescription));
         OnPropertyChanged(nameof(HasSelectedLexicalAtmosphere));
