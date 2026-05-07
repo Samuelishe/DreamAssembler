@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "reception_stayed_awake",
+      "text": "стойка регистрации выглядела бодрее города за окном",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["hospitality", "night", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "nobody_hurried_to_arrive",
+      "text": "никто уже не спешил приехать по-настоящему",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["hospitality", "transit", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "corridors_held_their_breath",
+      "text": "коридоры держали тишину так же старательно, как сервис",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["hospitality", "quiet", "service"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "lamps_waited_patiently",
+      "text": "лампы в лобби ждали кого-то слишком терпеливо",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["hospitality", "quiet", "surreal"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "linen_smelled_like_morning",
+      "text": "свежее белье пахло утром, которого еще не было",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["hospitality", "night", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "checkin_became_ritual",
+      "text": "регистрация постепенно становилась ритуалом без приезда",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["hospitality", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "rooms_started_waiting",
+      "text": "номера вели себя так, будто сами кого-то ждали",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["hospitality", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "welcome_outlived_guest",
+      "text": "приветствие пережило того, кому было адресовано",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["hospitality", "surreal", "memory"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

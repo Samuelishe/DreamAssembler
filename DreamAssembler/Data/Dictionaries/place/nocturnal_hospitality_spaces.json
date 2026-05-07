@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "late_reception_hall",
+      "text": "позднем зале регистрации",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hospitality", "night", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "corridor_of_half_lit_rooms",
+      "text": "коридоре полуподсвеченных номеров",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hospitality", "quiet", "night"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "lobby_after_last_arrival",
+      "text": "лобби после последнего приезда",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hospitality", "transit", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "service_linen_room",
+      "text": "служебной бельевой комнате",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hospitality", "service", "quiet"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "unclaimed_room_floor",
+      "text": "этаже невостребованных номеров",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hospitality", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "breakfast_hall_before_morning",
+      "text": "зале завтраков до утра",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hospitality", "night", "service"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "lobby_where_lamps_waited",
+      "text": "лобби, где лампы ждали гостей терпеливее людей,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["hospitality", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "corridor_where_greetings_lingered",
+      "text": "коридоре, где приветствия задерживались дольше шагов,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["hospitality", "night", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "concept_hospitality_without_arrival",
+      "text": "гостеприимство без приезда",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["hospitality", "quiet", "transit"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "concept_corridor_patience",
+      "text": "терпение гостиничного коридора",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["hospitality", "quiet", "night"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "concept_welcome_after_midnight",
+      "text": "приветствие, задержавшееся после полуночи",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["hospitality", "surreal", "night"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_late_checkin",
+      "text": "история о поздней регистрации без приезда",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["hospitality", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_unclaimed_room",
+      "text": "история о невостребованном номере",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["hospitality", "quiet", "night"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "story_about_welcome_outliving_people",
+      "text": "история о приветствии, которое пережило людей",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["hospitality", "memory", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

@@ -57,6 +57,18 @@ DreamAssembler нельзя воспринимать как:
 - Основная сила проекта уже сейчас не в сюжетности, а в atmosphere, emotional consistency и symbolic language.
 - Текущий archive / transport / bureaucracy слой - это первый strongest coherent atmospheric field проекта, а не его конечная форма.
 
+## Какие manifolds уже реально есть
+
+Это важно для будущих сессий: ниже не идеи, а уже существующие data-fields, которые реально лежат в JSON-наборах и попадают в corpus.
+
+- archive / transport / bureaucracy - базовое strongest coherent field;
+- nocturnal airports / fluorescent insomnia - уже second-wave manifold;
+- dead shopping malls / abandoned commerce / fluorescent afterhours - уже second-wave manifold;
+- impossible museums / echo exhibits / ceremonial curation - уже second-wave manifold;
+- recursive hospitality / nocturnal hotels / ceremonial check-in - пока first-wave manifold.
+
+Если нужно быстро понять баланс growth, не гадать по памяти, а запускать `DreamAssembler.DataTools` и смотреть pack-level stats из `data-manifest.json`.
+
 ## Главные направления
 
 - atmosphere over complexity;
@@ -118,6 +130,14 @@ DreamAssembler нельзя воспринимать как:
 - `DreamAssembler.Core.Tests/Services/*`
 - `DreamAssembler/ViewModels/MainViewModel.cs`
 - `DreamAssembler/MainWindow.xaml`
+- `DreamAssembler/Data/data-manifest.json`
+
+## Где смотреть atmosphere / manifold guidance
+
+- `docs/PROJECT_STATE.md` - product identity, current strengths, current growth direction;
+- `docs/ARCHITECTURE.md` - atmosphere architecture, soft coherence, manifolds как architectural growth model;
+- `docs/IDEAS_BACKLOG.md` - карта следующих manifolds, risky directions и dataset strategy;
+- `DreamAssembler/Data/data-manifest.json` + `DreamAssembler.DataTools` - фактический список уже подключенных packs.
 
 ## Правило обновления документации
 

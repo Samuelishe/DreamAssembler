@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "master_key_envelope",
+      "text": "конверт с мастер-ключом",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hospitality", "service", "compat:portable", "compat:openable", "compat:hideable", "compat:exchangeable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "guest_log_folder",
+      "text": "папку журнала постояльцев",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hospitality", "paper", "compat:portable", "compat:searchable", "compat:rewriteable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "unclaimed_room_key",
+      "text": "ключ от невостребованного номера",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hospitality", "quiet", "compat:portable", "compat:exchangeable", "compat:hideable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "folded_checkout_slip",
+      "text": "сложенный бланк выезда",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hospitality", "paper", "compat:portable", "compat:rewriteable", "compat:searchable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "quiet_wakeup_card",
+      "text": "карточку тихого пробуждения",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hospitality", "quiet", "compat:portable", "compat:wakeable", "compat:hideable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "corridor_bell_without_call",
+      "text": "коридорный звонок без вызова",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hospitality", "surreal", "compat:wakeable", "compat:repairable"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "fresh_linen_bundle",
+      "text": "свежую связку белья",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hospitality", "service", "compat:portable", "compat:protectable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "night_welcome_note",
+      "text": "ночную записку приветствия",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hospitality", "paper", "surreal", "compat:portable", "compat:rewriteable", "compat:hideable"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

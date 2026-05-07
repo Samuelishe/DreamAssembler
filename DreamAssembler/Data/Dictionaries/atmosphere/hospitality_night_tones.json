@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "atmosphere_night_checkin",
+      "text": "как в регистрации после последнего приезда",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hospitality", "night", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "atmosphere_corridor_patience",
+      "text": "как в терпеливом гостиничном коридоре",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hospitality", "quiet", "night"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "atmosphere_soft_service_insomnia",
+      "text": "как в мягкой служебной бессоннице",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hospitality", "service", "night"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_welcome_without_guest",
+      "text": "как у приветствия без гостя",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hospitality", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_lobby_after_delay",
+      "text": "как в лобби после слишком долгой задержки",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hospitality", "transit", "surreal"],
+      "absurdity": 1,
+      "weight": 0.7
+    }
+  ]
+}

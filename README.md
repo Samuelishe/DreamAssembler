@@ -17,6 +17,20 @@ It is intentionally not an AI text generator. The project combines JSON dictiona
 - Growth direction centered on curated atmospheric fields rather than genre presets or AI storytelling
 - Project documentation in [`docs`](docs)
 
+## Product direction
+
+DreamAssembler is not positioned as an AI storyteller, prompt shell, or random-surreal generator. It is moving toward an atmospheric reading instrument built on a rule-based engine and curated datasets.
+
+The project grows through emotional-semantic manifolds rather than genre modes. The current corpus already contains several real atmospheric fields:
+
+- archive / transport / bureaucracy
+- nocturnal airports / fluorescent insomnia
+- dead shopping malls / abandoned commerce / fluorescent afterhours
+- impossible museums / echo exhibits / ceremonial curation
+- recursive hospitality / nocturnal hotels / ceremonial check-in
+
+These are not separate apps or hard modes. They are curated manifold layers that can later mix, drift, and interfere inside the same soft-coherence generation architecture.
+
 ## Repository guide
 
 - Quick project index: [`docs/SESSION_INDEX.md`](docs/SESSION_INDEX.md)
@@ -62,6 +76,22 @@ dotnet run --project DreamAssembler/DreamAssembler.csproj
 ```bash
 dotnet run --project DreamAssembler.DataTools/DreamAssembler.DataTools.csproj
 ```
+
+`DreamAssembler.DataTools` is also the main way to inspect corpus growth between sessions. It reports:
+
+- total entry counts by category
+- pack-level statistics for each dictionary set from `data-manifest.json`
+- lexical CSV source sizes
+- structural issues such as duplicate ids or duplicate texts
+
+For live output inspection there is also a sample mode:
+
+```bash
+dotnet run --project DreamAssembler.DataTools/DreamAssembler.DataTools.csproj -- samples Sentence 8 Absurd
+dotnet run --project DreamAssembler.DataTools/DreamAssembler.DataTools.csproj -- samples ShortText 6 Absurd
+```
+
+This is the intended workflow for future sessions: expand curated packs, check pack-level stats, then inspect real generated output rather than reasoning only from raw dictionary size.
 
 ## Stack
 

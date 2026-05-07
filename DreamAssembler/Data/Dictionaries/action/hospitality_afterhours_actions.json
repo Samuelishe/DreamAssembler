@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "leave_at_reception",
+      "text": "оставить на стойке регистрации",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hospitality", "service", "compat:portable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "open_with_master_key",
+      "text": "открыть мастер-ключом",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hospitality", "service", "compat:openable", "compat:exchangeable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "compare_with_guest_log",
+      "text": "сверить с журналом постояльцев",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hospitality", "paper", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "return_before_morning_shift",
+      "text": "вернуть до утренней смены",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hospitality", "night", "compat:portable", "compat:hideable", "compat:exchangeable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "prepare_for_late_arrival",
+      "text": "приготовить к позднему приезду",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hospitality", "service", "compat:protectable", "compat:wakeable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "hide_from_corridor_greeting",
+      "text": "спрятать от коридорного приветствия",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hospitality", "surreal", "compat:hideable"],
+      "absurdity": 3,
+      "weight": 0.6
+    },
+    {
+      "id": "wake_for_delayed_checkout",
+      "text": "разбудить для выезда, который задержался",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hospitality", "night", "surreal", "compat:wakeable"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "exchange_between_rooms",
+      "text": "обменять между номерами",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hospitality", "quiet", "compat:portable", "compat:exchangeable"],
+      "absurdity": 1,
+      "weight": 0.7
+    }
+  ]
+}

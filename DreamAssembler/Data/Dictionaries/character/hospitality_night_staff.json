@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "id": "night_reception_clerk",
+      "text": "ночной администратор стойки регистрации",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hospitality", "night", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "keeper_of_unclaimed_rooms",
+      "text": "хранитель невостребованных номеров",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hospitality", "quiet", "service"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "hallway_attendant_after_midnight",
+      "text": "дежурный по коридору после полуночи",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hospitality", "night", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "porter_of_delayed_arrivals",
+      "text": "портье задержавшихся приездов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hospitality", "transit", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "concierge_without_guests",
+      "text": "консьерж без постояльцев",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hospitality", "quiet", "night"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "keeper_of_returned_keys",
+      "text": "смотритель возвращенных ключей",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hospitality", "service", "paper"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "voice_of_corridor_welcome",
+      "text": "голос ночного приветствия в коридоре",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hospitality", "surreal", "quiet"],
+      "absurdity": 3,
+      "weight": 0.6
+    },
+    {
+      "id": "registrar_of_late_checkout",
+      "text": "регистратор позднего выезда",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hospitality", "service", "night"],
+      "absurdity": 0,
+      "weight": 0.8
+    }
+  ]
+}

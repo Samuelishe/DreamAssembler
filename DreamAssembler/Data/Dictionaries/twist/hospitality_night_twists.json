@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "reception_recognizes_him",
+      "text": "стойка регистрации узнает его быстрее журнала",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["hospitality", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "corridor_greets_him_first",
+      "text": "коридор приветствует его раньше дежурного",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["hospitality", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "key_behaves_as_if_waiting",
+      "text": "ключ ведет себя так, будто давно ждал именно его",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["hospitality", "night", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    },
+    {
+      "id": "rooms_exchange_expectations",
+      "text": "номера обмениваются ожиданиями без участия людей",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["hospitality", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "welcome_refuses_to_end",
+      "text": "процедура приветствия отказывается заканчиваться вместе с ночью",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["hospitality", "service", "night"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "checkout_waits_for_morning_that_slipped",
+      "text": "выезд продолжает ждать утра, которое уже сместилось",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["hospitality", "time", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}
