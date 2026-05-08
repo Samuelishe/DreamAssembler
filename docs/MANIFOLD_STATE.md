@@ -172,8 +172,14 @@
 ### Что это значит
 
 - следующий шаг нужен не как еще один cleanup-pass;
-- следующий шаг нужен как `manifold surfacing balance pass`;
+- `manifold surfacing balance pass` уже начат;
 - цель: поднять runtime visibility новых manifolds без тяжелой смены architecture и без выпадения в random mode cycling.
+
+### Что уже изменено
+
+- `observatory`, `sanatorium` и `hydroelectric` добавлены в `StrongManifoldTags`, поэтому теперь участвуют в dominant-manifold memory и field-affinity на равных правах со старыми mature fields;
+- добавлен early surfacing bias для тонких first-wave manifolds, чтобы новые non-urban fields легче становились anchor-field в начале batch, а не только secondary accent позже;
+- после этого `Sentence` samples уже начали чаще стартовать из `observatory`-сцен и держать их не как случайную вставку, а как локальную atmospheric anchor.
 
 ### Что все еще стоит держать в уме
 

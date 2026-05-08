@@ -565,6 +565,51 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что новые non-urban tags учитываются как strong manifolds и становятся atmosphere key серии.
+    /// </summary>
+    [Fact]
+    public void Generate_AssignsObservatoryAsAtmosphereKey_WhenBatchUsesObservatoryEntries()
+    {
+        var template = new TemplateDefinition
+        {
+            Id = "observatory_surfacing_test",
+            Text = "{place}.",
+            Mode = GenerationMode.Sentence,
+            RequiredCategories = ["place"],
+            SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["place"] = "place_in"
+            },
+            Weight = 1.0
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new() { Id = "observatory_place_1", Category = "place", Slot = "place_in", Text = "в холодном наблюдательном куполе", Tags = ["observatory"], Weight = 1.0 },
+            new() { Id = "observatory_place_2", Category = "place", Slot = "place_in", Text = "в башне погодных измерений", Tags = ["observatory"], Weight = 1.0 },
+            new() { Id = "observatory_place_3", Category = "place", Slot = "place_in", Text = "в комнате красных ночных ламп", Tags = ["observatory"], Weight = 1.0 }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            [template],
+            [],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.Sentence,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 3
+        });
+
+        Assert.Equal(3, result.Count);
+        Assert.All(result, item => Assert.Equal("observatory", item.AtmosphereKey));
+    }
+
+    /// <summary>
     /// Проверяет, что шаблон со сложным местом берет только clause-slot и сохраняет закрывающую запятую.
     /// </summary>
     [Fact]

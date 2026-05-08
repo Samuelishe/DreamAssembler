@@ -21,8 +21,21 @@ public sealed class TextGeneratorService
         "airport",
         "museum",
         "mall",
-        "hospitality"
+        "hospitality",
+        "observatory",
+        "sanatorium",
+        "hydroelectric"
     ];
+    private static readonly IReadOnlyDictionary<string, double> EarlySurfacingBoostByManifold = new Dictionary<string, double>(StringComparer.OrdinalIgnoreCase)
+    {
+        ["museum"] = 0.82d,
+        ["hospitality"] = 0.94d,
+        ["airport"] = 1.0d,
+        ["mall"] = 1.04d,
+        ["observatory"] = 1.34d,
+        ["sanatorium"] = 1.34d,
+        ["hydroelectric"] = 1.34d
+    };
     private static readonly HashSet<string> SceneAnchorCategories =
     [
         "place",
@@ -679,8 +692,9 @@ public sealed class TextGeneratorService
         var pressureBoost = context.CalculatePressureBoost(template.Tags);
         var cadenceBoost = context.CalculateCadenceBoost(template);
         var manifoldBoost = context.CalculateDominantManifoldBoost(template.Tags);
+        var surfacingBoost = CalculateEarlyManifoldSurfacingBoost(template.Tags, context);
 
-        return baseWeight * inRangeBoost * closenessBoost * batchPenalty * recentPenalty * continuityBoost * pressureBoost * cadenceBoost * manifoldBoost;
+        return baseWeight * inRangeBoost * closenessBoost * batchPenalty * recentPenalty * continuityBoost * pressureBoost * cadenceBoost * manifoldBoost * surfacingBoost;
     }
 
     private double CalculateEntryWeight(
@@ -703,8 +717,9 @@ public sealed class TextGeneratorService
         var pressureBoost = context.CalculatePressureBoost(entry.Tags);
         var manifoldBoost = context.CalculateDominantManifoldBoost(entry.Tags);
         var slotManifoldBoost = CalculateSlotManifoldConsistencyBoost(entry, category, template, context, selectedValues);
+        var surfacingBoost = CalculateEarlyManifoldSurfacingBoost(entry.Tags, context);
 
-        return baseWeight * absurdityBoost * tagBoost * batchPenalty * recentPenalty * compatibilityBoost * continuityBoost * pressureBoost * manifoldBoost * slotManifoldBoost;
+        return baseWeight * absurdityBoost * tagBoost * batchPenalty * recentPenalty * compatibilityBoost * continuityBoost * pressureBoost * manifoldBoost * slotManifoldBoost * surfacingBoost;
     }
 
     private static double CalculateCompatibilityBoost(DictionaryEntry entry, IEnumerable<DictionaryEntry> selectedValues)
@@ -807,6 +822,35 @@ public sealed class TextGeneratorService
         return entry.Tags
             .Where(tag => StrongManifoldTags.Contains(tag))
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
+    }
+
+    private static double CalculateEarlyManifoldSurfacingBoost(IEnumerable<string> tags, GenerationContext context)
+    {
+        if (context.HasSettledStrongManifold())
+        {
+            return 1d;
+        }
+
+        var manifoldTags = tags
+            .Where(StrongManifoldTags.Contains)
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .ToList();
+
+        if (manifoldTags.Count == 0)
+        {
+            return 1d;
+        }
+
+        var boost = 1d;
+        foreach (var manifoldTag in manifoldTags)
+        {
+            if (EarlySurfacingBoostByManifold.TryGetValue(manifoldTag, out var manifoldBoost))
+            {
+                boost *= manifoldBoost;
+            }
+        }
+
+        return boost;
     }
 
     private double CalculateSlotManifoldConsistencyBoost(
@@ -1106,6 +1150,16 @@ public sealed class TextGeneratorService
                 .ThenBy(item => item.Key, StringComparer.OrdinalIgnoreCase)
                 .First()
                 .Key;
+        }
+
+        public bool HasSettledStrongManifold()
+        {
+            if (StrongManifoldCounts.Count == 0)
+            {
+                return false;
+            }
+
+            return StrongManifoldCounts.Values.Max() >= 2;
         }
     }
 }
