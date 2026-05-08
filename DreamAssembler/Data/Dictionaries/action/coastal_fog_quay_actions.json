@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "verify_by_quay_ledger",
+      "text": "сверить по причальной ведомости",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["coastal_fog", "paper", "procedural", "compat:quay_ledger"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "return_to_tide_bulletin",
+      "text": "вернуть к приливному бюллетеню",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["coastal_fog", "water", "service", "compat:tide_bulletin"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "carry_to_lighthouse_desk",
+      "text": "отнести к маячному столу",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["coastal_fog", "analog", "service", "compat:beacon_lens", "compat:portable"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "cover_from_wet_spray",
+      "text": "укрыть от мокрой взвеси",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["coastal_fog", "weather", "maintenance", "compat:rope_bundle", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "wait_until_beacon_finishes",
+      "text": "дождаться, пока договорит маяк",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["coastal_fog", "quiet", "surreal", "compat:beacon_notice"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "rewrite_for_next_docking",
+      "text": "переписать к следующей швартовке",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["coastal_fog", "time", "transport", "surreal", "compat:quay_ledger", "compat:tide_bulletin"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

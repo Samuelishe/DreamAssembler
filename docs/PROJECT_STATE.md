@@ -107,7 +107,8 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - `sanatorium` переведен во второй слой growth: добавлен еще один curated pack вокруг inhalation rooms, balcony regime, temperature sheets, blanket storage, aired mornings и service care before breakfast;
 - `hydroelectric` переведен во второй слой growth: добавлен еще один curated pack вокруг relay rooms, intake gates, lubrication routine, oil shift logs, flow orders и machine silence;
 - `weather_systems` переведен во второй слой growth: добавлен еще один curated pack вокруг pressure charts, barograph paper, dawn bulletins, calibration desks, delayed clear sky и bureaucratic meteorology;
-- validation на `0.6.8` подтверждает, что corpus вошел чисто: `DreamAssembler.DataTools` показывает `1182` entries без issues, а `dotnet test` проходит `43/43`;
+- `coastal_fog` переведен во второй слой growth: добавлен еще один curated pack вокруг quay ledgers, lighthouse routine, wet rope storage, tide bulletins, delayed docking clearance и harbor hush;
+- validation на `0.6.9` подтверждает, что corpus вошел чисто: `DreamAssembler.DataTools` показывает `1228` entries без issues, а `dotnet test` проходит `43/43`;
 - текущее числовое состояние manifolds теперь отдельно фиксируется в `docs/MANIFOLD_STATE.md`: это источник истины по pack-balance, relative corpus mass и тому, какие поля пора deepening-усиливать, а какие - сначала просто вытаскивать на поверхность чаще;
 - после runtime-среза на `0.6.2` стало ясно, что главный bottleneck сейчас уже не в structural correctness: `dotnet test` проходит полностью, а live generation страдает прежде всего от manifold surfacing imbalance, где `museum` и старые fields все еще слишком сильно доминируют над `observatory`, `sanatorium` и `hydroelectric`;
 - затем начат `manifold surfacing balance pass` в Core: новые non-urban fields (`observatory`, `sanatorium`, `hydroelectric`) включены в слой strong-manifold memory и получили ранний surfacing bias, чтобы чаще становиться anchor-field сцены, а не только слабым вторичным акцентом;
@@ -117,6 +118,7 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - sanatorium-field теперь тоже уже не просто thin first-wave manifold: дальше разумнее переводить в такой же second-wave статус `hydroelectric`, `weather_systems` и `coastal_fog`, а не возвращаться к endless polishing;
 - hydroelectric-field теперь тоже уже не просто thin first-wave manifold: дальше разумнее переводить в такой же second-wave статус `weather_systems` и `coastal_fog`, а не возвращаться к endless polishing;
 - weather-field теперь тоже уже не просто thin first-wave manifold: следующим естественным кандидатом на такой же second-wave статус остается `coastal_fog`;
+- coastal-fog field теперь тоже уже не просто thin first-wave manifold: текущая non-urban expansion wave закрыта до `early second-wave` по всем пяти новым spaces;
 - для `ShortText` введены композиционные роли шаблонов, чтобы снижать повторяемость одинаковых каркасных фраз;
 - часть `emotion`-данных разведена по более безопасным slot-подтипам;
 - `twist`, `concept` и `condition` разделены на более безопасные slot-подтипы;

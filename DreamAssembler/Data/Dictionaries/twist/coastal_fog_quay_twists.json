@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "quay_ledger_answers_him",
+      "text": "причальная ведомость отвечает ему раньше, чем он успевает свериться с ней",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["coastal_fog", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "beacon_notice_waits_for_him",
+      "text": "маячное извещение ждет его сомнение внимательнее диспетчера",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["coastal_fog", "analog", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "tide_bulletin_loses_night",
+      "text": "приливный бюллетень постепенно теряет все упоминания ночи",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["coastal_fog", "water", "time"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "quay_room_recalls_same_horn",
+      "text": "причальная комната снова вспоминает одну и ту же сирену",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["coastal_fog", "weather", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "ledgers_begin_to_dock_back",
+      "text": "ведомости начинают швартовать в ответ",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["coastal_fog", "transport", "bureaucracy", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

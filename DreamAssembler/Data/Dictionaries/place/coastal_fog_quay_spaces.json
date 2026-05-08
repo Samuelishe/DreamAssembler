@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "lighthouse_desk_before_shift_end",
+      "text": "маячном столе перед концом смены",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["coastal_fog", "analog", "night", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "cabinet_of_tide_bulletins",
+      "text": "кабинете приливных бюллетеней",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["coastal_fog", "water", "paper", "procedural"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "wet_rope_storage",
+      "text": "складе мокрых канатов",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["coastal_fog", "water", "quiet", "service"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "gallery_of_quay_ledgers",
+      "text": "галерее причальных ведомостей",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["coastal_fog", "paper", "transport", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "room_where_tide_waited_for_permission",
+      "text": "комнате, где прилив ждал разрешения тише клерков,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["coastal_fog", "water", "surreal", "bureaucracy"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "corridor_where_beacons_had_not_been_released",
+      "text": "коридоре, где маяки еще не выпустили по журналу,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["coastal_fog", "analog", "surreal", "time"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

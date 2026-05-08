@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "condition_bulletins_already_sorted_by_tide",
+      "text": "бюллетени уже были разложены по приливу, хотя ночь еще не считалась законченной",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["coastal_fog", "water", "procedural"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "condition_ledgers_stayed_damp",
+      "text": "ведомости оставались влажнее самих рук",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["coastal_fog", "paper", "surreal"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_ropes_remembered_shore",
+      "text": "канаты помнили берег внимательнее распоряжений",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["coastal_fog", "memory", "water"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_harbor_spoke_in_service_tone",
+      "text": "порт говорил почти служебным тоном",
+      "category": "condition",
+      "slot": "condition_clause",
+      "tags": ["coastal_fog", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "condition_tide_waited_for_stamp",
+      "text": "прилив как будто ждал штампа перед продолжением",
+      "category": "condition",
+      "slot": "condition_clause",
+      "tags": ["coastal_fog", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "condition_beacons_arrived_too_carefully",
+      "text": "маяки включались слишком осторожно, будто боялись разбудить манифесты",
+      "category": "condition",
+      "slot": "condition_clause",
+      "tags": ["coastal_fog", "analog", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

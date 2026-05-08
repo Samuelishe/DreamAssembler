@@ -16,7 +16,7 @@
 
 ## Snapshot
 
-Состояние на `data-manifest.json = 0.6.8`.
+Состояние на `data-manifest.json = 0.6.9`.
 
 ### Core Manifolds
 
@@ -35,7 +35,7 @@
 | `sanatorium` | 16 | 92 | action, atmosphere, character, concept, condition, object, place, twist | early second-wave | следующий шаг не срочный surfacing, а выборочный ecology growth позже |
 | `hydroelectric` | 16 | 92 | action, atmosphere, character, concept, condition, object, place, twist | early second-wave | следующий шаг не срочный surfacing, а выборочный ecology growth позже |
 | `weather_systems` | 16 | 92 | action, atmosphere, character, concept, condition, object, place, twist | early second-wave | следующий шаг не срочный surfacing, а выборочный ecology growth позже |
-| `coastal_fog` | 8 | 46 | action, atmosphere, character, concept, condition, object, place, twist | first-wave complete | нужно усиливать surfacing и затем second pack |
+| `coastal_fog` | 16 | 92 | action, atmosphere, character, concept, condition, object, place, twist | early second-wave | следующий шаг не срочный surfacing, а выборочный ecology growth позже |
 
 ## Balance Reading
 
@@ -48,7 +48,7 @@
 - `sanatorium` тоже уже вышел из thin first-wave состояния: `92` entries и `16` sets.
 - `hydroelectric` тоже уже вышел из thin first-wave состояния: `92` entries и `16` sets.
 - `weather_systems` тоже уже вышел из thin first-wave состояния: `92` entries и `16` sets.
-- `coastal_fog` пока остается thin: `46` entries и `8` sets.
+- `coastal_fog` тоже уже вышел из thin first-wave состояния: `92` entries и `16` sets.
 - `procedural weather systems` входит в ту же first-wave группу: `46` entries и `8` sets.
 - `coastal fog logistics` входит в ту же first-wave группу: `46` entries и `8` sets.
 
@@ -116,6 +116,20 @@
 Комментарий:
 `mall` structurally complete, но по ощущению и по corpus-mass это still thinner second-wave, чем `hospitality`.
 
+### `coastal_fog`
+
+- action: 12
+- atmosphere: 10
+- character: 12
+- concept: 12
+- condition: 12
+- object: 12
+- place: 12
+- twist: 10
+
+Комментарий:
+`coastal_fog` уже получил второй слой вокруг quay ledgers, lighthouse routine, wet rope storage, tide bulletins и harbor hush.
+
 ### `weather_systems`
 
 - action: 12
@@ -178,7 +192,8 @@
 
 1. не расширять дальше `museum` просто потому, что он и так хорошо звучит;
 2. не считать новые manifolds "слабыми" до surfacing-pass;
-3. `observatory`, `sanatorium`, `hydroelectric` и `weather_systems` уже переведены в early second-wave состояние, поэтому следующий second-pack логичнее делать для `coastal_fog`;
+3. текущая non-urban expansion wave уже целиком переведена в early second-wave состояние;
+4. следующий growth-step логичнее выбирать либо как third pack для strongest new field, либо как открытие следующего нового manifold;
 4. отдельно держать в уме, что `mall` остается кандидатом на очередной deepening-pass раньше, чем `airport` или `hospitality`;
 5. после каждого new second-wave шага снова проверять не только counts, но и реальное surfacing в `Sentence` и `ShortText`.
 

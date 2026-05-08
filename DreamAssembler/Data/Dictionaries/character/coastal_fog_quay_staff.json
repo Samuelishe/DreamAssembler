@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "keeper_of_quay_ledgers",
+      "text": "хранитель причальных ведомостей",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["coastal_fog", "paper", "service", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "attendant_of_lighthouse_shift",
+      "text": "дежурный маячной смены",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["coastal_fog", "night", "analog", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "registrar_of_tide_bulletins",
+      "text": "регистратор приливных бюллетеней",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["coastal_fog", "water", "bureaucracy", "paper"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "assistant_of_delayed_docking_clearance",
+      "text": "ассистент отложенного допуска к швартовке",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["coastal_fog", "time", "transport", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "listener_of_wet_ropes",
+      "text": "слушатель мокрых канатов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["coastal_fog", "water", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "curator_of_unreleased_beacons",
+      "text": "куратор невыпущенных маяков",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["coastal_fog", "analog", "memory", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

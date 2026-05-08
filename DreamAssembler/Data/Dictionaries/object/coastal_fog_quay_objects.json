@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "quay_ledger_with_salt_marks",
+      "text": "причальную ведомость с солеными отметками",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["coastal_fog", "paper", "transport", "compat:quay_ledger"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "folded_tide_bulletin",
+      "text": "сложенный приливный бюллетень",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["coastal_fog", "water", "paper", "compat:tide_bulletin", "compat:portable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "wrapped_beacon_lens",
+      "text": "завернутую линзу маяка",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["coastal_fog", "analog", "quiet", "compat:beacon_lens", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "rope_bundle_with_sea_water",
+      "text": "связку канатов с морской водой",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["coastal_fog", "water", "maintenance", "compat:rope_bundle", "compat:protectable", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "laminated_beacon_notice",
+      "text": "ламинированное маячное извещение",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["coastal_fog", "weather", "bureaucracy", "compat:beacon_notice", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "drawer_of_unreleased_dockings",
+      "text": "ящик невыпущенных швартовок",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["coastal_fog", "archive", "surreal", "compat:hideable", "compat:portable"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

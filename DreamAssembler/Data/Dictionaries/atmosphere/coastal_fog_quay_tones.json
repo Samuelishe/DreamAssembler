@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "atmosphere_before_tide_bulletin",
+      "text": "как перед бюллетенем, который сначала нужно подтвердить по ведомости",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["coastal_fog", "paper", "procedural"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_quay_hush",
+      "text": "как в причальной тишине, где вода старается не шуметь громче сирен",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["coastal_fog", "water", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_after_beacon_mark",
+      "text": "как после маячной отметки, которой так и не дали высохнуть вовремя",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["coastal_fog", "analog", "night"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_wet_storage_hush",
+      "text": "как в мокром складе, где тишина ведет себя почти по инструкции",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["coastal_fog", "service", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_unreleased_docking",
+      "text": "как рядом со швартовкой, которую все еще держат в служебной папке",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["coastal_fog", "bureaucracy", "memory"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

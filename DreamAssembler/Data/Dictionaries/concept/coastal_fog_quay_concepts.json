@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "concept_regime_of_tide_delay",
+      "text": "режим приливной задержки",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["coastal_fog", "water", "time"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "concept_service_patience_of_beacons",
+      "text": "служебное терпение маяков",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["coastal_fog", "analog", "service"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "concept_memory_of_wet_ropes",
+      "text": "память мокрых канатов",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["coastal_fog", "memory", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_docking_not_yet_allowed",
+      "text": "история о швартовке, которую еще не разрешили по ведомости",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["coastal_fog", "time", "bureaucracy"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_beacons_and_ledgers",
+      "text": "история о маяках и ведомостях, доверявших друг другу больше людей",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["coastal_fog", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "story_about_corridor_of_unfinished_tide",
+      "text": "история о коридоре, где прилив так и не решился закончить смену",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["coastal_fog", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}
