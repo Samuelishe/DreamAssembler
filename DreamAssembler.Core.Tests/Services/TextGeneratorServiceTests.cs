@@ -1068,6 +1068,75 @@ public sealed class TextGeneratorServiceTests
         Assert.StartsWith("Позже выяснилось", sentences[1], StringComparison.Ordinal);
     }
 
+    /// <summary>
+    /// Проверяет, что short-text удерживает opening manifold хотя бы на следующей фразе развития.
+    /// </summary>
+    [Fact]
+    public void Generate_ShortText_RetainsOpeningObservatoryManifold_InDevelopmentSentence()
+    {
+        var templates = new List<TemplateDefinition>
+        {
+            new()
+            {
+                Id = "scene",
+                Text = "Сначала в {place} {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["place", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in",
+                    ["condition"] = "condition_initial_state"
+                },
+                CompositionRole = "scene",
+                Weight = 1.0
+            },
+            new()
+            {
+                Id = "development",
+                Text = "Потом оказалось, что в {place} {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["place", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in",
+                    ["condition"] = "condition_reveal_state"
+                },
+                CompositionRole = "development",
+                Weight = 1.0
+            }
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new() { Id = "observatory_open_place", Category = "place", Slot = "place_in", Text = "холодном наблюдательном куполе", Tags = ["observatory"], Weight = 1.0 },
+            new() { Id = "observatory_open_condition", Category = "condition", Slot = "condition_initial_state", Text = "измерения начались еще до того, как кто-либо окончательно проснулся", Tags = ["observatory"], Weight = 1.0 },
+            new() { Id = "museum_development_place", Category = "place", Slot = "place_in", Text = "закрытом крыле музея", Tags = ["museum"], Weight = 1.8 },
+            new() { Id = "observatory_development_place", Category = "place", Slot = "place_in", Text = "башне погодных измерений", Tags = ["observatory"], Weight = 1.0 },
+            new() { Id = "museum_reveal", Category = "condition", Slot = "condition_reveal_state", Text = "подписи как будто чего-то недоговаривали", Tags = ["museum"], Weight = 1.8 },
+            new() { Id = "observatory_reveal", Category = "condition", Slot = "condition_reveal_state", Text = "тетради помнили небо терпеливее людей", Tags = ["observatory"], Weight = 1.0 }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            templates,
+            [],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(0));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.ShortText,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 1
+        });
+
+        var item = Assert.Single(result);
+        Assert.Contains("в холодном наблюдательном куполе", item.Text, StringComparison.Ordinal);
+        Assert.Contains("в башне погодных измерений тетради помнили небо терпеливее людей", item.Text, StringComparison.Ordinal);
+        Assert.Equal("observatory", item.AtmosphereKey);
+    }
+
     private static TextGeneratorService CreateService()
     {
         var random = new Random(12345);

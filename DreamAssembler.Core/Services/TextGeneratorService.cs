@@ -228,7 +228,8 @@ public sealed class TextGeneratorService
                 index,
                 sentenceCount);
 
-            builder.Append(RenderTemplate(template, (int)options.AbsurdityLevel, context));
+            var preferOpeningAnchor = index == 0 && IsRoleIn(GetCompositionRole(template), OpeningRoles);
+            builder.Append(RenderTemplate(template, (int)options.AbsurdityLevel, context, preferOpeningAnchor, index));
 
             previousRole = GetCompositionRole(template);
             IncrementRoleUsage(roleUsageCounts, previousRole);
@@ -270,13 +271,18 @@ public sealed class TextGeneratorService
         return _selector.Select(candidates, item => CalculateTemplateWeight(item, targetAbsurdity, context));
     }
 
-    private string RenderTemplate(TemplateDefinition template, int targetAbsurdity, GenerationContext context)
+    private string RenderTemplate(
+        TemplateDefinition template,
+        int targetAbsurdity,
+        GenerationContext context,
+        bool preferOpeningAnchor = false,
+        int shortTextSentenceIndex = -1)
     {
         var values = new Dictionary<string, DictionaryEntry>(StringComparer.OrdinalIgnoreCase);
 
         foreach (var category in template.RequiredCategories)
         {
-            var entry = SelectEntry(category, template, targetAbsurdity, context, values);
+            var entry = SelectEntry(category, template, targetAbsurdity, context, values, preferOpeningAnchor, shortTextSentenceIndex);
             values[category] = entry;
         }
 
@@ -614,7 +620,9 @@ public sealed class TextGeneratorService
         TemplateDefinition template,
         int targetAbsurdity,
         GenerationContext context,
-        IReadOnlyDictionary<string, DictionaryEntry> selectedValues)
+        IReadOnlyDictionary<string, DictionaryEntry> selectedValues,
+        bool preferOpeningAnchor = false,
+        int shortTextSentenceIndex = -1)
     {
         template.SlotRequirements.TryGetValue(category, out var requiredSlot);
 
@@ -632,7 +640,7 @@ public sealed class TextGeneratorService
             throw new InvalidOperationException($"Не найдены словарные записи для категории '{category}'{slotSuffix}.");
         }
 
-        var selectedEntry = _selector.Select(candidates, item => CalculateEntryWeight(item, category, template, targetAbsurdity, context, selectedValues));
+        var selectedEntry = _selector.Select(candidates, item => CalculateEntryWeight(item, category, template, targetAbsurdity, context, selectedValues, preferOpeningAnchor, shortTextSentenceIndex));
         RememberEntry(selectedEntry, context);
         return selectedEntry;
     }
@@ -703,7 +711,9 @@ public sealed class TextGeneratorService
         TemplateDefinition template,
         int targetAbsurdity,
         GenerationContext context,
-        IReadOnlyDictionary<string, DictionaryEntry> selectedValues)
+        IReadOnlyDictionary<string, DictionaryEntry> selectedValues,
+        bool preferOpeningAnchor = false,
+        int shortTextSentenceIndex = -1)
     {
         var baseWeight = Math.Max(0.1d, entry.Weight);
         var absurdityDistance = Math.Abs(entry.Absurdity - targetAbsurdity);
@@ -718,8 +728,10 @@ public sealed class TextGeneratorService
         var manifoldBoost = context.CalculateDominantManifoldBoost(entry.Tags);
         var slotManifoldBoost = CalculateSlotManifoldConsistencyBoost(entry, category, template, context, selectedValues);
         var surfacingBoost = CalculateEarlyManifoldSurfacingBoost(entry.Tags, context);
+        var openingAnchorBoost = CalculateOpeningAnchorBoost(entry.Tags, category, context, preferOpeningAnchor);
+        var shortTextRetentionBoost = CalculateShortTextRetentionBoost(entry.Tags, category, context, shortTextSentenceIndex);
 
-        return baseWeight * absurdityBoost * tagBoost * batchPenalty * recentPenalty * compatibilityBoost * continuityBoost * pressureBoost * manifoldBoost * slotManifoldBoost * surfacingBoost;
+        return baseWeight * absurdityBoost * tagBoost * batchPenalty * recentPenalty * compatibilityBoost * continuityBoost * pressureBoost * manifoldBoost * slotManifoldBoost * surfacingBoost * openingAnchorBoost * shortTextRetentionBoost;
     }
 
     private static double CalculateCompatibilityBoost(DictionaryEntry entry, IEnumerable<DictionaryEntry> selectedValues)
@@ -853,6 +865,78 @@ public sealed class TextGeneratorService
         return boost;
     }
 
+    private static double CalculateOpeningAnchorBoost(
+        IEnumerable<string> tags,
+        string category,
+        GenerationContext context,
+        bool preferOpeningAnchor)
+    {
+        if (!preferOpeningAnchor || context.HasSettledStrongManifold() || !SceneAnchorCategories.Contains(category))
+        {
+            return 1d;
+        }
+
+        var manifoldTags = tags
+            .Where(StrongManifoldTags.Contains)
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .ToList();
+
+        if (manifoldTags.Count == 0)
+        {
+            return 0.88d;
+        }
+
+        var boost = 1d;
+        foreach (var manifoldTag in manifoldTags)
+        {
+            if (!EarlySurfacingBoostByManifold.TryGetValue(manifoldTag, out var manifoldBoost))
+            {
+                continue;
+            }
+
+            boost *= manifoldBoost >= 1d
+                ? 1d + ((manifoldBoost - 1d) * 1.35d)
+                : Math.Max(0.7d, 1d - ((1d - manifoldBoost) * 1.2d));
+        }
+
+        return boost;
+    }
+
+    private static double CalculateShortTextRetentionBoost(
+        IEnumerable<string> tags,
+        string category,
+        GenerationContext context,
+        int shortTextSentenceIndex)
+    {
+        if (shortTextSentenceIndex < 1 || shortTextSentenceIndex > 2 || !SceneAnchorCategories.Contains(category))
+        {
+            return 1d;
+        }
+
+        var openingStrongManifold = context.GetOpeningStrongManifold();
+        if (string.IsNullOrWhiteSpace(openingStrongManifold))
+        {
+            return 1d;
+        }
+
+        var manifoldTags = tags
+            .Where(StrongManifoldTags.Contains)
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .ToList();
+
+        if (manifoldTags.Count == 0)
+        {
+            return 0.9d;
+        }
+
+        if (manifoldTags.Contains(openingStrongManifold, StringComparer.OrdinalIgnoreCase))
+        {
+            return shortTextSentenceIndex == 1 ? 1.7d : 1.45d;
+        }
+
+        return shortTextSentenceIndex == 1 ? 0.3d : 0.48d;
+    }
+
     private double CalculateSlotManifoldConsistencyBoost(
         DictionaryEntry entry,
         string category,
@@ -962,6 +1046,7 @@ public sealed class TextGeneratorService
         private Dictionary<string, int> PressureTagCounts { get; } = new(StringComparer.OrdinalIgnoreCase);
         private Dictionary<string, int> StrongManifoldCounts { get; } = new(StringComparer.OrdinalIgnoreCase);
         private Dictionary<string, int> CadenceCounts { get; } = new(StringComparer.OrdinalIgnoreCase);
+        private string? OpeningStrongManifold { get; set; }
         private string? PreviousCadence { get; set; }
 
         public bool IsEntryUsed(string category, string entryId)
@@ -991,6 +1076,7 @@ public sealed class TextGeneratorService
                 {
                     StrongManifoldCounts.TryGetValue(tag, out var manifoldCount);
                     StrongManifoldCounts[tag] = manifoldCount + 1;
+                    OpeningStrongManifold ??= tag;
                 }
 
                 if (!AtmosphericPressureTags.Contains(tag))
@@ -1160,6 +1246,11 @@ public sealed class TextGeneratorService
             }
 
             return StrongManifoldCounts.Values.Max() >= 2;
+        }
+
+        public string? GetOpeningStrongManifold()
+        {
+            return OpeningStrongManifold;
         }
     }
 }

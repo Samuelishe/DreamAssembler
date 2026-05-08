@@ -102,6 +102,7 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - текущее числовое состояние manifolds теперь отдельно фиксируется в `docs/MANIFOLD_STATE.md`: это источник истины по pack-balance, relative corpus mass и тому, какие поля пора deepening-усиливать, а какие - сначала просто вытаскивать на поверхность чаще;
 - после runtime-среза на `0.6.2` стало ясно, что главный bottleneck сейчас уже не в structural correctness: `dotnet test` проходит полностью, а live generation страдает прежде всего от manifold surfacing imbalance, где `museum` и старые fields все еще слишком сильно доминируют над `observatory`, `sanatorium` и `hydroelectric`;
 - затем начат `manifold surfacing balance pass` в Core: новые non-urban fields (`observatory`, `sanatorium`, `hydroelectric`) включены в слой strong-manifold memory и получили ранний surfacing bias, чтобы чаще становиться anchor-field сцены, а не только слабым вторичным акцентом;
+- после этого добавлен `ShortText` mid-flow retention layer: opening manifold теперь мягко удерживается и на следующих фразах композиции, так что новые non-urban поля уже могут не только стартовать текст, но и дольше оставаться его dominant local field;
 - для `ShortText` введены композиционные роли шаблонов, чтобы снижать повторяемость одинаковых каркасных фраз;
 - часть `emotion`-данных разведена по более безопасным slot-подтипам;
 - `twist`, `concept` и `condition` разделены на более безопасные slot-подтипы;
