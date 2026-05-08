@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "atmosphere_before_reference_light",
+      "text": "как перед светом, который сначала нужно подтвердить по журналу",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["observatory", "paper", "procedural"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_corridor_of_slow_motors",
+      "text": "как в коридоре, где механизмы стараются не шуметь громче записей",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["observatory", "service", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_after_signal_rewind",
+      "text": "как после перемотки сигнала, которому так и не дали опоздать",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["observatory", "analog", "night"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_false_dawn_room",
+      "text": "как в комнате ложного рассвета, где тишина ведет себя почти по инструкции",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["observatory", "time", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_auxiliary_mirror_patience",
+      "text": "как рядом со вспомогательным зеркалом, привыкшим ждать подтверждения дольше людей",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["observatory", "memory", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "mirror_calibration_sheet",
+      "text": "лист калибровки зеркала",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["observatory", "paper", "procedural", "compat:calibration_sheet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "coil_of_distant_signal",
+      "text": "катушку дальнего сигнала",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["observatory", "analog", "quiet", "compat:signal_reel", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "cover_for_morning_lens",
+      "text": "чехол утренней линзы",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["observatory", "night", "quiet", "compat:dawn_cover", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "box_of_reference_plates",
+      "text": "ящик опорных пластин",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["observatory", "archive", "memory", "compat:portable", "compat:hideable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "sealed_case_for_auxiliary_mirror",
+      "text": "опечатанный футляр вспомогательного зеркала",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["observatory", "procedural", "quiet", "compat:mirror_case", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "panel_of_delayed_readings",
+      "text": "панель отложенных показаний",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["observatory", "procedural", "surreal", "compat:maintenance_panel"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

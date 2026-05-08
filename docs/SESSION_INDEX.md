@@ -67,16 +67,18 @@ DreamAssembler нельзя воспринимать как:
 - dead shopping malls / abandoned commerce / fluorescent afterhours - уже second-wave manifold;
 - impossible museums / echo exhibits / ceremonial curation - уже second-wave manifold;
 - recursive hospitality / nocturnal hotels / ceremonial check-in - уже second-wave manifold.
-- observatory loneliness - уже complete first-wave manifold;
+- observatory loneliness - уже early second-wave manifold;
 - sanatorium bureaucracy - уже complete first-wave manifold;
 - hydroelectric infrastructure - уже complete first-wave manifold.
+- procedural weather systems - уже complete first-wave manifold;
+- coastal fog logistics - уже complete first-wave manifold.
 
 Если нужно быстро понять баланс growth, не гадать по памяти, а смотреть `docs/MANIFOLD_STATE.md`, затем уже подтверждать числа через `DreamAssembler.DataTools` и `data-manifest.json`.
 
 Текущее состояние корпуса на конец этой сессии:
 
-- `data-manifest.json`: `0.6.2`
-- corpus: `906` entries
+- `data-manifest.json`: `0.6.5`
+- corpus: `1044` entries
 - базовый workflow контроля: `DreamAssembler.DataTools` + `samples`
 
 ## Главные направления

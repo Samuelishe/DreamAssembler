@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "condition_auxiliary_mirrors_already_waiting",
+      "text": "вспомогательные зеркала уже ждали своей очереди к свету",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["observatory", "procedural", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "condition_shift_continued_without_morning",
+      "text": "смена продолжалась так, будто утро еще не согласовали",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["observatory", "time", "bureaucracy"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_reference_light_shook_slightly",
+      "text": "эталонный свет вздрагивал осторожнее самих рук",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["observatory", "sterile_light", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_motors_held_their_breath",
+      "text": "приводы словно задерживали дыхание перед следующим поворотом",
+      "category": "condition",
+      "slot": "condition_clause",
+      "tags": ["observatory", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "condition_signal_arrived_too_politely",
+      "text": "сигнал пришел так вежливо, будто боялся разбудить записи",
+      "category": "condition",
+      "slot": "condition_clause",
+      "tags": ["observatory", "analog", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "condition_calibration_sheets_remembered_yesterday",
+      "text": "листы калибровки помнили вчерашнее небо лучше людей",
+      "category": "condition",
+      "slot": "condition_clause",
+      "tags": ["observatory", "paper", "memory"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

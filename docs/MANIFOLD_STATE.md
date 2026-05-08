@@ -16,7 +16,7 @@
 
 ## Snapshot
 
-Состояние на `data-manifest.json = 0.6.4`.
+Состояние на `data-manifest.json = 0.6.5`.
 
 ### Core Manifolds
 
@@ -31,7 +31,7 @@
 
 | manifold | sets | entries | categories | status | priority |
 |---|---:|---:|---|---|---|
-| `observatory` | 8 | 46 | action, atmosphere, character, concept, condition, object, place, twist | first-wave complete | нужно усиливать surfacing и затем second pack |
+| `observatory` | 16 | 92 | action, atmosphere, character, concept, condition, object, place, twist | early second-wave | следующий шаг не срочный surfacing, а выборочный ecology growth позже |
 | `sanatorium` | 8 | 46 | action, atmosphere, character, concept, condition, object, place, twist | first-wave complete | нужно усиливать surfacing и затем second pack |
 | `hydroelectric` | 8 | 46 | action, atmosphere, character, concept, condition, object, place, twist | first-wave complete | нужно усиливать surfacing и затем second pack |
 | `weather_systems` | 8 | 46 | action, atmosphere, character, concept, condition, object, place, twist | first-wave complete | нужно усиливать surfacing и затем second pack |
@@ -44,7 +44,8 @@
 - `museum` сейчас самый тяжелый manifold в corpus: `161` tagged entries и `22` sets;
 - `hospitality` уже догнал плотное mature-state;
 - `airport` и `mall` остаются рабочими second-wave полями;
-- `observatory`, `sanatorium` и `hydroelectric` пока симметрично thin: по `46` entries и `8` sets каждое.
+- `observatory` уже вышел из thin first-wave состояния: `92` entries и `16` sets.
+- `sanatorium`, `hydroelectric`, `weather_systems` и `coastal_fog` пока остаются симметрично thin: по `46` entries и `8` sets каждое.
 - `procedural weather systems` входит в ту же first-wave группу: `46` entries и `8` sets.
 - `coastal fog logistics` входит в ту же first-wave группу: `46` entries и `8` sets.
 
@@ -114,17 +115,17 @@
 
 ### `observatory`
 
-- action: 6
-- atmosphere: 5
-- character: 6
-- concept: 6
-- condition: 6
-- object: 6
-- place: 6
-- twist: 5
+- action: 12
+- atmosphere: 10
+- character: 12
+- concept: 12
+- condition: 12
+- object: 12
+- place: 12
+- twist: 10
 
 Комментарий:
-поле уже собрано как complete first-wave manifold, но пока слишком тонкое для заметного surfacing без дополнительной balance-work.
+`observatory` уже перестал быть просто first-wave sketch и получил второй слой вокруг calibration, signal bureaucracy, auxiliary mirrors и false-dawn procedure.
 
 ### `sanatorium`
 
@@ -160,13 +161,13 @@
 
 1. не расширять дальше `museum` просто потому, что он и так хорошо звучит;
 2. не считать новые manifolds "слабыми" до surfacing-pass;
-3. сначала поднять surfacing visibility для `observatory`, `sanatorium`, `hydroelectric`;
-4. затем выбрать, какой из них первым переводить из `first-wave complete` в `second-wave`;
-5. отдельно держать в уме, что `mall` остается кандидатом на очередной deepening-pass раньше, чем `airport` или `hospitality`.
+3. `observatory` уже переведен в early second-wave состояние, поэтому следующий second-pack логичнее выбирать между `sanatorium`, `hydroelectric`, `weather_systems` и `coastal_fog`;
+4. отдельно держать в уме, что `mall` остается кандидатом на очередной deepening-pass раньше, чем `airport` или `hospitality`;
+5. после каждого new second-wave шага снова проверять не только counts, но и реальное surfacing в `Sentence` и `ShortText`.
 
 ## Runtime Observations
 
-Срез по live generation после `0.6.4`:
+Срез по live generation после `0.6.5`:
 
 - `dotnet test DreamAssembler.Core.Tests/DreamAssembler.Core.Tests.csproj` проходит: `43/43`;
 - structural breakage сейчас не является главным bottleneck;

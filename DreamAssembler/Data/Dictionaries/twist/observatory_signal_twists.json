@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "reference_light_answers_him",
+      "text": "эталонный свет отвечает ему раньше, чем он успевает свериться с листом",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["observatory", "sterile_light", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "coil_of_signal_waits_for_him",
+      "text": "катушка сигнала ждет его осторожнее, чем ночное расписание",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["observatory", "analog", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "morning_loses_calibration_notes",
+      "text": "утро постепенно теряет все калибровочные пометки, сделанные для него ночью",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["observatory", "time", "paper"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "motors_remember_same_turn",
+      "text": "приводы снова вспоминают тот же поворот, как будто смена не умеет закончиться",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["observatory", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "calibration_notes_begin_to_observe",
+      "text": "калибровочные записи начинают смотреть в ответ",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["observatory", "procedural", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

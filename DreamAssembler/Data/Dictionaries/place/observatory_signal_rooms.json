@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "calibration_room_before_morning",
+      "text": "калибровочной комнате перед утром",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["observatory", "procedural", "night", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "room_of_auxiliary_mirrors",
+      "text": "комнате вспомогательных зеркал",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["observatory", "sterile_light", "quiet", "procedural"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "corridor_of_slow_motors",
+      "text": "коридоре медленных приводов",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["observatory", "service", "night", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "cabinet_of_reference_light",
+      "text": "кабинете эталонного света",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["observatory", "sterile_light", "procedural", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "room_where_reels_waited_for_signal",
+      "text": "комнате, где катушки ждали сигнала терпеливее дежурных,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["observatory", "analog", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "hallway_where_dawn_had_not_signed_in",
+      "text": "коридоре, где рассвет еще не расписался за смену,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["observatory", "bureaucracy", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "mirror_alignment_registrar",
+      "text": "регистратор выравнивания зеркал",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["observatory", "procedural", "paper", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "assistant_of_false_dawn",
+      "text": "ассистент ложного рассвета",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["observatory", "time", "night", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "keeper_of_reference_stars",
+      "text": "хранитель опорных звезд",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["observatory", "archive", "procedural", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "technician_of_slow_transmissions",
+      "text": "техник медленных передач",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["observatory", "analog", "night", "procedural"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "corridor_listener_of_motors",
+      "text": "слушатель коридорных приводов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["observatory", "quiet", "surreal", "service"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "curator_of_unconfirmed_mornings",
+      "text": "куратор неподтвержденных утр",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["observatory", "time", "surreal", "memory"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

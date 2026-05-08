@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "verify_against_scale",
+      "text": "сверить по шкале",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["observatory", "procedural", "paper", "compat:calibration_sheet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "rewind_before_dawn",
+      "text": "перемотать до рассвета",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["observatory", "analog", "night", "compat:signal_reel"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "seal_until_morning",
+      "text": "запечатать до утра",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["observatory", "quiet", "procedural", "compat:dawn_cover", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "shift_closer_to_window",
+      "text": "переставить ближе к окну",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["observatory", "quiet", "night", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "wait_until_noise_calms",
+      "text": "дождаться, пока стихнет",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["observatory", "quiet", "surreal", "compat:maintenance_panel", "compat:dome_mechanism"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "hold_against_reference_light",
+      "text": "поднести к эталонному свету",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["observatory", "sterile_light", "surreal", "compat:calibration_sheet", "compat:mirror_case"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}
