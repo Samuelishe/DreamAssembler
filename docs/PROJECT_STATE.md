@@ -4,6 +4,8 @@
 
 Проект находится на рабочем MVP-этапе с уже выраженной tonal identity.
 
+При этом проект уже вышел из фазы, где главным bottleneck были gross defects, broken UI feel или полностью случайная выдача. Следующий зрелый этап - сместить фокус с базового polish и простого corpus growth в сторону atmospheric continuity, temporal rhythm, manifold depth и dream-flow.
+
 DreamAssembler - это не utility app, не dashboard и не "генератор бреда". Текущее ядро проекта ближе к atmospheric reading/generation tool: это rule-based система, которая собирает короткие русскоязычные фрагменты с controlled weirdness, emotional texture и curated surrealism.
 
 Его направление:
@@ -172,6 +174,16 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 
 Главное: проект уже умеет давать не только странность, но и настроение.
 
+Теперь узкое место постепенно находится в другом:
+
+- narrative cadence все еще слишком часто звучит одинаково;
+- progression фраз в серии слишком linear;
+- отдельные outputs временами ощущаются как isolated fragments без hidden continuity;
+- symbolic resonance и motif resurfacing пока слишком слабы;
+- внутри batch еще не хватает мягкого emotional drift;
+- зрелые manifolds уже требуют не только расширения словаря, но и углубления собственной emotional ecology;
+- lexical modes уже нельзя считать вторичным режимом: они становятся отдельным atmospheric instrument и требуют такого же внимания к continuity и resonance.
+
 ## Philosophy Of Generation Quality
 
 Качество генерации в DreamAssembler измеряется не только правильностью.
@@ -337,47 +349,33 @@ Typography здесь не decoration, а часть generation experience:
 
 DreamAssembler должен развиваться ближе к atmospheric software artifact, procedural dream instrument и quiet surreal reading environment, чем к storytelling engine.
 
+Следующая стадия зрелости должна дать еще и другое ощущение: не просто генерацию отдельных удачных фрагментов, а пространство, в котором фразы эмоционально дрейфуют, перекликаются и иногда помнят друг друга.
+
 ## Что проверить при следующем шаге
 
-- не нужен ли еще один очень короткий semantic-pass по live output, если утренняя выборка снова покажет локальные пустые action/object связки;
-- если gross-defects больше не всплывают, возвращаться к expansion, а не оставаться в cleanup-loop;
-- следующий expansion-шаг выбирать по силе нового atmospheric space, а не по случайной привлекательности темы;
-- после следующего expansion обязательно снова снимать `DreamAssembler.DataTools -- samples` для `Sentence / Idea / ShortText`;
-- насколько reader-first ощущается текущее окно на реальном чтении;
-- достаточно ли тихо ведут себя hover-only действия на карточках и не падает ли discoverability;
-- нужен ли для коротких словесных режимов более радикальный phrase-centered layout;
-- не стоит ли следующими шагами ослабить верхний заголовок и мета-информацию в lexical modes еще сильнее;
-- достаточно ли удачен новый spotlight-паттерн, или список истории стоит дальше отделять от выбранного фрагмента;
-- не слишком ли стандартно и enterprise-clean ощущаются оставшиеся controls;
-- какие dropdowns, buttons и surfaces еще слишком WPF-like и визуально агрессивны;
-- достаточно ли много воздуха остается вокруг коротких фрагментов;
-- не спорят ли cards и borders с текстом как главным объектом окна;
-- действительно ли все встроенные шрифты визуально различимы на реальном рендере WPF и разных DPI;
-- достаточно ли мягко ощущаются новые micro-transitions и не выглядят ли они декоративными ради декоративности;
-- не стоит ли позже уводить историю lexical-фрагментов в более компактный rail или strip вместо обычного вертикального списка;
-- достаточно ли нынешнего lexical-фильтра, или пора переходить от blacklist-подхода к curated thematic subsets для словесных режимов;
-- достаточно ли первого curated lexical layer, или пора делить его на несколько atmosphere-clusters вместо одного общего предпочтительного поля;
-- достаточно ли текущих трех lexical clusters, или нужно расширять их не количеством, а точностью и плотностью мотивов;
-- не оттягивают ли боковая панель и статусные блоки слишком много внимания;
-- какие реальные шаблоны и словари лучше всего удерживают quiet surrealism;
-- где еще остаются семантически слабые сочетания между `action`, `object`, `place`, `condition` и `concept`;
-- какие `ShortText`-каркасы звучат слишком служебно и повторяемо;
-- где еще появляются low-image или low-density фразы;
-- какие словарные формы в словесных режимах слишком абстрактны, книжны или техничны;
-- какие места и состояния лучше всего задают tonal identity проекта;
-- насколько текущие темы и шрифты реально помогают чтению, а не просто меняют внешний вид;
-- где нужна мягкая атмосферная фильтрация вместо новой сложной логики.
+- удерживает ли серия outputs хотя бы слабую atmosphere continuity, а не распадается на удачные, но atomized fragments;
+- какие motifs стоит разрешить к very soft resurfacing внутри batch: объекты, служебные знаки, инфраструктурные детали, procedural artifacts;
+- какие template classes слишком часто дают одинаковую длину дыхания и одинаковый emotional pacing;
+- какие rhythm-формы нужно усиливать в первую очередь: `announcement`, `inventory`, `procedural note`, `quiet instruction`, `museum label`, `interrupted memory`, `static observation`, `delayed revelation`;
+- появляются ли внутри `ShortText` и серий мягкие emotional echoes, или каждое предложение живет слишком отдельно;
+- какой слой atmospheric gravity уже можно ввести без перехода к rigid mode-system;
+- какие manifolds готовы не к еще одному random pack, а к углублению собственной emotional ecology;
+- какой existing manifold логичнее выбрать для следующего deepening-pass: `museum`, `mall`, `hospitality` или `airport`;
+- какой новый manifold лучше открыть следующим, если смотреть не на тему, а на distinct emotional pressure;
+- достаточно ли lexical modes удерживают batch coherence, spotlight resonance и phrase-centered reading flow;
+- не пора ли добавлять session-level fragment resurfacing, remembered fragments или atmospheric trails как very soft continuity layer;
+- после каждого rhythm/continuity/manifold-pass обязательно снова снимать `DreamAssembler.DataTools -- samples` и смотреть уже не только на defects, но и на drift, cadence и recurrence.
 
 ## Следующие рекомендуемые шаги
 
-1. Чистить и тематически уплотнять datasets раньше, чем наращивать новые режимы или мелкий UI-polish.
-2. Развивать semantic coherence мягкими весами, тегами и curated-поднаборами, особенно для lexical modes.
-3. Продолжать крупное curated-расширение JSON-словарей для `Sentence`, `Idea` и `ShortText`, а не ограничиваться только словесными CSV-режимами.
-4. Дорабатывать narrative rhythm в `ShortText`.
-5. Дальше усиливать atmospheric presentation только там, где оно реально меняет чтение, а не просто внешний вид.
-6. Постепенно вводить atmospheric layers и atmosphere tags поверх текущей системы.
-7. Продолжать anti-generic filtering для словарей и шаблонов.
-8. Оставить морфологические улучшения как поздний, опциональный слой.
+1. Ввести `rhythm diversification pass` в templates: не просто новые каркасы, а новые способы дыхания текста и разные cadence classes.
+2. Добавить very soft layer для `atmospheric continuity`: motif resurfacing, symbolic recurrence, emotional echoes, weak fragment memory.
+3. Ввести мягкий `dominant emotional pressure` для batch или короткой серии, не превращая его в жесткий режим или жанровый переключатель.
+4. Растить существующие manifolds как emotional ecologies: ritual behavior, maintenance logic, service patterns, institutional memory, recurring anxieties.
+5. Открывать новые manifolds не по теме, а по distinct atmospheric pressure и internal dream-logic, особенно в non-urban / infra-near-nature направлении.
+6. Усиливать lexical modes как отдельный atmospheric instrument: batch coherence, spotlight continuity, fragment trails, isolated resonance.
+7. Дальше развивать atmospheric presentation только там, где оно реально поддерживает drift-reading experience.
+8. Оставить morphology, heavy systems и architecture expansion в отложенном статусе.
 
 ## Технические ограничения текущей версии
 

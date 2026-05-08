@@ -148,6 +148,53 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что обычная batch-генерация получает мягкое atmospheric-притяжение к уже возникшему полю.
+    /// </summary>
+    [Fact]
+    public void Generate_PrefersRecurringAtmosphericField_AcrossSentenceBatch()
+    {
+        var template = new TemplateDefinition
+        {
+            Id = "continuity_sentence_object",
+            Text = "{object}.",
+            Mode = GenerationMode.Sentence,
+            RequiredCategories = ["object"],
+            SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["object"] = "object_direct"
+            },
+            Weight = 1.0
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new() { Id = "archive_key", Category = "object", Slot = "object_direct", Text = "ключ", Tags = ["archive"], Weight = 1.0 },
+            new() { Id = "archive_token", Category = "object", Slot = "object_direct", Text = "жетон", Tags = ["archive"], Weight = 1.0 },
+            new() { Id = "archive_card", Category = "object", Slot = "object_direct", Text = "карточку", Tags = ["archive"], Weight = 1.0 },
+            new() { Id = "fluorescent_sign", Category = "object", Slot = "object_direct", Text = "вывеску", Tags = ["fluorescent"], Weight = 0.9 },
+            new() { Id = "fluorescent_glass", Category = "object", Slot = "object_direct", Text = "стекло", Tags = ["fluorescent"], Weight = 0.9 }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            [template],
+            [],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.Sentence,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 3
+        });
+
+        Assert.Equal(3, result.Count);
+        Assert.All(result, item => Assert.Equal("archive", item.AtmosphereKey));
+    }
+
+    /// <summary>
     /// Проверяет, что генератор использует slot-требования шаблона.
     /// </summary>
     [Fact]

@@ -23,6 +23,36 @@ public sealed class TextGeneratorService
         "mall",
         "hospitality"
     ];
+    private static readonly HashSet<string> GenericContinuityTags =
+    [
+        "story",
+        "scene",
+        "mood",
+        "concept",
+        "tone",
+        "daily",
+        "comic",
+        "rule",
+        "character"
+    ];
+    private static readonly HashSet<string> AtmosphericPressureTags =
+    [
+        "quiet",
+        "archive",
+        "rainy",
+        "night",
+        "transport",
+        "transit",
+        "bureaucracy",
+        "fluorescent",
+        "ritual",
+        "service",
+        "procedural",
+        "sterile_light",
+        "anxious",
+        "melancholic",
+        "commerce_decay"
+    ];
 
     private readonly IReadOnlyList<DictionaryEntry> _dictionaryEntries;
     private readonly IReadOnlyList<TemplateDefinition> _templates;
@@ -91,7 +121,7 @@ public sealed class TextGeneratorService
                 Mode = options.Mode,
                 AbsurdityLevel = options.AbsurdityLevel,
                 CreatedAt = DateTimeOffset.Now,
-                AtmosphereKey = lexicalClusterKey
+                AtmosphereKey = lexicalClusterKey ?? context.GetDominantAtmosphereKey()
             });
         }
 
@@ -632,8 +662,10 @@ public sealed class TextGeneratorService
         var closenessBoost = Math.Max(0.3d, 1.4d - (distance * 0.3d));
         var batchPenalty = context.UsedTemplateIds.Contains(template.Id) ? 0.18d : 1d;
         var recentPenalty = _recentTemplateIds.Contains(template.Id) ? 0.45d : 1d;
+        var continuityBoost = context.CalculateContinuityBoost(template.Tags);
+        var pressureBoost = context.CalculatePressureBoost(template.Tags);
 
-        return baseWeight * inRangeBoost * closenessBoost * batchPenalty * recentPenalty;
+        return baseWeight * inRangeBoost * closenessBoost * batchPenalty * recentPenalty * continuityBoost * pressureBoost;
     }
 
     private double CalculateEntryWeight(
@@ -651,8 +683,10 @@ public sealed class TextGeneratorService
         var batchPenalty = context.IsEntryUsed(entry.Category, entry.Id) ? 0.22d : 1d;
         var recentPenalty = IsRecentlyUsed(entry.Category, entry.Id) ? 0.5d : 1d;
         var compatibilityBoost = CalculateCompatibilityBoost(entry, selectedValues.Values);
+        var continuityBoost = context.CalculateContinuityBoost(entry.Tags);
+        var pressureBoost = context.CalculatePressureBoost(entry.Tags);
 
-        return baseWeight * absurdityBoost * tagBoost * batchPenalty * recentPenalty * compatibilityBoost;
+        return baseWeight * absurdityBoost * tagBoost * batchPenalty * recentPenalty * compatibilityBoost * continuityBoost * pressureBoost;
     }
 
     private static double CalculateCompatibilityBoost(DictionaryEntry entry, IEnumerable<DictionaryEntry> selectedValues)
@@ -766,6 +800,7 @@ public sealed class TextGeneratorService
     private void RememberEntry(DictionaryEntry entry, GenerationContext context)
     {
         context.MarkEntryAsUsed(entry.Category, entry.Id);
+        context.RememberTags(entry.Tags);
 
         if (!_recentEntryIdsByCategory.TryGetValue(entry.Category, out var queue))
         {
@@ -790,11 +825,21 @@ public sealed class TextGeneratorService
         }
     }
 
+    private static bool IsContinuityTag(string tag)
+    {
+        return !string.IsNullOrWhiteSpace(tag)
+               && !tag.StartsWith("compat:", StringComparison.OrdinalIgnoreCase)
+               && !tag.StartsWith("cluster:", StringComparison.OrdinalIgnoreCase)
+               && !GenericContinuityTags.Contains(tag);
+    }
+
     private sealed class GenerationContext
     {
         public HashSet<string> UsedTemplateIds { get; } = new(StringComparer.OrdinalIgnoreCase);
 
         private Dictionary<string, HashSet<string>> UsedEntryIdsByCategory { get; } = new(StringComparer.OrdinalIgnoreCase);
+        private Dictionary<string, int> TagCounts { get; } = new(StringComparer.OrdinalIgnoreCase);
+        private Dictionary<string, int> PressureTagCounts { get; } = new(StringComparer.OrdinalIgnoreCase);
 
         public bool IsEntryUsed(string category, string entryId)
         {
@@ -810,6 +855,84 @@ public sealed class TextGeneratorService
             }
 
             entries.Add(entryId);
+        }
+
+        public void RememberTags(IEnumerable<string> tags)
+        {
+            foreach (var tag in tags.Where(IsContinuityTag).Distinct(StringComparer.OrdinalIgnoreCase))
+            {
+                TagCounts.TryGetValue(tag, out var count);
+                TagCounts[tag] = count + 1;
+
+                if (!AtmosphericPressureTags.Contains(tag))
+                {
+                    continue;
+                }
+
+                PressureTagCounts.TryGetValue(tag, out var pressureCount);
+                PressureTagCounts[tag] = pressureCount + 1;
+            }
+        }
+
+        public double CalculateContinuityBoost(IEnumerable<string> tags)
+        {
+            if (TagCounts.Count == 0)
+            {
+                return 1d;
+            }
+
+            var resonance = tags
+                .Where(IsContinuityTag)
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .Sum(tag => TagCounts.TryGetValue(tag, out var count)
+                    ? Math.Min(0.28d * count, 0.84d)
+                    : 0d);
+
+            return 1d + Math.Min(0.9d, resonance);
+        }
+
+        public double CalculatePressureBoost(IEnumerable<string> tags)
+        {
+            if (PressureTagCounts.Count == 0)
+            {
+                return 1d;
+            }
+
+            var dominantPressure = PressureTagCounts
+                .OrderByDescending(item => item.Value)
+                .ThenBy(item => item.Key, StringComparer.OrdinalIgnoreCase)
+                .First();
+
+            var pressureTags = tags
+                .Where(AtmosphericPressureTags.Contains)
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .ToList();
+
+            if (pressureTags.Count == 0)
+            {
+                return 1d;
+            }
+
+            if (pressureTags.Contains(dominantPressure.Key, StringComparer.OrdinalIgnoreCase))
+            {
+                return 1.4d + Math.Min(0.18d, (dominantPressure.Value - 1) * 0.06d);
+            }
+
+            return 0.72d;
+        }
+
+        public string? GetDominantAtmosphereKey()
+        {
+            if (PressureTagCounts.Count == 0)
+            {
+                return null;
+            }
+
+            return PressureTagCounts
+                .OrderByDescending(item => item.Value)
+                .ThenBy(item => item.Key, StringComparer.OrdinalIgnoreCase)
+                .First()
+                .Key;
         }
     }
 }

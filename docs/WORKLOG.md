@@ -272,3 +272,6 @@
 - версия из `DreamAssembler.csproj` корректно видна в `About`.
 - пользователь реально видит разницу между несколькими светлыми и темными темами без правки кода.
 - переключение шрифта чтения реально меняет вид карточек, а не уходит в системный fallback из-за неверного имени шрифта.
+- после сверки нового этапа проекта зафиксирован phase-shift: основным bottleneck теперь считаются не gross defects и не базовый UI polish, а rhythm sameness, isolated fragment-feel, слабая atmospheric continuity, недостаток symbolic recurrence, emotional drift и manifold depth;
+- `PROJECT_STATE`, `ROADMAP`, `IDEAS_BACKLOG` и `ARCHITECTURE` синхронизированы под новую фазу развития: приоритет официально смещен к `atmospheric continuity`, `rhythm diversification`, `manifold cultivation`, `dream-flow` и усилению lexical modes как отдельного atmospheric instrument;
+- в roadmap зафиксировано, что следующий продуктовый рост должен идти не через feature explosion или architecture expansion, а через cadence classes, soft continuity layer, dominant emotional pressure, manifold ecology growth и curated non-urban manifold expansion;
