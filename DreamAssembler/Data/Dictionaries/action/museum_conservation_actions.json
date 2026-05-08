@@ -2,16 +2,16 @@
   "entries": [
     {
       "id": "check_humidity_log",
-      "text": "проверить журнал влажности",
+      "text": "проверить",
       "category": "action",
       "slot": "action_infinitive",
-      "tags": ["museum", "service", "procedural", "compat:searchable", "compat:rewriteable"],
+      "tags": ["museum", "service", "procedural", "compat:humidity_record"],
       "absurdity": 0,
       "weight": 0.8
     },
     {
       "id": "cover_from_morning_light",
-      "text": "укрыть от утреннего света",
+      "text": "укрыть от света",
       "category": "action",
       "slot": "action_infinitive",
       "tags": ["museum", "quiet", "compat:protectable", "compat:hideable"],
@@ -23,31 +23,31 @@
       "text": "отметить для повторной консервации",
       "category": "action",
       "slot": "action_infinitive",
-      "tags": ["museum", "service", "paper", "compat:rewriteable", "compat:searchable"],
+      "tags": ["museum", "service", "paper", "compat:reconditioning_mark"],
       "absurdity": 0,
       "weight": 0.8
     },
     {
       "id": "compare_with_storage_card",
-      "text": "сверить с карточкой хранения",
+      "text": "сверить",
       "category": "action",
       "slot": "action_infinitive",
-      "tags": ["museum", "archive", "paper", "compat:searchable", "compat:rewriteable"],
+      "tags": ["museum", "archive", "paper", "compat:storage_reference"],
       "absurdity": 0,
       "weight": 0.8
     },
     {
       "id": "listen_before_unpacking",
-      "text": "прислушаться перед распаковкой",
+      "text": "распаковать осторожно",
       "category": "action",
       "slot": "action_infinitive",
-      "tags": ["museum", "quiet", "surreal", "compat:openable", "compat:protectable"],
+      "tags": ["museum", "quiet", "surreal", "compat:unpackable", "compat:openable", "compat:protectable"],
       "absurdity": 2,
       "weight": 0.6
     },
     {
       "id": "return_to_quiet_storage",
-      "text": "вернуть в тихое хранилище",
+      "text": "вернуть в хранилище",
       "category": "action",
       "slot": "action_infinitive",
       "tags": ["museum", "archive", "quiet", "compat:portable", "compat:hideable", "compat:protectable"],

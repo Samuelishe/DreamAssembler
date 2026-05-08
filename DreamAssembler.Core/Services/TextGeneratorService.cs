@@ -670,8 +670,9 @@ public sealed class TextGeneratorService
         var continuityBoost = context.CalculateContinuityBoost(template.Tags);
         var pressureBoost = context.CalculatePressureBoost(template.Tags);
         var cadenceBoost = context.CalculateCadenceBoost(template);
+        var manifoldBoost = context.CalculateDominantManifoldBoost(template.Tags);
 
-        return baseWeight * inRangeBoost * closenessBoost * batchPenalty * recentPenalty * continuityBoost * pressureBoost * cadenceBoost;
+        return baseWeight * inRangeBoost * closenessBoost * batchPenalty * recentPenalty * continuityBoost * pressureBoost * cadenceBoost * manifoldBoost;
     }
 
     private double CalculateEntryWeight(
@@ -691,8 +692,9 @@ public sealed class TextGeneratorService
         var compatibilityBoost = CalculateCompatibilityBoost(entry, selectedValues.Values);
         var continuityBoost = context.CalculateContinuityBoost(entry.Tags);
         var pressureBoost = context.CalculatePressureBoost(entry.Tags);
+        var manifoldBoost = context.CalculateDominantManifoldBoost(entry.Tags);
 
-        return baseWeight * absurdityBoost * tagBoost * batchPenalty * recentPenalty * compatibilityBoost * continuityBoost * pressureBoost;
+        return baseWeight * absurdityBoost * tagBoost * batchPenalty * recentPenalty * compatibilityBoost * continuityBoost * pressureBoost * manifoldBoost;
     }
 
     private static double CalculateCompatibilityBoost(DictionaryEntry entry, IEnumerable<DictionaryEntry> selectedValues)
@@ -847,6 +849,7 @@ public sealed class TextGeneratorService
         private Dictionary<string, HashSet<string>> UsedEntryIdsByCategory { get; } = new(StringComparer.OrdinalIgnoreCase);
         private Dictionary<string, int> TagCounts { get; } = new(StringComparer.OrdinalIgnoreCase);
         private Dictionary<string, int> PressureTagCounts { get; } = new(StringComparer.OrdinalIgnoreCase);
+        private Dictionary<string, int> StrongManifoldCounts { get; } = new(StringComparer.OrdinalIgnoreCase);
         private Dictionary<string, int> CadenceCounts { get; } = new(StringComparer.OrdinalIgnoreCase);
         private string? PreviousCadence { get; set; }
 
@@ -872,6 +875,12 @@ public sealed class TextGeneratorService
             {
                 TagCounts.TryGetValue(tag, out var count);
                 TagCounts[tag] = count + 1;
+
+                if (StrongManifoldTags.Contains(tag))
+                {
+                    StrongManifoldCounts.TryGetValue(tag, out var manifoldCount);
+                    StrongManifoldCounts[tag] = manifoldCount + 1;
+                }
 
                 if (!AtmosphericPressureTags.Contains(tag))
                 {
@@ -930,6 +939,36 @@ public sealed class TextGeneratorService
             return 0.72d;
         }
 
+        public double CalculateDominantManifoldBoost(IEnumerable<string> tags)
+        {
+            if (StrongManifoldCounts.Count == 0)
+            {
+                return 1d;
+            }
+
+            var dominantManifold = StrongManifoldCounts
+                .OrderByDescending(item => item.Value)
+                .ThenBy(item => item.Key, StringComparer.OrdinalIgnoreCase)
+                .First();
+
+            var entryManifolds = tags
+                .Where(StrongManifoldTags.Contains)
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .ToList();
+
+            if (entryManifolds.Count == 0)
+            {
+                return 1d;
+            }
+
+            if (entryManifolds.Contains(dominantManifold.Key, StringComparer.OrdinalIgnoreCase))
+            {
+                return 1.55d + Math.Min(0.2d, (dominantManifold.Value - 1) * 0.05d);
+            }
+
+            return 0.52d;
+        }
+
         public void RememberCadence(string cadence)
         {
             if (string.IsNullOrWhiteSpace(cadence) || string.Equals(cadence, "default", StringComparison.OrdinalIgnoreCase))
@@ -970,6 +1009,15 @@ public sealed class TextGeneratorService
 
         public string? GetDominantAtmosphereKey()
         {
+            if (StrongManifoldCounts.Count > 0)
+            {
+                return StrongManifoldCounts
+                    .OrderByDescending(item => item.Value)
+                    .ThenBy(item => item.Key, StringComparer.OrdinalIgnoreCase)
+                    .First()
+                    .Key;
+            }
+
             if (PressureTagCounts.Count == 0)
             {
                 return null;

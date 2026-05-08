@@ -256,6 +256,53 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что после появления dominant manifold batch тянется к нему сильнее, чем к другому strong manifold.
+    /// </summary>
+    [Fact]
+    public void Generate_PrefersDominantManifold_AcrossSentenceBatch()
+    {
+        var template = new TemplateDefinition
+        {
+            Id = "manifold_bias_sentence_object",
+            Text = "{object}.",
+            Mode = GenerationMode.Sentence,
+            RequiredCategories = ["object"],
+            SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["object"] = "object_direct"
+            },
+            Weight = 1.0
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new() { Id = "museum_card", Category = "object", Slot = "object_direct", Text = "каталожную карточку", Tags = ["museum", "paper"], Weight = 1.0 },
+            new() { Id = "museum_cover", Category = "object", Slot = "object_direct", Text = "ночной чехол экспоната", Tags = ["museum", "quiet"], Weight = 1.0 },
+            new() { Id = "museum_key", Category = "object", Slot = "object_direct", Text = "ключ от зала без посетителей", Tags = ["museum", "memory"], Weight = 1.0 },
+            new() { Id = "airport_tag", Category = "object", Slot = "object_direct", Text = "багажную бирку", Tags = ["airport", "transit"], Weight = 1.0 },
+            new() { Id = "airport_ticket", Category = "object", Slot = "object_direct", Text = "посадочный талон", Tags = ["airport", "night"], Weight = 1.0 }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            [template],
+            [],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.Sentence,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 3
+        });
+
+        Assert.Equal(3, result.Count);
+        Assert.All(result, item => Assert.Equal("museum", item.AtmosphereKey));
+    }
+
+    /// <summary>
     /// Проверяет, что генератор использует slot-требования шаблона.
     /// </summary>
     [Fact]

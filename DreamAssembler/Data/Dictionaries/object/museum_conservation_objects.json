@@ -5,7 +5,7 @@
       "text": "лист контроля влажности",
       "category": "object",
       "slot": "object_direct",
-      "tags": ["museum", "paper", "procedural", "compat:portable", "compat:searchable", "compat:rewriteable"],
+      "tags": ["museum", "paper", "procedural", "compat:portable", "compat:humidity_record"],
       "absurdity": 0,
       "weight": 0.8
     },
@@ -14,7 +14,7 @@
       "text": "опечатанный конверт с журналом влажности",
       "category": "object",
       "slot": "object_direct",
-      "tags": ["museum", "paper", "archive", "compat:portable", "compat:hideable", "compat:openable"],
+      "tags": ["museum", "paper", "archive", "compat:portable", "compat:hideable", "compat:openable", "compat:unpackable", "compat:storage_reference"],
       "absurdity": 0,
       "weight": 0.8
     },
@@ -41,7 +41,7 @@
       "text": "ящик отложенных подписей",
       "category": "object",
       "slot": "object_direct",
-      "tags": ["museum", "paper", "quiet", "compat:portable", "compat:hideable", "compat:searchable"],
+      "tags": ["museum", "paper", "quiet", "compat:portable", "compat:hideable", "compat:storage_reference"],
       "absurdity": 1,
       "weight": 0.7
     },
@@ -50,7 +50,7 @@
       "text": "угол рамы с памятью о снятой картине",
       "category": "object",
       "slot": "object_direct",
-      "tags": ["museum", "memory", "surreal", "compat:protectable", "compat:hideable"],
+      "tags": ["museum", "memory", "surreal", "compat:protectable", "compat:hideable", "compat:reconditioning_mark"],
       "absurdity": 2,
       "weight": 0.6
     }
