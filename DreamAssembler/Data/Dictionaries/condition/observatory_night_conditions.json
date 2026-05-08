@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "condition_dome_waited_for_clear_sky",
+      "text": "купол ждал просвета дольше, чем это было нужно небу",
+      "category": "condition",
+      "slot": "condition_clause",
+      "tags": ["observatory", "weather", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "condition_red_lamps_refused_morning",
+      "text": "красные лампы вели себя так, будто утра не предусматривалось",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["observatory", "night", "sterile_light"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_notebooks_remembered_more_than_people",
+      "text": "тетради помнили небо терпеливее людей",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["observatory", "archive", "memory"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_measurements_started_before_dawn",
+      "text": "измерения начались еще до того, как кто-либо окончательно проснулся",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["observatory", "procedural", "night"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "condition_wind_spoke_in_service_tone",
+      "text": "ветер говорил почти служебным тоном",
+      "category": "condition",
+      "slot": "condition_clause",
+      "tags": ["observatory", "weather", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "condition_silence_adjusted_focus",
+      "text": "тишина сама подстраивала резкость",
+      "category": "condition",
+      "slot": "condition_clause",
+      "tags": ["observatory", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "atmosphere_after_midnight_measurement",
+      "text": "как после измерения, которое еще не решилось закончиться",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["observatory", "procedural", "night"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_red_lamp_hush",
+      "text": "как под красной лампой, где голоса становятся осторожнее записей",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["observatory", "quiet", "paper"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_distant_signal",
+      "text": "как рядом с сигналом, который шел слишком долго и все же не опоздал",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["observatory", "analog", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_weather_archive",
+      "text": "как в архиве погоды, которой кто-то по-прежнему доверяет",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["observatory", "archive", "weather"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_instrument_loneliness",
+      "text": "как среди приборов, давно привыкших наблюдать без свидетелей",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["observatory", "quiet", "memory"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

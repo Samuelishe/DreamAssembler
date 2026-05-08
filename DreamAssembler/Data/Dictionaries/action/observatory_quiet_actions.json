@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "adjust_star_chart",
+      "text": "просмотреть",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["observatory", "archive", "procedural", "compat:star_record"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "record_delay_of_light",
+      "text": "внести в журнал",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["observatory", "paper", "procedural", "compat:night_log"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "cover_sensitive_lens",
+      "text": "укрыть от рассвета",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["observatory", "quiet", "compat:lens_cover", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "rewind_analog_signal",
+      "text": "перемотать",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["observatory", "analog", "procedural", "compat:signal_strip"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "wait_for_dome_to_settle",
+      "text": "дождаться, пока успокоится",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["observatory", "quiet", "surreal", "compat:dome_mechanism"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "listen_before_noting",
+      "text": "прислушаться перед тем как записать",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["observatory", "quiet", "surreal", "compat:night_log", "compat:star_record"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

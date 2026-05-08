@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "concept_patience_of_measurements",
+      "text": "терпение измерений",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["observatory", "procedural", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "concept_archival_night_of_lenses",
+      "text": "архивная ночь линз",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["observatory", "archive", "night"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "concept_loneliness_of_instruments",
+      "text": "одиночество приборов, которым слишком редко объясняли рассвет",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["observatory", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "story_about_shift_without_morning",
+      "text": "история о смене, которой так и не выдали утро",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["observatory", "night", "bureaucracy"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_dome_that_listened",
+      "text": "история о куполе, который слушал внимательнее людей",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["observatory", "weather", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "story_about_notes_for_distant_light",
+      "text": "история о записях для света, пришедшего слишком издалека",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["observatory", "analog", "memory"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

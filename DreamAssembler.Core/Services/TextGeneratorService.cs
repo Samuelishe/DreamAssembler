@@ -23,6 +23,14 @@ public sealed class TextGeneratorService
         "mall",
         "hospitality"
     ];
+    private static readonly HashSet<string> SceneAnchorCategories =
+    [
+        "place",
+        "character",
+        "twist",
+        "atmosphere",
+        "condition"
+    ];
     private static readonly HashSet<string> GenericContinuityTags =
     [
         "story",
@@ -611,7 +619,7 @@ public sealed class TextGeneratorService
             throw new InvalidOperationException($"Не найдены словарные записи для категории '{category}'{slotSuffix}.");
         }
 
-        var selectedEntry = _selector.Select(candidates, item => CalculateEntryWeight(item, template, targetAbsurdity, context, selectedValues));
+        var selectedEntry = _selector.Select(candidates, item => CalculateEntryWeight(item, category, template, targetAbsurdity, context, selectedValues));
         RememberEntry(selectedEntry, context);
         return selectedEntry;
     }
@@ -677,6 +685,7 @@ public sealed class TextGeneratorService
 
     private double CalculateEntryWeight(
         DictionaryEntry entry,
+        string category,
         TemplateDefinition template,
         int targetAbsurdity,
         GenerationContext context,
@@ -693,8 +702,9 @@ public sealed class TextGeneratorService
         var continuityBoost = context.CalculateContinuityBoost(entry.Tags);
         var pressureBoost = context.CalculatePressureBoost(entry.Tags);
         var manifoldBoost = context.CalculateDominantManifoldBoost(entry.Tags);
+        var slotManifoldBoost = CalculateSlotManifoldConsistencyBoost(entry, category, template, context, selectedValues);
 
-        return baseWeight * absurdityBoost * tagBoost * batchPenalty * recentPenalty * compatibilityBoost * continuityBoost * pressureBoost * manifoldBoost;
+        return baseWeight * absurdityBoost * tagBoost * batchPenalty * recentPenalty * compatibilityBoost * continuityBoost * pressureBoost * manifoldBoost * slotManifoldBoost;
     }
 
     private static double CalculateCompatibilityBoost(DictionaryEntry entry, IEnumerable<DictionaryEntry> selectedValues)
@@ -797,6 +807,63 @@ public sealed class TextGeneratorService
         return entry.Tags
             .Where(tag => StrongManifoldTags.Contains(tag))
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
+    }
+
+    private double CalculateSlotManifoldConsistencyBoost(
+        DictionaryEntry entry,
+        string category,
+        TemplateDefinition template,
+        GenerationContext context,
+        IReadOnlyDictionary<string, DictionaryEntry> selectedValues)
+    {
+        var preferredManifolds = GetPreferredStrongManifolds(template, context, selectedValues);
+        if (preferredManifolds.Count == 0)
+        {
+            return 1d;
+        }
+
+        var entryManifolds = GetStrongManifoldTags(entry);
+        var isSceneAnchorCategory = SceneAnchorCategories.Contains(category);
+
+        if (entryManifolds.Count == 0)
+        {
+            return isSceneAnchorCategory ? 0.74d : 0.9d;
+        }
+
+        if (entryManifolds.Overlaps(preferredManifolds))
+        {
+            return isSceneAnchorCategory ? 1.62d : 1.25d;
+        }
+
+        return isSceneAnchorCategory ? 0.28d : 0.68d;
+    }
+
+    private static HashSet<string> GetPreferredStrongManifolds(
+        TemplateDefinition template,
+        GenerationContext context,
+        IReadOnlyDictionary<string, DictionaryEntry> selectedValues)
+    {
+        var preferredManifolds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+        foreach (var tag in template.Tags.Where(StrongManifoldTags.Contains))
+        {
+            preferredManifolds.Add(tag);
+        }
+
+        foreach (var tag in selectedValues.Values
+                     .SelectMany(value => value.Tags)
+                     .Where(StrongManifoldTags.Contains))
+        {
+            preferredManifolds.Add(tag);
+        }
+
+        var dominantStrongManifold = context.GetDominantStrongManifold();
+        if (!string.IsNullOrWhiteSpace(dominantStrongManifold))
+        {
+            preferredManifolds.Add(dominantStrongManifold);
+        }
+
+        return preferredManifolds;
     }
 
     private void RememberTemplate(TemplateDefinition template, GenerationContext context)
@@ -1009,13 +1076,10 @@ public sealed class TextGeneratorService
 
         public string? GetDominantAtmosphereKey()
         {
-            if (StrongManifoldCounts.Count > 0)
+            var dominantStrongManifold = GetDominantStrongManifold();
+            if (!string.IsNullOrWhiteSpace(dominantStrongManifold))
             {
-                return StrongManifoldCounts
-                    .OrderByDescending(item => item.Value)
-                    .ThenBy(item => item.Key, StringComparer.OrdinalIgnoreCase)
-                    .First()
-                    .Key;
+                return dominantStrongManifold;
             }
 
             if (PressureTagCounts.Count == 0)
@@ -1024,6 +1088,20 @@ public sealed class TextGeneratorService
             }
 
             return PressureTagCounts
+                .OrderByDescending(item => item.Value)
+                .ThenBy(item => item.Key, StringComparer.OrdinalIgnoreCase)
+                .First()
+                .Key;
+        }
+
+        public string? GetDominantStrongManifold()
+        {
+            if (StrongManifoldCounts.Count == 0)
+            {
+                return null;
+            }
+
+            return StrongManifoldCounts
                 .OrderByDescending(item => item.Value)
                 .ThenBy(item => item.Key, StringComparer.OrdinalIgnoreCase)
                 .First()

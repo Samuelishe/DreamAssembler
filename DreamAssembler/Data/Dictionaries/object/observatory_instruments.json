@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "star_observation_log",
+      "text": "журнал ночных наблюдений",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["observatory", "paper", "archive", "compat:night_log"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "annotated_star_chart",
+      "text": "звездную карту с карандашными поправками",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["observatory", "paper", "quiet", "compat:star_record"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "frosted_lens_cover",
+      "text": "запотевший чехол линзы",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["observatory", "quiet", "night", "compat:lens_cover", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "magnetic_signal_strip",
+      "text": "магнитную ленту с тихим сигналом",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["observatory", "analog", "night", "compat:signal_strip"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "half_open_dome_mechanism",
+      "text": "полуоткрытый механизм купола",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["observatory", "procedural", "quiet", "compat:dome_mechanism"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "box_of_unconfirmed_negatives",
+      "text": "коробку неподтвержденных негативов",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["observatory", "archive", "memory", "surreal", "compat:portable", "compat:hideable"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

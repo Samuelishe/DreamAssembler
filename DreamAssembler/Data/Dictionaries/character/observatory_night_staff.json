@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "night_dome_operator",
+      "text": "оператор ночного купола",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["observatory", "night", "procedural", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "keeper_of_cloud_logs",
+      "text": "хранитель журнала облачности",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["observatory", "archive", "weather", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "assistant_of_delayed_measurements",
+      "text": "ассистент отложенных измерений",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["observatory", "time", "procedural", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "weather_notebook_technician",
+      "text": "техник погодных тетрадей",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["observatory", "weather", "paper", "daily"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "curator_of_silent_lenses",
+      "text": "куратор молчащих линз",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["observatory", "quiet", "surreal", "night"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "listener_of_distant_transmissions",
+      "text": "слушатель далеких передач",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["observatory", "analog", "night", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

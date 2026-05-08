@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "cloud_log_answers_him",
+      "text": "журнал облачности отвечает ему раньше, чем он успевает открыть его",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["observatory", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "distant_signal_waits_for_him",
+      "text": "дальний сигнал ждет его сомнение точнее, чем расписание наблюдений",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["observatory", "analog", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "dome_recalls_same_wind",
+      "text": "купол снова вспоминает тот же ветер, как будто ночь не умеет менять страницу",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["observatory", "weather", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "star_chart_loses_morning_corrections",
+      "text": "звездная карта постепенно теряет все поправки, сделанные для утра",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["observatory", "time", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "measurements_begin_to_listen_back",
+      "text": "измерения начинают наблюдать в ответ",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["observatory", "procedural", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

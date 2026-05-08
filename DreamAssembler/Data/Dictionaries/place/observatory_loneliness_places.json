@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "cold_observation_dome",
+      "text": "холодном наблюдательном куполе",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["observatory", "night", "quiet", "procedural"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "tower_of_weather_measurements",
+      "text": "башне погодных измерений",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["observatory", "weather", "procedural", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "room_of_red_night_lamps",
+      "text": "комнате красных ночных ламп",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["observatory", "night", "sterile_light", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "archive_below_the_dome",
+      "text": "архиве под куполом",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["observatory", "archive", "memory", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "dome_where_gears_listen_to_wind",
+      "text": "куполе, где механизмы слушали ветер внимательнее астрономов,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["observatory", "weather", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "corridor_where_night_never_closed",
+      "text": "коридоре, где ночь так и не оформила конец смены,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["observatory", "night", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

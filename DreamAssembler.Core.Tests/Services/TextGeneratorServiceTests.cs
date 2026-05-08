@@ -518,6 +518,53 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что scene-anchor slot не уводит фразу в другой strong manifold после уже выбранного места.
+    /// </summary>
+    [Fact]
+    public void Generate_PrefersMatchingAnchorTwist_WhenPlaceAlreadyAnchorsManifold()
+    {
+        var template = new TemplateDefinition
+        {
+            Id = "anchor_manifold_consistency_test",
+            Text = "{place}. {twist}.",
+            Mode = GenerationMode.Sentence,
+            RequiredCategories = ["place", "twist"],
+            SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["place"] = "place_in",
+                ["twist"] = "twist_general_clause"
+            },
+            Weight = 1.0
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new() { Id = "museum_place", Category = "place", Slot = "place_in", Text = "в закрытом крыле музея", Tags = ["museum"], Weight = 1.0 },
+            new() { Id = "museum_twist", Category = "twist", Slot = "twist_general_clause", Text = "этикетки продолжали переписывать друг друга", Tags = ["museum"], Weight = 1.0 },
+            new() { Id = "airport_twist_heavy", Category = "twist", Slot = "twist_general_clause", Text = "диктор снова объявил посадку без пассажиров", Tags = ["airport"], Weight = 6.0 }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            [template],
+            [],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.Sentence,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 1
+        });
+
+        var text = Assert.Single(result).Text;
+        Assert.Contains("этикетки продолжали переписывать друг друга", text, StringComparison.Ordinal);
+        Assert.DoesNotContain("диктор снова объявил посадку без пассажиров", text, StringComparison.Ordinal);
+    }
+
+    /// <summary>
     /// Проверяет, что шаблон со сложным местом берет только clause-slot и сохраняет закрывающую запятую.
     /// </summary>
     [Fact]
