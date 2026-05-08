@@ -99,6 +99,8 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - открыт новый non-urban manifold `observatory loneliness` с отдельной ecology: night procedure, weather logging, analog signals, distant light, dome mechanics и instrument silence;
 - открыт новый manifold `sanatorium bureaucracy` с отдельной ecology: corridor rest, procedure cards, mineral-water routine, scheduled silence, recovery paperwork и institutional tenderness;
 - открыт новый manifold `hydroelectric infrastructure` с отдельной ecology: turbine halls, pressure logs, spillway routine, maintenance tides, reservoir monitoring и industrial water-memory;
+- текущее числовое состояние manifolds теперь отдельно фиксируется в `docs/MANIFOLD_STATE.md`: это источник истины по pack-balance, relative corpus mass и тому, какие поля пора deepening-усиливать, а какие - сначала просто вытаскивать на поверхность чаще;
+- после runtime-среза на `0.6.2` стало ясно, что главный bottleneck сейчас уже не в structural correctness: `dotnet test` проходит полностью, а live generation страдает прежде всего от manifold surfacing imbalance, где `museum` и старые fields все еще слишком сильно доминируют над `observatory`, `sanatorium` и `hydroelectric`;
 - для `ShortText` введены композиционные роли шаблонов, чтобы снижать повторяемость одинаковых каркасных фраз;
 - часть `emotion`-данных разведена по более безопасным slot-подтипам;
 - `twist`, `concept` и `condition` разделены на более безопасные slot-подтипы;

@@ -9,10 +9,11 @@
 3. `docs/IDEAS_BACKLOG.md` - зрелая карта направлений, рисков и запретов.
 4. `docs/ARCHITECTURE.md` - структура приложения и guidance по atmosphere architecture.
 5. `docs/ROADMAP.md` - актуальные продуктовые приоритеты.
-6. `docs/DICTIONARY_FORMAT.md` - если работа связана с данными.
-7. `docs/DATA_SOURCES.md` - если задача касается внешних словарей и их происхождения.
-8. `docs/VERSIONING.md` - если меняется приложение и нужно понять, как правильно повышать версию.
-9. `docs/WORKLOG.md` - только если нужен журнал изменений.
+6. `docs/MANIFOLD_STATE.md` - текущий баланс manifolds и приоритеты их роста.
+7. `docs/DICTIONARY_FORMAT.md` - если работа связана с данными.
+8. `docs/DATA_SOURCES.md` - если задача касается внешних словарей и их происхождения.
+9. `docs/VERSIONING.md` - если меняется приложение и нужно понять, как правильно повышать версию.
+10. `docs/WORKLOG.md` - только если нужен журнал изменений.
 
 ## Что нужно понять сразу
 
@@ -66,13 +67,16 @@ DreamAssembler нельзя воспринимать как:
 - dead shopping malls / abandoned commerce / fluorescent afterhours - уже second-wave manifold;
 - impossible museums / echo exhibits / ceremonial curation - уже second-wave manifold;
 - recursive hospitality / nocturnal hotels / ceremonial check-in - уже second-wave manifold.
+- observatory loneliness - уже complete first-wave manifold;
+- sanatorium bureaucracy - уже complete first-wave manifold;
+- hydroelectric infrastructure - уже complete first-wave manifold.
 
-Если нужно быстро понять баланс growth, не гадать по памяти, а запускать `DreamAssembler.DataTools` и смотреть pack-level stats из `data-manifest.json`.
+Если нужно быстро понять баланс growth, не гадать по памяти, а смотреть `docs/MANIFOLD_STATE.md`, затем уже подтверждать числа через `DreamAssembler.DataTools` и `data-manifest.json`.
 
 Текущее состояние корпуса на конец этой сессии:
 
-- `data-manifest.json`: `0.5.8`
-- corpus: `721` entries
+- `data-manifest.json`: `0.6.2`
+- corpus: `906` entries
 - базовый workflow контроля: `DreamAssembler.DataTools` + `samples`
 
 ## Главные направления
@@ -141,6 +145,7 @@ DreamAssembler нельзя воспринимать как:
 ## Где смотреть atmosphere / manifold guidance
 
 - `docs/PROJECT_STATE.md` - product identity, current strengths, current growth direction;
+- `docs/MANIFOLD_STATE.md` - фактический баланс manifolds, их зрелость и приоритеты роста;
 - `docs/ARCHITECTURE.md` - atmosphere architecture, soft coherence, manifolds как architectural growth model;
 - `docs/IDEAS_BACKLOG.md` - карта следующих manifolds, risky directions и dataset strategy;
 - `DreamAssembler/Data/data-manifest.json` + `DreamAssembler.DataTools` - фактический список уже подключенных packs.

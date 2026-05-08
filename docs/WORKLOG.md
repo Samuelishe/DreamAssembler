@@ -287,3 +287,5 @@
 - sanatorium-pack собран как procedural-rest ecology вокруг коридорного покоя, процедурных карт, питьевых комнат, служебной тишины и бумажной стороны восстановления;
 - открыт новый manifold `hydroelectric infrastructure` через полный data-pack: `character`, `action`, `object`, `place`, `condition`, `concept`, `atmosphere`, `twist`;
 - hydroelectric-pack собран как industrial-water ecology вокруг турбинных залов, журналов давления, водосбросов, запотевших панелей, техобслуживания и памяти водохранилища;
+- добавлен отдельный `docs/MANIFOLD_STATE.md` как источник истины по текущему pack-balance: в нем зафиксированы `sets`, `entries`, category coverage, зрелость manifolds и приоритеты роста для `airport`, `museum`, `mall`, `hospitality`, `observatory`, `sanatorium`, `hydroelectric`;
+- после отдельного runtime-среза на `0.6.2` подтверждено: `41/41` тестов проходят, gross structural breakage не всплывает, а главный текущий bottleneck смещен в `manifold surfacing imbalance`, где новые non-urban fields пока выходят в samples реже и слабее, чем зрелые museum-heavy сцены;
