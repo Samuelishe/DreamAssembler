@@ -7,7 +7,7 @@
       "slot": "character_subject",
       "tags": ["city", "quiet", "daily"],
       "absurdity": 0,
-      "weight": 1.2
+      "weight": 0.55
     },
     {
       "id": "night_cashier",
@@ -25,7 +25,7 @@
       "slot": "character_subject",
       "tags": ["city", "nostalgia", "daily"],
       "absurdity": 0,
-      "weight": 1.0
+      "weight": 0.45
     },
     {
       "id": "train_dispatcher",
@@ -43,8 +43,7 @@
       "slot": "character_subject",
       "tags": ["city", "story", "daily"],
       "absurdity": 1,
-      "weight": 0.9
+      "weight": 0.5
     }
   ]
 }
-

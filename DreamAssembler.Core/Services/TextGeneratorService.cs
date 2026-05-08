@@ -60,6 +60,20 @@ public sealed class TextGeneratorService
         "rule",
         "character"
     ];
+    private static readonly HashSet<string> FoundationTags =
+    [
+        "daily",
+        "city",
+        "transport",
+        "bureaucracy",
+        "archive",
+        "paper",
+        "story",
+        "provincial",
+        "repair",
+        "secret",
+        "home"
+    ];
     private static readonly HashSet<string> AtmosphericPressureTags =
     [
         "quiet",
@@ -636,6 +650,7 @@ public sealed class TextGeneratorService
                             || string.Equals(entry.Slot, requiredSlot, StringComparison.OrdinalIgnoreCase))
             .ToList();
 
+        candidates = FilterStrongManifoldSceneAnchorCandidates(category, candidates, template, context, selectedValues);
         candidates = FilterStrongActionObjectCandidates(category, candidates, selectedValues);
 
         if (candidates.Count == 0)
@@ -688,6 +703,40 @@ public sealed class TextGeneratorService
         return strongCandidates.Count > 0 ? strongCandidates : candidates;
     }
 
+    private static List<DictionaryEntry> FilterStrongManifoldSceneAnchorCandidates(
+        string category,
+        List<DictionaryEntry> candidates,
+        TemplateDefinition template,
+        GenerationContext context,
+        IReadOnlyDictionary<string, DictionaryEntry> selectedValues)
+    {
+        if (candidates.Count == 0 || !SceneAnchorCategories.Contains(category))
+        {
+            return candidates;
+        }
+
+        var strongCandidates = candidates
+            .Where(candidate => GetStrongManifoldTags(candidate).Count > 0)
+            .ToList();
+
+        if (strongCandidates.Count == 0)
+        {
+            return candidates;
+        }
+
+        var preferredManifolds = GetPreferredStrongManifolds(template, context, selectedValues);
+        if (preferredManifolds.Count == 0)
+        {
+            return strongCandidates;
+        }
+
+        var preferredStrongCandidates = strongCandidates
+            .Where(candidate => GetStrongManifoldTags(candidate).Overlaps(preferredManifolds))
+            .ToList();
+
+        return preferredStrongCandidates.Count > 0 ? preferredStrongCandidates : strongCandidates;
+    }
+
     private double CalculateTemplateWeight(TemplateDefinition template, int targetAbsurdity, GenerationContext context)
     {
         var baseWeight = Math.Max(0.1d, template.Weight);
@@ -732,10 +781,11 @@ public sealed class TextGeneratorService
         var manifoldBoost = context.CalculateDominantManifoldBoost(entry.Tags);
         var slotManifoldBoost = CalculateSlotManifoldConsistencyBoost(entry, category, template, context, selectedValues);
         var surfacingBoost = CalculateEarlyManifoldSurfacingBoost(entry.Tags, context);
+        var foundationSuppressionBoost = CalculateFoundationSuppressionBoost(entry.Tags, category, context);
         var openingAnchorBoost = CalculateOpeningAnchorBoost(entry.Tags, category, context, preferOpeningAnchor);
         var shortTextRetentionBoost = CalculateShortTextRetentionBoost(entry.Tags, category, context, shortTextSentenceIndex);
 
-        return baseWeight * absurdityBoost * tagBoost * batchPenalty * recentPenalty * compatibilityBoost * continuityBoost * pressureBoost * manifoldBoost * slotManifoldBoost * surfacingBoost * openingAnchorBoost * shortTextRetentionBoost;
+        return baseWeight * absurdityBoost * tagBoost * batchPenalty * recentPenalty * compatibilityBoost * continuityBoost * pressureBoost * manifoldBoost * slotManifoldBoost * surfacingBoost * foundationSuppressionBoost * openingAnchorBoost * shortTextRetentionBoost;
     }
 
     private static double CalculateCompatibilityBoost(DictionaryEntry entry, IEnumerable<DictionaryEntry> selectedValues)
@@ -867,6 +917,43 @@ public sealed class TextGeneratorService
         }
 
         return boost;
+    }
+
+    private static double CalculateFoundationSuppressionBoost(
+        IEnumerable<string> tags,
+        string category,
+        GenerationContext context)
+    {
+        var tagList = tags.Distinct(StringComparer.OrdinalIgnoreCase).ToList();
+        if (tagList.Count == 0)
+        {
+            return 1d;
+        }
+
+        var isSceneAnchorCategory = SceneAnchorCategories.Contains(category);
+        var hasStrongManifold = tagList.Any(StrongManifoldTags.Contains);
+        if (hasStrongManifold)
+        {
+            if (!context.HasSettledStrongManifold() && isSceneAnchorCategory)
+            {
+                return 1.5d;
+            }
+
+            return 1d;
+        }
+
+        var hasFoundationProfile = tagList.Any(FoundationTags.Contains);
+        if (!hasFoundationProfile)
+        {
+            return 1d;
+        }
+
+        if (context.HasSettledStrongManifold())
+        {
+            return isSceneAnchorCategory ? 0.18d : 0.34d;
+        }
+
+        return isSceneAnchorCategory ? 0.18d : 0.68d;
     }
 
     private static double CalculateOpeningAnchorBoost(

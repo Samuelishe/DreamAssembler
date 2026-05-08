@@ -303,6 +303,68 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что scene-anchor категория в одиночной фразе больше не отдает приоритет generic foundation-place
+    /// над strong-manifold place только из-за более высокого веса.
+    /// </summary>
+    [Fact]
+    public void Generate_PrefersStrongManifoldPlace_OverGenericFoundationPlace()
+    {
+        var template = new TemplateDefinition
+        {
+            Id = "place_anchor_sentence",
+            Text = "В {place} лампы молчали.",
+            Mode = GenerationMode.Sentence,
+            RequiredCategories = ["place"],
+            SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["place"] = "place_in"
+            },
+            Weight = 1.0
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new()
+            {
+                Id = "generic_place",
+                Category = "place",
+                Slot = "place_in",
+                Text = "комнате выдачи пропусков",
+                Tags = ["city", "daily", "bureaucracy"],
+                Weight = 1.7
+            },
+            new()
+            {
+                Id = "weather_place",
+                Category = "place",
+                Slot = "place_in",
+                Text = "комнате прогноза после полуночи",
+                Tags = ["weather_systems", "night", "procedural"],
+                Weight = 1.0
+            }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            [template],
+            [],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.Sentence,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 1
+        });
+
+        var item = Assert.Single(result);
+        Assert.Contains("в комнате прогноза после полуночи", item.Text, StringComparison.OrdinalIgnoreCase);
+        Assert.Equal("weather_systems", item.AtmosphereKey);
+    }
+
+    /// <summary>
     /// Проверяет, что генератор использует slot-требования шаблона.
     /// </summary>
     [Fact]

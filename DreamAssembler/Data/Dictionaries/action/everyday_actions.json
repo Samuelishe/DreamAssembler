@@ -34,7 +34,7 @@
       "slot": "action_infinitive",
       "tags": ["night", "daily", "compat:repairable"],
       "absurdity": 1,
-      "weight": 0.9
+      "weight": 0.6
     },
     {
       "id": "exchange_in_secret",
@@ -79,7 +79,7 @@
       "slot": "action_infinitive",
       "tags": ["daily", "story", "compat:exchangeable"],
       "absurdity": 1,
-      "weight": 0.8
+      "weight": 0.5
     },
     {
       "id": "carry_to_station",
@@ -88,7 +88,7 @@
       "slot": "action_infinitive",
       "tags": ["transport", "daily", "compat:portable"],
       "absurdity": 0,
-      "weight": 0.8
+      "weight": 0.55
     },
     {
       "id": "repair_in_silence",

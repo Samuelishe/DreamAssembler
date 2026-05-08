@@ -1,6 +1,6 @@
 {
   "id": "dreamassembler-base-ru",
-  "version": "0.6.9",
+  "version": "0.6.10",
   "description": "Базовый русскоязычный набор словарей, шаблонов и внешних лексиконов для DreamAssembler.",
   "dictionarySets": [
     "character/city_workers",

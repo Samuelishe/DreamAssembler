@@ -16,7 +16,7 @@
 
 ## Snapshot
 
-Состояние на `data-manifest.json = 0.6.9`.
+Состояние на `data-manifest.json = 0.6.10`.
 
 ### Core Manifolds
 
@@ -206,6 +206,7 @@
 - в `Sentence` samples новые manifolds уже поднимаются как anchor-fields заметно чаще, чем раньше: это видно не только по `observatory / sanatorium / hydroelectric`, но и по `weather_systems` и `coastal_fog`;
 - в `ShortText` старые heavy fields и generic cross-field frames все еще слишком легко возвращаются в середине текста;
 - сохраняются отдельные phrase-level шероховатости уровня `вернуть в расписание расписание коридорного отдыха` и `На месте были папку с мокрыми заявлениями`.
+- после `foundation suppression / anti-repeat pass` старые generic packs стали заметно реже перехватывать foreground через `чайник / мокрые газеты / пригородные поезда`, но из-за этого еще яснее стал виден следующий bottleneck: внутри already-strong fields слишком часто побеждает именно `museum`.
 
 ### Что это значит
 

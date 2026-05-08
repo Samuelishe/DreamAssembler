@@ -77,7 +77,7 @@ DreamAssembler нельзя воспринимать как:
 
 Текущее состояние корпуса на конец этой сессии:
 
-- `data-manifest.json`: `0.6.9`
+- `data-manifest.json`: `0.6.10`
 - corpus: `1228` entries
 - базовый workflow контроля: `DreamAssembler.DataTools` + `samples`
 
