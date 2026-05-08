@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "atmosphere_before_next_discharge",
+      "text": "как перед сбросом, который сначала нужно подтвердить в журнале",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hydroelectric", "paper", "procedural"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_relay_room_hush",
+      "text": "как в релейной комнате, где гул старается не шуметь громче людей",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hydroelectric", "industrial", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_after_oil_mark",
+      "text": "как после масляной отметки, которой так и не дали высохнуть вовремя",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hydroelectric", "maintenance", "night"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_flow_cabinet",
+      "text": "как в кабинете потока, где тишина ведет себя почти по инструкции",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hydroelectric", "water", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_unreleased_water",
+      "text": "как рядом с водой, которую все еще держат в служебной папке",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hydroelectric", "bureaucracy", "memory"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

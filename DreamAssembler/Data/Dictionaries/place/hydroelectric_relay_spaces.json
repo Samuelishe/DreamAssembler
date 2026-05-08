@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "relay_room_before_shift_end",
+      "text": "релейной комнате перед концом смены",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hydroelectric", "industrial", "night", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "gallery_of_intake_gates",
+      "text": "галерее приемных затворов",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hydroelectric", "water", "service", "procedural"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "lubrication_post_after_midnight",
+      "text": "посту смазки после полуночи",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hydroelectric", "maintenance", "night", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "cabinet_of_flow_orders",
+      "text": "кабинете распоряжений по потоку",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hydroelectric", "bureaucracy", "water", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "room_where_hum_waited_for_clearance",
+      "text": "комнате, где гул ждал разрешения тише операторов,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["hydroelectric", "industrial", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "corridor_where_water_had_not_been_released",
+      "text": "коридоре, где воду еще не отпустили по документам,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["hydroelectric", "bureaucracy", "surreal", "water"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

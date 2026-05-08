@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "condition_lubrication_already_started",
+      "text": "смазка уже началась, хотя смена еще не считалась законченной",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["hydroelectric", "maintenance", "night"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "condition_oil_logs_stayed_warm",
+      "text": "масляные журналы оставались теплее самих ладоней",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["hydroelectric", "paper", "surreal"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_panels_remembered_discharges",
+      "text": "панели помнили сбросы внимательнее диспетчеров",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["hydroelectric", "memory", "procedural"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_hum_spoke_in_service_tone",
+      "text": "гул говорил почти служебным тоном",
+      "category": "condition",
+      "slot": "condition_clause",
+      "tags": ["hydroelectric", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "condition_flow_waited_for_stamp",
+      "text": "поток как будто ждал штампа перед продолжением",
+      "category": "condition",
+      "slot": "condition_clause",
+      "tags": ["hydroelectric", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "condition_night_arrived_too_mechanically",
+      "text": "ночь пришла слишком механически, будто боялась спугнуть приборы",
+      "category": "condition",
+      "slot": "condition_clause",
+      "tags": ["hydroelectric", "industrial", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

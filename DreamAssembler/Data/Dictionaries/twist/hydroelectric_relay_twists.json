@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "oil_log_answers_him",
+      "text": "масляный журнал отвечает ему раньше, чем он успевает свериться с ним",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["hydroelectric", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "hum_waits_for_his_hesitation",
+      "text": "гул ждет его нерешительность внимательнее дежурного",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["hydroelectric", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "intake_schedule_loses_night",
+      "text": "график приема воды постепенно теряет все упоминания ночи",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["hydroelectric", "water", "time"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "relay_room_recalls_same_hum",
+      "text": "релейная комната снова вспоминает один и тот же гул",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["hydroelectric", "industrial", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "flow_orders_begin_to_measure_back",
+      "text": "распоряжения по потоку начинают измерять в ответ",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["hydroelectric", "bureaucracy", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

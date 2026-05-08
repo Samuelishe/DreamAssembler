@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "oil_shift_log_with_marks",
+      "text": "масляный журнал со следами ночной смены",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hydroelectric", "paper", "maintenance", "compat:oil_log"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "sheet_of_intake_schedule",
+      "text": "лист графика приема воды",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hydroelectric", "water", "paper", "compat:intake_schedule"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "wrapped_relay_case",
+      "text": "завернутый футляр релейного блока",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hydroelectric", "industrial", "maintenance", "compat:relay_case", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "panel_of_intake_indicators",
+      "text": "панель приемных индикаторов",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hydroelectric", "procedural", "water", "compat:relay_panel", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "drawer_of_unreleased_orders",
+      "text": "ящик невыпущенных распоряжений по потоку",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hydroelectric", "archive", "bureaucracy", "compat:hideable", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "cup_of_machine_hum",
+      "text": "чашку машинного гула",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hydroelectric", "surreal", "quiet", "compat:portable"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

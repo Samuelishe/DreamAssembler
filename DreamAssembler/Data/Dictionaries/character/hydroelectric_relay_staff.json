@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "keeper_of_oil_shift_logs",
+      "text": "хранитель масляных журналов смены",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hydroelectric", "paper", "maintenance", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "relay_room_attendant",
+      "text": "дежурный релейной комнаты",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hydroelectric", "service", "procedural", "industrial"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "registrar_of_intake_gates",
+      "text": "регистратор приемных затворов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hydroelectric", "water", "bureaucracy", "service"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "assistant_of_delayed_lubrication",
+      "text": "ассистент отложенной смазки",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hydroelectric", "maintenance", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "listener_of_machine_oil",
+      "text": "слушатель машинного масла",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hydroelectric", "quiet", "surreal", "industrial"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "curator_of_unreleased_flow",
+      "text": "куратор невыпущенного потока",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hydroelectric", "water", "surreal", "memory"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

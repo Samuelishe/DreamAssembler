@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "verify_by_oil_log",
+      "text": "сверить по масляному журналу",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hydroelectric", "paper", "maintenance", "compat:oil_log"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "return_to_intake_schedule",
+      "text": "вернуть к графику приема воды",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hydroelectric", "water", "service", "compat:intake_schedule"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "carry_to_relay_room",
+      "text": "отнести в релейную комнату",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hydroelectric", "industrial", "service", "compat:relay_case", "compat:portable"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "cover_before_spray",
+      "text": "укрыть от водяной пыли",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hydroelectric", "water", "maintenance", "compat:relay_panel", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "wait_until_hum_levels",
+      "text": "дождаться, пока выровняется гул",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hydroelectric", "quiet", "surreal", "compat:relay_panel", "compat:intake_schedule"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "rewrite_for_next_discharge",
+      "text": "переписать к следующему сбросу",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hydroelectric", "time", "paper", "surreal", "compat:oil_log", "compat:intake_schedule"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}
