@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "atmosphere_after_fog_notice",
+      "text": "как после предупреждения о тумане, которое не спешит становиться ясным",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["coastal_fog", "weather", "procedural"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_harbor_hush",
+      "text": "как у причала, где сигналы говорят тише служебного голоса",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["coastal_fog", "quiet", "service"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_salt_archive",
+      "text": "как в архиве соли, которому по-прежнему доверяют манифесты",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["coastal_fog", "archive", "water", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_tide_schedule",
+      "text": "как по графику прилива, составленному без уверенности в видимости",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["coastal_fog", "time", "water", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_fog_protocol",
+      "text": "как внутри протокола тумана, который не хотел закрываться до рассвета",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["coastal_fog", "paper", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "concept_discipline_of_fog",
+      "text": "дисциплина тумана",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["coastal_fog", "weather", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "concept_patience_of_harbor_signals",
+      "text": "терпение портовых сигналов",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["coastal_fog", "analog", "service"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "concept_logistics_of_salt_silence",
+      "text": "логистика соленой тишины, оформленная без лишней ясности",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["coastal_fog", "water", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "story_about_delayed_docking",
+      "text": "история о швартовке, которую подтверждали слишком долго",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["coastal_fog", "time", "transport"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_fog_manifests",
+      "text": "история о туманных манифестах, доверявших берегу больше людей",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["coastal_fog", "paper", "surreal", "memory"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "story_about_horns_waiting_their_turn",
+      "text": "история о сиренах, ожидавших своей очереди в приливе",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["coastal_fog", "water", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

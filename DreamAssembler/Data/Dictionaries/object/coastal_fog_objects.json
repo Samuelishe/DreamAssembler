@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "folded_fog_manifest",
+      "text": "сложенный туманный манифест",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["coastal_fog", "paper", "transport", "compat:fog_manifest"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "salted_arrival_board_sheet",
+      "text": "лист табло прибытия с солеными поправками",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["coastal_fog", "paper", "time", "compat:arrival_board"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "wrapped_signal_lamp",
+      "text": "завернутую сигнальную лампу",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["coastal_fog", "analog", "quiet", "compat:signal_lamp", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "mooring_register_with_stains",
+      "text": "швартовочный журнал с пятнами соли",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["coastal_fog", "paper", "water", "compat:mooring_register", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "laminated_buoy_notice",
+      "text": "ламинированное буйковое предупреждение",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["coastal_fog", "weather", "bureaucracy", "compat:buoy_notice", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "box_of_unconfirmed_fog",
+      "text": "коробку неподтвержденного тумана",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["coastal_fog", "weather", "archive", "surreal", "compat:portable", "compat:hideable"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

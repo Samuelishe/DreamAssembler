@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "night_pier_dispatcher",
+      "text": "диспетчер ночного причала",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["coastal_fog", "night", "service", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "keeper_of_fog_manifests",
+      "text": "хранитель туманных манифестов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["coastal_fog", "paper", "archive", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "operator_of_harbor_signals",
+      "text": "оператор портовых сигналов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["coastal_fog", "analog", "service", "daily"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "assistant_of_delayed_arrivals_at_sea",
+      "text": "ассистент задержанных морских прибытий",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["coastal_fog", "time", "transport", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "listener_of_buoy_warnings",
+      "text": "слушатель буйковых предупреждений",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["coastal_fog", "weather", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "corridor_clerk_of_mooring_orders",
+      "text": "коридорный клерк швартовочных распоряжений",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["coastal_fog", "bureaucracy", "service", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    }
+  ]
+}

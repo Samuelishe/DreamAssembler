@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "manifest_answers_him",
+      "text": "туманный манифест отвечает ему раньше, чем он успевает развернуть его",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["coastal_fog", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "buoy_notice_waits_for_him",
+      "text": "буйковое предупреждение ждет его усталость внимательнее диспетчера",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["coastal_fog", "weather", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "arrival_board_loses_morning",
+      "text": "табло прибытия постепенно теряет все упоминания утра",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["coastal_fog", "time", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "fog_recalls_same_delay",
+      "text": "туман снова вспоминает одну и ту же задержку",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["coastal_fog", "weather", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "harbor_begins_to_file_arrivals",
+      "text": "порт начинает оформлять прибытия в ответ",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["coastal_fog", "transport", "bureaucracy", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

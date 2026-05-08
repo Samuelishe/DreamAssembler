@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "condition_arrivals_lingered_in_fog",
+      "text": "прибытия задерживались в тумане дольше, чем это было нужно берегу",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["coastal_fog", "time", "transport"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "condition_horns_spoke_too_softly",
+      "text": "сирены говорили тише, чем следовало предупреждению",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["coastal_fog", "quiet", "weather"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_lamps_waited_for_permission",
+      "text": "лампы ждали разрешения включиться",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["coastal_fog", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "condition_manifests_held_salt_memory",
+      "text": "манифесты хранили соленую память внимательнее клерков",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["coastal_fog", "memory", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "condition_fog_became_schedule",
+      "text": "туман постепенно становился разновидностью расписания",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["coastal_fog", "weather", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_tide_memory_outlived_shift",
+      "text": "память прилива выглядела долговечнее самой смены",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["coastal_fog", "water", "memory", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

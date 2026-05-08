@@ -16,7 +16,7 @@
 
 ## Snapshot
 
-Состояние на `data-manifest.json = 0.6.2`.
+Состояние на `data-manifest.json = 0.6.4`.
 
 ### Core Manifolds
 
@@ -35,6 +35,7 @@
 | `sanatorium` | 8 | 46 | action, atmosphere, character, concept, condition, object, place, twist | first-wave complete | нужно усиливать surfacing и затем second pack |
 | `hydroelectric` | 8 | 46 | action, atmosphere, character, concept, condition, object, place, twist | first-wave complete | нужно усиливать surfacing и затем second pack |
 | `weather_systems` | 8 | 46 | action, atmosphere, character, concept, condition, object, place, twist | first-wave complete | нужно усиливать surfacing и затем second pack |
+| `coastal_fog` | 8 | 46 | action, atmosphere, character, concept, condition, object, place, twist | first-wave complete | нужно усиливать surfacing и затем second pack |
 
 ## Balance Reading
 
@@ -45,6 +46,7 @@
 - `airport` и `mall` остаются рабочими second-wave полями;
 - `observatory`, `sanatorium` и `hydroelectric` пока симметрично thin: по `46` entries и `8` sets каждое.
 - `procedural weather systems` входит в ту же first-wave группу: `46` entries и `8` sets.
+- `coastal fog logistics` входит в ту же first-wave группу: `46` entries и `8` sets.
 
 ### Практический вывод
 
@@ -164,12 +166,13 @@
 
 ## Runtime Observations
 
-Срез по live generation после `0.6.2`:
+Срез по live generation после `0.6.4`:
 
-- `dotnet test DreamAssembler.Core.Tests/DreamAssembler.Core.Tests.csproj` проходит: `41/41`;
+- `dotnet test DreamAssembler.Core.Tests/DreamAssembler.Core.Tests.csproj` проходит: `43/43`;
 - structural breakage сейчас не является главным bottleneck;
-- в `Sentence` и `ShortText` samples старые heavy fields, особенно `museum`, все еще доминируют по surfacing;
-- `observatory`, `sanatorium` и `hydroelectric` уже появляются, но чаще как secondary accent, а не как anchor-field всей сцены.
+- в `Sentence` samples новые manifolds уже поднимаются как anchor-fields заметно чаще, чем раньше: это видно не только по `observatory / sanatorium / hydroelectric`, но и по `weather_systems` и `coastal_fog`;
+- в `ShortText` старые heavy fields и generic cross-field frames все еще слишком легко возвращаются в середине текста;
+- сохраняются отдельные phrase-level шероховатости уровня `вернуть в расписание расписание коридорного отдыха` и `На месте были папку с мокрыми заявлениями`.
 
 ### Что это значит
 
@@ -182,7 +185,8 @@
 - `observatory`, `sanatorium` и `hydroelectric` добавлены в `StrongManifoldTags`, поэтому теперь участвуют в dominant-manifold memory и field-affinity на равных правах со старыми mature fields;
 - добавлен early surfacing bias для тонких first-wave manifolds, чтобы новые non-urban fields легче становились anchor-field в начале batch, а не только secondary accent позже;
 - после этого `Sentence` samples уже начали чаще стартовать из `observatory`-сцен и держать их не как случайную вставку, а как локальную atmospheric anchor.
-- затем добавлен short-text retention layer: opening manifold теперь мягко удерживается еще на 2-й и 3-й фразе `ShortText`, чтобы новые поля реже растворялись обратно в старой museum/urban gravity сразу после удачного старта.
+- затем добавлен short-text retention layer: opening manifold теперь мягко удерживается еще на 2-й и 3-й фразе `ShortText`, чтобы новые поля реже растворялись обратно в старой museum/urban gravity сразу после удачного старта;
+- затем `weather_systems` и `coastal_fog` вошли в ту же thin first-wave группу и тоже были подключены к strong-manifold layer, поэтому теперь new non-urban batch может удерживать уже не три, а пять distinct anchor-fields.
 
 ### Что все еще стоит держать в уме
 

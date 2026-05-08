@@ -25,7 +25,8 @@ public sealed class TextGeneratorService
         "observatory",
         "sanatorium",
         "hydroelectric",
-        "weather_systems"
+        "weather_systems",
+        "coastal_fog"
     ];
     private static readonly IReadOnlyDictionary<string, double> EarlySurfacingBoostByManifold = new Dictionary<string, double>(StringComparer.OrdinalIgnoreCase)
     {
@@ -36,7 +37,8 @@ public sealed class TextGeneratorService
         ["observatory"] = 1.34d,
         ["sanatorium"] = 1.34d,
         ["hydroelectric"] = 1.34d,
-        ["weather_systems"] = 1.34d
+        ["weather_systems"] = 1.34d,
+        ["coastal_fog"] = 1.34d
     };
     private static readonly HashSet<string> SceneAnchorCategories =
     [

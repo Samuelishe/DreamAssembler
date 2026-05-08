@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "night_pier_corridor",
+      "text": "коридоре ночного причала",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["coastal_fog", "night", "transport", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "signal_room_above_harbor",
+      "text": "комнате сигналов над портом",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["coastal_fog", "analog", "service", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "archive_of_coastal_arrivals",
+      "text": "архиве береговых прибытий",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["coastal_fog", "archive", "transport", "paper"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "mooring_gallery_in_mist",
+      "text": "галерее швартовок в тумане",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["coastal_fog", "weather", "water", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "hall_where_fog_waited_for_clearance",
+      "text": "зале, где туман ждал разрешения войти в расписание,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["coastal_fog", "weather", "surreal", "bureaucracy"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "office_where_horns_followed_tide",
+      "text": "кабинете, где сирены следовали приливу внимательнее диспетчеров,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["coastal_fog", "water", "surreal", "time"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}
