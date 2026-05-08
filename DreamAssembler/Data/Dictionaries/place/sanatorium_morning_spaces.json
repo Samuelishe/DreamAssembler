@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "inhalation_room_before_breakfast",
+      "text": "ингаляционной комнате до завтрака",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["sanatorium", "service", "morning", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "balcony_corridor_of_regime",
+      "text": "балконном коридоре режима воздуха",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["sanatorium", "morning", "service", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "cabinet_of_temperature_sheets",
+      "text": "кабинете температурных листов",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["sanatorium", "paper", "bureaucracy", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "blanket_storage_after_airing",
+      "text": "одеяльной кладовой после проветривания",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["sanatorium", "memory", "quiet", "service"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "room_where_air_waited_for_signature",
+      "text": "комнате, где воздух ждал подписи внимательнее пациентов,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["sanatorium", "bureaucracy", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "corridor_where_morning_had_not_been_issued",
+      "text": "коридоре, где утро еще не выдали по списку,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["sanatorium", "time", "surreal", "bureaucracy"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

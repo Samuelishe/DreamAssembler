@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "keeper_of_temperature_sheets",
+      "text": "хранитель температурных листов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["sanatorium", "paper", "service", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "attendant_of_inhalation_room",
+      "text": "дежурный ингаляционной комнаты",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["sanatorium", "service", "procedural", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "registrar_of_balcony_regime",
+      "text": "регистратор балконного режима",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["sanatorium", "bureaucracy", "morning", "service"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "assistant_of_delayed_breathing",
+      "text": "ассистент отложенного дыхания",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["sanatorium", "time", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "listener_of_blanket_cupboards",
+      "text": "слушатель одеяльных шкафов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["sanatorium", "memory", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "curator_of_unissued_mornings",
+      "text": "куратор невыданных утр",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["sanatorium", "time", "surreal", "bureaucracy"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

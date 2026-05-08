@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "verify_by_temperature_sheet",
+      "text": "сверить по температурному листу",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["sanatorium", "paper", "procedural", "compat:temperature_sheet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "return_to_balcony_regime",
+      "text": "вернуть к балконному режиму",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["sanatorium", "morning", "service", "compat:balcony_card"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "carry_to_inhalation_room",
+      "text": "отнести в ингаляционную комнату",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["sanatorium", "service", "quiet", "compat:inhalation_kit", "compat:portable"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "cover_before_airing",
+      "text": "укрыть перед проветриванием",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["sanatorium", "quiet", "service", "compat:blanket_bundle", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "wait_until_breathing_levels",
+      "text": "дождаться, пока выровняется",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["sanatorium", "quiet", "surreal", "compat:inhalation_kit", "compat:temperature_sheet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "rewrite_for_next_morning",
+      "text": "переписать к следующему утру",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["sanatorium", "paper", "time", "surreal", "compat:temperature_sheet", "compat:balcony_card"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

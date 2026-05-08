@@ -104,13 +104,15 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - открыт новый manifold `procedural weather systems` с отдельной ecology: night forecasts, warning bulletins, radar strips, forecast rooms, delayed fronts и бюрократия климата;
 - открыт новый manifold `coastal fog logistics` с отдельной ecology: причальные коридоры, туманные манифесты, береговые сигналы, швартовочные журналы, приливные задержки и соленая служебная тишина;
 - `observatory` переведен во второй слой growth: добавлен еще один curated pack вокруг calibration rooms, auxiliary mirrors, signal reels, false-dawn procedure и service memory of motors;
-- validation на `0.6.5` подтверждает, что corpus вошел чисто: `DreamAssembler.DataTools` показывает `1044` entries без issues, а `dotnet test` проходит `43/43`;
+- `sanatorium` переведен во второй слой growth: добавлен еще один curated pack вокруг inhalation rooms, balcony regime, temperature sheets, blanket storage, aired mornings и service care before breakfast;
+- validation на `0.6.6` подтверждает, что corpus вошел чисто: `DreamAssembler.DataTools` показывает `1090` entries без issues, а `dotnet test` проходит `43/43`;
 - текущее числовое состояние manifolds теперь отдельно фиксируется в `docs/MANIFOLD_STATE.md`: это источник истины по pack-balance, relative corpus mass и тому, какие поля пора deepening-усиливать, а какие - сначала просто вытаскивать на поверхность чаще;
 - после runtime-среза на `0.6.2` стало ясно, что главный bottleneck сейчас уже не в structural correctness: `dotnet test` проходит полностью, а live generation страдает прежде всего от manifold surfacing imbalance, где `museum` и старые fields все еще слишком сильно доминируют над `observatory`, `sanatorium` и `hydroelectric`;
 - затем начат `manifold surfacing balance pass` в Core: новые non-urban fields (`observatory`, `sanatorium`, `hydroelectric`) включены в слой strong-manifold memory и получили ранний surfacing bias, чтобы чаще становиться anchor-field сцены, а не только слабым вторичным акцентом;
 - после этого добавлен `ShortText` mid-flow retention layer: opening manifold теперь мягко удерживается и на следующих фразах композиции, так что новые non-urban поля уже могут не только стартовать текст, но и дольше оставаться его dominant local field;
 - после последнего sample-pass видно, что `Sentence` уже начал реально поднимать и newer fields вроде `weather_systems` и `coastal_fog` как самостоятельные anchors, но `ShortText` все еще слишком легко уходит в mixed-frame drift и местами сохраняет phrase-level defects;
 - observatory-field теперь уже не просто thin first-wave manifold: у него появилась собственная second-wave масса, поэтому дальше логичнее поднимать до такого же состояния `sanatorium`, `hydroelectric`, `weather_systems` и `coastal_fog`, а не продолжать без конца балансировать один и тот же observatory-layer;
+- sanatorium-field теперь тоже уже не просто thin first-wave manifold: дальше разумнее переводить в такой же second-wave статус `hydroelectric`, `weather_systems` и `coastal_fog`, а не возвращаться к endless polishing;
 - для `ShortText` введены композиционные роли шаблонов, чтобы снижать повторяемость одинаковых каркасных фраз;
 - часть `emotion`-данных разведена по более безопасным slot-подтипам;
 - `twist`, `concept` и `condition` разделены на более безопасные slot-подтипы;

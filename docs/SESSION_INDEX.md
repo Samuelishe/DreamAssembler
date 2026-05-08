@@ -68,7 +68,7 @@ DreamAssembler нельзя воспринимать как:
 - impossible museums / echo exhibits / ceremonial curation - уже second-wave manifold;
 - recursive hospitality / nocturnal hotels / ceremonial check-in - уже second-wave manifold.
 - observatory loneliness - уже early second-wave manifold;
-- sanatorium bureaucracy - уже complete first-wave manifold;
+- sanatorium bureaucracy - уже early second-wave manifold;
 - hydroelectric infrastructure - уже complete first-wave manifold.
 - procedural weather systems - уже complete first-wave manifold;
 - coastal fog logistics - уже complete first-wave manifold.
@@ -77,8 +77,8 @@ DreamAssembler нельзя воспринимать как:
 
 Текущее состояние корпуса на конец этой сессии:
 
-- `data-manifest.json`: `0.6.5`
-- corpus: `1044` entries
+- `data-manifest.json`: `0.6.6`
+- corpus: `1090` entries
 - базовый workflow контроля: `DreamAssembler.DataTools` + `samples`
 
 ## Главные направления

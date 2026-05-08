@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "atmosphere_before_airing",
+      "text": "как перед проветриванием, которое сначала нужно отметить в журнале",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["sanatorium", "paper", "procedural"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_balcony_regime",
+      "text": "как в балконном режиме, где голоса становятся мягче одеял",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["sanatorium", "morning", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_temperature_cabinet",
+      "text": "как в кабинете, где бумага знает о теле чуть больше положенного",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["sanatorium", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_before_inhalation",
+      "text": "как перед дыханием, которое решили продлить еще на одну отметку",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["sanatorium", "service", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_unissued_morning",
+      "text": "как рядом с утром, которое все еще лежит в служебной папке",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["sanatorium", "time", "memory"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

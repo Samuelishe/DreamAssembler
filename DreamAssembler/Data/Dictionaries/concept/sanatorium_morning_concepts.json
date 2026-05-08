@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "concept_regime_of_gentle_air",
+      "text": "режим бережного воздуха",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["sanatorium", "morning", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "concept_service_patience_of_breathing",
+      "text": "служебное терпение дыхания",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["sanatorium", "service", "procedural"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "concept_memory_of_aired_blankets",
+      "text": "память проветренных одеял",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["sanatorium", "memory", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_morning_not_yet_issued",
+      "text": "история об утре, которое еще не выдали по режиму",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["sanatorium", "time", "bureaucracy"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_air_and_signatures",
+      "text": "история о воздухе и подписях, доверявших друг другу больше людей",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["sanatorium", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "story_about_corridor_of_unfinished_breath",
+      "text": "история о коридоре, где дыхание так и не решилось закончить смену",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["sanatorium", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

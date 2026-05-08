@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "temperature_sheet_answers_him",
+      "text": "температурный лист отвечает ему раньше, чем он успевает свериться с ним",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["sanatorium", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "air_waits_for_his_fatigue",
+      "text": "воздух ждет его усталость внимательнее дежурного",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["sanatorium", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "balcony_regime_loses_morning",
+      "text": "балконный режим постепенно теряет все упоминания утра",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["sanatorium", "morning", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "blanket_storage_recalls_same_breath",
+      "text": "одеяльная кладовая снова вспоминает одно и то же дыхание",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["sanatorium", "memory", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "recovery_forms_begin_to_rest",
+      "text": "формы восстановления начинают отдыхать в ответ",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["sanatorium", "bureaucracy", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

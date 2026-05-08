@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "temperature_sheet_with_corrections",
+      "text": "температурный лист с ночными поправками",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["sanatorium", "paper", "service", "compat:temperature_sheet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "card_of_balcony_regime",
+      "text": "карту балконного режима",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["sanatorium", "morning", "paper", "compat:balcony_card", "compat:portable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "inhalation_kit_case",
+      "text": "футляр ингаляционного набора",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["sanatorium", "service", "quiet", "compat:inhalation_kit", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "bundle_of_aired_blankets",
+      "text": "связку проветренных одеял",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["sanatorium", "quiet", "memory", "compat:blanket_bundle", "compat:protectable", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "drawer_of_half_filled_forms",
+      "text": "ящик полузаполненных форм восстановления",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["sanatorium", "archive", "bureaucracy", "compat:hideable", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "cup_with_delayed_breath",
+      "text": "чашку отложенного дыхания",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["sanatorium", "surreal", "quiet", "compat:portable"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

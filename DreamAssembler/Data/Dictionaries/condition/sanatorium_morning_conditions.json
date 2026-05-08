@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "condition_airing_had_already_started",
+      "text": "проветривание уже началось, хотя утро еще не считалось окончательным",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["sanatorium", "morning", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "condition_temperature_sheets_stayed_warm",
+      "text": "температурные листы оставались теплее самих рук",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["sanatorium", "paper", "surreal"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_blankets_remembered_balconies",
+      "text": "одеяла помнили балконы внимательнее назначений",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["sanatorium", "memory", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_air_spoke_in_service_tone",
+      "text": "воздух говорил почти служебным тоном",
+      "category": "condition",
+      "slot": "condition_clause",
+      "tags": ["sanatorium", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "condition_breathing_waited_for_stamp",
+      "text": "дыхание как будто ждало штампа перед продолжением",
+      "category": "condition",
+      "slot": "condition_clause",
+      "tags": ["sanatorium", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "condition_morning_arrived_too_carefully",
+      "text": "утро пришло слишком осторожно, будто боялось разбудить формы",
+      "category": "condition",
+      "slot": "condition_clause",
+      "tags": ["sanatorium", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

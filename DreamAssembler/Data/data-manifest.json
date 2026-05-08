@@ -1,6 +1,6 @@
 {
   "id": "dreamassembler-base-ru",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "description": "Базовый русскоязычный набор словарей, шаблонов и внешних лексиконов для DreamAssembler.",
   "dictionarySets": [
     "character/city_workers",
@@ -19,6 +19,7 @@
     "character/coastal_fog_staff",
     "character/hydroelectric_night_staff",
     "character/sanatorium_bureaucracy_staff",
+    "character/sanatorium_recovery_staff",
     "action/everyday_actions",
     "action/surreal_actions",
     "action/quiet_infrastructure_actions",
@@ -35,6 +36,7 @@
     "action/coastal_fog_actions",
     "action/hydroelectric_maintenance_actions",
     "action/sanatorium_procedural_actions",
+    "action/sanatorium_recovery_actions",
     "object/everyday_objects",
     "object/surreal_objects",
     "object/archive_transport_objects",
@@ -53,6 +55,7 @@
     "object/coastal_fog_objects",
     "object/hydroelectric_station_objects",
     "object/sanatorium_procedural_objects",
+    "object/sanatorium_recovery_objects",
     "place/urban_places",
     "place/surreal_places",
     "place/surreal_service_places",
@@ -72,6 +75,7 @@
     "place/coastal_fog_places",
     "place/hydroelectric_machine_spaces",
     "place/sanatorium_corridor_spaces",
+    "place/sanatorium_morning_spaces",
     "twist/rules_and_reactions",
     "twist/quiet_rules_pack",
     "twist/melancholic_reactions_pack",
@@ -90,6 +94,7 @@
     "twist/coastal_fog_twists",
     "twist/hydroelectric_night_twists",
     "twist/sanatorium_bureaucracy_twists",
+    "twist/sanatorium_morning_twists",
     "atmosphere/scene_tones",
     "atmosphere/quiet_tones",
     "atmosphere/airport_night_tones",
@@ -107,6 +112,7 @@
     "atmosphere/coastal_fog_tones",
     "atmosphere/hydroelectric_quiet_tones",
     "atmosphere/sanatorium_quiet_tones",
+    "atmosphere/sanatorium_morning_tones",
     "genre/base_genres",
     "genre/quiet_genres",
     "style/base_styles",
@@ -131,6 +137,7 @@
     "concept/coastal_fog_concepts",
     "concept/hydroelectric_pressure_concepts",
     "concept/sanatorium_bureaucracy_concepts",
+    "concept/sanatorium_morning_concepts",
     "condition/scene_conditions",
     "condition/atmospheric_scene_conditions",
     "condition/quiet_reveal_conditions",
@@ -148,7 +155,8 @@
     "condition/procedural_weather_conditions",
     "condition/coastal_fog_conditions",
     "condition/hydroelectric_night_conditions",
-    "condition/sanatorium_rest_conditions"
+    "condition/sanatorium_rest_conditions",
+    "condition/sanatorium_morning_conditions"
   ],
   "associationSets": [
     "Sources/openrussian-nouns.csv",
