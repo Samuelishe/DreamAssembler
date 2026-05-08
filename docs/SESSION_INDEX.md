@@ -70,15 +70,15 @@ DreamAssembler нельзя воспринимать как:
 - observatory loneliness - уже early second-wave manifold;
 - sanatorium bureaucracy - уже early second-wave manifold;
 - hydroelectric infrastructure - уже early second-wave manifold.
-- procedural weather systems - уже complete first-wave manifold;
+- procedural weather systems - уже early second-wave manifold;
 - coastal fog logistics - уже complete first-wave manifold.
 
 Если нужно быстро понять баланс growth, не гадать по памяти, а смотреть `docs/MANIFOLD_STATE.md`, затем уже подтверждать числа через `DreamAssembler.DataTools` и `data-manifest.json`.
 
 Текущее состояние корпуса на конец этой сессии:
 
-- `data-manifest.json`: `0.6.7`
-- corpus: `1136` entries
+- `data-manifest.json`: `0.6.8`
+- corpus: `1182` entries
 - базовый workflow контроля: `DreamAssembler.DataTools` + `samples`
 
 ## Главные направления

@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "atmosphere_before_dawn_bulletin",
+      "text": "как перед бюллетенем, который сначала нужно подтвердить по карте",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["weather_systems", "paper", "procedural"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_pressure_corridor",
+      "text": "как в коридоре, где давление старается не шуметь громче сводок",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["weather_systems", "weather", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_after_barograph_mark",
+      "text": "как после барографической отметки, которой так и не дали остыть вовремя",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["weather_systems", "analog", "night"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_fog_room_hush",
+      "text": "как в комнате тумана, где тишина ведет себя почти по инструкции",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["weather_systems", "rainy", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_unreleased_morning",
+      "text": "как рядом с утром, которое все еще держат в папке сводок",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["weather_systems", "bureaucracy", "memory"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

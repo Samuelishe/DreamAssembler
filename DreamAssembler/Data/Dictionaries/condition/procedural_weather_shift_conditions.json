@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "condition_bulletins_already_sorted",
+      "text": "бюллетени уже были разложены, хотя утро еще не считалось окончательным",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["weather_systems", "morning", "procedural"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "condition_pressure_charts_stayed_warm",
+      "text": "карты давления оставались теплее самих рук",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["weather_systems", "paper", "surreal"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_glass_remembered_fog",
+      "text": "стекло помнило туман внимательнее сводки",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["weather_systems", "memory", "rainy"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_pressure_spoke_in_service_tone",
+      "text": "давление говорило почти служебным тоном",
+      "category": "condition",
+      "slot": "condition_clause",
+      "tags": ["weather_systems", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "condition_front_waited_for_stamp",
+      "text": "фронт как будто ждал штампа перед продолжением",
+      "category": "condition",
+      "slot": "condition_clause",
+      "tags": ["weather_systems", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "condition_dawn_arrived_too_carefully",
+      "text": "рассвет пришел слишком осторожно, будто боялся разбудить сводки",
+      "category": "condition",
+      "slot": "condition_clause",
+      "tags": ["weather_systems", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

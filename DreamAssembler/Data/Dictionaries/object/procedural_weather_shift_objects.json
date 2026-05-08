@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "annotated_pressure_chart",
+      "text": "карту давления с карандашными поправками",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["weather_systems", "weather", "paper", "compat:pressure_chart"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "folded_dawn_bulletin",
+      "text": "сложенный утренний бюллетень",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["weather_systems", "morning", "paper", "compat:dawn_bulletin", "compat:portable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "barograph_roll_with_marks",
+      "text": "барографический рулон с ночными отметками",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["weather_systems", "analog", "quiet", "compat:barograph_roll", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "fogged_barometric_glass",
+      "text": "запотевшее барометрическое стекло",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["weather_systems", "rainy", "procedural", "compat:barometric_glass", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "drawer_of_unreleased_forecasts",
+      "text": "ящик невыпущенных прогнозов",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["weather_systems", "archive", "bureaucracy", "compat:hideable", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "cup_of_delayed_clear_sky",
+      "text": "чашку отложенного прояснения",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["weather_systems", "surreal", "quiet", "compat:portable"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

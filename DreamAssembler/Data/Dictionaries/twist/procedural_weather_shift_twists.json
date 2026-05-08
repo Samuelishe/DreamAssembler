@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "pressure_chart_answers_him",
+      "text": "карта давления отвечает ему раньше, чем он успевает свериться с ней",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["weather_systems", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "glass_waits_for_his_doubt",
+      "text": "барометрическое стекло ждет его сомнение внимательнее диспетчера",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["weather_systems", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "dawn_bulletin_loses_morning",
+      "text": "утренний бюллетень постепенно теряет все упоминания утра",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["weather_systems", "morning", "time"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "pressure_room_recalls_same_front",
+      "text": "комната давления снова вспоминает один и тот же фронт",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["weather_systems", "weather", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "bulletins_begin_to_forecast_back",
+      "text": "бюллетени начинают прогнозировать в ответ",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["weather_systems", "bureaucracy", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

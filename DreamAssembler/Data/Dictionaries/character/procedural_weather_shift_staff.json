@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "keeper_of_barograph_rolls",
+      "text": "хранитель барографических рулонов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["weather_systems", "paper", "analog", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "attendant_of_pressure_charts",
+      "text": "дежурный по картам давления",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["weather_systems", "weather", "procedural", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "registrar_of_dawn_bulletins",
+      "text": "регистратор утренних бюллетеней",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["weather_systems", "morning", "bureaucracy", "paper"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "assistant_of_delayed_clear_sky",
+      "text": "ассистент отложенного прояснения",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["weather_systems", "time", "weather", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "listener_of_barometric_glass",
+      "text": "слушатель барометрического стекла",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["weather_systems", "quiet", "surreal", "weather"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "curator_of_unreleased_fog",
+      "text": "куратор невыпущенного тумана",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["weather_systems", "rainy", "surreal", "memory"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

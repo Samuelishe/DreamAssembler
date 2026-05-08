@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "concept_regime_of_morning_pressure",
+      "text": "режим утреннего давления",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["weather_systems", "morning", "weather"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "concept_service_patience_of_forecast",
+      "text": "служебное терпение прогноза",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["weather_systems", "service", "procedural"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "concept_memory_of_barograph_night",
+      "text": "память барографической ночи",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["weather_systems", "analog", "memory"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_dawn_not_yet_released",
+      "text": "история об утре, которое еще не выпустили по сводке",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["weather_systems", "time", "bureaucracy"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_glass_and_bulletins",
+      "text": "история о стекле и бюллетенях, доверявших друг другу больше людей",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["weather_systems", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "story_about_corridor_of_unfinished_front",
+      "text": "история о коридоре, где фронт так и не решился закончить смену",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["weather_systems", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

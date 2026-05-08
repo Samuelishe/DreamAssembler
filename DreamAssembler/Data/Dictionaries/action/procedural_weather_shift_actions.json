@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "verify_by_pressure_chart",
+      "text": "сверить по карте давления",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["weather_systems", "weather", "procedural", "compat:pressure_chart"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "return_to_dawn_bulletin",
+      "text": "вернуть к утреннему бюллетеню",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["weather_systems", "morning", "service", "compat:dawn_bulletin"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "carry_to_calibration_desk",
+      "text": "отнести к столу калибровки",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["weather_systems", "service", "analog", "compat:barograph_roll", "compat:portable"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "cover_before_mist_report",
+      "text": "укрыть до сводки тумана",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["weather_systems", "rainy", "maintenance", "compat:barometric_glass", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "wait_until_pressure_levels",
+      "text": "дождаться, пока выровняется давление",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["weather_systems", "weather", "surreal", "compat:pressure_chart", "compat:barometric_glass"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "rewrite_for_next_front",
+      "text": "переписать к следующему фронту",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["weather_systems", "paper", "time", "surreal", "compat:dawn_bulletin", "compat:pressure_chart"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "calibration_desk_before_dawn",
+      "text": "столе калибровки перед рассветом",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["weather_systems", "analog", "night", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "cabinet_of_pressure_charts",
+      "text": "кабинете карт давления",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["weather_systems", "weather", "paper", "procedural"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "room_of_barometric_glass",
+      "text": "комнате барометрического стекла",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["weather_systems", "rainy", "quiet", "service"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "corridor_of_dawn_bulletins",
+      "text": "коридоре утренних бюллетеней",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["weather_systems", "morning", "bureaucracy", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "room_where_pressure_waited_for_signature",
+      "text": "комнате, где давление ждало подписи внимательнее дежурных,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["weather_systems", "weather", "surreal", "bureaucracy"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "hallway_where_morning_had_not_been_announced",
+      "text": "коридоре, где утро еще не объявили по сводке,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["weather_systems", "morning", "surreal", "time"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}
