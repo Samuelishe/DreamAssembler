@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "forecast_room_after_midnight",
+      "text": "комнате прогноза после полуночи",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["weather_systems", "night", "procedural", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "radar_hall_of_night_shifts",
+      "text": "радарном зале ночной смены",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["weather_systems", "weather", "night", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "archive_of_old_forecasts",
+      "text": "архиве старых прогнозов",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["weather_systems", "archive", "paper", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "warning_board_corridor",
+      "text": "коридоре предупредительных табло",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["weather_systems", "bureaucracy", "weather", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "hall_where_wind_waited_for_permission",
+      "text": "зале, где ветер ждал разрешения войти в сводку,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["weather_systems", "weather", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "office_where_rain_followed_schedule",
+      "text": "кабинете, где дождь следовал графику внимательнее сотрудников,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["weather_systems", "rainy", "surreal", "time"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

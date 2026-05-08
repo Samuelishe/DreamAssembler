@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "check_warning_bulletin",
+      "text": "сверить по сводке",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["weather_systems", "paper", "procedural", "compat:weather_bulletin"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "return_to_forecast_schedule",
+      "text": "вернуть в прогноз",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["weather_systems", "time", "service", "compat:forecast_sheet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "carry_to_radar_room",
+      "text": "отнести в радарную комнату",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["weather_systems", "weather", "service", "compat:portable", "compat:radar_strip"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "cover_before_condensation_report",
+      "text": "укрыть до сводки конденсата",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["weather_systems", "water", "maintenance", "compat:protectable", "compat:instrument_cover"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "wait_until_front_passes",
+      "text": "дождаться, пока пройдет фронт",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["weather_systems", "weather", "surreal", "compat:front_notice"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "rewrite_for_next_pressure_shift",
+      "text": "переписать к следующему давлению",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["weather_systems", "paper", "surreal", "compat:forecast_sheet", "compat:weather_bulletin"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

@@ -34,6 +34,7 @@
 | `observatory` | 8 | 46 | action, atmosphere, character, concept, condition, object, place, twist | first-wave complete | нужно усиливать surfacing и затем second pack |
 | `sanatorium` | 8 | 46 | action, atmosphere, character, concept, condition, object, place, twist | first-wave complete | нужно усиливать surfacing и затем second pack |
 | `hydroelectric` | 8 | 46 | action, atmosphere, character, concept, condition, object, place, twist | first-wave complete | нужно усиливать surfacing и затем second pack |
+| `weather_systems` | 8 | 46 | action, atmosphere, character, concept, condition, object, place, twist | first-wave complete | нужно усиливать surfacing и затем second pack |
 
 ## Balance Reading
 
@@ -43,6 +44,7 @@
 - `hospitality` уже догнал плотное mature-state;
 - `airport` и `mall` остаются рабочими second-wave полями;
 - `observatory`, `sanatorium` и `hydroelectric` пока симметрично thin: по `46` entries и `8` sets каждое.
+- `procedural weather systems` входит в ту же first-wave группу: `46` entries и `8` sets.
 
 ### Практический вывод
 

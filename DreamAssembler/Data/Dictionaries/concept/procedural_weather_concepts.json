@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "concept_discipline_of_forecast",
+      "text": "дисциплина прогноза",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["weather_systems", "procedural", "weather"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "concept_patience_of_wind_maps",
+      "text": "терпение ветровых карт",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["weather_systems", "paper", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "concept_climatology_of_service_tone",
+      "text": "служебная климатология, которой доверяли чуть больше, чем небу",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["weather_systems", "bureaucracy", "surreal", "weather"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "story_about_delayed_warning",
+      "text": "история о предупреждении, которое оформили слишком поздно",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["weather_systems", "time", "bureaucracy"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_rain_protocols",
+      "text": "история о дождевых протоколах, запоминавших ночь лучше людей",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["weather_systems", "rainy", "surreal", "memory"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "story_about_wind_waiting_its_turn",
+      "text": "история о ветре, который ждал своей очереди в сводке",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["weather_systems", "weather", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

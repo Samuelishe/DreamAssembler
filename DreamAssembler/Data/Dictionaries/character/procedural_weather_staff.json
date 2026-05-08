@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "night_forecast_operator",
+      "text": "оператор ночного прогноза",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["weather_systems", "night", "procedural", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "keeper_of_warning_bulletins",
+      "text": "хранитель предупредительных сводок",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["weather_systems", "paper", "archive", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "dispatcher_of_air_masses",
+      "text": "диспетчер воздушных масс",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["weather_systems", "weather", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "technician_of_wind_maps",
+      "text": "техник ветровых карт",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["weather_systems", "weather", "paper", "daily"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "assistant_of_delayed_front",
+      "text": "ассистент задержанного фронта",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["weather_systems", "time", "weather", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "listener_of_rain_protocols",
+      "text": "слушатель дождевых протоколов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["weather_systems", "rainy", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

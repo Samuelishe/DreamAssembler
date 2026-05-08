@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "condition_forecast_lingered_between_hours",
+      "text": "прогноз задержался между часами дольше, чем это было нужно утру",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["weather_systems", "time", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "condition_rain_was_recorded_too_carefully",
+      "text": "дождь записывали внимательнее людей",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["weather_systems", "rainy", "procedural"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_warning_boards_breathed_softly",
+      "text": "предупредительные табло дышали почти служебно",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["weather_systems", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "condition_maps_waited_more_patiently_than_staff",
+      "text": "карты ждали терпеливее самих дежурных",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["weather_systems", "paper", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_weather_became_protocol",
+      "text": "погода постепенно становилась разновидностью протокола",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["weather_systems", "bureaucracy", "surreal", "weather"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_front_memory_outlived_shift",
+      "text": "память фронта выглядела долговечнее самой смены",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["weather_systems", "memory", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

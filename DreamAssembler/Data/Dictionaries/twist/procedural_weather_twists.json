@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "bulletin_answers_him",
+      "text": "метеосводка отвечает ему раньше, чем он успевает развернуть ее",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["weather_systems", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "rain_protocol_waits_for_him",
+      "text": "дождевой протокол ждет его сомнение внимательнее диспетчера",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["weather_systems", "rainy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "forecast_loses_morning",
+      "text": "прогноз постепенно теряет все упоминания утра",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["weather_systems", "time", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "front_recalls_same_delay",
+      "text": "фронт снова вспоминает одну и ту же задержку",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["weather_systems", "weather", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "weather_begins_to_file_reports",
+      "text": "погода начинает составлять отчеты в ответ",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["weather_systems", "bureaucracy", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

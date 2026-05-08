@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "atmosphere_after_midnight_forecast",
+      "text": "как после прогноза, который все еще не решился стать окончательным",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["weather_systems", "night", "procedural"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_warning_hush",
+      "text": "как у табло предупреждений, говорящих тише служебного голоса",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["weather_systems", "bureaucracy", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_rain_archive",
+      "text": "как в архиве дождя, которому по-прежнему доверяют коридоры",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["weather_systems", "rainy", "archive", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_front_schedule",
+      "text": "как по графику фронта, составленному без уверенности в завтрашнем свете",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["weather_systems", "time", "surreal", "weather"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_climate_protocol",
+      "text": "как внутри протокола погоды, который слишком долго не хотел закрываться",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["weather_systems", "procedural", "surreal", "paper"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

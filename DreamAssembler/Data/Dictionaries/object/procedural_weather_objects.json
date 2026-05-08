@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "night_weather_bulletin",
+      "text": "ночную метеосводку",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["weather_systems", "paper", "weather", "compat:weather_bulletin"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "annotated_forecast_sheet",
+      "text": "лист прогноза с карандашными поправками",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["weather_systems", "paper", "time", "compat:forecast_sheet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "rolled_radar_strip",
+      "text": "свернутую радарную ленту",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["weather_systems", "analog", "weather", "compat:radar_strip", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "fogged_instrument_cover",
+      "text": "запотевший чехол прибора",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["weather_systems", "water", "quiet", "compat:instrument_cover", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "laminated_front_notice",
+      "text": "ламинированное извещение о фронте",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["weather_systems", "bureaucracy", "weather", "compat:front_notice", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "box_of_unconfirmed_precipitation",
+      "text": "коробку неподтвержденных осадков",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["weather_systems", "rainy", "archive", "surreal", "compat:portable", "compat:hideable"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}
