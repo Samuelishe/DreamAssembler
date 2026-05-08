@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "atmosphere_after_procedure_pause",
+      "text": "как после процедуры, которую решили ненадолго продлить тишиной",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["sanatorium", "quiet", "procedural"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_registry_hush",
+      "text": "как у стойки, где покой оформляют почти служебным шепотом",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["sanatorium", "bureaucracy", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_mineral_patience",
+      "text": "как рядом со стаканом, который дольше ждал назначения, чем питья",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["sanatorium", "water", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_schedule_of_tenderness",
+      "text": "как по расписанию нежности, составленному без лишних слов",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["sanatorium", "time", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_rest_archive",
+      "text": "как в архиве покоя, которому до сих пор доверяют коридоры",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["sanatorium", "archive", "memory", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

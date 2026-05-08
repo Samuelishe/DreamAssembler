@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "check_procedure_card",
+      "text": "сверить по карте",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["sanatorium", "paper", "procedural", "compat:procedure_card"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "return_to_rest_schedule",
+      "text": "вернуть в расписание",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["sanatorium", "time", "service", "compat:rest_schedule"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "carry_to_mineral_room",
+      "text": "отнести в питьевую комнату",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["sanatorium", "water", "service", "compat:mineral_glass", "compat:portable"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "cover_before_quiet_hour",
+      "text": "укрыть до тихого часа",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["sanatorium", "quiet", "service", "compat:protectable", "compat:rest_schedule"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "wait_until_corridor_releases",
+      "text": "дождаться, пока отпустит коридор",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["sanatorium", "quiet", "surreal", "compat:corridor_pass"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "rewrite_for_later_recovery",
+      "text": "переписать на потом",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["sanatorium", "paper", "surreal", "compat:procedure_card", "compat:rest_schedule"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

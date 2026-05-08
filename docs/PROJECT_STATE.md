@@ -59,6 +59,7 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - nocturnal airports;
 - dead shopping malls;
 - observatory loneliness;
+- sanatorium bureaucracy;
 - emotional automation;
 - dreamlike logistics;
 - silent gigantism.
@@ -95,6 +96,7 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - генератор усиливает совместимость по тегам между уже выбранными элементами одной фразы;
 - добавлен консольный инструмент `DreamAssembler.DataTools` для проверки и статистики данных;
 - открыт новый non-urban manifold `observatory loneliness` с отдельной ecology: night procedure, weather logging, analog signals, distant light, dome mechanics и instrument silence;
+- открыт новый manifold `sanatorium bureaucracy` с отдельной ecology: corridor rest, procedure cards, mineral-water routine, scheduled silence, recovery paperwork и institutional tenderness;
 - для `ShortText` введены композиционные роли шаблонов, чтобы снижать повторяемость одинаковых каркасных фраз;
 - часть `emotion`-данных разведена по более безопасным slot-подтипам;
 - `twist`, `concept` и `condition` разделены на более безопасные slot-подтипы;

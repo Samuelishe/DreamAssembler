@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "procedure_card_answers_him",
+      "text": "процедурная карта отвечает ему раньше, чем он успевает ее развернуть",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["sanatorium", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "corridor_waits_for_his_fatigue",
+      "text": "коридор ждет его усталость внимательнее дежурного",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["sanatorium", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "rest_schedule_loses_evening",
+      "text": "расписание покоя постепенно теряет все упоминания вечера",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["sanatorium", "time", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "mineral_room_recalls_same_morning",
+      "text": "питьевая комната снова вспоминает одно и то же утро",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["sanatorium", "water", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "recovery_begins_to_register_people",
+      "text": "восстановление начинает регистрировать людей в ответ",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["sanatorium", "bureaucracy", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

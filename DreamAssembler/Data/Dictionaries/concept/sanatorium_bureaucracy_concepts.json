@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "concept_discipline_of_rest",
+      "text": "дисциплина покоя",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["sanatorium", "quiet", "procedural"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "concept_paperwork_of_recovery",
+      "text": "бумажная сторона восстановления",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["sanatorium", "paper", "bureaucracy"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "concept_corridor_tenderness",
+      "text": "коридорная нежность, которую почему-то вели по расписанию",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["sanatorium", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "story_about_late_rest",
+      "text": "история о покое, который оформляли слишком долго",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["sanatorium", "time", "bureaucracy"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_glasses_and_signatures",
+      "text": "история о стаканах и подписях, доверявших друг другу больше людей",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["sanatorium", "water", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "story_about_corridor_memory",
+      "text": "история о коридоре, который помнил отдых лучше расписания",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["sanatorium", "memory", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

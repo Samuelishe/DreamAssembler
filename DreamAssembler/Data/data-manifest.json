@@ -1,6 +1,6 @@
 {
   "id": "dreamassembler-base-ru",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Базовый русскоязычный набор словарей, шаблонов и внешних лексиконов для DreamAssembler.",
   "dictionarySets": [
     "character/city_workers",
@@ -14,6 +14,7 @@
     "character/museum_night_curators",
     "character/museum_conservation_staff",
     "character/observatory_night_staff",
+    "character/sanatorium_bureaucracy_staff",
     "action/everyday_actions",
     "action/surreal_actions",
     "action/quiet_infrastructure_actions",
@@ -25,6 +26,7 @@
     "action/museum_afterhours_actions",
     "action/museum_conservation_actions",
     "action/observatory_quiet_actions",
+    "action/sanatorium_procedural_actions",
     "object/everyday_objects",
     "object/surreal_objects",
     "object/archive_transport_objects",
@@ -38,6 +40,7 @@
     "object/restoration_storage_objects",
     "object/museum_conservation_objects",
     "object/observatory_instruments",
+    "object/sanatorium_procedural_objects",
     "place/urban_places",
     "place/surreal_places",
     "place/surreal_service_places",
@@ -52,6 +55,7 @@
     "place/museum_backrooms",
     "place/museum_conservation_spaces",
     "place/observatory_loneliness_places",
+    "place/sanatorium_corridor_spaces",
     "twist/rules_and_reactions",
     "twist/quiet_rules_pack",
     "twist/melancholic_reactions_pack",
@@ -65,6 +69,7 @@
     "twist/museum_storage_twists",
     "twist/museum_conservation_twists",
     "twist/observatory_night_twists",
+    "twist/sanatorium_bureaucracy_twists",
     "atmosphere/scene_tones",
     "atmosphere/quiet_tones",
     "atmosphere/airport_night_tones",
@@ -77,6 +82,7 @@
     "atmosphere/museum_afterhours_tones",
     "atmosphere/museum_conservation_tones",
     "atmosphere/observatory_quiet_tones",
+    "atmosphere/sanatorium_quiet_tones",
     "genre/base_genres",
     "genre/quiet_genres",
     "style/base_styles",
@@ -96,6 +102,7 @@
     "concept/curation_memory_concepts",
     "concept/museum_conservation_concepts",
     "concept/observatory_loneliness_concepts",
+    "concept/sanatorium_bureaucracy_concepts",
     "condition/scene_conditions",
     "condition/atmospheric_scene_conditions",
     "condition/quiet_reveal_conditions",
@@ -108,7 +115,8 @@
     "condition/museum_hush_conditions",
     "condition/museum_storage_conditions",
     "condition/museum_conservation_conditions",
-    "condition/observatory_night_conditions"
+    "condition/observatory_night_conditions",
+    "condition/sanatorium_rest_conditions"
   ],
   "associationSets": [
     "Sources/openrussian-nouns.csv",

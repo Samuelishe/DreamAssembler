@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "hall_of_quiet_hour",
+      "text": "холле тихого часа",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["sanatorium", "quiet", "service", "time"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "registry_of_procedures",
+      "text": "регистратуре процедур",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["sanatorium", "paper", "bureaucracy", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "mineral_drinking_room",
+      "text": "питьевой комнате минеральных смен",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["sanatorium", "water", "quiet", "surreal"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "rest_corridor_after_breakfast",
+      "text": "коридоре отдыха после раннего завтрака",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["sanatorium", "quiet", "daily", "morning"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "office_where_recovery_waited",
+      "text": "кабинете, где восстановление ждало подписи дольше людей,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["sanatorium", "bureaucracy", "surreal", "time"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "corridor_where_blankets_remembered",
+      "text": "коридоре, где одеяла помнили расписание внимательнее дежурных,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["sanatorium", "quiet", "surreal", "memory"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

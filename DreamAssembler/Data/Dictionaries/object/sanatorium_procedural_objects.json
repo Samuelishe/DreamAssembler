@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "folded_procedure_card",
+      "text": "сложенную процедурную карту",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["sanatorium", "paper", "service", "compat:procedure_card"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "corridor_rest_schedule",
+      "text": "расписание коридорного отдыха",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["sanatorium", "time", "quiet", "paper", "compat:rest_schedule"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "mineral_water_glass",
+      "text": "стакан минеральной воды с отметкой смены",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["sanatorium", "water", "service", "compat:mineral_glass", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "quiet_hour_blanket",
+      "text": "одеяло тихого часа",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["sanatorium", "quiet", "service", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "laminated_corridor_pass",
+      "text": "ламинированный пропуск в длинный коридор",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["sanatorium", "bureaucracy", "quiet", "compat:corridor_pass", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "drawer_of_unfinished_recoveries",
+      "text": "ящик незавершенных восстановлений",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["sanatorium", "archive", "memory", "surreal", "compat:hideable", "compat:portable"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "registrar_of_quiet_arrivals",
+      "text": "регистратор тихих заездов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["sanatorium", "bureaucracy", "quiet", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "keeper_of_procedure_cards",
+      "text": "хранитель процедурных карт",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["sanatorium", "paper", "service", "archive"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "corridor_rest_attendant",
+      "text": "дежурный по коридорному отдыху",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["sanatorium", "quiet", "daily", "service"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "assistant_of_delayed_recovery",
+      "text": "ассистент отложенного восстановления",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["sanatorium", "time", "surreal", "service"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "operator_of_mineral_silence",
+      "text": "оператор минеральной тишины",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["sanatorium", "quiet", "surreal", "water"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "witness_of_rest_schedule",
+      "text": "свидетель расписания покоя",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["sanatorium", "paper", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

@@ -283,3 +283,5 @@
 - добавлен regression-тест на `place -> twist` drift, чтобы museum-anchored фраза не перепрыгивала в airport-twist только из-за более высокого базового веса кандидата;
 - открыт новый manifold `observatory loneliness` через полный data-pack: `character`, `action`, `object`, `place`, `condition`, `concept`, `atmosphere`, `twist`;
 - observatory-pack собран не как набор "космических" слов, а как quiet procedural ecology вокруг куполов, журналов облачности, аналоговых сигналов, weather logging и instrument loneliness;
+- открыт новый manifold `sanatorium bureaucracy` через полный data-pack: `character`, `action`, `object`, `place`, `condition`, `concept`, `atmosphere`, `twist`;
+- sanatorium-pack собран как procedural-rest ecology вокруг коридорного покоя, процедурных карт, питьевых комнат, служебной тишины и бумажной стороны восстановления;
