@@ -285,3 +285,5 @@
 - observatory-pack собран не как набор "космических" слов, а как quiet procedural ecology вокруг куполов, журналов облачности, аналоговых сигналов, weather logging и instrument loneliness;
 - открыт новый manifold `sanatorium bureaucracy` через полный data-pack: `character`, `action`, `object`, `place`, `condition`, `concept`, `atmosphere`, `twist`;
 - sanatorium-pack собран как procedural-rest ecology вокруг коридорного покоя, процедурных карт, питьевых комнат, служебной тишины и бумажной стороны восстановления;
+- открыт новый manifold `hydroelectric infrastructure` через полный data-pack: `character`, `action`, `object`, `place`, `condition`, `concept`, `atmosphere`, `twist`;
+- hydroelectric-pack собран как industrial-water ecology вокруг турбинных залов, журналов давления, водосбросов, запотевших панелей, техобслуживания и памяти водохранилища;

@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "turbine_hall_at_night",
+      "text": "турбинном зале ночной смены",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hydroelectric", "industrial", "night", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "spillway_control_room",
+      "text": "комнате управления водосбросом",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hydroelectric", "water", "procedural", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "gallery_above_generators",
+      "text": "галерее над генераторами",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hydroelectric", "industrial", "gigantic", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "reservoir_monitoring_post",
+      "text": "посту наблюдения за водохранилищем",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["hydroelectric", "water", "weather", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "machine_room_where_water_waited",
+      "text": "машинном зале, где вода ждала команды тише людей,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["hydroelectric", "water", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "corridor_where_generators_remembered",
+      "text": "коридоре, где генераторы помнили нагрузку внимательнее диспетчеров,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["hydroelectric", "industrial", "surreal", "memory"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

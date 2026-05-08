@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "pressure_log_answers_him",
+      "text": "журнал давления отвечает ему раньше, чем он успевает раскрыть его",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["hydroelectric", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "turbine_echo_waits_for_him",
+      "text": "турбинное эхо ждет его нерешительность внимательнее диспетчера",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["hydroelectric", "industrial", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "control_schedule_loses_morning",
+      "text": "контрольный график постепенно теряет все упоминания утра",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["hydroelectric", "time", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "spillway_recalls_same_command",
+      "text": "водосброс снова вспоминает одну и ту же команду",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["hydroelectric", "water", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "maintenance_begins_to_measure_back",
+      "text": "обслуживание начинает измерять в ответ",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["hydroelectric", "maintenance", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

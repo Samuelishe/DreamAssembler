@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "atmosphere_after_shift_measurement",
+      "text": "как после замера, который решили немного продлить водой",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hydroelectric", "water", "procedural"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_generator_hush",
+      "text": "как рядом с генератором, который гудит осторожнее служебного голоса",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hydroelectric", "industrial", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_fogged_panel_patience",
+      "text": "как у запотевшей панели, привыкшей ждать решения дольше смены",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hydroelectric", "water", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_reservoir_archive",
+      "text": "как в архиве водохранилища, которому по-прежнему доверяют эхом",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hydroelectric", "archive", "memory", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_maintenance_tide",
+      "text": "как по графику прилива, составленному для машин и тишины",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["hydroelectric", "time", "maintenance", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "concept_discipline_of_pressure",
+      "text": "дисциплина давления",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["hydroelectric", "procedural", "water"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "concept_patience_of_generators",
+      "text": "терпение генераторов",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["hydroelectric", "industrial", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "concept_water_bureaucracy_of_night",
+      "text": "ночная бюрократия воды, оформленная без лишнего света",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["hydroelectric", "water", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "story_about_delayed_discharge",
+      "text": "история о сбросе, который согласовывали слишком долго",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["hydroelectric", "time", "bureaucracy"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_signals_of_reservoir",
+      "text": "история о сигналах водохранилища, доверявших ночи больше людей",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["hydroelectric", "analog", "water", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "story_about_turbines_that_listened",
+      "text": "история о турбинах, которые слушали внимательнее диспетчеров",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["hydroelectric", "industrial", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

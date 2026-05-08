@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "night_turbine_operator",
+      "text": "оператор ночной турбины",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hydroelectric", "industrial", "night", "procedural"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "keeper_of_pressure_logs",
+      "text": "хранитель журнала давления",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hydroelectric", "water", "paper", "archive"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "dispatcher_of_sluice_gates",
+      "text": "диспетчер шлюзовых заслонок",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hydroelectric", "water", "service", "procedural"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "maintenance_witness_of_reservoir",
+      "text": "свидетель обслуживания водохранилища",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hydroelectric", "maintenance", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "listener_of_turbine_echo",
+      "text": "слушатель турбинного эха",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hydroelectric", "industrial", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "assistant_of_delayed_discharge",
+      "text": "ассистент отложенного сброса",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["hydroelectric", "time", "water", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

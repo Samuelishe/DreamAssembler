@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "condition_water_held_shift",
+      "text": "вода как будто удерживала смену от завершения",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["hydroelectric", "water", "night"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "condition_pressure_waited_between_readings",
+      "text": "давление задерживалось между замерами дольше, чем следовало прибору",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["hydroelectric", "procedural", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_panels_breathed_with_condensation",
+      "text": "панели дышали вместе с конденсатом",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["hydroelectric", "water", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "condition_galleries_stood_too_patiently",
+      "text": "галереи ждали внимательнее самих обходов",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["hydroelectric", "gigantic", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_maintenance_became_tide",
+      "text": "обслуживание постепенно становилось разновидностью прилива",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["hydroelectric", "water", "surreal", "maintenance"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "condition_station_memory_outlived_noise",
+      "text": "память станции выглядела долговечнее ее шума",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["hydroelectric", "memory", "industrial", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

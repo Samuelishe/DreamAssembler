@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "check_pressure_log",
+      "text": "проверить по журналу",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hydroelectric", "paper", "procedural", "compat:pressure_log"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "return_to_control_schedule",
+      "text": "вернуть в график",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hydroelectric", "time", "service", "compat:control_schedule"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "carry_to_turbine_hall",
+      "text": "отнести в турбинный зал",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hydroelectric", "industrial", "service", "compat:portable", "compat:turbine_part"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "cover_before_condensation",
+      "text": "укрыть от конденсата",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hydroelectric", "water", "maintenance", "compat:protectable", "compat:control_panel"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "wait_until_gate_releases",
+      "text": "дождаться, пока отпустит заслонка",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hydroelectric", "quiet", "surreal", "compat:sluice_order"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "rewind_for_next_shift",
+      "text": "перемотать к следующей смене",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["hydroelectric", "analog", "time", "compat:signal_tape"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

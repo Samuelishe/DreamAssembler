@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "pressure_logbook",
+      "text": "журнал давления ночной смены",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hydroelectric", "paper", "water", "compat:pressure_log"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "control_schedule_sheet",
+      "text": "лист контрольного графика",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hydroelectric", "paper", "time", "compat:control_schedule"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "wrapped_turbine_part",
+      "text": "завернутую турбинную деталь",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hydroelectric", "industrial", "maintenance", "compat:turbine_part", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "fogged_control_panel",
+      "text": "запотевшую панель управления",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hydroelectric", "water", "procedural", "compat:control_panel", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "laminated_sluice_order",
+      "text": "ламинированное распоряжение по сбросу воды",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hydroelectric", "bureaucracy", "water", "compat:sluice_order", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "magnetic_tape_of_reservoir_signals",
+      "text": "магнитную ленту сигналов водохранилища",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["hydroelectric", "analog", "memory", "compat:signal_tape", "compat:portable"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}
