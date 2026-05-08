@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "atmosphere_conservation_hush",
+      "text": "как в бережной консервации после закрытия",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["museum", "quiet", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "atmosphere_catalog_patience",
+      "text": "как в каталоге, который не спешит ничего забывать",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["museum", "archive", "memory"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_absent_visitors",
+      "text": "как в зале, подготовленном для тех, кто так и не пришел",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["museum", "quiet", "memory"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_humidity_watch",
+      "text": "как в комнате, где следят за влажностью внимательнее, чем за голосами",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["museum", "procedural", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_label_silence",
+      "text": "как среди подписей, которые решили помолчать еще немного",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["museum", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

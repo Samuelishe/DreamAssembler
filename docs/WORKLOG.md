@@ -6,6 +6,8 @@
 
 ## 2026-05-08
 
+- после перехода к фазе `atmospheric continuity / rhythm diversification / manifold depth` выполнен первый настоящий manifold-deepening pass по `museum`: добавлен новый conservation-pack по `character`, `action`, `object`, `place`, `condition`, `concept`, `atmosphere` и `twist`, с акцентом на humidity control, storage patience, catalog memory, absent visitors и procedural preservation;
+- `data-manifest.json` поднят до `0.5.9`; `DreamAssembler.DataTools` после этого показывает `768` entries и не находит structural issues;
 - исправлен регресс `ComboBox` после soft-controls pass: удален сломанный кастомный шаблон, из-за которого списки перестали раскрываться, а выбранные `OptionItem<T>` начали отображаться как CLR type names вместо reader-facing названий;
 - popup настроек и swatch-блок приведены к theme-aware brush-схеме, чтобы оформление не выпадало из темных палитр и не выглядело как случайная светлая вставка поверх atmospheric shell;
 - затем `ComboBox` переведен на новый рабочий кастомный dropdown с собственной темной surface-подачей, чтобы сохранить читаемость на темных темах без возврата к системному светлому popup; заодно из верхнего chrome убран лишний маленький дубль названия и текущего режима, который спорил с крупным логотипом ниже;

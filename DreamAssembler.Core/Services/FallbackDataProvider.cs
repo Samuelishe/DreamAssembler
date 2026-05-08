@@ -311,6 +311,7 @@ public static class FallbackDataProvider
                     ["object"] = "object_direct"
                 },
                 CompositionRole = "setup",
+                Cadence = "procedural_report",
                 Tags = ["story"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
@@ -330,6 +331,7 @@ public static class FallbackDataProvider
                     ["object"] = "object_direct"
                 },
                 CompositionRole = "setup",
+                Cadence = "procedural_report",
                 Tags = ["story", "surreal"],
                 MinAbsurdity = 1,
                 MaxAbsurdity = 3,
@@ -347,6 +349,7 @@ public static class FallbackDataProvider
                     ["twist"] = "twist_general_clause"
                 },
                 CompositionRole = "development",
+                Cadence = "ceremonial",
                 Tags = ["story", "mood"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
@@ -364,6 +367,7 @@ public static class FallbackDataProvider
                     ["concept"] = "concept_reflection"
                 },
                 CompositionRole = "reflection",
+                Cadence = "suspended_statement",
                 Tags = ["story", "mood", "concept"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
@@ -380,6 +384,7 @@ public static class FallbackDataProvider
                     ["concept"] = "concept_reflection"
                 },
                 CompositionRole = "interpretation",
+                Cadence = "delayed_revelation",
                 Tags = ["story", "concept", "mood"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
@@ -397,6 +402,7 @@ public static class FallbackDataProvider
                     ["condition"] = "condition_reveal_state"
                 },
                 CompositionRole = "observation",
+                Cadence = "static_observation",
                 Tags = ["story", "mood", "surreal"],
                 MinAbsurdity = 1,
                 MaxAbsurdity = 3,
@@ -413,6 +419,7 @@ public static class FallbackDataProvider
                     ["style"] = "style_note"
                 },
                 CompositionRole = "meta",
+                Cadence = "quiet_instruction",
                 Tags = ["tone", "story"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
@@ -429,6 +436,7 @@ public static class FallbackDataProvider
                     ["condition"] = "condition_initial_state"
                 },
                 CompositionRole = "scene",
+                Cadence = "suspended_statement",
                 Tags = ["story", "scene", "quiet"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
@@ -446,6 +454,7 @@ public static class FallbackDataProvider
                     ["condition"] = "condition_reveal_state"
                 },
                 CompositionRole = "development",
+                Cadence = "announcement",
                 Tags = ["story", "scene", "city"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
@@ -463,6 +472,7 @@ public static class FallbackDataProvider
                     ["condition"] = "condition_reveal_state"
                 },
                 CompositionRole = "development",
+                Cadence = "announcement",
                 Tags = ["story", "scene", "surreal"],
                 MinAbsurdity = 1,
                 MaxAbsurdity = 3,
@@ -480,6 +490,7 @@ public static class FallbackDataProvider
                     ["condition"] = "condition_scene_detail"
                 },
                 CompositionRole = "scene",
+                Cadence = "static_observation",
                 Tags = ["story", "scene", "city"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
@@ -497,6 +508,7 @@ public static class FallbackDataProvider
                     ["condition"] = "condition_scene_detail"
                 },
                 CompositionRole = "scene",
+                Cadence = "static_observation",
                 Tags = ["story", "scene", "surreal"],
                 MinAbsurdity = 1,
                 MaxAbsurdity = 3,
@@ -516,6 +528,7 @@ public static class FallbackDataProvider
                     ["twist"] = "twist_character_clause"
                 },
                 CompositionRole = "development",
+                Cadence = "interrupted_memory",
                 Tags = ["story", "surreal", "character"],
                 MinAbsurdity = 1,
                 MaxAbsurdity = 3,
@@ -533,6 +546,7 @@ public static class FallbackDataProvider
                     ["atmosphere"] = "atmosphere_state"
                 },
                 CompositionRole = "scene",
+                Cadence = "static_observation",
                 Tags = ["mood", "scene", "quiet"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
@@ -550,6 +564,7 @@ public static class FallbackDataProvider
                     ["atmosphere"] = "atmosphere_state"
                 },
                 CompositionRole = "scene",
+                Cadence = "static_observation",
                 Tags = ["mood", "scene", "surreal"],
                 MinAbsurdity = 1,
                 MaxAbsurdity = 3,
@@ -566,6 +581,7 @@ public static class FallbackDataProvider
                     ["genre"] = "genre_label"
                 },
                 CompositionRole = "interpretation",
+                Cadence = "delayed_revelation",
                 Tags = ["tone", "concept", "story"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
@@ -582,6 +598,7 @@ public static class FallbackDataProvider
                     ["concept"] = "concept_reflection"
                 },
                 CompositionRole = "reflection",
+                Cadence = "suspended_statement",
                 Tags = ["concept", "mood", "story"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
@@ -598,6 +615,7 @@ public static class FallbackDataProvider
                     ["style"] = "style_note"
                 },
                 CompositionRole = "meta",
+                Cadence = "quiet_instruction",
                 Tags = ["tone", "story", "quiet"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
@@ -614,10 +632,82 @@ public static class FallbackDataProvider
                     ["twist"] = "twist_general_clause"
                 },
                 CompositionRole = "reaction",
+                Cadence = "announcement",
                 Tags = ["story", "quiet", "rule"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
                 Weight = 0.8
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_inventory_scene",
+                Text = "На месте были {object} и {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["object", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["object"] = "object_direct",
+                    ["condition"] = "condition_scene_detail"
+                },
+                CompositionRole = "scene",
+                Cadence = "inventory",
+                Tags = ["story", "scene", "quiet"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.8
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_notice",
+                Text = "По внутреннему объявлению, в {place} {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["place", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in",
+                    ["condition"] = "condition_reveal_state"
+                },
+                CompositionRole = "development",
+                Cadence = "announcement",
+                Tags = ["story", "quiet", "rule"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.75
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_museum_label",
+                Text = "Подпись к витрине была короткой: {concept}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["concept"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["concept"] = "concept_reflection"
+                },
+                CompositionRole = "observation",
+                Cadence = "museum_label",
+                Tags = ["story", "concept", "quiet"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.75
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_quiet_instruction",
+                Text = "Просили только об одном: {action} {object} без лишних вопросов.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["action", "object"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["action"] = "action_infinitive",
+                    ["object"] = "object_direct"
+                },
+                CompositionRole = "reaction",
+                Cadence = "quiet_instruction",
+                Tags = ["story", "quiet", "procedural"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.75
             },
             new TemplateDefinition
             {

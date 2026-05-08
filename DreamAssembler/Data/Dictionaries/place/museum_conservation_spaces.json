@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "humidity_monitoring_room",
+      "text": "комнате контроля влажности",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["museum", "service", "procedural"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "hall_of_absent_visitors",
+      "text": "зале отсутствующих посетителей",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["museum", "memory", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "cabinet_of_deferred_labels",
+      "text": "кабинете отложенных подписей",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["museum", "paper", "bureaucracy"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "restoration_table_after_closing",
+      "text": "реставрационном столе после закрытия",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["museum", "night", "service"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "storage_where_glass_waited",
+      "text": "хранилище, где стекло дольше ждало предметов, чем люди их описаний,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["museum", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "corridor_where_catalog_listened",
+      "text": "коридоре, где каталог прислушивался к шагам раньше смотрителей,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["museum", "archive", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

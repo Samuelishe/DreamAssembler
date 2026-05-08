@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "humidity_was_recorded_initial",
+      "text": "влажность снова записывали как чужое самочувствие",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["museum", "procedural", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "visitors_were_still_missing_initial",
+      "text": "отсутствие посетителей ощущалось как отдельный режим работы",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["museum", "memory", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "labels_waited_patiently_detail",
+      "text": "даже подписи вели себя терпеливее утреннего персонала",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["museum", "paper", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "glass_held_back_breath_detail",
+      "text": "стекло как будто удерживало чужое дыхание",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["museum", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "catalog_remembered_absence_reveal",
+      "text": "каталог помнил пропуски лучше самих залов",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["museum", "archive", "memory"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "conservation_order_shifted_reveal",
+      "text": "порядок консервации сместился так, будто его кто-то вспоминал вслух",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["museum", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "check_humidity_log",
+      "text": "проверить журнал влажности",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "service", "procedural", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "cover_from_morning_light",
+      "text": "укрыть от утреннего света",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "quiet", "compat:protectable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "mark_for_reconditioning",
+      "text": "отметить для повторной консервации",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "service", "paper", "compat:rewriteable", "compat:searchable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "compare_with_storage_card",
+      "text": "сверить с карточкой хранения",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "archive", "paper", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "listen_before_unpacking",
+      "text": "прислушаться перед распаковкой",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "quiet", "surreal", "compat:openable", "compat:protectable"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "return_to_quiet_storage",
+      "text": "вернуть в тихое хранилище",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["museum", "archive", "quiet", "compat:portable", "compat:hideable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    }
+  ]
+}

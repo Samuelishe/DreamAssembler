@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "catalog_has_his_tone",
+      "text": "каталог отвечает ему тем тоном, который обычно оставляют для витрин",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["museum", "archive", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "glass_recognizes_him_first",
+      "text": "стекло узнает его раньше дежурных",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["museum", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "humidity_log_waits_for_him",
+      "text": "журнал влажности ведет себя так, будто давно ждал именно его подписи",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["museum", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "restoration_order_rewrites_itself",
+      "text": "очередность реставрации переписывается без объяснений",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["museum", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "absent_visitors_keep_the_route",
+      "text": "маршрут отсутствующих посетителей все еще учитывается в вечернем обходе",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["museum", "memory", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "labels_delay_the_exhibit",
+      "text": "подписи задерживают экспонаты дольше, чем стекло",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["museum", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

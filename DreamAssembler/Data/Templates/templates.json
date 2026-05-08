@@ -337,6 +337,7 @@
         "object": "object_direct"
       },
       "compositionRole": "setup",
+      "cadence": "procedural_report",
       "tags": ["story", "daily"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -354,6 +355,7 @@
         "object": "object_direct"
       },
       "compositionRole": "setup",
+      "cadence": "procedural_report",
       "tags": ["story", "surreal"],
       "minAbsurdity": 1,
       "maxAbsurdity": 3,
@@ -369,6 +371,7 @@
         "twist": "twist_general_clause"
       },
       "compositionRole": "development",
+      "cadence": "ceremonial",
       "tags": ["story", "mood"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -384,6 +387,7 @@
         "concept": "concept_reflection"
       },
       "compositionRole": "reflection",
+      "cadence": "suspended_statement",
       "tags": ["story", "mood", "concept"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -398,6 +402,7 @@
         "concept": "concept_reflection"
       },
       "compositionRole": "interpretation",
+      "cadence": "delayed_revelation",
       "tags": ["story", "concept", "mood"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -413,6 +418,7 @@
         "condition": "condition_reveal_state"
       },
       "compositionRole": "observation",
+      "cadence": "static_observation",
       "tags": ["story", "mood", "surreal"],
       "minAbsurdity": 1,
       "maxAbsurdity": 3,
@@ -427,6 +433,7 @@
         "style": "style_note"
       },
       "compositionRole": "meta",
+      "cadence": "quiet_instruction",
       "tags": ["tone", "story"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -441,6 +448,7 @@
         "condition": "condition_initial_state"
       },
       "compositionRole": "scene",
+      "cadence": "suspended_statement",
       "tags": ["story", "scene", "quiet"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -456,6 +464,7 @@
         "condition": "condition_reveal_state"
       },
       "compositionRole": "development",
+      "cadence": "announcement",
       "tags": ["story", "scene", "city"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -471,6 +480,7 @@
         "condition": "condition_reveal_state"
       },
       "compositionRole": "development",
+      "cadence": "announcement",
       "tags": ["story", "scene", "surreal"],
       "minAbsurdity": 1,
       "maxAbsurdity": 3,
@@ -486,6 +496,7 @@
         "condition": "condition_scene_detail"
       },
       "compositionRole": "scene",
+      "cadence": "static_observation",
       "tags": ["story", "scene", "city"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -501,6 +512,7 @@
         "condition": "condition_scene_detail"
       },
       "compositionRole": "scene",
+      "cadence": "static_observation",
       "tags": ["story", "scene", "surreal"],
       "minAbsurdity": 1,
       "maxAbsurdity": 3,
@@ -518,6 +530,7 @@
         "twist": "twist_character_clause"
       },
       "compositionRole": "development",
+      "cadence": "interrupted_memory",
       "tags": ["story", "surreal", "character"],
       "minAbsurdity": 1,
       "maxAbsurdity": 3,
@@ -533,6 +546,7 @@
         "atmosphere": "atmosphere_state"
       },
       "compositionRole": "scene",
+      "cadence": "static_observation",
       "tags": ["mood", "scene", "quiet"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -548,6 +562,7 @@
         "atmosphere": "atmosphere_state"
       },
       "compositionRole": "scene",
+      "cadence": "static_observation",
       "tags": ["mood", "scene", "surreal"],
       "minAbsurdity": 1,
       "maxAbsurdity": 3,
@@ -562,6 +577,7 @@
         "genre": "genre_label"
       },
       "compositionRole": "interpretation",
+      "cadence": "delayed_revelation",
       "tags": ["tone", "concept", "story"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -576,6 +592,7 @@
         "concept": "concept_reflection"
       },
       "compositionRole": "reflection",
+      "cadence": "suspended_statement",
       "tags": ["concept", "mood", "story"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -590,6 +607,7 @@
         "style": "style_note"
       },
       "compositionRole": "meta",
+      "cadence": "quiet_instruction",
       "tags": ["tone", "story", "quiet"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
@@ -604,10 +622,74 @@
         "twist": "twist_general_clause"
       },
       "compositionRole": "reaction",
+      "cadence": "announcement",
       "tags": ["story", "quiet", "rule"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
       "weight": 0.8
+    },
+    {
+      "id": "shorttext_inventory_scene",
+      "text": "На месте были {object} и {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["object", "condition"],
+      "slotRequirements": {
+        "object": "object_direct",
+        "condition": "condition_scene_detail"
+      },
+      "compositionRole": "scene",
+      "cadence": "inventory",
+      "tags": ["story", "scene", "quiet"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "shorttext_notice",
+      "text": "По внутреннему объявлению, в {place} {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["place", "condition"],
+      "slotRequirements": {
+        "place": "place_in",
+        "condition": "condition_reveal_state"
+      },
+      "compositionRole": "development",
+      "cadence": "announcement",
+      "tags": ["story", "quiet", "rule"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.75
+    },
+    {
+      "id": "shorttext_museum_label",
+      "text": "Подпись к витрине была короткой: {concept}.",
+      "mode": "ShortText",
+      "requiredCategories": ["concept"],
+      "slotRequirements": {
+        "concept": "concept_reflection"
+      },
+      "compositionRole": "observation",
+      "cadence": "museum_label",
+      "tags": ["story", "concept", "quiet"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.75
+    },
+    {
+      "id": "shorttext_quiet_instruction",
+      "text": "Просили только об одном: {action} {object} без лишних вопросов.",
+      "mode": "ShortText",
+      "requiredCategories": ["action", "object"],
+      "slotRequirements": {
+        "action": "action_infinitive",
+        "object": "object_direct"
+      },
+      "compositionRole": "reaction",
+      "cadence": "quiet_instruction",
+      "tags": ["story", "quiet", "procedural"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.75
     }
   ]
 }

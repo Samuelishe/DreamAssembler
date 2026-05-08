@@ -195,6 +195,67 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что batch старается не повторять один и тот же cadence подряд, если есть альтернатива.
+    /// </summary>
+    [Fact]
+    public void Generate_PrefersDifferentCadence_WhenAlternativeExists()
+    {
+        var templates = new List<TemplateDefinition>
+        {
+            new()
+            {
+                Id = "sentence_announcement",
+                Text = "Объявление: {condition}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["condition"] = "condition_clause"
+                },
+                Cadence = "announcement",
+                Weight = 10.0
+            },
+            new()
+            {
+                Id = "sentence_inventory",
+                Text = "По списку: {condition}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["condition"] = "condition_clause"
+                },
+                Cadence = "inventory",
+                Weight = 1.0
+            }
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new() { Id = "condition_ok", Category = "condition", Slot = "condition_clause", Text = "лампы продолжали гудеть", Weight = 1.0 }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            templates,
+            [],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.Sentence,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 2
+        });
+
+        Assert.Equal(2, result.Count);
+        Assert.StartsWith("Объявление:", result[0].Text, StringComparison.Ordinal);
+        Assert.StartsWith("По списку:", result[1].Text, StringComparison.Ordinal);
+    }
+
+    /// <summary>
     /// Проверяет, что генератор использует slot-требования шаблона.
     /// </summary>
     [Fact]

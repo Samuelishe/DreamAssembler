@@ -259,7 +259,7 @@ public sealed class TextGeneratorService
             values[category] = entry;
         }
 
-        RememberTemplate(template.Id, context);
+        RememberTemplate(template, context);
 
         return NormalizeSentenceStart(_templateEngine.Render(template, values));
     }
@@ -403,6 +403,11 @@ public sealed class TextGeneratorService
     private static string GetCompositionRole(TemplateDefinition template)
     {
         return string.IsNullOrWhiteSpace(template.CompositionRole) ? "default" : template.CompositionRole;
+    }
+
+    private static string GetCadence(TemplateDefinition template)
+    {
+        return string.IsNullOrWhiteSpace(template.Cadence) ? "default" : template.Cadence;
     }
 
     private static void IncrementRoleUsage(IDictionary<string, int> roleUsageCounts, string role)
@@ -664,8 +669,9 @@ public sealed class TextGeneratorService
         var recentPenalty = _recentTemplateIds.Contains(template.Id) ? 0.45d : 1d;
         var continuityBoost = context.CalculateContinuityBoost(template.Tags);
         var pressureBoost = context.CalculatePressureBoost(template.Tags);
+        var cadenceBoost = context.CalculateCadenceBoost(template);
 
-        return baseWeight * inRangeBoost * closenessBoost * batchPenalty * recentPenalty * continuityBoost * pressureBoost;
+        return baseWeight * inRangeBoost * closenessBoost * batchPenalty * recentPenalty * continuityBoost * pressureBoost * cadenceBoost;
     }
 
     private double CalculateEntryWeight(
@@ -791,10 +797,11 @@ public sealed class TextGeneratorService
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
     }
 
-    private void RememberTemplate(string templateId, GenerationContext context)
+    private void RememberTemplate(TemplateDefinition template, GenerationContext context)
     {
-        context.UsedTemplateIds.Add(templateId);
-        EnqueueWithLimit(_recentTemplateIds, templateId, RecentTemplateLimit);
+        context.UsedTemplateIds.Add(template.Id);
+        context.RememberCadence(GetCadence(template));
+        EnqueueWithLimit(_recentTemplateIds, template.Id, RecentTemplateLimit);
     }
 
     private void RememberEntry(DictionaryEntry entry, GenerationContext context)
@@ -840,6 +847,8 @@ public sealed class TextGeneratorService
         private Dictionary<string, HashSet<string>> UsedEntryIdsByCategory { get; } = new(StringComparer.OrdinalIgnoreCase);
         private Dictionary<string, int> TagCounts { get; } = new(StringComparer.OrdinalIgnoreCase);
         private Dictionary<string, int> PressureTagCounts { get; } = new(StringComparer.OrdinalIgnoreCase);
+        private Dictionary<string, int> CadenceCounts { get; } = new(StringComparer.OrdinalIgnoreCase);
+        private string? PreviousCadence { get; set; }
 
         public bool IsEntryUsed(string category, string entryId)
         {
@@ -919,6 +928,44 @@ public sealed class TextGeneratorService
             }
 
             return 0.72d;
+        }
+
+        public void RememberCadence(string cadence)
+        {
+            if (string.IsNullOrWhiteSpace(cadence) || string.Equals(cadence, "default", StringComparison.OrdinalIgnoreCase))
+            {
+                return;
+            }
+
+            CadenceCounts.TryGetValue(cadence, out var count);
+            CadenceCounts[cadence] = count + 1;
+            PreviousCadence = cadence;
+        }
+
+        public double CalculateCadenceBoost(TemplateDefinition template)
+        {
+            var cadence = GetCadence(template);
+            if (string.Equals(cadence, "default", StringComparison.OrdinalIgnoreCase))
+            {
+                return 1d;
+            }
+
+            CadenceCounts.TryGetValue(cadence, out var count);
+
+            var cadenceBoost = count switch
+            {
+                0 => 1.18d,
+                1 => 0.82d,
+                _ => 0.58d
+            };
+
+            if (!string.IsNullOrWhiteSpace(PreviousCadence)
+                && string.Equals(PreviousCadence, cadence, StringComparison.OrdinalIgnoreCase))
+            {
+                cadenceBoost *= 0.4d;
+            }
+
+            return cadenceBoost;
         }
 
         public string? GetDominantAtmosphereKey()

@@ -43,6 +43,11 @@ public sealed class TemplateDefinition
     public string CompositionRole { get; set; } = string.Empty;
 
     /// <summary>
+    /// Получает или задает ритмический класс шаблона.
+    /// </summary>
+    public string Cadence { get; set; } = string.Empty;
+
+    /// <summary>
     /// Получает или задает минимальный поддерживаемый уровень абсурдности.
     /// </summary>
     public int MinAbsurdity { get; set; }

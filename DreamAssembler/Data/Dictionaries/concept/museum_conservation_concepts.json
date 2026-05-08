@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "concept_conservation_patience",
+      "text": "терпение консервации",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["museum", "quiet", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "concept_catalog_memory_of_gaps",
+      "text": "каталожная память о пропусках",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["museum", "archive", "memory"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "concept_hall_without_witnesses",
+      "text": "зал, который дольше учился обходиться без свидетелей, чем без света",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["museum", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "story_about_delayed_restoration",
+      "text": "история о реставрации, которая началась слишком бережно",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["museum", "service", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "story_about_absent_audience",
+      "text": "история о зале, который продолжал готовиться к тем, кто уже не придет",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["museum", "memory", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_obedient_catalog",
+      "text": "история о каталоге, который соблюдал тишину лучше хранителей",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["museum", "paper", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

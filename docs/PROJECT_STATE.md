@@ -163,14 +163,15 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - lexical modes все еще должны развиваться прежде всего через curated dataset quality, а не через усложнение алгоритма: это подтверждено реальными пользовательскими примерами слабых слов.
 - core JSON-режимам все еще нужна дальнейшая экспансия: нынешний pack улучшает вариативность заметно, но целевой масштаб действительно должен идти к сотням и затем тысячам curated фраз и словарных записей.
 - текущий рост идет в правильной форме: не через random bulk, а через отдельные тематические packs, которые можно дальше наращивать сериями без потери identity.
-- текущая pack-level статистика уже позволяет принимать решения по growth без догадок: airport-field сейчас достаточно плотный для паузы, mall-field остается рабочим first-wave слоем, а museum-field только что открыт как следующий manifold для expansion.
+- текущая pack-level статистика уже позволяет принимать решения по growth без догадок: airport-field сейчас достаточно плотный для паузы, mall-field остается рабочим first-wave слоем, а museum-field уже вышел за пределы первой декоративной museum-wave и начал расти как отдельная conservation / curation ecology.
 - затем mall-field тоже переведен из first-wave в second-wave состояние: к исходному `dead shopping malls / abandoned commerce / fluorescent afterhours` слою добавлен второй pack с персонажами, действиями, backroom/service-пространствами и дополнительными tonal-support наборами, чтобы mall-ось держалась не только на пустых витринах, но и на afterhours service logic, fluorescent waiting и exhausted retail ritual.
 - после этого открыт следующий manifold `recursive hospitality / nocturnal hotels / ceremonial check-in`: добавлен первый compact pack по `character`, `action`, `place`, `object`, `condition`, `concept`, `atmosphere` и `twist`, чтобы проект начал расти и в сторону ночного гостеприимства, задержанных приездов, коридорного терпения и service-insomnia, не дожидаясь финального output-pass.
 - затем hospitality-field сразу усилен вторым pack вокруг `back office / room-service ritual / shifted departures / breakfast before morning`, чтобы этот manifold быстрее вышел из first-wave состояния и держался не только на лобби и коридорах, но и на service-memory, late checkout logic и внутренней ночной инфраструктуре гостеприимства.
 - политика версионирования данных тоже уточнена: `data-manifest.json` больше не должен прыгать по `minor` на каждый новый pack; для обычного роста корпуса и новых atmospheric packs используется `PATCH`, чтобы версия отражала реальный масштаб изменения.
 - затем выполнен промежуточный большой `samples`-pass по расширенному corpus, после которого последовательно усилены soft manifold-affinity, compat-scoring и прямой action/object candidate filtering, чтобы снизить случайные cross-field склейки и убрать оставшиеся пары уровня `открыть табличку мастер-ключом`.
-- текущее состояние данных на конец этой сессии: `data-manifest.json = 0.5.8`, corpus = `721` entries, а `airport`, `mall`, `museum` и `hospitality` уже находятся в second-wave состоянии.
+- текущее состояние данных на конец этой сессии: `data-manifest.json = 0.5.9`, corpus = `768` entries, а `airport`, `mall`, `museum` и `hospitality` уже находятся в second-wave состоянии.
 - теперь узким местом постепенно становится не только объем словарей, но и richness самих каркасов: это значит, что дальнейшее развитие должно идти параллельно по данным и по template rhythm.
+- museum-layer теперь дополнительно углублен новым conservation-pack: humidity control, storage patience, catalog memory, absent visitors и procedural preservation начали работать уже не как отдельные слова, а как более плотная emotional ecology этого manifold.
 
 Главное: проект уже умеет давать не только странность, но и настроение.
 
@@ -183,6 +184,7 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - внутри batch еще не хватает мягкого emotional drift;
 - зрелые manifolds уже требуют не только расширения словаря, но и углубления собственной emotional ecology;
 - lexical modes уже нельзя считать вторичным режимом: они становятся отдельным atmospheric instrument и требуют такого же внимания к continuity и resonance.
+- первый реальный manifold deepening-pass уже подтверждает правильную форму роста: проекту важнее не только открывать новые fields, но и возвращаться в существующие пространства, чтобы наращивать их ritual behavior, maintenance logic и service anxiety.
 
 ## Philosophy Of Generation Quality
 
@@ -371,7 +373,7 @@ DreamAssembler должен развиваться ближе к atmospheric sof
 1. Ввести `rhythm diversification pass` в templates: не просто новые каркасы, а новые способы дыхания текста и разные cadence classes.
 2. Добавить very soft layer для `atmospheric continuity`: motif resurfacing, symbolic recurrence, emotional echoes, weak fragment memory.
 3. Ввести мягкий `dominant emotional pressure` для batch или короткой серии, не превращая его в жесткий режим или жанровый переключатель.
-4. Растить существующие manifolds как emotional ecologies: ritual behavior, maintenance logic, service patterns, institutional memory, recurring anxieties.
+4. Продолжать растить существующие manifolds как emotional ecologies: ritual behavior, maintenance logic, service patterns, institutional memory, recurring anxieties.
 5. Открывать новые manifolds не по теме, а по distinct atmospheric pressure и internal dream-logic, особенно в non-urban / infra-near-nature направлении.
 6. Усиливать lexical modes как отдельный atmospheric instrument: batch coherence, spotlight continuity, fragment trails, isolated resonance.
 7. Дальше развивать atmospheric presentation только там, где оно реально поддерживает drift-reading experience.

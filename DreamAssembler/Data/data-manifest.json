@@ -1,6 +1,6 @@
 {
   "id": "dreamassembler-base-ru",
-  "version": "0.5.8",
+  "version": "0.5.9",
   "description": "Базовый русскоязычный набор словарей, шаблонов и внешних лексиконов для DreamAssembler.",
   "dictionarySets": [
     "character/city_workers",
@@ -12,6 +12,7 @@
     "character/impossible_museum_staff",
     "character/mall_night_staff",
     "character/museum_night_curators",
+    "character/museum_conservation_staff",
     "action/everyday_actions",
     "action/surreal_actions",
     "action/quiet_infrastructure_actions",
@@ -21,6 +22,7 @@
     "action/mall_afterhours_actions",
     "action/museum_ritual_actions",
     "action/museum_afterhours_actions",
+    "action/museum_conservation_actions",
     "object/everyday_objects",
     "object/surreal_objects",
     "object/archive_transport_objects",
@@ -32,6 +34,7 @@
     "object/mall_service_objects",
     "object/museum_echo_objects",
     "object/restoration_storage_objects",
+    "object/museum_conservation_objects",
     "place/urban_places",
     "place/surreal_places",
     "place/surreal_service_places",
@@ -44,6 +47,7 @@
     "place/mall_service_backrooms",
     "place/impossible_museums",
     "place/museum_backrooms",
+    "place/museum_conservation_spaces",
     "twist/rules_and_reactions",
     "twist/quiet_rules_pack",
     "twist/melancholic_reactions_pack",
@@ -55,6 +59,7 @@
     "twist/mall_service_twists",
     "twist/museum_echo_twists",
     "twist/museum_storage_twists",
+    "twist/museum_conservation_twists",
     "atmosphere/scene_tones",
     "atmosphere/quiet_tones",
     "atmosphere/airport_night_tones",
@@ -65,6 +70,7 @@
     "atmosphere/mall_afterhours_tones",
     "atmosphere/museum_twilight_tones",
     "atmosphere/museum_afterhours_tones",
+    "atmosphere/museum_conservation_tones",
     "genre/base_genres",
     "genre/quiet_genres",
     "style/base_styles",
@@ -82,6 +88,7 @@
     "concept/mall_afterhours_concepts",
     "concept/museum_memory_concepts",
     "concept/curation_memory_concepts",
+    "concept/museum_conservation_concepts",
     "condition/scene_conditions",
     "condition/atmospheric_scene_conditions",
     "condition/quiet_reveal_conditions",
@@ -92,7 +99,8 @@
     "condition/mall_afterhours_conditions",
     "condition/mall_service_conditions",
     "condition/museum_hush_conditions",
-    "condition/museum_storage_conditions"
+    "condition/museum_storage_conditions",
+    "condition/museum_conservation_conditions"
   ],
   "associationSets": [
     "Sources/openrussian-nouns.csv",

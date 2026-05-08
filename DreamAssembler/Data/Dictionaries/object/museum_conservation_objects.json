@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "humidity_control_sheet",
+      "text": "лист контроля влажности",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "paper", "procedural", "compat:portable", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "sealed_humidity_report_envelope",
+      "text": "опечатанный конверт с журналом влажности",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "paper", "archive", "compat:portable", "compat:hideable", "compat:openable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "visitorless_hall_key",
+      "text": "ключ от зала без посетителей",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "quiet", "memory", "compat:portable", "compat:hideable", "compat:openable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "cloth_for_dim_surfaces",
+      "text": "ткань для тусклых поверхностей",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "service", "compat:portable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "drawer_of_absent_labels",
+      "text": "ящик отложенных подписей",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "paper", "quiet", "compat:portable", "compat:hideable", "compat:searchable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "frame_corner_with_memory",
+      "text": "угол рамы с памятью о снятой картине",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["museum", "memory", "surreal", "compat:protectable", "compat:hideable"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

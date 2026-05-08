@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "humidity_log_keeper",
+      "text": "дежурный по журналу влажности",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "service", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "caretaker_of_absent_halls",
+      "text": "смотритель залов без посетителей",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "quiet", "memory"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "registrar_of_microcracks",
+      "text": "регистратор микротрещин",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "paper", "service"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "restoration_shift_supervisor",
+      "text": "старший реставрационной смены",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "night", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "custodian_of_withheld_labels",
+      "text": "хранитель отложенных подписей",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "paper", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "listener_of_storage_doors",
+      "text": "слушатель дверей фондохранилища",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["museum", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}
