@@ -74,6 +74,27 @@ public sealed class TextGeneratorService
         "secret",
         "home"
     ];
+    private static readonly HashSet<string> LegacyBaselineTags =
+    [
+        "city",
+        "transport",
+        "transit",
+        "bureaucracy",
+        "archive",
+        "paper",
+        "provincial",
+        "rainy",
+        "melancholic"
+    ];
+    private static readonly HashSet<string> NeutralFoundationTags =
+    [
+        "quiet",
+        "procedural",
+        "ritual",
+        "service",
+        "night",
+        "sterile_light"
+    ];
     private static readonly HashSet<string> AtmosphericPressureTags =
     [
         "quiet",
@@ -92,6 +113,19 @@ public sealed class TextGeneratorService
         "melancholic",
         "commerce_decay"
     ];
+    private static readonly IReadOnlyDictionary<string, HashSet<string>> PreferredCadencesByManifold =
+        new Dictionary<string, HashSet<string>>(StringComparer.OrdinalIgnoreCase)
+        {
+            ["weather_systems"] = new HashSet<string>(["announcement", "procedural_report", "inventory"], StringComparer.OrdinalIgnoreCase),
+            ["observatory"] = new HashSet<string>(["static_observation", "suspended_statement", "interrupted_memory"], StringComparer.OrdinalIgnoreCase),
+            ["hydroelectric"] = new HashSet<string>(["procedural_report", "inventory", "suspended_statement"], StringComparer.OrdinalIgnoreCase),
+            ["coastal_fog"] = new HashSet<string>(["static_observation", "announcement", "suspended_statement"], StringComparer.OrdinalIgnoreCase),
+            ["sanatorium"] = new HashSet<string>(["quiet_instruction", "suspended_statement", "static_observation"], StringComparer.OrdinalIgnoreCase),
+            ["mall"] = new HashSet<string>(["announcement", "inventory", "static_observation"], StringComparer.OrdinalIgnoreCase),
+            ["hospitality"] = new HashSet<string>(["quiet_instruction", "ceremonial", "suspended_statement"], StringComparer.OrdinalIgnoreCase),
+            ["museum"] = new HashSet<string>(["museum_label", "static_observation", "inventory"], StringComparer.OrdinalIgnoreCase),
+            ["airport"] = new HashSet<string>(["announcement", "procedural_report", "quiet_instruction"], StringComparer.OrdinalIgnoreCase)
+        };
 
     private readonly IReadOnlyList<DictionaryEntry> _dictionaryEntries;
     private readonly IReadOnlyList<TemplateDefinition> _templates;
@@ -752,10 +786,11 @@ public sealed class TextGeneratorService
         var continuityBoost = context.CalculateContinuityBoost(template.Tags);
         var pressureBoost = context.CalculatePressureBoost(template.Tags);
         var cadenceBoost = context.CalculateCadenceBoost(template);
+        var legacyBaselineBoost = context.CalculateLegacyBaselineBoost(template.Tags);
         var manifoldBoost = context.CalculateDominantManifoldBoost(template.Tags);
         var surfacingBoost = CalculateEarlyManifoldSurfacingBoost(template.Tags, context);
 
-        return baseWeight * inRangeBoost * closenessBoost * batchPenalty * recentPenalty * continuityBoost * pressureBoost * cadenceBoost * manifoldBoost * surfacingBoost;
+        return baseWeight * inRangeBoost * closenessBoost * batchPenalty * recentPenalty * continuityBoost * pressureBoost * cadenceBoost * legacyBaselineBoost * manifoldBoost * surfacingBoost;
     }
 
     private double CalculateEntryWeight(
@@ -1221,7 +1256,18 @@ public sealed class TextGeneratorService
 
             if (pressureTags.Contains(dominantPressure.Key, StringComparer.OrdinalIgnoreCase))
             {
-                return 1.4d + Math.Min(0.18d, (dominantPressure.Value - 1) * 0.06d);
+                var boost = 1.4d + Math.Min(0.18d, (dominantPressure.Value - 1) * 0.06d);
+                if (ShouldDampenLegacyBaseline(tags))
+                {
+                    boost *= 0.78d;
+                }
+
+                return boost;
+            }
+
+            if (ShouldDampenLegacyBaseline(tags))
+            {
+                return 0.6d;
             }
 
             return 0.72d;
@@ -1292,7 +1338,40 @@ public sealed class TextGeneratorService
                 cadenceBoost *= 0.4d;
             }
 
+            var dominantStrongManifold = GetDominantStrongManifold();
+            if (!string.IsNullOrWhiteSpace(dominantStrongManifold)
+                && PreferredCadencesByManifold.TryGetValue(dominantStrongManifold, out var preferredCadences))
+            {
+                cadenceBoost *= preferredCadences.Contains(cadence)
+                    ? 1.85d
+                    : 0.72d;
+            }
+
             return cadenceBoost;
+        }
+
+        public double CalculateLegacyBaselineBoost(IEnumerable<string> tags)
+        {
+            var dominantStrongManifold = GetDominantStrongManifold();
+            if (string.IsNullOrWhiteSpace(dominantStrongManifold))
+            {
+                return 1d;
+            }
+
+            var tagList = tags.Distinct(StringComparer.OrdinalIgnoreCase).ToList();
+            if (tagList.Count == 0)
+            {
+                return 1d;
+            }
+
+            var hasLegacyBaseline = tagList.Any(LegacyBaselineTags.Contains);
+            if (!hasLegacyBaseline)
+            {
+                return 1d;
+            }
+
+            var hasNeutralFoundation = tagList.Any(NeutralFoundationTags.Contains);
+            return hasNeutralFoundation ? 0.86d : 0.68d;
         }
 
         public string? GetDominantAtmosphereKey()
@@ -1342,6 +1421,29 @@ public sealed class TextGeneratorService
         public string? GetOpeningStrongManifold()
         {
             return OpeningStrongManifold;
+        }
+
+        private bool ShouldDampenLegacyBaseline(IEnumerable<string> tags)
+        {
+            if (StrongManifoldCounts.Count == 0)
+            {
+                return false;
+            }
+
+            var tagList = tags.Distinct(StringComparer.OrdinalIgnoreCase).ToList();
+            if (tagList.Count == 0 || tagList.Any(StrongManifoldTags.Contains))
+            {
+                return false;
+            }
+
+            var hasLegacyPressure = tagList.Any(LegacyBaselineTags.Contains);
+            if (!hasLegacyPressure)
+            {
+                return false;
+            }
+
+            var hasNeutralFoundation = tagList.Any(NeutralFoundationTags.Contains);
+            return !hasNeutralFoundation;
         }
     }
 }

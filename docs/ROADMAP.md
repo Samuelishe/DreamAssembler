@@ -8,15 +8,15 @@ DreamAssembler не должен пытаться делать все сразу
 
 Порядок приоритетов на ближайшее развитие:
 
-1. atmospheric continuity;
-2. rhythm diversification;
-3. manifold depth;
-4. manifold expansion;
+1. runtime atmospheric rebalance;
+2. atmospheric continuity;
+3. rhythm diversification;
+4. manifold depth;
 5. lexical modes as atmospheric instrument;
-6. curated datasets quality;
-7. semantic coherence;
-8. atmospheric presentation;
-9. visual refinement only where it improves reading drift;
+6. manifold expansion only after rebalance;
+7. curated datasets quality;
+8. semantic coherence;
+9. atmospheric presentation;
 10. optional morphology improvements later.
 
 ## Что не входит в ближайшие этапы
@@ -30,6 +30,19 @@ DreamAssembler не должен пытаться делать все сразу
 - online features;
 - embeddings;
 - overengineering ради "умного" вида архитектуры.
+- открытие новой большой expansion-wave до того, как runtime перестанет тянуть все обратно в first-wave urban gravity.
+
+## Этап 0. Runtime Atmospheric Rebalance
+
+Цель: убрать скрытую first-wave urban calibration из foundation-layer, не ломая старые manifolds и не превращая систему в hard mode router.
+
+Приоритеты:
+
+- отделить `archive / bureaucracy / city / transport / paper / provincial` от роли псевдо-нейтрального foundation;
+- постепенно перевести foundation к более прозрачной atmospheric physics: `silence`, `waiting`, `maintenance`, `transition`, `repetition`, `residue`, `interval`, `distant_sound`, `dim_light`, `observation`, `drift`, `hum`, `procedural`, `routine`, `empty_space`;
+- удержать старый urban/archive-field как сильный manifold, а не скрытый emotional core всей генерации;
+- усилить soft manifold-local gravity не только для nouns, но и для pacing, silence, implication и observation style;
+- ввести lightweight surfacing audit по manifold/cadence/baseline imbalance.
 
 ## Этап 1. Atmospheric Continuity
 
@@ -62,8 +75,18 @@ DreamAssembler не должен пытаться делать все сразу
 - fragmented memory rhythm;
 - almost-poetry structures;
 - emotionally suspended statements.
+- manifold-specific cadence families.
 
 Важно: речь идет не просто о "новых шаблонах", а о новых способах дыхания текста.
+
+Дополнительно важно:
+
+- `weather_systems` должен получать bulletin / pressure-report / calibration cadence;
+- `observatory` - sparse observation / distant notation / silence-heavy cadence;
+- `hydroelectric` - heavy industrial pulse / pressure accumulation cadence;
+- `mall` - looping announcement / fluorescent waiting cadence;
+- `hospitality` - anonymous service / corridor insomnia cadence;
+- `museum` - archival annotation / conservation silence cadence.
 
 ## Этап 3. Manifold Depth
 
@@ -81,6 +104,8 @@ DreamAssembler не должен пытаться делать все сразу
 ## Этап 4. Manifold Expansion
 
 Цель: открывать новые atmospheric spaces как distinct emotional ecologies, а не как жанры или простые темы.
+
+Важно: этот этап больше не должен идти сразу после dataset-success. Сначала нужен runtime rebalance, иначе новые manifolds снова будут звучать как old DreamAssembler в другой декорации.
 
 Приоритеты:
 
@@ -114,6 +139,7 @@ DreamAssembler не должен пытаться делать все сразу
 - isolated fragment resonance;
 - remembered fragments и atmospheric trails;
 - sequence reading вместо чистого one-shot generation-feel.
+- drift-reading и isolated fragment resonance как primary behavior, а не бонусный режим.
 
 ## Этап 6. Curated Datasets Quality
 
@@ -137,6 +163,7 @@ DreamAssembler не должен пытаться делать все сразу
 - дальнейшее развитие `slot` и `slotRequirements` только там, где они поддерживают rhythm и continuity;
 - расширение `compat:*` для слабых semantic seams;
 - мягкое усиление tag-based и manifold-based притяжения;
+- мягкое усиление manifold-local cadence и emotional pressure без hard routing;
 - снижение пустых action/object/place сочетаний;
 - защита от слишком generic и шумных комбинаций.
 

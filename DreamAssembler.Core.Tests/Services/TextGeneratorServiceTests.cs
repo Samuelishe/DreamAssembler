@@ -256,6 +256,165 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что после появления observatory-manifold batch начинает предпочитать совместимый cadence.
+    /// </summary>
+    [Fact]
+    public void Generate_PrefersObservatoryCadence_AfterObservatoryOpening()
+    {
+        var templates = new List<TemplateDefinition>
+        {
+            new()
+            {
+                Id = "opening_observatory_scene",
+                Text = "В {place} {condition}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["place", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in",
+                    ["condition"] = "condition_scene_detail"
+                },
+                Cadence = "procedural_report",
+                Weight = 10.0
+            },
+            new()
+            {
+                Id = "observatory_static_followup",
+                Text = "Потом {condition}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["condition"] = "condition_reveal_state"
+                },
+                Cadence = "static_observation",
+                Weight = 3.0
+            },
+            new()
+            {
+                Id = "generic_announcement_followup",
+                Text = "Объявили только одно: {condition}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["condition"] = "condition_reveal_state"
+                },
+                Cadence = "announcement",
+                Weight = 0.2
+            }
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new() { Id = "observatory_place", Category = "place", Slot = "place_in", Text = "наблюдательном куполе", Tags = ["observatory"], Weight = 1.0 },
+            new() { Id = "observatory_scene", Category = "condition", Slot = "condition_scene_detail", Text = "записи о ветре еще не успели остыть", Tags = ["observatory"], Weight = 1.0 },
+            new() { Id = "observatory_reveal", Category = "condition", Slot = "condition_reveal_state", Text = "тетради снова слушали небо терпеливее людей", Tags = ["observatory"], Weight = 1.0 }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            templates,
+            [],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.Sentence,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 2
+        });
+
+        Assert.Equal(2, result.Count);
+        Assert.StartsWith("В наблюдательном куполе", result[0].Text, StringComparison.Ordinal);
+        Assert.StartsWith("Потом", result[1].Text, StringComparison.Ordinal);
+        Assert.DoesNotContain("Объявили только одно", result[1].Text, StringComparison.Ordinal);
+        Assert.Equal("observatory", result[1].AtmosphereKey);
+    }
+
+    /// <summary>
+    /// Проверяет, что после появления observatory-manifold city-tagged template ослабевает относительно более нейтрального procedural follow-up.
+    /// </summary>
+    [Fact]
+    public void Generate_PenalizesLegacyCityTemplate_AfterObservatoryOpening()
+    {
+        var templates = new List<TemplateDefinition>
+        {
+            new()
+            {
+                Id = "opening_observatory_scene",
+                Text = "В {place} {condition}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["place", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in",
+                    ["condition"] = "condition_scene_detail"
+                },
+                Cadence = "procedural_report",
+                Weight = 10.0
+            },
+            new()
+            {
+                Id = "legacy_city_followup",
+                Text = "Позже выяснилось, что {condition}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["condition"] = "condition_reveal_state"
+                },
+                Cadence = "announcement",
+                Tags = ["story", "scene", "city"],
+                Weight = 3.2
+            },
+            new()
+            {
+                Id = "neutral_procedural_followup",
+                Text = "Позже стало заметно: {condition}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["condition"] = "condition_reveal_state"
+                },
+                Cadence = "static_observation",
+                Tags = ["story", "quiet", "procedural"],
+                Weight = 1.0
+            }
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new() { Id = "observatory_place", Category = "place", Slot = "place_in", Text = "наблюдательном куполе", Tags = ["observatory"], Weight = 1.0 },
+            new() { Id = "observatory_scene", Category = "condition", Slot = "condition_scene_detail", Text = "дежурный журнал уже промок от дыхания приборов", Tags = ["observatory"], Weight = 1.0 },
+            new() { Id = "observatory_reveal", Category = "condition", Slot = "condition_reveal_state", Text = "записи продолжали ждать света без всякой спешки", Tags = ["observatory"], Weight = 1.0 }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            templates,
+            [],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.Sentence,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 2
+        });
+
+        Assert.Equal(2, result.Count);
+        Assert.StartsWith("В наблюдательном куполе", result[0].Text, StringComparison.Ordinal);
+        Assert.StartsWith("Позже стало заметно:", result[1].Text, StringComparison.Ordinal);
+        Assert.DoesNotContain("Позже выяснилось", result[1].Text, StringComparison.Ordinal);
+    }
+
+    /// <summary>
     /// Проверяет, что после появления dominant manifold batch тянется к нему сильнее, чем к другому strong manifold.
     /// </summary>
     [Fact]

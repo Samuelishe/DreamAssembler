@@ -53,6 +53,9 @@ DreamAssembler нельзя воспринимать как:
 - MVP-каркас уже рабочий и собирается без ошибок.
 - Core построен вокруг шаблонов, JSON-словарей, тегов, `slot`, `compat:*` и anti-repeat логики.
 - `ShortText` уже использует композиционные роли и базовый narrative rhythm.
+- Новые non-urban manifolds уже существуют и больше не являются проблемой dataset-depth.
+- Главный runtime-bottleneck теперь не в отсутствии packs, а в `legacy atmospheric gravity`: старый `archive / bureaucracy / city / transport / rainy melancholy` слой все еще перетягивает новые spaces обратно в first-wave DreamAssembler.
+- Следующий этап должен идти в `runtime atmospheric rebalance`: neutral foundation, manifold-local cadence, soft emotional routing, silence architecture и lightweight surfacing audit.
 - WPF UI уже движется в reader-first сторону: кастомный chrome, темы, встроенные шрифты, крупнее текст, спокойнее карточки.
 - UI должен ощущаться не как панель управления генератором, а как atmospheric reading instrument: strange literary machine, quiet reading surface, procedural literature device.
 - Основная сила проекта уже сейчас не в сюжетности, а в atmosphere, emotional consistency и symbolic language.
@@ -85,6 +88,9 @@ DreamAssembler нельзя воспринимать как:
 
 - atmosphere over complexity;
 - coherence over randomness;
+- runtime rebalance over blind expansion;
+- neutral atmospheric foundation over legacy urban baseline;
+- manifold-local cadence over noun-overlay;
 - symbolic consistency over raw variety;
 - semantic density over word count;
 - emotional texture over "smartness";
@@ -157,9 +163,9 @@ DreamAssembler нельзя воспринимать как:
 Если новая сессия продолжает эту же линию, следующий разумный порядок такой:
 
 1. быстро переснять `samples`, если нужен свежий sanity-check после паузы;
-2. решить, нужен ли еще один очень короткий semantic-cleanup pass, или gross-defects уже достаточно погашены;
-3. если gross-defects не всплывают, возвращаться к expansion, а не застревать в локальной полировке;
-4. после следующего expansion снова прогонять `Sentence / Idea / ShortText` через `samples`.
+2. смотреть уже не только на defects, а на `legacy gravity`: какие outputs эмоционально скатываются обратно в archive/city baseline;
+3. работать сначала над `foundation neutralization`, `manifold-specific cadence`, `soft emotional pressure` и `silence-heavy templates`, а не открывать новые manifolds;
+4. после каждого runtime-pass снова прогонять `Sentence / Idea / ShortText` через `samples` и отдельно сверять surfacing/cadence imbalance.
 
 ## Правило обновления документации
 

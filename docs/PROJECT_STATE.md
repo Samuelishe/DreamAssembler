@@ -4,7 +4,7 @@
 
 Проект находится на рабочем MVP-этапе с уже выраженной tonal identity.
 
-При этом проект уже вышел из фазы, где главным bottleneck были gross defects, broken UI feel или полностью случайная выдача. Следующий зрелый этап - сместить фокус с базового polish и простого corpus growth в сторону atmospheric continuity, temporal rhythm, manifold depth и dream-flow.
+При этом проект уже вышел из фазы, где главным bottleneck были gross defects, broken UI feel или полностью случайная выдача. Следующий зрелый этап - сместить фокус с базового polish и простого corpus growth в сторону runtime atmospheric architecture: atmospheric continuity, temporal rhythm, manifold-local cadence, soft emotional routing и dream-flow.
 
 DreamAssembler - это не utility app, не dashboard и не "генератор бреда". Текущее ядро проекта ближе к atmospheric reading/generation tool: это rule-based система, которая собирает короткие русскоязычные фрагменты с controlled weirdness, emotional texture и curated surrealism.
 
@@ -34,6 +34,8 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 Это не жанровая машина и не engine для "историй обо всем". Ее сила в curated emotional field.
 
 При этом проект не должен зацементироваться только в одном поле. Его следующая зрелость - уметь выращивать и мягко смешивать разные atmospheric semantic spaces, не превращаясь при этом в набор жанровых режимов.
+
+Сейчас важно уточнить следующую проблему точнее: новые manifolds уже выросли как datasets, но runtime все еще эмоционально calibrated под first-wave DreamAssembler. Поэтому `observatory`, `weather_systems`, `hydroelectric`, `coastal_fog` и частично `sanatorium` слишком часто звучат не как самостоятельные emotional spaces, а как старый archive/urban DreamAssembler с новыми noun-layers.
 
 Примеры таких пространств:
 
@@ -121,6 +123,16 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - coastal-fog field теперь тоже уже не просто thin first-wave manifold: текущая non-urban expansion wave закрыта до `early second-wave` по всем пяти новым spaces;
 - после прямой runtime-проверки зафиксирован и отдельный bottleneck foundation-layer: старые generic packs (`city_workers`, `everyday_objects`, `everyday_actions`, `liminal_infrastructure`) все еще слишком часто прорываются в foreground и забивают новые manifolds повторяющимися комбинациями уровня `старый чайник`, `мокрые газеты`, `диспетчер пригородных поездов`;
 - поэтому следующим фактическим шагом после expansion-wave стал `foundation suppression / anti-repeat pass`: scene-anchor и related entries без strong-manifold tags теперь заметно слабее конкурируют с выросшими manifold-fields, а несколько самых заезженных generic entries дополнительно ослаблены по weight;
+- после следующего runtime-analysis стало ясно, что этого уже недостаточно: проблема теперь не только в generic entries, а в самом emotional baseline генератора; старые `city / transport / bureaucracy / archive / paper / provincial` foundation-tags больше не ведут себя как нейтральная procedural base и фактически работают как скрытый dominant manifold;
+- значит, следующий этап должен не продолжать blind dataset growth, а постепенно переводить foundation от world-imagery к более нейтральной atmospheric physics: `silence`, `waiting`, `maintenance`, `transition`, `repetition`, `residue`, `interval`, `distant_sound`, `dim_light`, `observation`, `drift`, `hum`, `procedural`, `routine`, `empty_space`;
+- это не означает удаление старого urban/archive слоя: он должен остаться сильным manifold, но перестать быть скрытым emotional core всей системы;
+- второе критическое наблюдение runtime-phase: новые manifolds пока слишком слабо меняют cadence; часто меняются `object`, `place`, `condition`, но почти не меняются rhythm, sentence breathing, silence structure, observation style и procedural pacing;
+- поэтому следующий product/runtime growth должен идти через `manifold-specific cadence families`: `weather_systems` как bulletin/calibration rhythm, `observatory` как sparse observation cadence, `hydroelectric` как heavy pulse/procedural rhythm, `mall` как looping fluorescent cadence, `hospitality` как anonymous service pacing, `museum` как archival annotation / conservation silence rhythm;
+- cadence теперь должна считаться таким же manifold-marker, как `place`, `object`, `atmosphere` и strong field-tags;
+- третий следующий слой - `runtime emotional pressure`: если dominant manifold уже возник, runtime должен мягче удерживать не только совместимые nouns, но и compatible pacing, silence, implication, observation style и procedural logic;
+- четвертый следующий слой - `silence architecture`: проекту нужны фрагменты с меньшим количеством действия и объяснения, больше `observation`, `residue`, `static state`, `document-fragment`, `unresolved implication` и найденной procedural строки вместо постоянной action-driven сцены;
+- пятый следующий слой - `runtime surfacing audit`: теперь нужно легче анализировать не только объем данных, но и то, какие manifolds реально всплывают, какие cadence реально доминируют, какие generic-tags остаются слишком универсальными и какие hidden baseline-structures перетягивают outputs обратно в old gravity;
+- при этом lexical modes больше нельзя держать как side-feature: они становятся отдельным atmospheric instrument, где важны phrase-centered resonance, spotlight continuity, drift-reading и soft continuity между adjacent outputs.
 - для `ShortText` введены композиционные роли шаблонов, чтобы снижать повторяемость одинаковых каркасных фраз;
 - часть `emotion`-данных разведена по более безопасным slot-подтипам;
 - `twist`, `concept` и `condition` разделены на более безопасные slot-подтипы;
@@ -213,6 +225,11 @@ DreamAssembler - это не utility app, не dashboard и не "генерат
 - зрелые manifolds уже требуют не только расширения словаря, но и углубления собственной emotional ecology;
 - lexical modes уже нельзя считать вторичным режимом: они становятся отдельным atmospheric instrument и требуют такого же внимания к continuity и resonance.
 - первый реальный manifold deepening-pass уже подтверждает правильную форму роста: проекту важнее не только открывать новые fields, но и возвращаться в существующие пространства, чтобы наращивать их ritual behavior, maintenance logic и service anxiety.
+- runtime все еще несет в себе `legacy atmospheric gravity`: старый urban/archive baseline слишком часто эмоционально переопределяет новые non-urban manifolds;
+- foundation-layer пока недостаточно нейтрален и все еще содержит слишком много world-imagery вместо atmospheric physics;
+- новые manifolds пока различаются сильнее по nouns и locations, чем по cadence, silence, observation style и emotional pacing;
+- у проекта все еще мало `silence-heavy`, `state-heavy`, `residue-heavy` и document-fragment каркасов;
+- для следующего этапа главным ограничением становится уже не corpus-size, а качество runtime routing между manifold, cadence и pressure.
 
 ## Philosophy Of Generation Quality
 
@@ -376,6 +393,8 @@ Typography здесь не decoration, а часть generation experience:
 - появился ли emotional drift без жанровой вывески;
 - возникла ли symbolic interference между мотивами;
 - осталась ли dream-like ambiguity живой, а не объясненной до конца.
+- не осталась ли новая manifold-сцена по ритму и дыханию старой urban/archive сценой в другой одежде;
+- удерживает ли runtime manifold-local silence, pacing и observation style, а не только набор nouns.
 
 DreamAssembler должен развиваться ближе к atmospheric software artifact, procedural dream instrument и quiet surreal reading environment, чем к storytelling engine.
 
@@ -384,27 +403,31 @@ DreamAssembler должен развиваться ближе к atmospheric sof
 ## Что проверить при следующем шаге
 
 - удерживает ли серия outputs хотя бы слабую atmosphere continuity, а не распадается на удачные, но atomized fragments;
+- какие `foundation-tags` сейчас на практике работают как скрытый manifold вместо нейтрального слоя;
+- какие baseline-образы нужно постепенно выталкивать из foundation в отдельный old-core manifold;
 - какие motifs стоит разрешить к very soft resurfacing внутри batch: объекты, служебные знаки, инфраструктурные детали, procedural artifacts;
 - какие template classes слишком часто дают одинаковую длину дыхания и одинаковый emotional pacing;
+- какие cadence фактически доминируют по runtime независимо от manifold;
+- какие manifolds уже имеют dataset-mass, но все еще не имеют собственной cadence-identity;
 - какие rhythm-формы нужно усиливать в первую очередь: `announcement`, `inventory`, `procedural note`, `quiet instruction`, `museum label`, `interrupted memory`, `static observation`, `delayed revelation`;
+- каких `silence-heavy` и `state-heavy` шаблонов не хватает сильнее всего;
 - появляются ли внутри `ShortText` и серий мягкие emotional echoes, или каждое предложение живет слишком отдельно;
 - какой слой atmospheric gravity уже можно ввести без перехода к rigid mode-system;
-- какие manifolds готовы не к еще одному random pack, а к углублению собственной emotional ecology;
-- какой existing manifold логичнее выбрать для следующего deepening-pass: `museum`, `mall`, `hospitality` или `airport`;
-- какой новый manifold лучше открыть следующим, если смотреть не на тему, а на distinct emotional pressure;
+- какие manifolds готовы не к еще одному random pack, а к `runtime-local cadence` и emotional ecology strengthening;
 - достаточно ли lexical modes удерживают batch coherence, spotlight resonance и phrase-centered reading flow;
+- нужен ли lightweight tooling для surfacing/cadence audit до следующей expansion-wave;
 - не пора ли добавлять session-level fragment resurfacing, remembered fragments или atmospheric trails как very soft continuity layer;
 - после каждого rhythm/continuity/manifold-pass обязательно снова снимать `DreamAssembler.DataTools -- samples` и смотреть уже не только на defects, но и на drift, cadence и recurrence.
 
 ## Следующие рекомендуемые шаги
 
-1. Ввести `rhythm diversification pass` в templates: не просто новые каркасы, а новые способы дыхания текста и разные cadence classes.
-2. Добавить very soft layer для `atmospheric continuity`: motif resurfacing, symbolic recurrence, emotional echoes, weak fragment memory.
-3. Ввести мягкий `dominant emotional pressure` для batch или короткой серии, не превращая его в жесткий режим или жанровый переключатель.
-4. Продолжать растить существующие manifolds как emotional ecologies: ritual behavior, maintenance logic, service patterns, institutional memory, recurring anxieties.
-5. Открывать новые manifolds не по теме, а по distinct atmospheric pressure и internal dream-logic, особенно в non-urban / infra-near-nature направлении.
+1. Провести `foundation neutralization pass`: постепенно отделить старый `city / archive / transport / bureaucracy` baseline от нейтральной atmospheric base.
+2. Ввести `manifold-specific cadence pass` в templates: не просто новые каркасы, а cadence families для `weather`, `observatory`, `hydroelectric`, `mall`, `hospitality`, `museum`.
+3. Добавить very soft layer для `runtime emotional pressure`: dominant manifold должен мягко удерживать compatible pacing, silence и observation style, а не только nouns.
+4. Расширить `silence architecture`: больше fragments вокруг состояния, residue, procedural detail, static observation и impossible-document feel.
+5. Запустить lightweight `runtime surfacing audit`, чтобы видеть imbalance по manifold, cadence и hidden baseline structures без тяжелого telemetry-dashboard.
 6. Усиливать lexical modes как отдельный atmospheric instrument: batch coherence, spotlight continuity, fragment trails, isolated resonance.
-7. Дальше развивать atmospheric presentation только там, где оно реально поддерживает drift-reading experience.
+7. Только после runtime rebalance возвращаться к следующей expansion-wave.
 8. Оставить morphology, heavy systems и architecture expansion в отложенном статусе.
 
 ## Технические ограничения текущей версии
