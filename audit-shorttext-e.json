@@ -1,0 +1,124 @@
+{
+  "Mode": "ShortText",
+  "Absurdity": "Absurd",
+  "RequestedCount": 120,
+  "GeneratedCount": 120,
+  "CreatedAt": "2026-05-13T14:04:48.2393334+03:00",
+  "AtmosphereCounts": {
+    "weather_systems": 40,
+    "mall": 20,
+    "hydroelectric": 20,
+    "coastal_fog": 20,
+    "sanatorium": 20
+  },
+  "DominantManifoldCounts": {
+    "weather_systems": 40,
+    "mall": 20,
+    "hydroelectric": 20,
+    "coastal_fog": 20,
+    "sanatorium": 20
+  },
+  "PressureCounts": {
+    "bureaucracy": 9,
+    "quiet": 106,
+    "fluorescent": 4,
+    "night": 1
+  },
+  "CadenceCounts": {
+    "static_observation": 45,
+    "announcement": 64,
+    "interrupted_note": 29,
+    "suspended_statement": 41,
+    "bulletin_fragment": 27,
+    "ceremonial": 13,
+    "delayed_revelation": 17,
+    "threshold_state": 24,
+    "museum_label": 11,
+    "interrupted_memory": 18,
+    "maintenance_note": 16,
+    "delayed_implication": 27,
+    "quiet_instruction": 17,
+    "object_pressure": 28,
+    "procedural_report": 25,
+    "inventory": 18,
+    "procedural_residue": 15
+  },
+  "PrimaryCadenceCounts": {
+    "static_observation": 36,
+    "threshold_state": 14,
+    "object_pressure": 15,
+    "procedural_report": 25,
+    "inventory": 18,
+    "suspended_statement": 12
+  },
+  "TemplateCounts": {
+    "shorttext_atmosphere_place_clause": 8,
+    "shorttext_reflection": 15,
+    "shorttext_reveal_clause_place": 17,
+    "shorttext_weather_bulletin_residue": 15,
+    "shorttext_atmosphere_place": 13,
+    "shorttext_interpretation": 8,
+    "shorttext_twist": 13,
+    "shorttext_weather_bulletin_fragment": 26,
+    "shorttext_character_twist": 18,
+    "shorttext_museum_label": 11,
+    "shorttext_reaction": 17,
+    "shorttext_sanatorium_threshold_state": 14,
+    "shorttext_hydroelectric_maintenance_note": 15,
+    "shorttext_scene_detail": 9,
+    "shorttext_observatory_distant_note": 10,
+    "shorttext_quiet_instruction": 17,
+    "shorttext_scene_detail_clause_place": 6,
+    "shorttext_delayed_implication": 17,
+    "shorttext_interrupted_note": 13,
+    "shorttext_object_pressure": 15,
+    "shorttext_concept_name": 14,
+    "shorttext_intro_clause_place": 15,
+    "shorttext_reveal": 14,
+    "shorttext_intro": 10,
+    "shorttext_notice": 16,
+    "shorttext_observer": 9,
+    "shorttext_observatory_threshold_note": 10,
+    "shorttext_genre_turn": 9,
+    "shorttext_inventory_scene": 18,
+    "shorttext_procedural_residue": 15,
+    "shorttext_condition": 12,
+    "shorttext_hydroelectric_pressure_memory": 13
+  },
+  "LegacyHeavyCount": 32,
+  "NeutralHeavyCount": 71,
+  "CadenceRepetitionCount": 15,
+  "RepeatedOutputs": [],
+  "ManifoldCadenceActivation": [
+    {
+      "Manifold": "weather_systems",
+      "Total": 40,
+      "Preferred": 35,
+      "ActivationRate": 0.875
+    },
+    {
+      "Manifold": "coastal_fog",
+      "Total": 20,
+      "Preferred": 20,
+      "ActivationRate": 1
+    },
+    {
+      "Manifold": "hydroelectric",
+      "Total": 20,
+      "Preferred": 19,
+      "ActivationRate": 0.95
+    },
+    {
+      "Manifold": "mall",
+      "Total": 20,
+      "Preferred": 16,
+      "ActivationRate": 0.8
+    },
+    {
+      "Manifold": "sanatorium",
+      "Total": 20,
+      "Preferred": 18,
+      "ActivationRate": 0.9
+    }
+  ]
+}

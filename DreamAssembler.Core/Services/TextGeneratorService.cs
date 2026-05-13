@@ -116,14 +116,14 @@ public sealed class TextGeneratorService
     private static readonly IReadOnlyDictionary<string, HashSet<string>> PreferredCadencesByManifold =
         new Dictionary<string, HashSet<string>>(StringComparer.OrdinalIgnoreCase)
         {
-            ["weather_systems"] = new HashSet<string>(["announcement", "procedural_report", "inventory", "interrupted_note", "delayed_implication"], StringComparer.OrdinalIgnoreCase),
-            ["observatory"] = new HashSet<string>(["static_observation", "suspended_statement", "interrupted_memory", "interrupted_note", "delayed_implication"], StringComparer.OrdinalIgnoreCase),
-            ["hydroelectric"] = new HashSet<string>(["procedural_report", "inventory", "suspended_statement", "procedural_residue", "object_pressure"], StringComparer.OrdinalIgnoreCase),
-            ["coastal_fog"] = new HashSet<string>(["static_observation", "announcement", "suspended_statement", "procedural_residue", "interrupted_note"], StringComparer.OrdinalIgnoreCase),
-            ["sanatorium"] = new HashSet<string>(["quiet_instruction", "suspended_statement", "static_observation", "procedural_residue"], StringComparer.OrdinalIgnoreCase),
+            ["weather_systems"] = new HashSet<string>(["announcement", "procedural_report", "inventory", "interrupted_note", "delayed_implication", "bulletin_fragment"], StringComparer.OrdinalIgnoreCase),
+            ["observatory"] = new HashSet<string>(["suspended_statement", "interrupted_memory", "interrupted_note", "delayed_implication", "threshold_state"], StringComparer.OrdinalIgnoreCase),
+            ["hydroelectric"] = new HashSet<string>(["procedural_report", "inventory", "suspended_statement", "procedural_residue", "object_pressure", "maintenance_note"], StringComparer.OrdinalIgnoreCase),
+            ["coastal_fog"] = new HashSet<string>(["announcement", "suspended_statement", "procedural_residue", "interrupted_note", "incomplete_instruction", "bulletin_fragment"], StringComparer.OrdinalIgnoreCase),
+            ["sanatorium"] = new HashSet<string>(["quiet_instruction", "suspended_statement", "procedural_residue", "threshold_state", "incomplete_instruction"], StringComparer.OrdinalIgnoreCase),
             ["mall"] = new HashSet<string>(["announcement", "inventory", "static_observation", "procedural_residue", "object_pressure"], StringComparer.OrdinalIgnoreCase),
             ["hospitality"] = new HashSet<string>(["quiet_instruction", "ceremonial", "suspended_statement"], StringComparer.OrdinalIgnoreCase),
-            ["museum"] = new HashSet<string>(["museum_label", "static_observation", "inventory", "object_pressure", "procedural_residue"], StringComparer.OrdinalIgnoreCase),
+            ["museum"] = new HashSet<string>(["museum_label", "inventory", "object_pressure", "procedural_residue", "maintenance_note"], StringComparer.OrdinalIgnoreCase),
             ["airport"] = new HashSet<string>(["announcement", "procedural_report", "quiet_instruction"], StringComparer.OrdinalIgnoreCase)
         };
     private static readonly HashSet<string> GenericShortTextCadences =
@@ -1120,7 +1120,7 @@ public sealed class TextGeneratorService
         var boost = 0.8d;
         if (string.Equals(cadence, "static_observation", StringComparison.OrdinalIgnoreCase))
         {
-            boost *= 0.9d;
+            boost *= 0.82d;
         }
 
         return boost;
@@ -1442,7 +1442,9 @@ public sealed class TextGeneratorService
             if (!string.IsNullOrWhiteSpace(PreviousCadence)
                 && string.Equals(PreviousCadence, cadence, StringComparison.OrdinalIgnoreCase))
             {
-                cadenceBoost *= 0.4d;
+                cadenceBoost *= string.Equals(cadence, "static_observation", StringComparison.OrdinalIgnoreCase)
+                    ? 0.28d
+                    : 0.4d;
             }
 
             var dominantStrongManifold = GetDominantStrongManifold();

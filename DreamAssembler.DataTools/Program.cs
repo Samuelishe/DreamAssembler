@@ -737,14 +737,14 @@ static bool IsPreferredCadenceForManifold(string manifold, IReadOnlyList<string>
 
     var preferredByManifold = new Dictionary<string, HashSet<string>>(StringComparer.OrdinalIgnoreCase)
     {
-        ["weather_systems"] = new(["announcement", "procedural_report", "inventory"], StringComparer.OrdinalIgnoreCase),
-        ["observatory"] = new(["static_observation", "suspended_statement", "interrupted_memory"], StringComparer.OrdinalIgnoreCase),
-        ["hydroelectric"] = new(["procedural_report", "inventory", "suspended_statement"], StringComparer.OrdinalIgnoreCase),
-        ["coastal_fog"] = new(["static_observation", "announcement", "suspended_statement"], StringComparer.OrdinalIgnoreCase),
-        ["sanatorium"] = new(["quiet_instruction", "suspended_statement", "static_observation"], StringComparer.OrdinalIgnoreCase),
-        ["mall"] = new(["announcement", "inventory", "static_observation"], StringComparer.OrdinalIgnoreCase),
+        ["weather_systems"] = new(["announcement", "procedural_report", "inventory", "interrupted_note", "delayed_implication", "bulletin_fragment"], StringComparer.OrdinalIgnoreCase),
+        ["observatory"] = new(["suspended_statement", "interrupted_memory", "interrupted_note", "delayed_implication", "threshold_state"], StringComparer.OrdinalIgnoreCase),
+        ["hydroelectric"] = new(["procedural_report", "inventory", "suspended_statement", "procedural_residue", "object_pressure", "maintenance_note"], StringComparer.OrdinalIgnoreCase),
+        ["coastal_fog"] = new(["announcement", "suspended_statement", "procedural_residue", "interrupted_note", "incomplete_instruction", "bulletin_fragment"], StringComparer.OrdinalIgnoreCase),
+        ["sanatorium"] = new(["quiet_instruction", "suspended_statement", "procedural_residue", "threshold_state", "incomplete_instruction"], StringComparer.OrdinalIgnoreCase),
+        ["mall"] = new(["announcement", "inventory", "static_observation", "procedural_residue", "object_pressure"], StringComparer.OrdinalIgnoreCase),
         ["hospitality"] = new(["quiet_instruction", "ceremonial", "suspended_statement"], StringComparer.OrdinalIgnoreCase),
-        ["museum"] = new(["museum_label", "static_observation", "inventory"], StringComparer.OrdinalIgnoreCase),
+        ["museum"] = new(["museum_label", "inventory", "object_pressure", "procedural_residue", "maintenance_note"], StringComparer.OrdinalIgnoreCase),
         ["airport"] = new(["announcement", "procedural_report", "quiet_instruction"], StringComparer.OrdinalIgnoreCase)
     };
 

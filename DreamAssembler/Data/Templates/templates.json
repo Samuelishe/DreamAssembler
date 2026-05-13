@@ -800,6 +800,66 @@
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
       "weight": 0.78
+    },
+    {
+      "id": "shorttext_weather_bulletin_fragment",
+      "text": "Поздняя поправка к сводке сводилась к одному: {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["condition"],
+      "slotRequirements": {
+        "condition": "condition_reveal_state"
+      },
+      "compositionRole": "observation",
+      "cadence": "bulletin_fragment",
+      "tags": ["story", "quiet", "procedural", "weather_systems"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "shorttext_hydroelectric_maintenance_note",
+      "text": "В журнале обслуживания потом оставили только {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["condition"],
+      "slotRequirements": {
+        "condition": "condition_reveal_state"
+      },
+      "compositionRole": "observation",
+      "cadence": "maintenance_note",
+      "tags": ["story", "quiet", "procedural", "hydroelectric"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "shorttext_sanatorium_threshold_state",
+      "text": "Между процедурой и отдыхом оставалось только {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["condition"],
+      "slotRequirements": {
+        "condition": "condition_scene_detail"
+      },
+      "compositionRole": "scene",
+      "cadence": "threshold_state",
+      "tags": ["story", "quiet", "sanatorium"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.8
+    },
+    {
+      "id": "shorttext_observatory_threshold_note",
+      "text": "Под куполом после смены дольше всего держалось одно: {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["condition"],
+      "slotRequirements": {
+        "condition": "condition_reveal_state"
+      },
+      "compositionRole": "observation",
+      "cadence": "threshold_state",
+      "tags": ["story", "quiet", "procedural", "observatory"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.8
     }
   ]
 }

@@ -835,6 +835,74 @@ public static class FallbackDataProvider
             },
             new TemplateDefinition
             {
+                Id = "shorttext_weather_bulletin_fragment",
+                Text = "Поздняя поправка к сводке сводилась к одному: {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["condition"] = "condition_reveal_state"
+                },
+                CompositionRole = "observation",
+                Cadence = "bulletin_fragment",
+                Tags = ["story", "quiet", "procedural", "weather_systems"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.8
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_hydroelectric_maintenance_note",
+                Text = "В журнале обслуживания потом оставили только {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["condition"] = "condition_reveal_state"
+                },
+                CompositionRole = "observation",
+                Cadence = "maintenance_note",
+                Tags = ["story", "quiet", "procedural", "hydroelectric"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.8
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_sanatorium_threshold_state",
+                Text = "Между процедурой и отдыхом оставалось только {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["condition"] = "condition_scene_detail"
+                },
+                CompositionRole = "scene",
+                Cadence = "threshold_state",
+                Tags = ["story", "quiet", "sanatorium"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.8
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_observatory_threshold_note",
+                Text = "Под куполом после смены дольше всего держалось одно: {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["condition"] = "condition_reveal_state"
+                },
+                CompositionRole = "observation",
+                Cadence = "threshold_state",
+                Tags = ["story", "quiet", "procedural", "observatory"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.8
+            },
+            new TemplateDefinition
+            {
                 Id = "idea_character_action_object_place_twist",
                 Text = "Идея: {character} получает странное поручение: {action} {object} в {place}, и при этом {twist}.",
                 Mode = GenerationMode.Idea,
