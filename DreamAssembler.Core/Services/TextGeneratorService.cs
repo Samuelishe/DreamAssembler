@@ -126,6 +126,16 @@ public sealed class TextGeneratorService
             ["museum"] = new HashSet<string>(["museum_label", "static_observation", "inventory", "object_pressure", "procedural_residue"], StringComparer.OrdinalIgnoreCase),
             ["airport"] = new HashSet<string>(["announcement", "procedural_report", "quiet_instruction"], StringComparer.OrdinalIgnoreCase)
         };
+    private static readonly HashSet<string> GenericShortTextCadences =
+    [
+        "static_observation",
+        "announcement",
+        "quiet_instruction",
+        "procedural_residue",
+        "interrupted_note",
+        "object_pressure",
+        "delayed_implication"
+    ];
 
     private readonly IReadOnlyList<DictionaryEntry> _dictionaryEntries;
     private readonly IReadOnlyList<TemplateDefinition> _templates;
@@ -793,10 +803,11 @@ public sealed class TextGeneratorService
         var pressureBoost = context.CalculatePressureBoost(template.Tags);
         var cadenceBoost = context.CalculateCadenceBoost(template);
         var legacyBaselineBoost = context.CalculateLegacyBaselineBoost(template.Tags);
+        var shortTextAutonomyBoost = CalculateShortTextAutonomyBoost(template, context);
         var manifoldBoost = context.CalculateDominantManifoldBoost(template.Tags);
         var surfacingBoost = CalculateEarlyManifoldSurfacingBoost(template.Tags, context);
 
-        return baseWeight * inRangeBoost * closenessBoost * batchPenalty * recentPenalty * continuityBoost * pressureBoost * cadenceBoost * legacyBaselineBoost * manifoldBoost * surfacingBoost;
+        return baseWeight * inRangeBoost * closenessBoost * batchPenalty * recentPenalty * continuityBoost * pressureBoost * cadenceBoost * legacyBaselineBoost * shortTextAutonomyBoost * manifoldBoost * surfacingBoost;
     }
 
     private double CalculateEntryWeight(
@@ -1069,6 +1080,52 @@ public sealed class TextGeneratorService
         return shortTextSentenceIndex == 1 ? 0.3d : 0.48d;
     }
 
+    private static double CalculateShortTextAutonomyBoost(TemplateDefinition template, GenerationContext context)
+    {
+        if (template.Mode != GenerationMode.ShortText)
+        {
+            return 1d;
+        }
+
+        var dominantStrongManifold = context.GetDominantStrongManifold();
+        if (string.IsNullOrWhiteSpace(dominantStrongManifold))
+        {
+            return 1d;
+        }
+
+        var templateManifolds = template.Tags
+            .Where(StrongManifoldTags.Contains)
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .ToList();
+
+        if (templateManifolds.Contains(dominantStrongManifold, StringComparer.OrdinalIgnoreCase))
+        {
+            return 1.32d;
+        }
+
+        if (templateManifolds.Count > 0)
+        {
+            return 0.64d;
+        }
+
+        var cadence = GetCadence(template);
+        var hasGenericQuietProfile = template.Tags.Any(NeutralFoundationTags.Contains)
+                                     || GenericShortTextCadences.Contains(cadence);
+
+        if (!hasGenericQuietProfile)
+        {
+            return 0.94d;
+        }
+
+        var boost = 0.8d;
+        if (string.Equals(cadence, "static_observation", StringComparison.OrdinalIgnoreCase))
+        {
+            boost *= 0.9d;
+        }
+
+        return boost;
+    }
+
     private double CalculateSlotManifoldConsistencyBoost(
         DictionaryEntry entry,
         string category,
@@ -1302,12 +1359,22 @@ public sealed class TextGeneratorService
                     boost *= 0.78d;
                 }
 
+                if (ShouldDampenNeutralPressureFallback(tags))
+                {
+                    boost *= 0.74d;
+                }
+
                 return boost;
             }
 
             if (ShouldDampenLegacyBaseline(tags))
             {
                 return 0.6d;
+            }
+
+            if (ShouldDampenNeutralPressureFallback(tags))
+            {
+                return 0.64d;
             }
 
             return 0.72d;
@@ -1498,6 +1565,27 @@ public sealed class TextGeneratorService
 
             var hasNeutralFoundation = tagList.Any(NeutralFoundationTags.Contains);
             return !hasNeutralFoundation;
+        }
+
+        private bool ShouldDampenNeutralPressureFallback(IEnumerable<string> tags)
+        {
+            if (StrongManifoldCounts.Count == 0)
+            {
+                return false;
+            }
+
+            var tagList = tags.Distinct(StringComparer.OrdinalIgnoreCase).ToList();
+            if (tagList.Count == 0 || tagList.Any(StrongManifoldTags.Contains))
+            {
+                return false;
+            }
+
+            var pressureTags = tagList
+                .Where(AtmosphericPressureTags.Contains)
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .ToList();
+
+            return pressureTags.Count > 0 && pressureTags.All(NeutralFoundationTags.Contains);
         }
     }
 }

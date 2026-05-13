@@ -500,7 +500,7 @@
       "tags": ["story", "scene", "city"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
-      "weight": 0.8
+      "weight": 0.72
     },
     {
       "id": "shorttext_scene_detail_clause_place",
@@ -516,7 +516,7 @@
       "tags": ["story", "scene", "surreal"],
       "minAbsurdity": 1,
       "maxAbsurdity": 3,
-      "weight": 0.7
+      "weight": 0.64
     },
     {
       "id": "shorttext_character_twist",
@@ -550,7 +550,7 @@
       "tags": ["mood", "scene", "quiet"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
-      "weight": 0.8
+      "weight": 0.72
     },
     {
       "id": "shorttext_atmosphere_place_clause",
@@ -566,7 +566,7 @@
       "tags": ["mood", "scene", "surreal"],
       "minAbsurdity": 1,
       "maxAbsurdity": 3,
-      "weight": 0.7
+      "weight": 0.64
     },
     {
       "id": "shorttext_genre_turn",
@@ -626,7 +626,7 @@
       "tags": ["story", "quiet", "rule"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
-      "weight": 0.8
+      "weight": 0.68
     },
     {
       "id": "shorttext_inventory_scene",
@@ -658,7 +658,7 @@
       "tags": ["story", "quiet", "rule"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
-      "weight": 0.75
+      "weight": 0.64
     },
     {
       "id": "shorttext_museum_label",
@@ -673,7 +673,7 @@
       "tags": ["story", "concept", "quiet"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
-      "weight": 0.75
+      "weight": 0.68
     },
     {
       "id": "shorttext_quiet_instruction",
@@ -689,7 +689,7 @@
       "tags": ["story", "quiet", "procedural"],
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
-      "weight": 0.75
+      "weight": 0.66
     },
     {
       "id": "shorttext_procedural_residue",

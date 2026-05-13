@@ -494,7 +494,7 @@ public static class FallbackDataProvider
                 Tags = ["story", "scene", "city"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
-                Weight = 0.8
+                Weight = 0.72
             },
             new TemplateDefinition
             {
@@ -512,7 +512,7 @@ public static class FallbackDataProvider
                 Tags = ["story", "scene", "surreal"],
                 MinAbsurdity = 1,
                 MaxAbsurdity = 3,
-                Weight = 0.7
+                Weight = 0.64
             },
             new TemplateDefinition
             {
@@ -550,7 +550,7 @@ public static class FallbackDataProvider
                 Tags = ["mood", "scene", "quiet"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
-                Weight = 0.8
+                Weight = 0.72
             },
             new TemplateDefinition
             {
@@ -568,7 +568,7 @@ public static class FallbackDataProvider
                 Tags = ["mood", "scene", "surreal"],
                 MinAbsurdity = 1,
                 MaxAbsurdity = 3,
-                Weight = 0.7
+                Weight = 0.64
             },
             new TemplateDefinition
             {
@@ -636,7 +636,7 @@ public static class FallbackDataProvider
                 Tags = ["story", "quiet", "rule"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
-                Weight = 0.8
+                Weight = 0.68
             },
             new TemplateDefinition
             {
@@ -672,7 +672,7 @@ public static class FallbackDataProvider
                 Tags = ["story", "quiet", "rule"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
-                Weight = 0.75
+                Weight = 0.64
             },
             new TemplateDefinition
             {
@@ -689,7 +689,7 @@ public static class FallbackDataProvider
                 Tags = ["story", "concept", "quiet"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
-                Weight = 0.75
+                Weight = 0.68
             },
             new TemplateDefinition
             {
@@ -707,7 +707,7 @@ public static class FallbackDataProvider
                 Tags = ["story", "quiet", "procedural"],
                 MinAbsurdity = 0,
                 MaxAbsurdity = 3,
-                Weight = 0.75
+                Weight = 0.66
             },
             new TemplateDefinition
             {
