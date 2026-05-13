@@ -1,0 +1,95 @@
+{
+  "Mode": "ShortText",
+  "Absurdity": "Absurd",
+  "RequestedCount": 120,
+  "GeneratedCount": 120,
+  "CreatedAt": "2026-05-13T13:48:36.3043769+03:00",
+  "AtmosphereCounts": {
+    "weather_systems": 40,
+    "museum": 20,
+    "hospitality": 20,
+    "hydroelectric": 40
+  },
+  "DominantManifoldCounts": {
+    "weather_systems": 40,
+    "museum": 20,
+    "hospitality": 20,
+    "hydroelectric": 40
+  },
+  "PressureCounts": {
+    "bureaucracy": 25,
+    "quiet": 94,
+    "night": 1
+  },
+  "CadenceCounts": {
+    "static_observation": 71,
+    "announcement": 109,
+    "delayed_revelation": 29,
+    "suspended_statement": 67,
+    "museum_label": 37,
+    "ceremonial": 12,
+    "quiet_instruction": 35,
+    "procedural_report": 26,
+    "interrupted_memory": 26,
+    "inventory": 23
+  },
+  "PrimaryCadenceCounts": {
+    "static_observation": 48,
+    "procedural_report": 26,
+    "inventory": 23,
+    "suspended_statement": 23
+  },
+  "TemplateCounts": {
+    "shorttext_genre_turn": 13,
+    "shorttext_reflection": 16,
+    "shorttext_reveal": 16,
+    "shorttext_scene_detail_clause_place": 9,
+    "shorttext_atmosphere_place_clause": 16,
+    "shorttext_museum_label": 34,
+    "shorttext_notice": 29,
+    "shorttext_quiet_instruction": 34,
+    "shorttext_twist": 12,
+    "shorttext_interpretation": 16,
+    "shorttext_intro_clause_place": 12,
+    "shorttext_observer": 23,
+    "shorttext_reveal_clause_place": 24,
+    "shorttext_character_twist": 25,
+    "shorttext_intro": 14,
+    "shorttext_concept_name": 28,
+    "shorttext_inventory_scene": 23,
+    "shorttext_reaction": 35,
+    "shorttext_condition": 23,
+    "shorttext_scene_detail": 9,
+    "shorttext_atmosphere_place": 14
+  },
+  "LegacyHeavyCount": 23,
+  "NeutralHeavyCount": 84,
+  "CadenceRepetitionCount": 29,
+  "RepeatedOutputs": [],
+  "ManifoldCadenceActivation": [
+    {
+      "Manifold": "hydroelectric",
+      "Total": 40,
+      "Preferred": 30,
+      "ActivationRate": 0.75
+    },
+    {
+      "Manifold": "weather_systems",
+      "Total": 40,
+      "Preferred": 38,
+      "ActivationRate": 0.95
+    },
+    {
+      "Manifold": "hospitality",
+      "Total": 20,
+      "Preferred": 15,
+      "ActivationRate": 0.75
+    },
+    {
+      "Manifold": "museum",
+      "Total": 20,
+      "Preferred": 20,
+      "ActivationRate": 1
+    }
+  ]
+}

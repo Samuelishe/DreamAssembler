@@ -711,6 +711,130 @@ public static class FallbackDataProvider
             },
             new TemplateDefinition
             {
+                Id = "shorttext_procedural_residue",
+                Text = "После этого в {place} оставались только {object} и {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["place", "object", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in",
+                    ["object"] = "object_direct",
+                    ["condition"] = "condition_scene_detail"
+                },
+                CompositionRole = "observation",
+                Cadence = "procedural_residue",
+                Tags = ["story", "quiet", "procedural"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.72
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_interrupted_note",
+                Text = "В служебной записи позже осталось только: {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["condition"] = "condition_reveal_state"
+                },
+                CompositionRole = "observation",
+                Cadence = "interrupted_note",
+                Tags = ["story", "quiet", "procedural"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.72
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_object_pressure",
+                Text = "{object} дольше всего удерживал на себе {atmosphere}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["object", "atmosphere"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["object"] = "object_direct",
+                    ["atmosphere"] = "atmosphere_state"
+                },
+                CompositionRole = "scene",
+                Cadence = "object_pressure",
+                Tags = ["story", "quiet", "mood"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.72
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_delayed_implication",
+                Text = "После этого уже трудно было понять, почему {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["condition"] = "condition_reveal_state"
+                },
+                CompositionRole = "interpretation",
+                Cadence = "delayed_implication",
+                Tags = ["story", "quiet", "concept"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.72
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_weather_bulletin_residue",
+                Text = "К утру в сводке осталось только одно: {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["condition"] = "condition_reveal_state"
+                },
+                CompositionRole = "observation",
+                Cadence = "interrupted_note",
+                Tags = ["story", "quiet", "procedural", "weather_systems"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.78
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_hydroelectric_pressure_memory",
+                Text = "Дольше всего в машинной памяти держались {object} и {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["object", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["object"] = "object_direct",
+                    ["condition"] = "condition_scene_detail"
+                },
+                CompositionRole = "observation",
+                Cadence = "object_pressure",
+                Tags = ["story", "quiet", "procedural", "hydroelectric"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.78
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_observatory_distant_note",
+                Text = "В {place} потом долго существовало только одно: {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["place", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in",
+                    ["condition"] = "condition_reveal_state"
+                },
+                CompositionRole = "observation",
+                Cadence = "delayed_implication",
+                Tags = ["story", "quiet", "procedural", "observatory"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.78
+            },
+            new TemplateDefinition
+            {
                 Id = "idea_character_action_object_place_twist",
                 Text = "Идея: {character} получает странное поручение: {action} {object} в {place}, и при этом {twist}.",
                 Mode = GenerationMode.Idea,

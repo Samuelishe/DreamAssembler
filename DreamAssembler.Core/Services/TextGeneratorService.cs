@@ -116,14 +116,14 @@ public sealed class TextGeneratorService
     private static readonly IReadOnlyDictionary<string, HashSet<string>> PreferredCadencesByManifold =
         new Dictionary<string, HashSet<string>>(StringComparer.OrdinalIgnoreCase)
         {
-            ["weather_systems"] = new HashSet<string>(["announcement", "procedural_report", "inventory"], StringComparer.OrdinalIgnoreCase),
-            ["observatory"] = new HashSet<string>(["static_observation", "suspended_statement", "interrupted_memory"], StringComparer.OrdinalIgnoreCase),
-            ["hydroelectric"] = new HashSet<string>(["procedural_report", "inventory", "suspended_statement"], StringComparer.OrdinalIgnoreCase),
-            ["coastal_fog"] = new HashSet<string>(["static_observation", "announcement", "suspended_statement"], StringComparer.OrdinalIgnoreCase),
-            ["sanatorium"] = new HashSet<string>(["quiet_instruction", "suspended_statement", "static_observation"], StringComparer.OrdinalIgnoreCase),
-            ["mall"] = new HashSet<string>(["announcement", "inventory", "static_observation"], StringComparer.OrdinalIgnoreCase),
+            ["weather_systems"] = new HashSet<string>(["announcement", "procedural_report", "inventory", "interrupted_note", "delayed_implication"], StringComparer.OrdinalIgnoreCase),
+            ["observatory"] = new HashSet<string>(["static_observation", "suspended_statement", "interrupted_memory", "interrupted_note", "delayed_implication"], StringComparer.OrdinalIgnoreCase),
+            ["hydroelectric"] = new HashSet<string>(["procedural_report", "inventory", "suspended_statement", "procedural_residue", "object_pressure"], StringComparer.OrdinalIgnoreCase),
+            ["coastal_fog"] = new HashSet<string>(["static_observation", "announcement", "suspended_statement", "procedural_residue", "interrupted_note"], StringComparer.OrdinalIgnoreCase),
+            ["sanatorium"] = new HashSet<string>(["quiet_instruction", "suspended_statement", "static_observation", "procedural_residue"], StringComparer.OrdinalIgnoreCase),
+            ["mall"] = new HashSet<string>(["announcement", "inventory", "static_observation", "procedural_residue", "object_pressure"], StringComparer.OrdinalIgnoreCase),
             ["hospitality"] = new HashSet<string>(["quiet_instruction", "ceremonial", "suspended_statement"], StringComparer.OrdinalIgnoreCase),
-            ["museum"] = new HashSet<string>(["museum_label", "static_observation", "inventory"], StringComparer.OrdinalIgnoreCase),
+            ["museum"] = new HashSet<string>(["museum_label", "static_observation", "inventory", "object_pressure", "procedural_residue"], StringComparer.OrdinalIgnoreCase),
             ["airport"] = new HashSet<string>(["announcement", "procedural_report", "quiet_instruction"], StringComparer.OrdinalIgnoreCase)
         };
 

@@ -690,6 +690,116 @@
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
       "weight": 0.75
+    },
+    {
+      "id": "shorttext_procedural_residue",
+      "text": "После этого в {place} оставались только {object} и {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["place", "object", "condition"],
+      "slotRequirements": {
+        "place": "place_in",
+        "object": "object_direct",
+        "condition": "condition_scene_detail"
+      },
+      "compositionRole": "observation",
+      "cadence": "procedural_residue",
+      "tags": ["story", "quiet", "procedural"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.72
+    },
+    {
+      "id": "shorttext_interrupted_note",
+      "text": "В служебной записи позже осталось только: {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["condition"],
+      "slotRequirements": {
+        "condition": "condition_reveal_state"
+      },
+      "compositionRole": "observation",
+      "cadence": "interrupted_note",
+      "tags": ["story", "quiet", "procedural"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.72
+    },
+    {
+      "id": "shorttext_object_pressure",
+      "text": "{object} дольше всего удерживал на себе {atmosphere}.",
+      "mode": "ShortText",
+      "requiredCategories": ["object", "atmosphere"],
+      "slotRequirements": {
+        "object": "object_direct",
+        "atmosphere": "atmosphere_state"
+      },
+      "compositionRole": "scene",
+      "cadence": "object_pressure",
+      "tags": ["story", "quiet", "mood"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.72
+    },
+    {
+      "id": "shorttext_delayed_implication",
+      "text": "После этого уже трудно было понять, почему {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["condition"],
+      "slotRequirements": {
+        "condition": "condition_reveal_state"
+      },
+      "compositionRole": "interpretation",
+      "cadence": "delayed_implication",
+      "tags": ["story", "quiet", "concept"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.72
+    },
+    {
+      "id": "shorttext_weather_bulletin_residue",
+      "text": "К утру в сводке осталось только одно: {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["condition"],
+      "slotRequirements": {
+        "condition": "condition_reveal_state"
+      },
+      "compositionRole": "observation",
+      "cadence": "interrupted_note",
+      "tags": ["story", "quiet", "procedural", "weather_systems"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.78
+    },
+    {
+      "id": "shorttext_hydroelectric_pressure_memory",
+      "text": "Дольше всего в машинной памяти держались {object} и {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["object", "condition"],
+      "slotRequirements": {
+        "object": "object_direct",
+        "condition": "condition_scene_detail"
+      },
+      "compositionRole": "observation",
+      "cadence": "object_pressure",
+      "tags": ["story", "quiet", "procedural", "hydroelectric"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.78
+    },
+    {
+      "id": "shorttext_observatory_distant_note",
+      "text": "В {place} потом долго существовало только одно: {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["place", "condition"],
+      "slotRequirements": {
+        "place": "place_in",
+        "condition": "condition_reveal_state"
+      },
+      "compositionRole": "observation",
+      "cadence": "delayed_implication",
+      "tags": ["story", "quiet", "procedural", "observatory"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.78
     }
   ]
 }
