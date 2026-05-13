@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "the_console_waited_longer_than_the_shift",
+      "text": "пульт ждал окончания смены дольше самих операторов",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["radar_stations", "procedural", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "the_ether_sounded_more_tired_than_the_room",
+      "text": "эфир звучал усталее самой комнаты",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["radar_stations", "analog", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "antenna_rotation_felt_too_patient",
+      "text": "вращение антенны казалось слишком терпеливым",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["radar_stations", "maintenance", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "marks_started_waiting_for_confirmation",
+      "text": "отметки как будто начали ждать подтверждения в ответ",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["radar_stations", "surreal", "procedural"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "the_horizon_became_a_form_of_duty",
+      "text": "горизонт постепенно становился разновидностью дежурства",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["radar_stations", "surreal", "bureaucracy"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "the_logbook_looked_incomplete_without_error",
+      "text": "журнал выглядел неполным даже без ошибки",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["radar_stations", "paper", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    }
+  ]
+}

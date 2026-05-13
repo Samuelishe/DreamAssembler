@@ -26,7 +26,8 @@ public sealed class TextGeneratorService
         "sanatorium",
         "hydroelectric",
         "weather_systems",
-        "coastal_fog"
+        "coastal_fog",
+        "radar_stations"
     ];
     private static readonly IReadOnlyDictionary<string, double> EarlySurfacingBoostByManifold = new Dictionary<string, double>(StringComparer.OrdinalIgnoreCase)
     {
@@ -38,7 +39,8 @@ public sealed class TextGeneratorService
         ["sanatorium"] = 1.34d,
         ["hydroelectric"] = 1.34d,
         ["weather_systems"] = 1.34d,
-        ["coastal_fog"] = 1.34d
+        ["coastal_fog"] = 1.34d,
+        ["radar_stations"] = 1.34d
     };
     private static readonly HashSet<string> SceneAnchorCategories =
     [
@@ -121,6 +123,7 @@ public sealed class TextGeneratorService
             ["observatory"] = new HashSet<string>(["suspended_statement", "interrupted_memory", "interrupted_note", "delayed_implication", "threshold_state"], StringComparer.OrdinalIgnoreCase),
             ["hydroelectric"] = new HashSet<string>(["procedural_report", "inventory", "suspended_statement", "procedural_residue", "object_pressure", "maintenance_note"], StringComparer.OrdinalIgnoreCase),
             ["coastal_fog"] = new HashSet<string>(["announcement", "suspended_statement", "procedural_residue", "interrupted_note", "incomplete_instruction", "bulletin_fragment"], StringComparer.OrdinalIgnoreCase),
+            ["radar_stations"] = new HashSet<string>(["procedural_report", "interrupted_note", "delayed_implication", "threshold_state", "procedural_residue"], StringComparer.OrdinalIgnoreCase),
             ["sanatorium"] = new HashSet<string>(["quiet_instruction", "suspended_statement", "procedural_residue", "threshold_state", "incomplete_instruction"], StringComparer.OrdinalIgnoreCase),
             ["mall"] = new HashSet<string>(["announcement", "inventory", "static_observation", "procedural_residue", "object_pressure"], StringComparer.OrdinalIgnoreCase),
             ["hospitality"] = new HashSet<string>(["quiet_instruction", "ceremonial", "suspended_statement", "delayed_implication", "procedural_residue", "threshold_state"], StringComparer.OrdinalIgnoreCase),

@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "the_mark_answers_him_before_the_console",
+      "text": "отметка отвечает ему раньше пульта",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["radar_stations", "surreal", "procedural"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "the_antenna_recognizes_him_by_hesitation",
+      "text": "антенна узнает его по нерешительности раньше журнала",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["radar_stations", "analog", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "the_duty_room_waits_for_him_to_begin_listening",
+      "text": "дежурная комната ждет, пока он начнет слушать по-настоящему",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["radar_stations", "quiet", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "the_horizon_starts_reporting_back",
+      "text": "горизонт постепенно начинает отчитываться в ответ",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["radar_stations", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "the_dead_channel_remembers_the_same_voice",
+      "text": "мертвый канал снова вспоминает один и тот же голос",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["radar_stations", "analog", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "the_sector_map_begins_to_shift_its_own_borders",
+      "text": "карта сектора начинает сдвигать собственные границы",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["radar_stations", "paper", "surreal"],
+      "absurdity": 3,
+      "weight": 0.6
+    }
+  ]
+}

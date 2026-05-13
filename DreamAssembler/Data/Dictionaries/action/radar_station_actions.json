@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "record_the_mark_in_the_shift_log",
+      "text": "занести отметку в сменный журнал",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["radar_stations", "paper", "procedural", "compat:portable", "compat:rewriteable", "compat:searchable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "rotate_the_antenna_to_the_eastern_sector",
+      "text": "повернуть антенну в восточный сектор",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["radar_stations", "maintenance", "procedural", "compat:repairable", "compat:wakeable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "verify_against_the_azimuth_sheet",
+      "text": "сверить с азимутным листом",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["radar_stations", "paper", "service", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "wait_for_the_signal_to_return",
+      "text": "дождаться возвращения сигнала",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["radar_stations", "time", "quiet", "compat:wakeable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "cover_the_console_before_dawn_humidity",
+      "text": "укрыть пульт до предрассветной сырости",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["radar_stations", "maintenance", "night", "compat:protectable", "compat:hideable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "listen_to_the_dead_channel_again",
+      "text": "снова прислушаться к мертвому каналу",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["radar_stations", "analog", "surreal", "compat:wakeable"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

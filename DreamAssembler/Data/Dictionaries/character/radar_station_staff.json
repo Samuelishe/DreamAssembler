@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "night_radar_operator",
+      "text": "оператор ночной антенны",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["radar_stations", "night", "procedural", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "keeper_of_azimuth_logs",
+      "text": "хранитель азимутных журналов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["radar_stations", "paper", "procedural", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "listener_of_distant_marks",
+      "text": "слушатель дальних отметок",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["radar_stations", "analog", "surreal", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "technician_of_rotating_antennas",
+      "text": "техник вращающихся антенн",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["radar_stations", "maintenance", "night", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "duty_clerk_of_the_horizon",
+      "text": "дежурный клерк горизонта",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["radar_stations", "bureaucracy", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "calibration_assistant_of_lost_echoes",
+      "text": "ассистент калибровки потерянных эхо-сигналов",
+      "category": "character",
+      "slot": "character_subject",
+      "tags": ["radar_stations", "maintenance", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

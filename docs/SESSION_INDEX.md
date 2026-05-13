@@ -173,17 +173,18 @@ Default snapshot behavior:
 - sanatorium bureaucracy;
 - hydroelectric infrastructure;
 - procedural weather systems;
-- coastal fog logistics.
+- coastal fog logistics;
+- radar stations / distant transmission infrastructure.
 
 Если нужен баланс роста, сначала смотреть `docs/MANIFOLD_STATE.md`, затем подтверждать через `DreamAssembler.DataTools` и `DreamAssembler/Data/data-manifest.json`.
 
 ## Текущее factual state
 
 - app version: `0.2.1.0`
-- data version: `0.6.11`
-- corpus: `1268` entries
-- templates: `55`
-- unit tests: `48/48` green на текущем runtime этапе
+- data version: `0.6.12`
+- corpus: `1316` entries
+- templates: `58`
+- unit tests: `49/49` green на текущем runtime этапе
 - базовый workflow контроля: `samples` + `report/snapshot/compare` + `dotnet test` + `dotnet build`
 
 ## Главные направления текущей линии
@@ -196,6 +197,7 @@ Default snapshot behavior:
 - targeted runtime tuning before blind expansion;
 - controlled manifold expansion after diagnostics-backed decisions.
 - controlled manifold deepening of existing fields, with `mall` now moved from thin second-wave toward exhausted-commercial deepened state.
+- compact manifold growth is active again, with `radar_stations` opened as a new quiet signal-infrastructure field.
 
 ## Что может уничтожить charm проекта
 

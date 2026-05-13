@@ -22,6 +22,10 @@
 - длинный compare `audit-hospitality-baseline.json -> audit-hospitality-after.json` показал, что pass сработал по главной цели: `hospitality` поднялся с near-invisible состояния до lead field (`22%` surfacing) и `92.3%` preferred cadence activation;
 - при этом побочных regressions не видно: `quiet` остался contextualized, `legacy-heavy` drift не вырос, cadence repetition слегка снизилась, а `static_observation` не откатился к старой монополии;
 - после этого hospitality больше не считается главным weak point long `ShortText` runtime; следующий decision point смещается к `museum` как heavy sentence-field и, возможно, к `airport` как более слабому mature-field по cadence identity.
+- затем intentionally прекращен runtime-heavy loop и возвращен фокус к controlled content growth: открыт новый compact manifold `radar_stations / distant transmission infrastructure` как quiet signal field без broad rebalance и без автоматического long audit;
+- `radar_stations` добавлен одним curated pack по `character`, `action`, `object`, `place`, `condition`, `concept`, `atmosphere` и `twist` вокруг rotating antennas, duty-room silence, azimuth sheets, delayed marks, dead channels и horizon bureaucracy;
+- `data-manifest.json` поднят до `0.6.12`; `DreamAssembler.DataTools` после этого показывает `1316` entries и не находит structural issues;
+- короткие human samples после pack не дали достаточно оснований для немедленного runtime verdict, поэтому шаг зафиксирован именно как atmospheric topology growth, а не как повод снова запускать длинную audit-phase.
 
 ## 2026-05-07
 

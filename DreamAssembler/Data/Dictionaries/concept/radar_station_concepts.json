@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "concept_listening_to_distance_as_work",
+      "text": "слушать расстояние как работу",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["radar_stations", "quiet", "procedural"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "concept_horizon_bureaucracy",
+      "text": "бюрократия горизонта",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["radar_stations", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "concept_calibration_of_invisible_things",
+      "text": "калибровка невидимых вещей",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["radar_stations", "maintenance", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_a_mark_that_returned_too_late",
+      "text": "история об отметке, вернувшейся слишком поздно",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["radar_stations", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_the_antenna_that_listened_back",
+      "text": "история об антенне, начавшей слушать в ответ",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["radar_stations", "analog", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_the_night_shift_of_the_horizon",
+      "text": "история о ночной смене самого горизонта",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["radar_stations", "night", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

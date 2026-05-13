@@ -1,6 +1,6 @@
 {
   "id": "dreamassembler-base-ru",
-  "version": "0.6.11",
+  "version": "0.6.12",
   "description": "Базовый русскоязычный набор словарей, шаблонов и внешних лексиконов для DreamAssembler.",
   "dictionarySets": [
     "character/city_workers",
@@ -23,6 +23,7 @@
     "character/hydroelectric_relay_staff",
     "character/sanatorium_bureaucracy_staff",
     "character/sanatorium_recovery_staff",
+    "character/radar_station_staff",
     "action/everyday_actions",
     "action/surreal_actions",
     "action/quiet_infrastructure_actions",
@@ -44,6 +45,7 @@
     "action/hydroelectric_relay_actions",
     "action/sanatorium_procedural_actions",
     "action/sanatorium_recovery_actions",
+    "action/radar_station_actions",
     "object/everyday_objects",
     "object/surreal_objects",
     "object/archive_transport_objects",
@@ -67,6 +69,7 @@
     "object/hydroelectric_relay_objects",
     "object/sanatorium_procedural_objects",
     "object/sanatorium_recovery_objects",
+    "object/radar_station_objects",
     "place/urban_places",
     "place/surreal_places",
     "place/surreal_service_places",
@@ -91,6 +94,7 @@
     "place/hydroelectric_relay_spaces",
     "place/sanatorium_corridor_spaces",
     "place/sanatorium_morning_spaces",
+    "place/radar_station_places",
     "twist/rules_and_reactions",
     "twist/quiet_rules_pack",
     "twist/melancholic_reactions_pack",
@@ -114,6 +118,7 @@
     "twist/hydroelectric_relay_twists",
     "twist/sanatorium_bureaucracy_twists",
     "twist/sanatorium_morning_twists",
+    "twist/radar_station_twists",
     "atmosphere/scene_tones",
     "atmosphere/quiet_tones",
     "atmosphere/airport_night_tones",
@@ -136,6 +141,7 @@
     "atmosphere/hydroelectric_relay_tones",
     "atmosphere/sanatorium_quiet_tones",
     "atmosphere/sanatorium_morning_tones",
+    "atmosphere/radar_station_tones",
     "genre/base_genres",
     "genre/quiet_genres",
     "style/base_styles",
@@ -165,6 +171,7 @@
     "concept/hydroelectric_relay_concepts",
     "concept/sanatorium_bureaucracy_concepts",
     "concept/sanatorium_morning_concepts",
+    "concept/radar_station_concepts",
     "condition/scene_conditions",
     "condition/atmospheric_scene_conditions",
     "condition/quiet_reveal_conditions",
@@ -187,7 +194,8 @@
     "condition/hydroelectric_night_conditions",
     "condition/hydroelectric_relay_conditions",
     "condition/sanatorium_rest_conditions",
-    "condition/sanatorium_morning_conditions"
+    "condition/sanatorium_morning_conditions",
+    "condition/radar_station_conditions"
   ],
   "associationSets": [
     "Sources/openrussian-nouns.csv",

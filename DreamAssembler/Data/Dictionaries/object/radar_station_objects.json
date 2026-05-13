@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "azimuth_sheet_with_pencil_corrections",
+      "text": "азимутный лист с карандашными поправками",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["radar_stations", "paper", "compat:portable", "compat:rewriteable", "compat:searchable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "headphones_of_the_night_shift",
+      "text": "наушники ночной смены",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["radar_stations", "analog", "compat:portable", "compat:protectable", "compat:wakeable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "console_cover_smelling_of_dust",
+      "text": "чехол пульта с запахом пыли",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["radar_stations", "maintenance", "compat:hideable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "shift_log_of_false_returns",
+      "text": "сменный журнал ложных возвратов",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["radar_stations", "paper", "surreal", "compat:portable", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "slow_indicator_lamp",
+      "text": "медленную индикаторную лампу",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["radar_stations", "quiet", "compat:repairable", "compat:wakeable", "compat:protectable"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "sealed_envelope_with_sector_number",
+      "text": "запечатанный конверт с номером сектора",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["radar_stations", "paper", "surreal", "compat:portable", "compat:hideable", "compat:openable"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

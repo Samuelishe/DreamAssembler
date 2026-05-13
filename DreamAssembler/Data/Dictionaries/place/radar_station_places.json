@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "duty_room_of_the_radar_station",
+      "text": "дежурной комнате радиолокационного поста",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["radar_stations", "night", "service", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "hall_of_rotating_antennas",
+      "text": "зале вращающихся антенн",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["radar_stations", "maintenance", "analog", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "room_of_the_horizon_console",
+      "text": "комнате горизонтального пульта",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["radar_stations", "procedural", "service", "quiet"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "corridor_of_sector_maps",
+      "text": "коридоре секторных карт",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["radar_stations", "paper", "quiet", "bureaucracy"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "tower_where_marks_waited_for_names",
+      "text": "башне, где отметки ждали имен терпеливее операторов,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["radar_stations", "surreal", "quiet", "bureaucracy"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "sector_room_where_the_ether_had_thickened",
+      "text": "секторной комнате, где эфир сгущался к утру,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["radar_stations", "surreal", "night", "analog"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

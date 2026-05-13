@@ -29,6 +29,8 @@ DreamAssembler находится в фазе `audit-driven runtime tuning + con
 4. снова проверять runtime ecology;
 5. только потом фиксировать вывод.
 
+Но ближайший рабочий режим после hospitality pass снова смещен в сторону controlled content growth: не каждый compact data-pack должен автоматически запускать длинную audit-phase.
+
 ## Текущая identity проекта
 
 DreamAssembler - это:
@@ -84,7 +86,8 @@ DreamAssembler - это:
 - sanatorium;
 - hydroelectric;
 - weather_systems;
-- coastal_fog.
+- coastal_fog;
+- radar_stations.
 
 Проблема больше не в lack of manifolds, а в том, как runtime удерживает их cadence, pressure и silence identity.
 
@@ -171,6 +174,8 @@ DreamAssembler - это:
 - тот же длинный `1000` audit показал, что следующий runtime weakness смещается не в `mall`, а скорее в `hospitality cadence autonomy` и в `museum` как heavier sentence-field.
 - затем выполнен hospitality autonomy pass, и он сработал без broad rebalance: `hospitality` поднялся с примерно `2%` surfacing и `45%` cadence activation до `22%` surfacing и `92.3%` cadence activation в длинном `ShortText` окне.
 - при этом `quiet` не вернулся к universal solvent, `legacy-heavy` drift не вырос, cadence repetition немного снизилась, а `static_observation` не откатился обратно к старым `~40%`.
+- после этого фокус разработки снова возвращен к controlled content growth: открыт новый compact manifold `radar_stations` как quiet signal infrastructure field вокруг duty-room silence, rotating antennas, azimuth sheets, delayed marks и horizon bureaucracy.
+- для этого шага не запускался новый long audit по умолчанию: pack прошел validation, короткий samples sanity-check, tests и build, а полноценный runtime verdict отложен до следующего более крупного checkpoint.
 
 То есть проект уже двигается не вслепую: runtime symptoms видны, измеримы и сопоставимы before/after.
 
@@ -229,7 +234,7 @@ DreamAssembler - это:
 На текущем состоянии самым разумным candidate выглядит:
 
 - runtime-side: `museum cadence autonomy` и, возможно, `airport cadence autonomy`;
-- content-side after that: следующий controlled candidate уже не обязан быть `mall`, потому что mall pass подтвердил corpus-value и базовую runtime recognizability;
+- content-side: продолжать compact manifold/content growth без немедленного ухода обратно в audit-heavy loop;
 
 а не открытие случайной новой волны из множества manifolds сразу.
 

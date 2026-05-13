@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "atmosphere_like_the_duty_room_after_the_last_pulse",
+      "text": "как в дежурной комнате после последнего импульса",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["radar_stations", "quiet", "night"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "atmosphere_like_tired_rotating_metal",
+      "text": "как у уставшего вращающегося металла",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["radar_stations", "maintenance", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_like_listening_through_static",
+      "text": "как при слушании сквозь статический шум",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["radar_stations", "analog", "surreal"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_like_a_sector_waiting_for_confirmation",
+      "text": "как у сектора, ждущего подтверждения",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["radar_stations", "procedural", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_like_the_horizon_after_delayed_reporting",
+      "text": "как у горизонта после задержанной отчетности",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["radar_stations", "bureaucracy", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    },
+    {
+      "id": "atmosphere_like_an_echo_that_did_not_finish_arriving",
+      "text": "как у эхо-сигнала, который не закончил приходить",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["radar_stations", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}
