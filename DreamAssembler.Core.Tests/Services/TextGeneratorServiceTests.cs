@@ -387,6 +387,52 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что quiet вместе со strong manifold превращается в contextual pressure, а не остается универсальным fallback.
+    /// </summary>
+    [Fact]
+    public void Generate_UsesContextualQuietPressure_WhenQuietBelongsToStrongManifold()
+    {
+        var template = new TemplateDefinition
+        {
+            Id = "contextual_quiet_sentence",
+            Text = "В {place} {condition}.",
+            Mode = GenerationMode.Sentence,
+            RequiredCategories = ["place", "condition"],
+            SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["place"] = "place_in",
+                ["condition"] = "condition_scene_detail"
+            },
+            Cadence = "static_observation",
+            Weight = 1.0
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new() { Id = "weather_place", Category = "place", Slot = "place_in", Text = "комнате ночного прогноза", Tags = ["weather_systems", "quiet"], Weight = 1.0 },
+            new() { Id = "weather_condition", Category = "condition", Slot = "condition_scene_detail", Text = "бумага барографа все еще ждала утренней правки", Tags = ["weather_systems", "quiet"], Weight = 1.0 }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            [template],
+            [],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.Sentence,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 1
+        });
+
+        var trace = Assert.IsType<GenerationDebugTrace>(Assert.Single(result).DebugTrace);
+        Assert.Equal("weather_systems:quiet", trace.DominantPressureTag);
+    }
+
+    /// <summary>
     /// Проверяет, что после появления observatory-manifold city-tagged template ослабевает относительно более нейтрального procedural follow-up.
     /// </summary>
     [Fact]

@@ -1,0 +1,158 @@
+{
+  "Mode": "ShortText",
+  "Absurdity": "Absurd",
+  "RequestedCount": 500,
+  "GeneratedCount": 500,
+  "CreatedAt": "2026-05-13T14:14:13.6858399+03:00",
+  "AtmosphereCounts": {
+    "weather_systems": 100,
+    "sanatorium": 100,
+    "coastal_fog": 60,
+    "hydroelectric": 40,
+    "mall": 40,
+    "museum": 100,
+    "observatory": 40,
+    "airport": 20
+  },
+  "DominantManifoldCounts": {
+    "weather_systems": 100,
+    "sanatorium": 100,
+    "coastal_fog": 60,
+    "hydroelectric": 40,
+    "mall": 40,
+    "museum": 100,
+    "observatory": 40,
+    "airport": 20
+  },
+  "PressureCounts": {
+    "bureaucracy": 55,
+    "weather_systems:quiet": 71,
+    "sanatorium:quiet": 89,
+    "coastal_fog:quiet": 38,
+    "hydroelectric:quiet": 39,
+    "service": 22,
+    "mall:quiet": 18,
+    "museum:quiet": 99,
+    "rainy": 2,
+    "night": 23,
+    "archive": 1,
+    "observatory:quiet": 38,
+    "procedural": 1,
+    "transport": 4
+  },
+  "CadenceCounts": {
+    "static_observation": 202,
+    "announcement": 277,
+    "interrupted_note": 112,
+    "suspended_statement": 190,
+    "bulletin_fragment": 63,
+    "ceremonial": 60,
+    "delayed_implication": 106,
+    "quiet_instruction": 63,
+    "procedural_report": 117,
+    "procedural_residue": 70,
+    "inventory": 61,
+    "object_pressure": 92,
+    "interrupted_memory": 93,
+    "threshold_state": 109,
+    "delayed_revelation": 88,
+    "maintenance_note": 50,
+    "museum_label": 48
+  },
+  "PrimaryCadenceCounts": {
+    "static_observation": 149,
+    "procedural_report": 117,
+    "inventory": 61,
+    "object_pressure": 46,
+    "threshold_state": 64,
+    "suspended_statement": 63
+  },
+  "TemplateCounts": {
+    "shorttext_atmosphere_place_clause": 49,
+    "shorttext_reflection": 66,
+    "shorttext_reveal_clause_place": 91,
+    "shorttext_weather_bulletin_residue": 59,
+    "shorttext_atmosphere_place": 33,
+    "shorttext_observatory_distant_note": 44,
+    "shorttext_quiet_instruction": 63,
+    "shorttext_twist": 59,
+    "shorttext_weather_bulletin_fragment": 58,
+    "shorttext_delayed_implication": 61,
+    "shorttext_intro_clause_place": 68,
+    "shorttext_notice": 54,
+    "shorttext_procedural_residue": 69,
+    "shorttext_hydroelectric_pressure_memory": 43,
+    "shorttext_inventory_scene": 61,
+    "shorttext_character_twist": 92,
+    "shorttext_concept_name": 61,
+    "shorttext_interrupted_note": 52,
+    "shorttext_scene_detail_clause_place": 38,
+    "shorttext_intro": 49,
+    "shorttext_observer": 53,
+    "shorttext_reaction": 65,
+    "shorttext_reveal": 63,
+    "shorttext_scene_detail": 29,
+    "shorttext_interpretation": 48,
+    "shorttext_object_pressure": 46,
+    "shorttext_observatory_threshold_note": 45,
+    "shorttext_sanatorium_threshold_state": 64,
+    "shorttext_condition": 63,
+    "shorttext_hydroelectric_maintenance_note": 48,
+    "shorttext_museum_label": 47,
+    "shorttext_genre_turn": 40
+  },
+  "LegacyHeavyCount": 131,
+  "NeutralHeavyCount": 316,
+  "CadenceRepetitionCount": 74,
+  "RepeatedOutputs": [],
+  "ManifoldCadenceActivation": [
+    {
+      "Manifold": "museum",
+      "Total": 100,
+      "Preferred": 59,
+      "ActivationRate": 0.59
+    },
+    {
+      "Manifold": "sanatorium",
+      "Total": 100,
+      "Preferred": 83,
+      "ActivationRate": 0.83
+    },
+    {
+      "Manifold": "weather_systems",
+      "Total": 100,
+      "Preferred": 94,
+      "ActivationRate": 0.94
+    },
+    {
+      "Manifold": "coastal_fog",
+      "Total": 60,
+      "Preferred": 56,
+      "ActivationRate": 0.9333333333333333
+    },
+    {
+      "Manifold": "hydroelectric",
+      "Total": 40,
+      "Preferred": 39,
+      "ActivationRate": 0.975
+    },
+    {
+      "Manifold": "mall",
+      "Total": 40,
+      "Preferred": 35,
+      "ActivationRate": 0.875
+    },
+    {
+      "Manifold": "observatory",
+      "Total": 40,
+      "Preferred": 38,
+      "ActivationRate": 0.95
+    },
+    {
+      "Manifold": "airport",
+      "Total": 20,
+      "Preferred": 17,
+      "ActivationRate": 0.85
+    }
+  ]
+}

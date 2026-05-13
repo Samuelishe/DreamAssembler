@@ -113,6 +113,7 @@ public sealed class TextGeneratorService
         "melancholic",
         "commerce_decay"
     ];
+    private const string ContextualQuietSuffix = ":quiet";
     private static readonly IReadOnlyDictionary<string, HashSet<string>> PreferredCadencesByManifold =
         new Dictionary<string, HashSet<string>>(StringComparer.OrdinalIgnoreCase)
         {
@@ -1257,6 +1258,7 @@ public sealed class TextGeneratorService
         return !string.IsNullOrWhiteSpace(tag)
                && !tag.StartsWith("compat:", StringComparison.OrdinalIgnoreCase)
                && !tag.StartsWith("cluster:", StringComparison.OrdinalIgnoreCase)
+               && !tag.EndsWith(ContextualQuietSuffix, StringComparison.OrdinalIgnoreCase)
                && !GenericContinuityTags.Contains(tag);
     }
 
@@ -1290,7 +1292,12 @@ public sealed class TextGeneratorService
 
         public void RememberTags(IEnumerable<string> tags)
         {
-            foreach (var tag in tags.Where(IsContinuityTag).Distinct(StringComparer.OrdinalIgnoreCase))
+            var tagList = tags
+                .Where(tag => !string.IsNullOrWhiteSpace(tag))
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .ToList();
+
+            foreach (var tag in tagList.Where(IsContinuityTag))
             {
                 TagCounts.TryGetValue(tag, out var count);
                 TagCounts[tag] = count + 1;
@@ -1302,13 +1309,12 @@ public sealed class TextGeneratorService
                     OpeningStrongManifold ??= tag;
                 }
 
-                if (!AtmosphericPressureTags.Contains(tag))
-                {
-                    continue;
-                }
+            }
 
-                PressureTagCounts.TryGetValue(tag, out var pressureCount);
-                PressureTagCounts[tag] = pressureCount + 1;
+            foreach (var pressureTag in GetPressureKeys(tagList))
+            {
+                PressureTagCounts.TryGetValue(pressureTag, out var pressureCount);
+                PressureTagCounts[pressureTag] = pressureCount + 1;
             }
         }
 
@@ -1341,9 +1347,7 @@ public sealed class TextGeneratorService
                 .ThenBy(item => item.Key, StringComparer.OrdinalIgnoreCase)
                 .First();
 
-            var pressureTags = tags
-                .Where(AtmosphericPressureTags.Contains)
-                .Distinct(StringComparer.OrdinalIgnoreCase)
+            var pressureTags = GetPressureKeys(tags)
                 .ToList();
 
             if (pressureTags.Count == 0)
@@ -1588,6 +1592,39 @@ public sealed class TextGeneratorService
                 .ToList();
 
             return pressureTags.Count > 0 && pressureTags.All(NeutralFoundationTags.Contains);
+        }
+
+        private static IEnumerable<string> GetPressureKeys(IEnumerable<string> tags)
+        {
+            var tagList = tags
+                .Where(tag => !string.IsNullOrWhiteSpace(tag))
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .ToList();
+
+            var strongManifolds = tagList
+                .Where(StrongManifoldTags.Contains)
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .ToList();
+
+            foreach (var tag in tagList.Where(AtmosphericPressureTags.Contains))
+            {
+                if (string.Equals(tag, "quiet", StringComparison.OrdinalIgnoreCase) && strongManifolds.Count > 0)
+                {
+                    foreach (var manifold in strongManifolds)
+                    {
+                        yield return GetContextualQuietKey(manifold);
+                    }
+
+                    continue;
+                }
+
+                yield return tag;
+            }
+        }
+
+        private static string GetContextualQuietKey(string manifold)
+        {
+            return $"{manifold}{ContextualQuietSuffix}";
         }
     }
 }
