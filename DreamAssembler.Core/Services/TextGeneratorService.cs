@@ -180,13 +180,16 @@ public sealed class TextGeneratorService
 
         for (var index = 0; index < resultCount; index++)
         {
+            var traceBuilder = new GenerationTraceBuilder();
             var text = options.Mode switch
             {
-                GenerationMode.ShortText => GenerateShortText(options, context),
+                GenerationMode.ShortText => GenerateShortText(options, context, traceBuilder),
                 GenerationMode.WordPair => GenerateWordPair(lexicalClusterKey),
                 GenerationMode.WordCluster => GenerateWordCluster(lexicalClusterKey),
-                _ => GenerateSingleTemplateText(options.Mode, options.AbsurdityLevel, context)
+                _ => GenerateSingleTemplateText(options.Mode, options.AbsurdityLevel, context, traceBuilder)
             };
+
+            var atmosphereKey = lexicalClusterKey ?? context.GetDominantAtmosphereKey();
 
             results.Add(new TextGenerationResult
             {
@@ -194,7 +197,8 @@ public sealed class TextGeneratorService
                 Mode = options.Mode,
                 AbsurdityLevel = options.AbsurdityLevel,
                 CreatedAt = DateTimeOffset.Now,
-                AtmosphereKey = lexicalClusterKey ?? context.GetDominantAtmosphereKey()
+                AtmosphereKey = atmosphereKey,
+                DebugTrace = traceBuilder.Build(atmosphereKey, context.GetDominantStrongManifold(), context.GetDominantPressureTag())
             });
         }
 
@@ -257,7 +261,7 @@ public sealed class TextGeneratorService
         return RenderAssociationPredicatePhrase(genderKey, adjectiveCount, lexicalClusterKey);
     }
 
-    private string GenerateShortText(TextGenerationOptions options, GenerationContext context)
+    private string GenerateShortText(TextGenerationOptions options, GenerationContext context, GenerationTraceBuilder traceBuilder)
     {
         var sentenceCount = _random.Next(2, 6);
         var builder = new StringBuilder();
@@ -281,7 +285,7 @@ public sealed class TextGeneratorService
                 sentenceCount);
 
             var preferOpeningAnchor = index == 0 && IsRoleIn(GetCompositionRole(template), OpeningRoles);
-            builder.Append(RenderTemplate(template, (int)options.AbsurdityLevel, context, preferOpeningAnchor, index));
+            builder.Append(RenderTemplate(template, (int)options.AbsurdityLevel, context, traceBuilder, preferOpeningAnchor, index));
 
             previousRole = GetCompositionRole(template);
             IncrementRoleUsage(roleUsageCounts, previousRole);
@@ -290,11 +294,11 @@ public sealed class TextGeneratorService
         return builder.ToString();
     }
 
-    private string GenerateSingleTemplateText(GenerationMode mode, AbsurdityLevel absurdityLevel, GenerationContext context)
+    private string GenerateSingleTemplateText(GenerationMode mode, AbsurdityLevel absurdityLevel, GenerationContext context, GenerationTraceBuilder traceBuilder)
     {
         var targetAbsurdity = (int)absurdityLevel;
         var template = SelectTemplate(mode, targetAbsurdity, context);
-        return RenderTemplate(template, targetAbsurdity, context);
+        return RenderTemplate(template, targetAbsurdity, context, traceBuilder);
     }
 
     private TemplateDefinition SelectTemplate(
@@ -327,6 +331,7 @@ public sealed class TextGeneratorService
         TemplateDefinition template,
         int targetAbsurdity,
         GenerationContext context,
+        GenerationTraceBuilder traceBuilder,
         bool preferOpeningAnchor = false,
         int shortTextSentenceIndex = -1)
     {
@@ -334,11 +339,11 @@ public sealed class TextGeneratorService
 
         foreach (var category in template.RequiredCategories)
         {
-            var entry = SelectEntry(category, template, targetAbsurdity, context, values, preferOpeningAnchor, shortTextSentenceIndex);
+            var entry = SelectEntry(category, template, targetAbsurdity, context, values, traceBuilder, preferOpeningAnchor, shortTextSentenceIndex);
             values[category] = entry;
         }
 
-        RememberTemplate(template, context);
+        RememberTemplate(template, context, traceBuilder);
 
         return NormalizeSentenceStart(_templateEngine.Render(template, values));
     }
@@ -673,6 +678,7 @@ public sealed class TextGeneratorService
         int targetAbsurdity,
         GenerationContext context,
         IReadOnlyDictionary<string, DictionaryEntry> selectedValues,
+        GenerationTraceBuilder traceBuilder,
         bool preferOpeningAnchor = false,
         int shortTextSentenceIndex = -1)
     {
@@ -694,7 +700,7 @@ public sealed class TextGeneratorService
         }
 
         var selectedEntry = _selector.Select(candidates, item => CalculateEntryWeight(item, category, template, targetAbsurdity, context, selectedValues, preferOpeningAnchor, shortTextSentenceIndex));
-        RememberEntry(selectedEntry, context);
+        RememberEntry(selectedEntry, context, traceBuilder);
         return selectedEntry;
     }
 
@@ -1120,17 +1126,25 @@ public sealed class TextGeneratorService
         return preferredManifolds;
     }
 
-    private void RememberTemplate(TemplateDefinition template, GenerationContext context)
+    private void RememberTemplate(TemplateDefinition template, GenerationContext context, GenerationTraceBuilder traceBuilder)
     {
         context.UsedTemplateIds.Add(template.Id);
         context.RememberCadence(GetCadence(template));
+        traceBuilder.RememberTemplate(template.Id, GetCadence(template));
+
+        foreach (var tag in template.Tags.Where(AtmosphericPressureTags.Contains).Distinct(StringComparer.OrdinalIgnoreCase))
+        {
+            traceBuilder.RememberPressureTag(tag);
+        }
+
         EnqueueWithLimit(_recentTemplateIds, template.Id, RecentTemplateLimit);
     }
 
-    private void RememberEntry(DictionaryEntry entry, GenerationContext context)
+    private void RememberEntry(DictionaryEntry entry, GenerationContext context, GenerationTraceBuilder traceBuilder)
     {
         context.MarkEntryAsUsed(entry.Category, entry.Id);
         context.RememberTags(entry.Tags);
+        RememberTraceTags(entry.Tags, traceBuilder);
 
         if (!_recentEntryIdsByCategory.TryGetValue(entry.Category, out var queue))
         {
@@ -1139,6 +1153,32 @@ public sealed class TextGeneratorService
         }
 
         EnqueueWithLimit(queue, entry.Id, RecentEntryLimitPerCategory);
+    }
+
+    private static void RememberTraceTags(IEnumerable<string> tags, GenerationTraceBuilder traceBuilder)
+    {
+        foreach (var tag in tags.Distinct(StringComparer.OrdinalIgnoreCase))
+        {
+            if (StrongManifoldTags.Contains(tag))
+            {
+                traceBuilder.RememberStrongManifold(tag);
+            }
+
+            if (AtmosphericPressureTags.Contains(tag))
+            {
+                traceBuilder.RememberPressureTag(tag);
+            }
+
+            if (LegacyBaselineTags.Contains(tag))
+            {
+                traceBuilder.LegacyBaselineTagCount++;
+            }
+
+            if (NeutralFoundationTags.Contains(tag))
+            {
+                traceBuilder.NeutralFoundationTagCount++;
+            }
+        }
     }
 
     private bool IsRecentlyUsed(string category, string entryId)
@@ -1402,6 +1442,20 @@ public sealed class TextGeneratorService
             }
 
             return StrongManifoldCounts
+                .OrderByDescending(item => item.Value)
+                .ThenBy(item => item.Key, StringComparer.OrdinalIgnoreCase)
+                .First()
+                .Key;
+        }
+
+        public string? GetDominantPressureTag()
+        {
+            if (PressureTagCounts.Count == 0)
+            {
+                return null;
+            }
+
+            return PressureTagCounts
                 .OrderByDescending(item => item.Value)
                 .ThenBy(item => item.Key, StringComparer.OrdinalIgnoreCase)
                 .First()

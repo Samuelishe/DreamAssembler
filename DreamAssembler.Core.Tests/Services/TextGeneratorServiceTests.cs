@@ -335,6 +335,58 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что результат получает lightweight debug trace для runtime-аудита.
+    /// </summary>
+    [Fact]
+    public void Generate_PopulatesDebugTrace_ForRuntimeAudit()
+    {
+        var template = new TemplateDefinition
+        {
+            Id = "debug_trace_sentence",
+            Text = "В {place} {condition}.",
+            Mode = GenerationMode.Sentence,
+            RequiredCategories = ["place", "condition"],
+            SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["place"] = "place_in",
+                ["condition"] = "condition_scene_detail"
+            },
+            Cadence = "static_observation",
+            Tags = ["quiet", "procedural"],
+            Weight = 1.0
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new() { Id = "observatory_place", Category = "place", Slot = "place_in", Text = "наблюдательном куполе", Tags = ["observatory", "quiet"], Weight = 1.0 },
+            new() { Id = "observatory_condition", Category = "condition", Slot = "condition_scene_detail", Text = "тетради молчали дольше приборов", Tags = ["observatory", "procedural"], Weight = 1.0 }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            [template],
+            [],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.Sentence,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 1
+        });
+
+        var item = Assert.Single(result);
+        var trace = Assert.IsType<GenerationDebugTrace>(item.DebugTrace);
+        Assert.Contains("debug_trace_sentence", trace.TemplateIds);
+        Assert.Contains("static_observation", trace.Cadences);
+        Assert.Contains("observatory", trace.StrongManifolds);
+        Assert.Contains("quiet", trace.PressureTags);
+        Assert.Equal("observatory", trace.DominantStrongManifold);
+    }
+
+    /// <summary>
     /// Проверяет, что после появления observatory-manifold city-tagged template ослабевает относительно более нейтрального procedural follow-up.
     /// </summary>
     [Fact]

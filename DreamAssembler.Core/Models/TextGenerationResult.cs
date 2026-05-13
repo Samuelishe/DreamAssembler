@@ -31,5 +31,10 @@ public sealed class TextGenerationResult
     /// Получает или задает ключ локального atmospheric-пространства для lexical-режимов.
     /// </summary>
     public string? AtmosphereKey { get; set; }
+
+    /// <summary>
+    /// Получает или задает lightweight runtime-диагностику результата.
+    /// </summary>
+    public GenerationDebugTrace? DebugTrace { get; set; }
 }
 
