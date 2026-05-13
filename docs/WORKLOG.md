@@ -13,6 +13,7 @@
 - затем выполнен controlled manifold deepening-pass по `mall`: добавлен один coherent pack по `action`, `atmosphere`, `concept`, `condition`, `object`, `place` и `twist`, чтобы усилить exhausted-commercial ecology вокруг afterhours maintenance, fluorescent residue, decorative exhaustion, closed arcade memory, service-corridor silence и failed-commercial stillness без ухода в horror-space;
 - `data-manifest.json` поднят до `0.6.11`; `DreamAssembler.DataTools` после этого показывает `1268` entries и не находит structural issues;
 - короткий post-pass report `audit-mall-g.json` не дал надежного mall-signal и ушел в `sanatorium:quiet` drift, поэтому этот шаг зафиксирован как corpus-deepening, а не как повод для нового runtime rebalance; следующий разумный check для `mall` - отдельный более длинный audit.
+- затем выполнен diagnostics housekeeping pass: snapshot-файлы `report` по умолчанию сохраняются в `artifacts/audit/`, `compare` умеет подхватывать bare filenames оттуда, а root проекта больше не должен засоряться `audit-*.json`;
 
 ## 2026-05-07
 

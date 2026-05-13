@@ -128,6 +128,12 @@ dotnet test DreamAssembler.Core.Tests/DreamAssembler.Core.Tests.csproj
 dotnet build DreamAssembler.sln
 ```
 
+Default snapshot behavior:
+
+- if `--snapshot` gets only a filename, it is saved to `artifacts/audit/`;
+- if `--snapshot` gets an explicit path, that path is used as-is;
+- `compare` can read bare filenames from the current directory or from `artifacts/audit/`.
+
 Практический смысл инструментов:
 
 - `samples` - human reading sanity-check;

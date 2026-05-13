@@ -2,6 +2,7 @@ bin/
 obj/
 /packages/
 /artifacts/
+/artifacts/audit/*.json
 /publish/
 
 .idea/

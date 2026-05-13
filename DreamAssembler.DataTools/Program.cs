@@ -12,6 +12,7 @@ var dataPathArgument = args.Length > 0 && !isSamplesCommand && !isAuditCommand &
 var dataPath = !string.IsNullOrWhiteSpace(dataPathArgument)
     ? Path.GetFullPath(dataPathArgument)
     : Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "DreamAssembler", "Data"));
+var projectRoot = Path.GetFullPath(Path.Combine(dataPath, "..", ".."));
 
 Console.WriteLine("DreamAssembler DataTools");
 Console.WriteLine($"Data path: {dataPath}");
@@ -19,7 +20,7 @@ Console.WriteLine();
 
 if (isCompareCommand)
 {
-    PrintSnapshotComparison(args.Skip(1).ToArray());
+    PrintSnapshotComparison(args.Skip(1).ToArray(), projectRoot);
     return;
 }
 
@@ -39,11 +40,11 @@ if (isSamplesCommand)
 }
 else if (isAuditCommand)
 {
-    PrintAudit(bundle, args.Skip(1).ToArray(), reportOnly: false);
+    PrintAudit(bundle, args.Skip(1).ToArray(), reportOnly: false, projectRoot);
 }
 else if (isReportCommand)
 {
-    PrintAudit(bundle, args.Skip(1).ToArray(), reportOnly: true);
+    PrintAudit(bundle, args.Skip(1).ToArray(), reportOnly: true, projectRoot);
 }
 else
 {
@@ -139,7 +140,7 @@ static void PrintSamples(GeneratorDataBundle bundle, IReadOnlyList<string> args)
     }
 }
 
-static void PrintAudit(GeneratorDataBundle bundle, IReadOnlyList<string> args, bool reportOnly)
+static void PrintAudit(GeneratorDataBundle bundle, IReadOnlyList<string> args, bool reportOnly, string projectRoot)
 {
     var positional = GetPositionalArgs(args);
     var mode = ParseMode(positional.FirstOrDefault()) ?? GenerationMode.ShortText;
@@ -163,13 +164,14 @@ static void PrintAudit(GeneratorDataBundle bundle, IReadOnlyList<string> args, b
 
     if (!string.IsNullOrWhiteSpace(snapshotPath))
     {
-        SaveSnapshot(snapshot, snapshotPath);
+        var resolvedSnapshotPath = ResolveSnapshotOutputPath(snapshotPath, projectRoot);
+        SaveSnapshot(snapshot, resolvedSnapshotPath);
         Console.WriteLine();
-        Console.WriteLine($"Snapshot saved: {Path.GetFullPath(snapshotPath)}");
+        Console.WriteLine($"Snapshot saved: {resolvedSnapshotPath}");
     }
 }
 
-static void PrintSnapshotComparison(IReadOnlyList<string> args)
+static void PrintSnapshotComparison(IReadOnlyList<string> args, string projectRoot)
 {
     var positional = GetPositionalArgs(args);
     if (positional.Count < 2)
@@ -178,8 +180,8 @@ static void PrintSnapshotComparison(IReadOnlyList<string> args)
         return;
     }
 
-    var firstPath = Path.GetFullPath(positional[0]);
-    var secondPath = Path.GetFullPath(positional[1]);
+    var firstPath = ResolveSnapshotInputPath(positional[0], projectRoot);
+    var secondPath = ResolveSnapshotInputPath(positional[1], projectRoot);
     var first = LoadSnapshot(firstPath);
     var second = LoadSnapshot(secondPath);
 
@@ -574,7 +576,13 @@ static void SaveSnapshot(RuntimeEcologySnapshot snapshot, string snapshotPath)
         WriteIndented = true
     });
 
-    File.WriteAllText(Path.GetFullPath(snapshotPath), json);
+    var directory = Path.GetDirectoryName(snapshotPath);
+    if (!string.IsNullOrWhiteSpace(directory))
+    {
+        Directory.CreateDirectory(directory);
+    }
+
+    File.WriteAllText(snapshotPath, json);
 }
 
 static RuntimeEcologySnapshot LoadSnapshot(string snapshotPath)
@@ -582,6 +590,38 @@ static RuntimeEcologySnapshot LoadSnapshot(string snapshotPath)
     var json = File.ReadAllText(snapshotPath);
     return JsonSerializer.Deserialize<RuntimeEcologySnapshot>(json)
            ?? throw new InvalidOperationException($"Cannot deserialize snapshot: {snapshotPath}");
+}
+
+static string ResolveSnapshotOutputPath(string snapshotPath, string projectRoot)
+{
+    if (Path.IsPathRooted(snapshotPath) || !string.IsNullOrWhiteSpace(Path.GetDirectoryName(snapshotPath)))
+    {
+        return Path.GetFullPath(snapshotPath);
+    }
+
+    return Path.GetFullPath(Path.Combine(projectRoot, "artifacts", "audit", snapshotPath));
+}
+
+static string ResolveSnapshotInputPath(string snapshotPath, string projectRoot)
+{
+    if (Path.IsPathRooted(snapshotPath) || !string.IsNullOrWhiteSpace(Path.GetDirectoryName(snapshotPath)))
+    {
+        return Path.GetFullPath(snapshotPath);
+    }
+
+    var currentDirectoryPath = Path.GetFullPath(snapshotPath);
+    if (File.Exists(currentDirectoryPath))
+    {
+        return currentDirectoryPath;
+    }
+
+    var artifactsPath = Path.GetFullPath(Path.Combine(projectRoot, "artifacts", "audit", snapshotPath));
+    if (File.Exists(artifactsPath))
+    {
+        return artifactsPath;
+    }
+
+    return currentDirectoryPath;
 }
 
 static IReadOnlyList<string> GetPositionalArgs(IReadOnlyList<string> args)

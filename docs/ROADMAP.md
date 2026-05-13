@@ -141,7 +141,7 @@ DreamAssembler должен расти как atmospheric reading instrument и 
 
 - `dotnet test DreamAssembler.Core.Tests/DreamAssembler.Core.Tests.csproj`
 - `dotnet build DreamAssembler.sln`
-- подходящий `DreamAssembler.DataTools -- report ... --snapshot ...`
+- подходящий `DreamAssembler.DataTools -- report ... --snapshot ...` c snapshot-файлами по умолчанию в `artifacts/audit/`
 - `compare` с baseline, если менялся runtime/data/template layer
 - обновление `PROJECT_STATE`, `SESSION_INDEX`, `MANIFOLD_STATE`, `WORKLOG`
 
