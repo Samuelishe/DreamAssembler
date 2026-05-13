@@ -1,5 +1,19 @@
 # Журнал изменений
 
+## 2026-05-13
+
+- в `DreamAssembler.Core` добавлен runtime diagnostics trace-layer: `GenerationDebugTrace`, `GenerationTraceBuilder` и `DebugTrace` внутри `TextGenerationResult`, чтобы generation могла оставлять lightweight observability-след без влияния на UI;
+- `DreamAssembler.DataTools` получил `audit`, `report`, `snapshot` и `compare` как обязательный diagnostics workflow для mass-generation ecology analysis; этот слой нужен для manifold surfacing, cadence distribution, pressure dominance, legacy gravity, repetition и weak autonomy analysis, а не для quality score;
+- после первого diagnostics phase выполнен runtime rebalance-pass: legacy baseline получил мягкий damping, а dominant manifold начал заметнее влиять на cadence selection;
+- затем выполнен `ShortText` autonomy pass: generic quiet/procedural fallback ослаблен после появления settled manifold, а manifold-local cadence activation стала сильнее;
+- затем выполнен targeted temporal competition pass против overdominant `static_observation`: добавлены competing manifold-aware skeletons и ослаблена монополия одного observational breathing pattern;
+- затем выполнен `contextual quiet differentiation` pass: `quiet` перестал работать только как universal atmospheric solvent и начал surfacing как manifold-local pressure вроде `museum:quiet` или `sanatorium:quiet`;
+- по коротким и длинным reports зафиксировано текущее reading: `weather_systems`, `hydroelectric` и `observatory` уже удерживают сильную cadence autonomy, а `museum` остается самым тяжелым corpus-field и выглядит как следующий кандидат на targeted autonomy/deepening work;
+- documentation sync переведен в обязательный handoff-step: `SESSION_INDEX.md` теперь является полноценным entry-point для нового агента, а `PROJECT_STATE`, `ROADMAP`, `ARCHITECTURE`, `IDEAS_BACKLOG`, `MANIFOLD_STATE` и `VERSIONING` синхронизированы под фазу `audit-driven runtime tuning + controlled manifold expansion`.
+- затем выполнен controlled manifold deepening-pass по `mall`: добавлен один coherent pack по `action`, `atmosphere`, `concept`, `condition`, `object`, `place` и `twist`, чтобы усилить exhausted-commercial ecology вокруг afterhours maintenance, fluorescent residue, decorative exhaustion, closed arcade memory, service-corridor silence и failed-commercial stillness без ухода в horror-space;
+- `data-manifest.json` поднят до `0.6.11`; `DreamAssembler.DataTools` после этого показывает `1268` entries и не находит structural issues;
+- короткий post-pass report `audit-mall-g.json` не дал надежного mall-signal и ушел в `sanatorium:quiet` drift, поэтому этот шаг зафиксирован как corpus-deepening, а не как повод для нового runtime rebalance; следующий разумный check для `mall` - отдельный более длинный audit.
+
 ## 2026-05-07
 
 - проведен еще один короткий output-driven pass по `Sentence`, `Idea` и `ShortText`: убраны несколько оставшихся гендерно жестких формулировок с `{character}` и ослаблены слабые каркасы, которые давали неестественные падежные и смысловые связки на живой выборке;

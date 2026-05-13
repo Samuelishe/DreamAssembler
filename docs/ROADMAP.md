@@ -1,217 +1,179 @@
 # Roadmap
 
-Этот roadmap фиксирует не только последовательность задач, но и порядок ценностей.
+Этот roadmap фиксирует порядок ценностей, а не просто список задач.
 
-DreamAssembler не должен пытаться делать все сразу. Его развитие должно усиливать identity проекта: atmospheric reading, curated surrealism, quiet absurdity, semantic density, controlled weirdness и постепенное расширение в несколько coherent atmospheric spaces без ухода в жанровость.
+DreamAssembler должен расти как atmospheric reading instrument и curated manifold engine, а не как endless tooling project или settings-heavy generator.
 
 ## Зафиксированные приоритеты
 
-Порядок приоритетов на ближайшее развитие:
+Порядок ближайших приоритетов:
 
-1. runtime atmospheric rebalance;
-2. atmospheric continuity;
-3. rhythm diversification;
-4. manifold depth;
-5. lexical modes as atmospheric instrument;
-6. manifold expansion only after rebalance;
-7. curated datasets quality;
-8. semantic coherence;
-9. atmospheric presentation;
-10. optional morphology improvements later.
+1. runtime atmospheric tuning;
+2. runtime diagnostics discipline;
+3. cadence diversification and silence architecture;
+4. manifold-local autonomy;
+5. controlled manifold deepening;
+6. controlled expansion;
+7. validation and docs sync;
+8. UI/presentation only where it improves reading;
+9. optional morphology much later.
+
+Важно: diagnostics стоят высоко не потому, что tooling важнее content, а потому, что без них следующий content-step снова будет делаться вслепую.
+
+## Базовый рабочий цикл
+
+Нормальный цикл развития сейчас такой:
+
+1. baseline diagnostics;
+2. targeted runtime pass;
+3. controlled corpus deepening or expansion;
+4. validation through `report` / `compare` and human `samples`;
+5. tests and build;
+6. docs sync.
+
+Это не telemetry culture и не optimization loop. Это discipline против blind tuning.
 
 ## Что не входит в ближайшие этапы
 
-Следующие направления сознательно не считаются приоритетными:
+Следующие направления сознательно не являются приоритетом:
 
 - AI integration;
-- database;
-- plugin frameworks;
 - cloud;
-- online features;
-- embeddings;
-- overengineering ради "умного" вида архитектуры.
-- открытие новой большой expansion-wave до того, как runtime перестанет тянуть все обратно в first-wave urban gravity.
+- database;
+- plugin framework;
+- analytics dashboard;
+- hard balancing system;
+- equal-distribution goals;
+- новая bulk expansion-wave без runtime checkpoint.
 
-## Этап 0. Runtime Atmospheric Rebalance
+## Этап 0. Runtime Atmospheric Tuning
 
-Цель: убрать скрытую first-wave urban calibration из foundation-layer, не ломая старые manifolds и не превращая систему в hard mode router.
-
-Приоритеты:
-
-- отделить `archive / bureaucracy / city / transport / paper / provincial` от роли псевдо-нейтрального foundation;
-- постепенно перевести foundation к более прозрачной atmospheric physics: `silence`, `waiting`, `maintenance`, `transition`, `repetition`, `residue`, `interval`, `distant_sound`, `dim_light`, `observation`, `drift`, `hum`, `procedural`, `routine`, `empty_space`;
-- удержать старый urban/archive-field как сильный manifold, а не скрытый emotional core всей генерации;
-- усилить soft manifold-local gravity не только для nouns, но и для pacing, silence, implication и observation style;
-- ввести lightweight surfacing audit по manifold/cadence/baseline imbalance.
-
-## Этап 1. Atmospheric Continuity
-
-Цель: перестать воспринимать outputs как полностью изолированные фрагменты и дать серии very soft hidden continuity.
+Цель: улучшать живую ecology генератора без massive rewrites и без hard routing.
 
 Приоритеты:
 
-- symbolic recurrence без буквальных повторов;
-- motif resurfacing на уровне объектов, знаков, procedural details и environmental artifacts;
-- emotional echoes между соседними fragments;
-- atmospheric resurfacing внутри batch;
-- remembered fragments и weak session memory как возможный мягкий слой будущего;
-- continuity как bias, а не как rigid narrative chain.
+- legacy gravity awareness;
+- contextual silence instead of universal quiet;
+- cadence competition instead of one dominant skeleton;
+- manifold-local pressure and pacing;
+- targeted suppression of universal fallback only where it harms autonomy;
+- сохранение old-core archive / bureaucracy / transport atmosphere как важной части identity.
 
-## Этап 2. Rhythm Diversification
+## Этап 1. Runtime Diagnostics Discipline
 
-Цель: расширить temporal cadence и sentence-breathing, чтобы DreamAssembler звучал не только атмосферно, но и музыкально разнообразно.
-
-Приоритеты:
-
-- very short fragments;
-- interrupted fragments;
-- inventory-like rhythm;
-- procedural report rhythm;
-- announcement rhythm;
-- ceremonial rhythm;
-- delayed revelation rhythm;
-- static observational rhythm;
-- quiet instruction rhythm;
-- fragmented memory rhythm;
-- almost-poetry structures;
-- emotionally suspended statements.
-- manifold-specific cadence families.
-
-Важно: речь идет не просто о "новых шаблонах", а о новых способах дыхания текста.
-
-Дополнительно важно:
-
-- `weather_systems` должен получать bulletin / pressure-report / calibration cadence;
-- `observatory` - sparse observation / distant notation / silence-heavy cadence;
-- `hydroelectric` - heavy industrial pulse / pressure accumulation cadence;
-- `mall` - looping announcement / fluorescent waiting cadence;
-- `hospitality` - anonymous service / corridor insomnia cadence;
-- `museum` - archival annotation / conservation silence cadence.
-
-## Этап 3. Manifold Depth
-
-Цель: растить существующие manifolds как emotional ecologies, а не как наборы слов и мест.
+Цель: сделать audit/report/compare обязательной частью агентского workflow.
 
 Приоритеты:
 
-- усиливать recurring rituals;
-- развивать service behavior и procedural habits;
-- добавлять institutional memory и maintenance logic;
-- строить recurring anxieties и forms of silence;
-- выращивать symbolic vocabulary и environmental memory каждого поля;
-- углублять `museum`, `mall`, `hospitality`, `airport` не количеством, а плотностью emotional topology.
+- baseline snapshot before generation/runtime/data pass;
+- after-change snapshot and compare;
+- distinction between human samples and ecology diagnostics;
+- diagnostics as atmospheric X-ray, not quality score;
+- long-batch verification when short-batch drift is ambiguous;
+- docs sync after important runtime findings.
 
-## Этап 4. Manifold Expansion
+Важно:
 
-Цель: открывать новые atmospheric spaces как distinct emotional ecologies, а не как жанры или простые темы.
+- diagnostics не должны стоять выше content growth;
+- diagnostics нужны, чтобы подсказывать, где делать следующий targeted pass или content-step;
+- final decisions все равно принимаются по atmospheric identity, а не по одной цифре.
 
-Важно: этот этап больше не должен идти сразу после dataset-success. Сначала нужен runtime rebalance, иначе новые manifolds снова будут звучать как old DreamAssembler в другой декорации.
+## Этап 2. Cadence Diversification And Silence Architecture
 
-Приоритеты:
-
-- observatory loneliness;
-- hydroelectric infrastructure;
-- sanatorium bureaucracy;
-- procedural weather systems;
-- botanical maintenance;
-- sleeping ferries;
-- reservoir machinery;
-- coastal fog logistics;
-- underground research facilities;
-- maintenance tunnels;
-- provincial science;
-- atmospheric monitoring;
-- impossible climatology;
-- silent industrial gigantism.
-
-Важно: новые поля должны мягко смешиваться со старыми и создавать permeability, а не список несвязанных тематик.
-
-## Этап 5. Lexical Modes As Atmospheric Instrument
-
-Цель: развивать lexical modes как самостоятельный сильный слой проекта, а не как побочную функцию.
+Цель: расширять temporal breathing без template explosion.
 
 Приоритеты:
 
-- phrase-centered presentation;
-- spotlight feel;
-- mood continuity;
-- atmospheric batch coherence;
-- isolated fragment resonance;
-- remembered fragments и atmospheric trails;
-- sequence reading вместо чистого one-shot generation-feel.
-- drift-reading и isolated fragment resonance как primary behavior, а не бонусный режим.
+- interrupted note;
+- procedural residue;
+- delayed implication;
+- object pressure;
+- threshold state;
+- incomplete instruction;
+- maintenance-note rhythm;
+- silence-heavy fragments;
+- observation-only structures;
+- manifold-local temporal feeling.
 
-## Этап 6. Curated Datasets Quality
+Важно: это не просто "добавить шаблоны", а вырастить несколько competing cadence families.
 
-Цель: продолжать усиливать corpus уже под задачи continuity, resonance и manifold ecology.
+## Этап 3. Manifold-Local Autonomy
 
-Приоритеты:
-
-- ручная curated-чистка слабых элементов;
-- anti-generic filtering;
-- removal of low-image phrases;
-- усиление recurring emotional motifs;
-- развитие thematic subsets и emotional filtering;
-- чистка CSV-лексиконов уже с прицелом на resonance и batch continuity.
-
-## Этап 7. Semantic Coherence
-
-Цель: удерживать атмосферную убедительность, не превращая систему в тяжелый валидатор.
+Цель: сделать так, чтобы manifold менял не только nouns, но и emotional physics.
 
 Приоритеты:
 
-- дальнейшее развитие `slot` и `slotRequirements` только там, где они поддерживают rhythm и continuity;
-- расширение `compat:*` для слабых semantic seams;
-- мягкое усиление tag-based и manifold-based притяжения;
-- мягкое усиление manifold-local cadence и emotional pressure без hard routing;
-- снижение пустых action/object/place сочетаний;
-- защита от слишком generic и шумных комбинаций.
+- cadence affinity;
+- silence identity;
+- pressure differentiation;
+- observation style;
+- temporal breathing;
+- soft dominant-manifold gravity.
 
-Важно: coherence здесь значит не "идеальная логика", а dream-like atmospheric plausibility.
+Главный критерий: новый manifold должен звучать как сам себя, а не как old DreamAssembler в другой декорации.
 
-## Этап 8. Atmospheric Presentation
+## Этап 4. Controlled Manifold Deepening
 
-Цель: усиливать reading drift и phrase resonance без возврата в endless UI-polish.
-
-Приоритеты:
-
-- мягкие visual reading modes;
-- более зрелые atmospheric palettes;
-- спокойные transitions;
-- cinematic подача одиночной фразы и серии;
-- distinct reading surfaces для lexical fragments, sentence fragments и `ShortText`;
-- ослабление того UI-polish, который не усиливает reading flow.
-
-## Этап 9. Visual Refinement
-
-Цель: дорабатывать визуальный слой только там, где это напрямую улучшает reading experience.
+Цель: усиливать existing fields как emotional ecologies, а не просто как packs слов.
 
 Приоритеты:
 
-- мягче карточки и выделения;
-- меньше визуальной агрессии;
-- аккуратнее hover-поведение;
-- лучшее соотношение текста и пустого пространства;
-- поддержка fragment trails, pinned fragments или remembered fragments в UI только если это усиливает drift-reading.
+- `mall` как ближайший вероятный candidate;
+- `museum` только точечно и только там, где это усиливает cadence identity, а не mass;
+- `hospitality` и `airport` удерживать без срочного bulk-growth;
+- `weather_systems`, `hydroelectric`, `observatory`, `sanatorium`, `coastal_fog` углублять только после runtime-backed решения.
 
-## Этап 10. Optional Morphology Improvements Later
+## Этап 5. Controlled Expansion
 
-Цель: аккуратно улучшать форму языка только там, где это усиливает ритм и не убивает характер.
+Цель: открывать новые atmospheric spaces только после runtime checkpoint.
+
+Приоритеты:
+
+- expansion через coherent emotional ecologies;
+- no random bulk;
+- no genre-system growth;
+- no manifold quotas;
+- permeability between fields instead of hard isolation.
+
+## Этап 6. Validation And Documentation Sync
+
+После каждого значимого шага:
+
+- `dotnet test DreamAssembler.Core.Tests/DreamAssembler.Core.Tests.csproj`
+- `dotnet build DreamAssembler.sln`
+- подходящий `DreamAssembler.DataTools -- report ... --snapshot ...`
+- `compare` с baseline, если менялся runtime/data/template layer
+- обновление `PROJECT_STATE`, `SESSION_INDEX`, `MANIFOLD_STATE`, `WORKLOG`
+
+## Этап 7. Atmospheric Presentation
+
+Цель: развивать reading feel, но не уходить в endless UI-polish.
+
+Приоритеты:
+
+- phrase-centered reading;
+- quiet surfaces;
+- typography-first presentation;
+- UI only where it strengthens reading rhythm.
+
+## Этап 8. Optional Morphology Later
+
+Цель: улучшать язык только там, где это реально поддерживает rhythm и atmospheric plausibility.
 
 Правила:
 
-- морфология не должна становиться центром архитектуры;
-- не нужно лечить каждый сюрреалистический сдвиг;
-- сначала данные, ритм и atmosphere, потом точечные грамматические обходы.
+- morphology не должна становиться центром архитектуры;
+- нельзя вычищать dream-like ambiguity;
+- сначала runtime, content и cadence, потом grammar refinements.
 
 ## Принципы отсечения
 
 Если новая идея:
 
-- делает проект умнее, но менее атмосферным;
-- увеличивает количество настроек, но ухудшает чтение;
-- повышает логическую связность, но убирает dream-like feeling;
-- усложняет архитектуру, но не усиливает controllability и curated feel;
-- делает UI "красивее", но разрушает visual silence и content dominance,
+- делает систему более metrics-driven, но менее атмосферной;
+- расширяет tooling, но тормозит content growth;
+- выравнивает runtime статистически, но убивает local identity;
+- делает output "правильнее", но беднее по residue и silence;
+- превращает UI в dashboard;
 
-то это не приоритет, даже если идея технически "интересная".
+то это не приоритет.

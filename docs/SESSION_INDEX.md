@@ -1,19 +1,20 @@
 # Session Index
 
-Этот файл нужен как быстрый вход в проект для новых сессий и новых агентов.
+Этот файл - обязательный entry-point для любой новой сессии и любого нового агента.
+
+Цель: быстро понять identity проекта, текущую фазу, обязательный workflow проверки и только потом идти в код или данные.
 
 ## Читать в таком порядке
 
-1. `docs/SESSION_INDEX.md` - быстрый индекс и философия проекта.
-2. `docs/PROJECT_STATE.md` - где проект сейчас и какая у него tonal identity.
-3. `docs/IDEAS_BACKLOG.md` - зрелая карта направлений, рисков и запретов.
-4. `docs/ARCHITECTURE.md` - структура приложения и guidance по atmosphere architecture.
-5. `docs/ROADMAP.md` - актуальные продуктовые приоритеты.
-6. `docs/MANIFOLD_STATE.md` - текущий баланс manifolds и приоритеты их роста.
-7. `docs/DICTIONARY_FORMAT.md` - если работа связана с данными.
-8. `docs/DATA_SOURCES.md` - если задача касается внешних словарей и их происхождения.
-9. `docs/VERSIONING.md` - если меняется приложение и нужно понять, как правильно повышать версию.
-10. `docs/WORKLOG.md` - только если нужен журнал изменений.
+1. `docs/SESSION_INDEX.md` - быстрый вход, identity и workflow.
+2. `docs/PROJECT_STATE.md` - текущая фаза проекта и product direction.
+3. `docs/ROADMAP.md` - приоритеты ближайшего развития.
+4. `docs/ARCHITECTURE.md` - как устроен runtime и где проходит граница diagnostics.
+5. `docs/MANIFOLD_STATE.md` - corpus balance, runtime observations и кандидаты на deepening/expansion.
+6. `docs/IDEAS_BACKLOG.md` - рабочие направления, риски и запреты.
+7. `docs/VERSIONING.md` - правила версии приложения и данных.
+8. `docs/WORKLOG.md` - журнал последних решений, если нужен handoff по шагам.
+9. `docs/DICTIONARY_FORMAT.md` и `docs/DATA_SOURCES.md` - только если задача касается JSON-наборов и их структуры.
 
 ## Что нужно понять сразу
 
@@ -22,6 +23,7 @@ DreamAssembler нельзя воспринимать как:
 - random generator;
 - AI assistant;
 - LLM frontend;
+- dashboard with text output;
 - "генератор бреда".
 
 Его нужно воспринимать как:
@@ -31,141 +33,197 @@ DreamAssembler нельзя воспринимать как:
 - quiet absurdity engine;
 - reader-first creative tool;
 - procedural atmosphere system;
-- atmospheric dream-core engine.
+- atmospheric reading instrument.
 
 ## Ключевая философия
 
-- controlled weirdness;
-- atmospheric coherence;
-- emotional texture;
-- curated semantic space;
-- procedural melancholy;
-- quiet absurdity;
-- dream-like logic;
 - atmosphere over plot;
-- reader-first presentation;
 - emotional coherence over logical coherence;
 - symbolic motifs over raw randomness;
-- semantic density over verbosity.
+- semantic density over verbosity;
+- controlled weirdness over noise;
+- soft coherence over hard routing;
+- quiet absurdity over loud surrealism;
+- manifold identity over generic variety.
 
-## Текущее состояние
+## Текущая фаза проекта
 
-- MVP-каркас уже рабочий и собирается без ошибок.
-- Core построен вокруг шаблонов, JSON-словарей, тегов, `slot`, `compat:*` и anti-repeat логики.
-- `ShortText` уже использует композиционные роли и базовый narrative rhythm.
-- Новые non-urban manifolds уже существуют и больше не являются проблемой dataset-depth.
-- Главный runtime-bottleneck теперь не в отсутствии packs, а в `legacy atmospheric gravity`: старый `archive / bureaucracy / city / transport / rainy melancholy` слой все еще перетягивает новые spaces обратно в first-wave DreamAssembler.
-- Следующий этап должен идти в `runtime atmospheric rebalance`: neutral foundation, manifold-local cadence, soft emotional routing, silence architecture и lightweight surfacing audit.
-- WPF UI уже движется в reader-first сторону: кастомный chrome, темы, встроенные шрифты, крупнее текст, спокойнее карточки.
-- UI должен ощущаться не как панель управления генератором, а как atmospheric reading instrument: strange literary machine, quiet reading surface, procedural literature device.
-- Основная сила проекта уже сейчас не в сюжетности, а в atmosphere, emotional consistency и symbolic language.
-- Текущий archive / transport / bureaucracy слой - это первый strongest coherent atmospheric field проекта, а не его конечная форма.
+Проект находится в фазе `audit-driven runtime tuning + controlled manifold expansion`.
+
+Это значит:
+
+- gross structural defects уже не являются главным bottleneck;
+- новые manifolds уже существуют и достаточно выросли по datasets;
+- главный runtime-bottleneck сейчас не в отсутствии packs, а в том, как runtime реально ведет себя под нагрузкой;
+- ключевые проблемы теперь формулируются как `legacy atmospheric gravity`, `quiet as universal solvent`, cadence fatigue, weak manifold autonomy и hidden monotony.
+
+Важно: controlled expansion не отменена. Проекту все еще нужны новые manifolds и deepening existing fields. Но новые content-steps больше нельзя делать вслепую, без runtime-check.
+
+## Три обязательных уровня проверки
+
+В проекте есть не один вид проверки, а три.
+
+### 1. Unit tests + build
+
+Нужны для:
+
+- structural correctness;
+- regression safety;
+- compile-time integrity.
+
+Они не отвечают на вопрос, хорошо ли runtime дышит атмосферно.
+
+### 2. Human samples
+
+Нужны для:
+
+- человеческой проверки текста;
+- проверки atmospheric identity;
+- оценки phrase feel, silence, cadence и residue.
+
+`samples` полезны там, где нужно читать реальные outputs, а не только distribution.
+
+### 3. Runtime diagnostics / audit
+
+Нужны для:
+
+- manifold surfacing;
+- dominant manifolds;
+- cadence distribution;
+- primary cadence;
+- pressure dominance;
+- legacy gravity;
+- cadence repetition;
+- template dominance;
+- manifold-local cadence activation;
+- repeated outputs;
+- monotony signals.
+
+Это не quality score.
+
+Это не KPI.
+
+Это не система для hard quotas, равномерного manifold distribution или автоматического решения, какой текст "лучше".
+
+Это atmospheric X-ray: инструмент наблюдения за runtime ecology.
+
+## Runtime Diagnostics / Audit Workflow
+
+Любой runtime / cadence / manifold / template / data pass должен проходить через этот workflow:
+
+1. снять baseline `report` / `snapshot`;
+2. внести targeted changes;
+3. снять новый `report` / `snapshot`;
+4. сравнить `before/after`;
+5. только после этого делать выводы;
+6. затем прогнать tests и build.
+
+Базовые команды:
+
+```powershell
+dotnet run --project DreamAssembler.DataTools/DreamAssembler.DataTools.csproj -- report ShortText 120 Absurd --snapshot audit-shorttext-current.json
+dotnet run --project DreamAssembler.DataTools/DreamAssembler.DataTools.csproj -- report Sentence 120 Absurd --snapshot audit-sentence-current.json
+dotnet run --project DreamAssembler.DataTools/DreamAssembler.DataTools.csproj -- compare audit-shorttext-before.json audit-shorttext-after.json
+dotnet test DreamAssembler.Core.Tests/DreamAssembler.Core.Tests.csproj
+dotnet build DreamAssembler.sln
+```
+
+Практический смысл инструментов:
+
+- `samples` - human reading sanity-check;
+- `report` / `audit` - distribution ecology;
+- `compare` - drift после изменения;
+- `dotnet test` - regression safety;
+- `dotnet build` - финальная сборочная проверка.
+
+Важно:
+
+- не превращать diagnostics в optimization target;
+- не подгонять runtime под "идеальную статистику";
+- не считать равномерное распределение manifolds целью проекта;
+- использовать diagnostics, чтобы видеть симптомы, а не диктовать output.
+
+Типовые симптомы, за которыми нужно следить:
+
+- legacy gravity;
+- cadence fatigue;
+- overdominant template;
+- universal quiet fallback;
+- weak manifold autonomy;
+- excessive `static_observation`;
+- monotony;
+- repeated local skeletons.
 
 ## Какие manifolds уже реально есть
 
-Это важно для будущих сессий: ниже не идеи, а уже существующие data-fields, которые реально лежат в JSON-наборах и попадают в corpus.
+Это не wishlist, а реальные поля в corpus:
 
-- archive / transport / bureaucracy - базовое strongest coherent field;
-- nocturnal airports / fluorescent insomnia - уже second-wave manifold;
-- dead shopping malls / abandoned commerce / fluorescent afterhours - уже second-wave manifold;
-- impossible museums / echo exhibits / ceremonial curation - уже second-wave manifold;
-- recursive hospitality / nocturnal hotels / ceremonial check-in - уже second-wave manifold.
-- observatory loneliness - уже early second-wave manifold;
-- sanatorium bureaucracy - уже early second-wave manifold;
-- hydroelectric infrastructure - уже early second-wave manifold.
-- procedural weather systems - уже early second-wave manifold;
-- coastal fog logistics - уже early second-wave manifold.
+- archive / transport / bureaucracy - old-core field;
+- nocturnal airports / fluorescent insomnia;
+- dead shopping malls / abandoned commerce / fluorescent afterhours;
+- impossible museums / echo exhibits / ceremonial curation;
+- recursive hospitality / nocturnal hotels / ceremonial check-in;
+- observatory loneliness;
+- sanatorium bureaucracy;
+- hydroelectric infrastructure;
+- procedural weather systems;
+- coastal fog logistics.
 
-Если нужно быстро понять баланс growth, не гадать по памяти, а смотреть `docs/MANIFOLD_STATE.md`, затем уже подтверждать числа через `DreamAssembler.DataTools` и `data-manifest.json`.
+Если нужен баланс роста, сначала смотреть `docs/MANIFOLD_STATE.md`, затем подтверждать через `DreamAssembler.DataTools` и `DreamAssembler/Data/data-manifest.json`.
 
-Текущее состояние корпуса на конец этой сессии:
+## Текущее factual state
 
-- `data-manifest.json`: `0.6.10`
-- corpus: `1228` entries
-- базовый workflow контроля: `DreamAssembler.DataTools` + `samples`
+- app version: `0.2.1.0`
+- data version: `0.6.11`
+- corpus: `1268` entries
+- templates: `55`
+- unit tests: `48/48` green на текущем runtime этапе
+- базовый workflow контроля: `samples` + `report/snapshot/compare` + `dotnet test` + `dotnet build`
 
-## Главные направления
+## Главные направления текущей линии
 
-- atmosphere over complexity;
-- coherence over randomness;
-- runtime rebalance over blind expansion;
-- neutral atmospheric foundation over legacy urban baseline;
-- manifold-local cadence over noun-overlay;
-- symbolic consistency over raw variety;
-- semantic density over word count;
-- emotional texture over "smartness";
-- deeper atmosphere over bigger feature-count.
-
-## Как мыслить expansion
-
-Не через жанровые режимы вроде `horror`, `sci-fi`, `fantasy` или `cyberpunk`.
-
-А через atmospheric semantic spaces:
-
-- endless transit;
-- fluorescent insomnia;
-- impossible domesticity;
-- sacred machinery;
-- procedural ritual;
-- recursive hospitality;
-- exhausted utopia;
-- abandoned commerce;
-- synthetic loneliness;
-- ritualized infrastructure;
-- biological infrastructure;
-- impossible bureaucracy;
-- ceremonial administration;
-- archival divinity;
-- quiet cosmic isolation;
-- decaying luxury;
-- provincial futurism;
-- underwater transport systems;
-- impossible museums;
-- nocturnal airports;
-- dead shopping malls;
-- emotional automation;
-- dreamlike logistics;
-- silent gigantism.
-
-Это не жанры, а emotional-atmospheric manifolds.
+- runtime atmospheric rebalance;
+- cadence diversification;
+- silence architecture;
+- manifold-local emotional autonomy;
+- contextual silence instead of universal quiet;
+- targeted runtime tuning before blind expansion;
+- controlled manifold expansion after diagnostics-backed decisions.
+- controlled manifold deepening of existing fields, with `mall` now moved from thin second-wave toward exhausted-commercial deepened state.
 
 ## Что может уничтожить charm проекта
 
-- стерилизация текстов;
-- попытка сделать идеально правильный русский любой ценой;
-- чрезмерная логизация dream-like связок;
-- AI-слой поверх rule-based identity;
-- enterprise overengineering;
-- dashboard-style UI вместо reading tool;
-- standard WPF / enterprise-clean controls, если они начинают спорить с текстом и ломают visual silence.
+- sterilization;
+- metrics-driven tuning instead of atmospheric judgment;
+- hard quotas or equal-distribution logic;
+- endless diagnostics вместо content growth;
+- превращение diagnostics в scoring engine;
+- genre-mode system;
+- deterministic routing;
+- dashboard-style UI вместо reading surface.
 
 ## Важные точки входа в код
 
 - `DreamAssembler.Core/Services/TextGeneratorService.cs`
-- `DreamAssembler.Core/Services/DictionaryRepository.cs`
-- `DreamAssembler.Core/Services/TemplateRepository.cs`
-- `DreamAssembler.Core/Services/AssociationFragmentRepository.cs`
+- `DreamAssembler.Core/Models/GenerationDebugTrace.cs`
+- `DreamAssembler.Core/Models/GenerationTraceBuilder.cs`
+- `DreamAssembler.Core/Models/TextGenerationResult.cs`
+- `DreamAssembler.DataTools/Program.cs`
 - `DreamAssembler.Core.Tests/Services/*`
-- `DreamAssembler/ViewModels/MainViewModel.cs`
-- `DreamAssembler/MainWindow.xaml`
+- `DreamAssembler/Data/Templates/templates.json`
+- `DreamAssembler.Core/Services/FallbackDataProvider.cs`
 - `DreamAssembler/Data/data-manifest.json`
 
-## Где смотреть atmosphere / manifold guidance
+## Как мыслить следующий шаг
 
-- `docs/PROJECT_STATE.md` - product identity, current strengths, current growth direction;
-- `docs/MANIFOLD_STATE.md` - фактический баланс manifolds, их зрелость и приоритеты роста;
-- `docs/ARCHITECTURE.md` - atmosphere architecture, soft coherence, manifolds как architectural growth model;
-- `docs/IDEAS_BACKLOG.md` - карта следующих manifolds, risky directions и dataset strategy;
-- `DreamAssembler/Data/data-manifest.json` + `DreamAssembler.DataTools` - фактический список уже подключенных packs.
+Нормальный порядок для новой сессии:
 
-## Что планируется дальше
-
-Если новая сессия продолжает эту же линию, следующий разумный порядок такой:
-
-1. быстро переснять `samples`, если нужен свежий sanity-check после паузы;
-2. смотреть уже не только на defects, а на `legacy gravity`: какие outputs эмоционально скатываются обратно в archive/city baseline;
-3. работать сначала над `foundation neutralization`, `manifold-specific cadence`, `soft emotional pressure` и `silence-heavy templates`, а не открывать новые manifolds;
-4. после каждого runtime-pass снова прогонять `Sentence / Idea / ShortText` через `samples` и отдельно сверять surfacing/cadence imbalance.
+1. прочитать этот файл и `PROJECT_STATE.md`;
+2. понять, о каком слое идет задача: correctness, content, runtime, UI или docs;
+3. если задача касается generation/runtime/data/templates, снять baseline `report` и при необходимости `samples`;
+4. сделать targeted pass;
+5. снять новый `report`, сделать `compare`, прогнать tests/build;
+6. обновить docs, если изменился runtime steering, workflow или factual state.
 
 ## Правило обновления документации
 
@@ -173,12 +231,14 @@ DreamAssembler нельзя воспринимать как:
 
 1. `docs/PROJECT_STATE.md`
 2. `docs/WORKLOG.md`
-3. при необходимости `docs/IDEAS_BACKLOG.md`
-4. при изменении приоритетов `docs/ROADMAP.md`
-5. при изменении версии следовать `docs/VERSIONING.md`
+3. `docs/SESSION_INDEX.md`, если изменился workflow входа или обязательные проверки
+4. `docs/MANIFOLD_STATE.md`, если изменился corpus/runtime reading или expansion priorities
+5. `docs/ROADMAP.md` и `docs/IDEAS_BACKLOG.md`, если изменились продуктовые приоритеты или риски
+6. `docs/VERSIONING.md`, если изменилась фактическая текущая версия или правила версии
 
 ## Что не нужно читать сразу
 
-- весь `WORKLOG` целиком;
+- весь `WORKLOG` подряд;
 - все JSON-словари;
-- все документы в `docs`, если задача локальная и уже понятна по индексу.
+- весь repo без понятной задачи;
+- diagnostics как KPI-таблицу.

@@ -1,62 +1,65 @@
 # Manifold State
 
-Этот файл хранит текущий баланс уже выращенных manifolds и нужен как рабочий snapshot перед любым `expansion`, `deepening` или `surfacing` pass.
+Этот файл фиксирует не только corpus balance, но и runtime reading того, как manifolds реально всплывают в генерации.
 
-Важно: это не wishlist и не концептуальная карта. Здесь фиксируются только те поля, которые уже реально присутствуют в `data-manifest.json` и в JSON-corpus.
+Важно: corpus balance и runtime balance - не одно и то же.
+
+Проект уже дошел до стадии, где manifold может быть хорошо выращен в данных, но все еще звучать слабо или неавтономно в runtime.
 
 ## Как читать этот файл
 
-- `sets` = сколько dictionary sets в `data-manifest.json` явно относятся к manifold;
-- `entries` = сколько dictionary entries несут соответствующий strong manifold tag;
-- `categories` = покрытие по основным runtime categories;
-- `status` = текущая зрелость поля как emotional ecology;
-- `priority` = что с этим полем делать дальше.
+- `sets` - сколько dictionary sets в `data-manifest.json` относятся к manifold;
+- `entries` - сколько dictionary entries несут strong manifold tag;
+- `categories` - покрытие по ключевым runtime categories;
+- `corpus status` - зрелость поля как data ecology;
+- `runtime status` - как поле ведет себя по текущим audit/report срезам;
+- `next priority` - что делать дальше: rebalance, deepening, expansion или hold.
 
-Важно: базовый `archive / transport / bureaucracy` слой здесь не считается как один strong-manifold tag, потому что он распределен по нескольким cross-cutting tags и исторически является foundation-field, а не одним isolated pack-family.
+Важно:
+
+- `archive / transport / bureaucracy` остается old-core field, но не считается здесь отдельным isolated manifold по тем же правилам, что новые strong-manifold packs;
+- текущая задача проекта не в том, чтобы выровнять manifolds по статистике, а в том, чтобы каждый выросший manifold мог звучать как самостоятельное emotional-atmospheric space.
 
 ## Snapshot
 
-Состояние на `data-manifest.json = 0.6.10`.
+Состояние на:
 
-### Core Manifolds
+- app version: `0.2.1.0`
+- data version: `0.6.11`
+- corpus: `1268` entries
+- templates: `55`
 
-| manifold | sets | entries | categories | status | priority |
+Подтверждено через:
+
+- `DreamAssembler/Data/data-manifest.json`
+- `dotnet run --project DreamAssembler.DataTools/DreamAssembler.DataTools.csproj`
+- runtime reports `audit-shorttext-e.json`, `audit-shorttext-f.json`, `audit-shorttext-long-f.json`, `audit-mall-g.json`
+
+## Corpus Balance
+
+### Mature / heavy fields
+
+| manifold | sets | entries | categories | corpus status | next priority |
 |---|---:|---:|---|---|---|
-| `museum` | 22 | 161 | action, atmosphere, character, concept, condition, object, place, twist | deepened second-wave-plus | не расширять вслепую; дальше только точечный ecology-deepening |
-| `hospitality` | 16 | 114 | action, atmosphere, character, concept, condition, object, place, twist | strong second-wave | можно усиливать позже, но не срочно |
-| `airport` | 14 | 98 | action, atmosphere, character, concept, condition, object, place, twist | stable second-wave | скорее удерживать, чем срочно расширять |
-| `mall` | 11 | 98 | action, atmosphere, character, concept, condition, object, place, twist | thinner second-wave | кандидат на future deepening |
+| `museum` | 22 | 161 | action, atmosphere, character, concept, condition, object, place, twist | deepened second-wave-plus | не расширять вслепую; нужен cadence-autonomy deepening |
+| `hospitality` | 16 | 114 | action, atmosphere, character, concept, condition, object, place, twist | strong second-wave | hold, затем выборочный deepening |
+| `mall` | 18 | 138 | action, atmosphere, concept, condition, object, place, twist + existing character layer | deepened strong second-wave | проверить recognizability на следующем long audit; не трогать runtime вслепую |
 
-### New Non-Urban Manifolds
+### Stable second-wave fields
 
-| manifold | sets | entries | categories | status | priority |
+| manifold | sets | entries | categories | corpus status | next priority |
 |---|---:|---:|---|---|---|
-| `observatory` | 16 | 92 | action, atmosphere, character, concept, condition, object, place, twist | early second-wave | следующий шаг не срочный surfacing, а выборочный ecology growth позже |
-| `sanatorium` | 16 | 92 | action, atmosphere, character, concept, condition, object, place, twist | early second-wave | следующий шаг не срочный surfacing, а выборочный ecology growth позже |
-| `hydroelectric` | 16 | 92 | action, atmosphere, character, concept, condition, object, place, twist | early second-wave | следующий шаг не срочный surfacing, а выборочный ecology growth позже |
-| `weather_systems` | 16 | 92 | action, atmosphere, character, concept, condition, object, place, twist | early second-wave | следующий шаг не срочный surfacing, а выборочный ecology growth позже |
-| `coastal_fog` | 16 | 92 | action, atmosphere, character, concept, condition, object, place, twist | early second-wave | следующий шаг не срочный surfacing, а выборочный ecology growth позже |
+| `airport` | 14 | 98 | action, atmosphere, character, concept, condition, object, place, twist | stable second-wave | hold |
 
-## Balance Reading
+### Early second-wave non-urban fields
 
-### Что видно сразу
-
-- `museum` сейчас самый тяжелый manifold в corpus: `161` tagged entries и `22` sets;
-- `hospitality` уже догнал плотное mature-state;
-- `airport` и `mall` остаются рабочими second-wave полями;
-- `observatory` уже вышел из thin first-wave состояния: `92` entries и `16` sets.
-- `sanatorium` тоже уже вышел из thin first-wave состояния: `92` entries и `16` sets.
-- `hydroelectric` тоже уже вышел из thin first-wave состояния: `92` entries и `16` sets.
-- `weather_systems` тоже уже вышел из thin first-wave состояния: `92` entries и `16` sets.
-- `coastal_fog` тоже уже вышел из thin first-wave состояния: `92` entries и `16` sets.
-- `procedural weather systems` входит в ту же first-wave группу: `46` entries и `8` sets.
-- `coastal fog logistics` входит в ту же first-wave группу: `46` entries и `8` sets.
-
-### Практический вывод
-
-- проблема уже не в том, что новых manifolds нет;
-- проблема в том, что новые manifolds пока количественно и вероятностно проигрывают старым fields;
-- следующий bottleneck находится в `surfacing balance`, а не в отсутствии идей для expansion.
+| manifold | sets | entries | categories | corpus status | next priority |
+|---|---:|---:|---|---|---|
+| `observatory` | 16 | 92 | action, atmosphere, character, concept, condition, object, place, twist | early second-wave | не форсировать вслепую; следить за cadence autonomy в long audit |
+| `sanatorium` | 16 | 92 | action, atmosphere, character, concept, condition, object, place, twist | early second-wave | hold; возможен later ecology deepening |
+| `hydroelectric` | 16 | 92 | action, atmosphere, character, concept, condition, object, place, twist | early second-wave | runtime уже ожил; later deepening возможен |
+| `weather_systems` | 16 | 92 | action, atmosphere, character, concept, condition, object, place, twist | early second-wave | runtime уже ожил; later deepening возможен |
+| `coastal_fog` | 16 | 92 | action, atmosphere, character, concept, condition, object, place, twist | early second-wave | hold; следить за cadence identity |
 
 ## Category Balance
 
@@ -72,7 +75,7 @@
 - twist: 18
 
 Комментарий:
-`museum` уже живет не как theme-pack, а как полноценная ecology с ощутимой внутренней плотностью.
+Самый тяжелый manifold в corpus. Проблема уже не в объеме, а в том, что он часто тянет на себя runtime gravity и при этом не всегда удерживает собственную cadence autonomy.
 
 ### `hospitality`
 
@@ -86,7 +89,7 @@
 - twist: 12
 
 Комментарий:
-`hospitality` уже достаточно плотный и устойчивый, но пока не так доминирует, как `museum`.
+Плотный strong second-wave manifold. Сейчас не главный bottleneck и не первый кандидат на expansion.
 
 ### `airport`
 
@@ -100,49 +103,21 @@
 - twist: 12
 
 Комментарий:
-`airport` держится как coherent second-wave field, но по плотности уже заметно уступает `museum`.
+Стабильный second-wave слой. Достаточно зрелый для паузы.
 
 ### `mall`
 
-- action: 8
-- atmosphere: 10
+- action: 14
+- atmosphere: 15
 - character: 8
-- concept: 12
-- condition: 16
-- object: 16
-- place: 16
-- twist: 12
+- concept: 18
+- condition: 22
+- object: 22
+- place: 22
+- twist: 17
 
 Комментарий:
-`mall` structurally complete, но по ощущению и по corpus-mass это still thinner second-wave, чем `hospitality`.
-
-### `coastal_fog`
-
-- action: 12
-- atmosphere: 10
-- character: 12
-- concept: 12
-- condition: 12
-- object: 12
-- place: 12
-- twist: 10
-
-Комментарий:
-`coastal_fog` уже получил второй слой вокруг quay ledgers, lighthouse routine, wet rope storage, tide bulletins и harbor hush.
-
-### `weather_systems`
-
-- action: 12
-- atmosphere: 10
-- character: 12
-- concept: 12
-- condition: 12
-- object: 12
-- place: 12
-- twist: 10
-
-Комментарий:
-`weather_systems` уже получил второй слой вокруг pressure charts, barograph paper, dawn bulletins, calibration desks и bureaucratic meteorology.
+Mall больше не выглядит тонким second-wave слоем. Последний deepening-pass добавил afterhours maintenance, fluorescent residue, decorative exhaustion, closed arcade memory, service-corridor silence и failed-commercial stillness. Следующий вопрос уже не в corpus mass, а в runtime recognizability.
 
 ### `observatory`
 
@@ -156,7 +131,7 @@
 - twist: 10
 
 Комментарий:
-`observatory` уже перестал быть просто first-wave sketch и получил второй слой вокруг calibration, signal bureaucracy, auxiliary mirrors и false-dawn procedure.
+По corpus уже нормальный early second-wave manifold. По short `120` snapshot он может выпадать, но `500`-report показывает, что это не обязательно systemic failure. Отдельный observatory-pass пока не нужен.
 
 ### `sanatorium`
 
@@ -170,7 +145,7 @@
 - twist: 10
 
 Комментарий:
-`sanatorium` уже получил второй слой вокруг inhalation routine, balcony regime, temperature sheets, blanket storage и pre-morning care.
+Сильный quiet/institutional manifold. Короткие snapshots могут дрейфовать в его сторону, поэтому оценивать лучше по длинным series.
 
 ### `hydroelectric`
 
@@ -184,56 +159,121 @@
 - twist: 10
 
 Комментарий:
-`hydroelectric` уже получил второй слой вокруг relay rooms, intake gates, lubrication routine, oil shift logs и machine-hum bureaucracy.
+Корпус уже достаточный, а после cadence/autonomy passes runtime показал заметное восстановление manifold-local rhythm.
 
-## Current Growth Guidance
+### `weather_systems`
 
-Следующие решения должны приниматься так:
+- action: 12
+- atmosphere: 10
+- character: 12
+- concept: 12
+- condition: 12
+- object: 12
+- place: 12
+- twist: 10
 
-1. не расширять дальше `museum` просто потому, что он и так хорошо звучит;
-2. не считать новые manifolds "слабыми" до surfacing-pass;
-3. текущая non-urban expansion wave уже целиком переведена в early second-wave состояние;
-4. следующий growth-step логичнее выбирать либо как third pack для strongest new field, либо как открытие следующего нового manifold;
-4. отдельно держать в уме, что `mall` остается кандидатом на очередной deepening-pass раньше, чем `airport` или `hospitality`;
-5. после каждого new second-wave шага снова проверять не только counts, но и реальное surfacing в `Sentence` и `ShortText`.
+Комментарий:
+Хорошо держится как procedural climatology ecology. Один из главных бенефициаров runtime cadence work.
 
-## Runtime Observations
+### `coastal_fog`
 
-Срез по live generation после `0.6.5`:
+- action: 12
+- atmosphere: 10
+- character: 12
+- concept: 12
+- condition: 12
+- object: 12
+- place: 12
+- twist: 10
 
-- `dotnet test DreamAssembler.Core.Tests/DreamAssembler.Core.Tests.csproj` проходит: `43/43`;
-- structural breakage сейчас не является главным bottleneck;
-- в `Sentence` samples новые manifolds уже поднимаются как anchor-fields заметно чаще, чем раньше: это видно не только по `observatory / sanatorium / hydroelectric`, но и по `weather_systems` и `coastal_fog`;
-- в `ShortText` старые heavy fields и generic cross-field frames все еще слишком легко возвращаются в середине текста;
-- сохраняются отдельные phrase-level шероховатости уровня `вернуть в расписание расписание коридорного отдыха` и `На месте были папку с мокрыми заявлениями`.
-- после `foundation suppression / anti-repeat pass` старые generic packs стали заметно реже перехватывать foreground через `чайник / мокрые газеты / пригородные поезда`, но из-за этого еще яснее стал виден следующий bottleneck: внутри already-strong fields слишком часто побеждает именно `museum`.
+Комментарий:
+Данные уже достаточны для hold-состояния. Следующий смысловой рост нужен только после очередного runtime-check.
 
-### Что это значит
+## Runtime Reading
 
-- следующий шаг нужен не как еще один cleanup-pass;
-- `manifold surfacing balance pass` уже начат;
-- цель: поднять runtime visibility новых manifolds без тяжелой смены architecture и без выпадения в random mode cycling.
+### Что показывают последние diagnostics
 
-### Что уже изменено
+Нужно различать короткие и длинные срезы:
 
-- `observatory`, `sanatorium` и `hydroelectric` добавлены в `StrongManifoldTags`, поэтому теперь участвуют в dominant-manifold memory и field-affinity на равных правах со старыми mature fields;
-- добавлен early surfacing bias для тонких first-wave manifolds, чтобы новые non-urban fields легче становились anchor-field в начале batch, а не только secondary accent позже;
-- после этого `Sentence` samples уже начали чаще стартовать из `observatory`-сцен и держать их не как случайную вставку, а как локальную atmospheric anchor.
-- затем добавлен short-text retention layer: opening manifold теперь мягко удерживается еще на 2-й и 3-й фразе `ShortText`, чтобы новые поля реже растворялись обратно в старой museum/urban gravity сразу после удачного старта;
-- затем `weather_systems` и `coastal_fog` вошли в ту же thin first-wave группу и тоже были подключены к strong-manifold layer, поэтому теперь new non-urban batch может удерживать уже не три, а пять distinct anchor-fields.
+- `120` outputs полезны для быстрых before/after сравнений;
+- `500` outputs полезнее для оценки устойчивой ecology;
+- короткие snapshots могут сильно дрейфовать в сторону одного поля.
 
-### Что все еще стоит держать в уме
+### Последний важный срез
 
-- остаются отдельные phrase-level слабости вроде `вернуть в расписание расписание коридорного отдыха`;
-- встречаются и slot/grammar шероховатости уровня `на месте были запотевшую панель управления`;
-- но это уже secondary defects по сравнению с общей imbalance-проблемой.
+`audit-shorttext-long-f.json` (`ShortText`, `500`, `Absurd`) показал:
 
-## What To Update
+- dominant pressure lead: `museum:quiet` на `19.8%`, а не универсальный `quiet`;
+- lead manifold surfacing: `museum` на `20.0%`;
+- primary cadence lead: `static_observation` на `29.8%`, то есть он уже ослаблен по сравнению с более ранними `~40%`, но все еще тяжелый;
+- `hydroelectric` preferred cadence activation: `97.5%`;
+- `weather_systems` preferred cadence activation: `94.0%`;
+- `observatory` preferred cadence activation: `95.0%`;
+- `museum` preferred cadence activation: `59.0%`;
+- legacy-heavier outputs: `26.2%`.
 
-После каждого заметного `manifold`-шага нужно обновлять:
+### Практический вывод
 
-1. этот файл;
-2. `docs/PROJECT_STATE.md`;
-3. `docs/SESSION_INDEX.md`;
-4. `docs/WORKLOG.md`;
-5. при изменении общей стратегии - `docs/ROADMAP.md` и `docs/IDEAS_BACKLOG.md`.
+- проблема сейчас не в нехватке non-urban manifolds;
+- `weather_systems`, `hydroelectric` и `observatory` уже показывают сильную runtime cadence autonomy;
+- contextual quiet differentiation сработала: universal `quiet` перестал быть единственным carrying pressure;
+- новый bottleneck смещается в `museum`: он все еще surface-ится тяжело, но cadence autonomy у него заметно слабее;
+- old-core gravity остается присутствующей, но уже не выглядит тотально доминирующей.
+- новый `mall` pack увеличил corpus depth, но короткий `120` report после него оказался sanatorium-heavy и не дает надежного сигнала по mall runtime; это пока не повод к rebalance.
+
+## Distinctions That Matter
+
+### Corpus balance
+
+Показывает, сколько manifold выращен в данных.
+
+Сейчас здесь основные проблемы уже не у `weather_systems` или `hydroelectric`, а скорее у необходимости выбирать осмысленный следующий deepening candidate, а не blindly adding packs.
+
+### Runtime surfacing balance
+
+Показывает, какие поля реально всплывают в outputs.
+
+Сейчас это нужно оценивать не по одному `samples`-запуску, а по `report` и `compare`.
+
+### Cadence autonomy
+
+Показывает, удерживает ли manifold не только nouns, но и собственный temporal skeleton.
+
+Сейчас именно cadence autonomy отличает зрелый runtime pass от простого noun-overlay.
+
+### Pressure dominance
+
+Показывает, какой emotional pressure реально держит runtime.
+
+Сейчас главный прогресс в том, что pressure уже может быть `museum:quiet`, `sanatorium:quiet` и другими contextual forms, а не только generic `quiet`.
+
+## Current Bottlenecks
+
+- `museum` остается самым тяжелым corpus-field и still under-activates own cadence relative to its weight;
+- `mall` уже deepened в данных, но его runtime identity после нового pack еще не подтверждена длинным dedicated audit;
+- `static_observation` больше не монополист, но все еще самый тяжелый primary cadence;
+- cadence repetition нужно продолжать отслеживать после каждого targeted pass;
+- short `120` snapshots все еще могут переоценивать локальный drift;
+- old-core legacy gravity не исчезла полностью и требует осторожного контроля;
+- diagnostics нельзя превращать в KPI, иначе runtime начнет стерилизоваться.
+
+## Next Expansion / Deepening Priorities
+
+Порядок на ближайшее время:
+
+1. не открывать random bulk wave;
+2. сначала закончить текущий `runtime tuning` цикл вокруг `museum cadence autonomy` и contextual silence quality;
+3. затем отдельно проверить новый `mall` corpus-layer на более длинном mall-focused audit, не путая short-batch drift с реальным regression;
+4. только после этого выбирать следующий content-side candidate;
+5. `museum` deepening делать только точечно и только если он помогает cadence identity, а не просто увеличивает corpus mass;
+6. новые manifolds открывать только после очередного audit-backed runtime checkpoint.
+
+## Working Rule
+
+После каждого заметного manifold/runtime шага обновлять:
+
+1. `docs/MANIFOLD_STATE.md`
+2. `docs/PROJECT_STATE.md`
+3. `docs/SESSION_INDEX.md`
+4. `docs/WORKLOG.md`
+5. при смене общих приоритетов - `docs/ROADMAP.md` и `docs/IDEAS_BACKLOG.md`

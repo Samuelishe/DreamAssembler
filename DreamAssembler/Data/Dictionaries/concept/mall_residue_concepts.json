@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "concept_discount_as_a_form_of_fatigue",
+      "text": "скидка как форма усталости",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["mall", "commerce_decay", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "concept_service_corridor_memory",
+      "text": "память служебного коридора",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["mall", "service", "memory"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "concept_artificial_weather_of_commerce",
+      "text": "искусственная погода торговли",
+      "category": "concept",
+      "slot": "concept_reflection",
+      "tags": ["mall", "fluorescent", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_a_mall_before_it_remembered_opening",
+      "text": "история о торговом центре до того, как он вспомнил открытие",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["mall", "time", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_a_closed_arcade_that_kept_glowing",
+      "text": "история о закрытом игровом зале, который продолжал светиться",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["mall", "fluorescent", "commerce_decay"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "story_about_cleaning_route_without_customers",
+      "text": "история о маршруте уборки без единого покупателя",
+      "category": "concept",
+      "slot": "concept_story_frame",
+      "tags": ["mall", "service", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    }
+  ]
+}

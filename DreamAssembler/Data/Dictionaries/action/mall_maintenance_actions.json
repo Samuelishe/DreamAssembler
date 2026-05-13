@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "wipe_the_directory_screen_before_opening",
+      "text": "протереть экран навигации до открытия",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["mall", "service", "fluorescent", "compat:protectable", "compat:wakeable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "lead_the_cleaning_machine_along_the_closed_route",
+      "text": "вести уборочную машину по закрытому маршруту",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["mall", "maintenance", "service", "compat:wakeable", "compat:portable"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "return_the_seasonal_sign_to_storage",
+      "text": "вернуть сезонную вывеску в служебное хранение",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["mall", "service", "decorative", "compat:portable", "compat:hideable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "restart_the_escalator_for_the_morning",
+      "text": "запустить эскалатор к утру",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["mall", "maintenance", "infrastructure", "compat:repairable", "compat:wakeable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "count_the_remaining_discount_signs",
+      "text": "пересчитать оставшиеся таблички скидок",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["mall", "commerce_decay", "paper", "compat:portable", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "check_which_fountain_still_works",
+      "text": "проверить, какой фонтан еще работает",
+      "category": "action",
+      "slot": "action_infinitive",
+      "tags": ["mall", "maintenance", "quiet", "compat:repairable"],
+      "absurdity": 1,
+      "weight": 0.7
+    }
+  ]
+}

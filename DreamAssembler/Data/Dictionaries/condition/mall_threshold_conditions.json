@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "decorative_fountain_sounded_more_tired_than_water",
+      "text": "декоративный фонтан звучал усталее самой воды",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["mall", "quiet", "decorative"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "seasonal_garlands_had_not_been_removed_yet",
+      "text": "сезонные гирлянды еще не успели снять",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["mall", "decorative", "commerce_decay"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "the_air_kept_the_coolness_of_central_ventilation",
+      "text": "воздух удерживал прохладу центральной вентиляции слишком старательно",
+      "category": "condition",
+      "slot": "condition_scene_detail",
+      "tags": ["mall", "fluorescent", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "opening_music_never_quite_arrived",
+      "text": "музыка перед открытием так и не решалась начаться",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["mall", "service", "surreal"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "the_closed_arcade_kept_its_childhood_noise_to_itself",
+      "text": "закрытый игровой зал держал свой детский шум при себе",
+      "category": "condition",
+      "slot": "condition_reveal_state",
+      "tags": ["mall", "memory", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "commercial_optimism_lingered_longer_than_the_staff",
+      "text": "торговый оптимизм задерживался дольше смены",
+      "category": "condition",
+      "slot": "condition_initial_state",
+      "tags": ["mall", "commerce_decay", "quiet"],
+      "absurdity": 1,
+      "weight": 0.7
+    }
+  ]
+}

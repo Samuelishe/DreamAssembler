@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "atmosphere_like_a_food_court_after_the_last_tray",
+      "text": "как во фуд-корте после последнего подноса",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["mall", "quiet", "commerce_decay"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "atmosphere_like_tired_fluorescent_persistence",
+      "text": "как в усталой флуоресцентной настойчивости",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["mall", "fluorescent", "quiet"],
+      "absurdity": 1,
+      "weight": 0.8
+    },
+    {
+      "id": "atmosphere_like_polite_retail_without_buyers",
+      "text": "как в вежливой торговле без покупателей",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["mall", "service", "commerce_decay"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_like_artificial_climate_that_kept_working",
+      "text": "как в искусственном климате, который продолжал работать",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["mall", "maintenance", "surreal"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "atmosphere_like_decorations_that_outlived_their_holiday",
+      "text": "как у декораций, переживших собственный праздник",
+      "category": "atmosphere",
+      "slot": "atmosphere_state",
+      "tags": ["mall", "decorative", "surreal"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

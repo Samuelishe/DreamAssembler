@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "plastic_tray_from_the_dark_food_court",
+      "text": "пластиковый поднос из темного фуд-корта",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "quiet", "compat:portable", "compat:hideable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "cleaning_machine_route_sheet",
+      "text": "лист маршрута уборочной машины",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "maintenance", "paper", "compat:portable", "compat:searchable", "compat:rewriteable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "boxed_seasonal_decoration",
+      "text": "упакованную сезонную декорацию",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "decorative", "compat:portable", "compat:hideable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "maintenance_key_for_the_escalator_panel",
+      "text": "технический ключ от панели эскалатора",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "maintenance", "compat:portable", "compat:openable", "compat:repairable"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "discount_sign_that_was_not_taken_down",
+      "text": "неубранную табличку скидок",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "commerce_decay", "compat:portable", "compat:hideable", "compat:protectable"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "mute_token_from_the_closed_arcade",
+      "text": "немой жетон из закрытого игрового зала",
+      "category": "object",
+      "slot": "object_direct",
+      "tags": ["mall", "memory", "surreal", "compat:portable", "compat:hideable", "compat:protectable"],
+      "absurdity": 2,
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "the_discount_sign_recognizes_him_before_the_store",
+      "text": "табличка скидок узнает его раньше, чем магазин",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["mall", "commerce_decay", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "the_escalator_waits_for_him_as_if_the_day_never_closed",
+      "text": "эскалатор ждет его так, будто день еще не был отменен",
+      "category": "twist",
+      "slot": "twist_character_clause",
+      "tags": ["mall", "infrastructure", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "the_cleaning_route_turns_into_a_kind_of_procession",
+      "text": "маршрут уборки постепенно превращается в разновидность процессии",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["mall", "service", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "the_closed_arcade_starts_keeping_its_own_time",
+      "text": "закрытый игровой зал начинает жить по собственному времени",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["mall", "memory", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "the_air_inside_continues_the_work_of_the_trading_day",
+      "text": "внутренний воздух продолжает работу торгового дня без людей",
+      "category": "twist",
+      "slot": "twist_general_clause",
+      "tags": ["mall", "fluorescent", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}

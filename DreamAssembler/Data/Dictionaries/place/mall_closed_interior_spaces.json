@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "id": "food_court_before_opening",
+      "text": "фуд-корте до открытия",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["mall", "quiet", "service"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "service_corridor_between_closed_shops",
+      "text": "служебном коридоре между закрытыми магазинами",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["mall", "service", "commerce_decay"],
+      "absurdity": 0,
+      "weight": 0.8
+    },
+    {
+      "id": "arcade_zone_after_closure",
+      "text": "зоне игровых автоматов после закрытия",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["mall", "memory", "fluorescent"],
+      "absurdity": 1,
+      "weight": 0.7
+    },
+    {
+      "id": "space_near_the_decorative_fountain",
+      "text": "пространстве у декоративного фонтана",
+      "category": "place",
+      "slot": "place_in",
+      "tags": ["mall", "decorative", "quiet"],
+      "absurdity": 0,
+      "weight": 0.7
+    },
+    {
+      "id": "gallery_where_the_morning_music_had_not_started",
+      "text": "галерее, где утренняя музыка еще не решилась начаться,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["mall", "surreal", "quiet"],
+      "absurdity": 2,
+      "weight": 0.7
+    },
+    {
+      "id": "passage_where_the_air_conditioning_sounded_more_alive_than_steps",
+      "text": "переходе, где кондиционирование звучало живее шагов,",
+      "category": "place",
+      "slot": "place_in_clause",
+      "tags": ["mall", "fluorescent", "surreal"],
+      "absurdity": 2,
+      "weight": 0.7
+    }
+  ]
+}
