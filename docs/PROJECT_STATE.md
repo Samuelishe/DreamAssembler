@@ -167,6 +167,8 @@ DreamAssembler - это:
 - `museum` остается самым тяжелым corpus-field и теперь выглядит как главный кандидат на следующий targeted runtime/deepening pass.
 - `mall` получил controlled deepening-pass на `0.6.11`: afterhours maintenance, fluorescent residue, decorative exhaustion, service-corridor silence и closed-arcade memory теперь входят в corpus как отдельная ecology.
 - короткий `audit-mall-g.json` после этого шага оказался sanatorium-heavy и не дает надежного вывода о runtime uplift самого `mall`, так что rebalance по одному этому окну делать не нужно.
+- первый длинный `1000` audit после mall deepening показал, что `mall` уже не lexical-only: в `ShortText` он surface-ится на `10%` и держит `94%` preferred cadence activation, а в `Sentence` тоже стабильно появляется на `10%`.
+- тот же длинный `1000` audit показал, что следующий runtime weakness смещается не в `mall`, а скорее в `hospitality cadence autonomy` и в `museum` как heavier sentence-field.
 
 То есть проект уже двигается не вслепую: runtime symptoms видны, измеримы и сопоставимы before/after.
 
@@ -224,8 +226,8 @@ DreamAssembler - это:
 
 На текущем состоянии самым разумным candidate выглядит:
 
-- runtime-side: `museum cadence autonomy`;
-- content-side after that: либо mall-focused long audit and follow-up, либо следующий controlled candidate после этой проверки;
+- runtime-side: `museum cadence autonomy` и, возможно, `hospitality cadence autonomy`;
+- content-side after that: следующий controlled candidate уже не обязан быть `mall`, потому что mall pass подтвердил corpus-value и базовую runtime recognizability;
 
 а не открытие случайной новой волны из множества manifolds сразу.
 

@@ -14,6 +14,10 @@
 - `data-manifest.json` поднят до `0.6.11`; `DreamAssembler.DataTools` после этого показывает `1268` entries и не находит structural issues;
 - короткий post-pass report `audit-mall-g.json` не дал надежного mall-signal и ушел в `sanatorium:quiet` drift, поэтому этот шаг зафиксирован как corpus-deepening, а не как повод для нового runtime rebalance; следующий разумный check для `mall` - отдельный более длинный audit.
 - затем выполнен diagnostics housekeeping pass: snapshot-файлы `report` по умолчанию сохраняются в `artifacts/audit/`, `compare` умеет подхватывать bare filenames оттуда, а root проекта больше не должен засоряться `audit-*.json`;
+- затем выполнен первый по-настоящему длинный ecology verification pass после cadence competition, contextual quiet differentiation и mall deepening: сняты `ShortText 1000` и `Sentence 1000` reports;
+- длинный `ShortText`-срез показал, что `mall` уже не lexical-only и удерживает strong cadence activation (`94%`) при `10%` surfacing, `observatory` стабильно присутствует, universal `quiet` не возвращается, а следующий реальный weak point смещается в `hospitality cadence autonomy`;
+- длинный `Sentence`-срез показал, что `museum` остается самым тяжелым field этого режима (`22%` surfacing) и по-прежнему заслуживает внимания как possible overreach-candidate, но уже не выглядит hidden baseline для всего runtime;
+- по итогам long-runtime reading зафиксировано: не делать новый broad rebalance; сначала держать фокус на наблюдении длинной дистанции и выбирать следующий targeted step уже между `museum overreach`, `hospitality autonomy` и следующим controlled content candidate.
 
 ## 2026-05-07
 
