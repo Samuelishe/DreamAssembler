@@ -169,6 +169,8 @@ DreamAssembler - это:
 - короткий `audit-mall-g.json` после этого шага оказался sanatorium-heavy и не дает надежного вывода о runtime uplift самого `mall`, так что rebalance по одному этому окну делать не нужно.
 - первый длинный `1000` audit после mall deepening показал, что `mall` уже не lexical-only: в `ShortText` он surface-ится на `10%` и держит `94%` preferred cadence activation, а в `Sentence` тоже стабильно появляется на `10%`.
 - тот же длинный `1000` audit показал, что следующий runtime weakness смещается не в `mall`, а скорее в `hospitality cadence autonomy` и в `museum` как heavier sentence-field.
+- затем выполнен hospitality autonomy pass, и он сработал без broad rebalance: `hospitality` поднялся с примерно `2%` surfacing и `45%` cadence activation до `22%` surfacing и `92.3%` cadence activation в длинном `ShortText` окне.
+- при этом `quiet` не вернулся к universal solvent, `legacy-heavy` drift не вырос, cadence repetition немного снизилась, а `static_observation` не откатился обратно к старым `~40%`.
 
 То есть проект уже двигается не вслепую: runtime symptoms видны, измеримы и сопоставимы before/after.
 
@@ -226,7 +228,7 @@ DreamAssembler - это:
 
 На текущем состоянии самым разумным candidate выглядит:
 
-- runtime-side: `museum cadence autonomy` и, возможно, `hospitality cadence autonomy`;
+- runtime-side: `museum cadence autonomy` и, возможно, `airport cadence autonomy`;
 - content-side after that: следующий controlled candidate уже не обязан быть `mall`, потому что mall pass подтвердил corpus-value и базовую runtime recognizability;
 
 а не открытие случайной новой волны из множества manifolds сразу.

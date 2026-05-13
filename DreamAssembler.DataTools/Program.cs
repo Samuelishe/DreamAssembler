@@ -783,7 +783,7 @@ static bool IsPreferredCadenceForManifold(string manifold, IReadOnlyList<string>
         ["coastal_fog"] = new(["announcement", "suspended_statement", "procedural_residue", "interrupted_note", "incomplete_instruction", "bulletin_fragment"], StringComparer.OrdinalIgnoreCase),
         ["sanatorium"] = new(["quiet_instruction", "suspended_statement", "procedural_residue", "threshold_state", "incomplete_instruction"], StringComparer.OrdinalIgnoreCase),
         ["mall"] = new(["announcement", "inventory", "static_observation", "procedural_residue", "object_pressure"], StringComparer.OrdinalIgnoreCase),
-        ["hospitality"] = new(["quiet_instruction", "ceremonial", "suspended_statement"], StringComparer.OrdinalIgnoreCase),
+        ["hospitality"] = new(["quiet_instruction", "ceremonial", "suspended_statement", "delayed_implication", "procedural_residue", "threshold_state"], StringComparer.OrdinalIgnoreCase),
         ["museum"] = new(["museum_label", "inventory", "object_pressure", "procedural_residue", "maintenance_note"], StringComparer.OrdinalIgnoreCase),
         ["airport"] = new(["announcement", "procedural_report", "quiet_instruction"], StringComparer.OrdinalIgnoreCase)
     };

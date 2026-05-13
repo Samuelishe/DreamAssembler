@@ -31,7 +31,7 @@ public sealed class TextGeneratorService
     private static readonly IReadOnlyDictionary<string, double> EarlySurfacingBoostByManifold = new Dictionary<string, double>(StringComparer.OrdinalIgnoreCase)
     {
         ["museum"] = 0.82d,
-        ["hospitality"] = 0.94d,
+        ["hospitality"] = 1.08d,
         ["airport"] = 1.0d,
         ["mall"] = 1.04d,
         ["observatory"] = 1.34d,
@@ -123,7 +123,7 @@ public sealed class TextGeneratorService
             ["coastal_fog"] = new HashSet<string>(["announcement", "suspended_statement", "procedural_residue", "interrupted_note", "incomplete_instruction", "bulletin_fragment"], StringComparer.OrdinalIgnoreCase),
             ["sanatorium"] = new HashSet<string>(["quiet_instruction", "suspended_statement", "procedural_residue", "threshold_state", "incomplete_instruction"], StringComparer.OrdinalIgnoreCase),
             ["mall"] = new HashSet<string>(["announcement", "inventory", "static_observation", "procedural_residue", "object_pressure"], StringComparer.OrdinalIgnoreCase),
-            ["hospitality"] = new HashSet<string>(["quiet_instruction", "ceremonial", "suspended_statement"], StringComparer.OrdinalIgnoreCase),
+            ["hospitality"] = new HashSet<string>(["quiet_instruction", "ceremonial", "suspended_statement", "delayed_implication", "procedural_residue", "threshold_state"], StringComparer.OrdinalIgnoreCase),
             ["museum"] = new HashSet<string>(["museum_label", "inventory", "object_pressure", "procedural_residue", "maintenance_note"], StringComparer.OrdinalIgnoreCase),
             ["airport"] = new HashSet<string>(["announcement", "procedural_report", "quiet_instruction"], StringComparer.OrdinalIgnoreCase)
         };

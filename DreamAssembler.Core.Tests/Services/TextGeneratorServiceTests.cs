@@ -335,6 +335,87 @@ public sealed class TextGeneratorServiceTests
     }
 
     /// <summary>
+    /// Проверяет, что после появления hospitality-manifold batch начинает предпочитать совместимый cadence вместо generic announcement.
+    /// </summary>
+    [Fact]
+    public void Generate_PrefersHospitalityCadence_AfterHospitalityOpening()
+    {
+        var templates = new List<TemplateDefinition>
+        {
+            new()
+            {
+                Id = "opening_hospitality_scene",
+                Text = "В {place} {condition}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["place", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in",
+                    ["condition"] = "condition_scene_detail"
+                },
+                Cadence = "procedural_report",
+                Weight = 10.0
+            },
+            new()
+            {
+                Id = "hospitality_delayed_followup",
+                Text = "После последнего приезда в {place} дольше всего оставалось одно: {condition}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["place", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in",
+                    ["condition"] = "condition_reveal_state"
+                },
+                Cadence = "delayed_implication",
+                Tags = ["story", "quiet", "service", "hospitality"],
+                Weight = 1.0
+            },
+            new()
+            {
+                Id = "generic_announcement_followup",
+                Text = "Объявили только одно: {condition}.",
+                Mode = GenerationMode.Sentence,
+                RequiredCategories = ["condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["condition"] = "condition_reveal_state"
+                },
+                Cadence = "announcement",
+                Weight = 3.0
+            }
+        };
+
+        var entries = new List<DictionaryEntry>
+        {
+            new() { Id = "hospitality_place", Category = "place", Slot = "place_in", Text = "лобби после последнего приезда", Tags = ["hospitality", "quiet"], Weight = 1.0 },
+            new() { Id = "hospitality_scene", Category = "condition", Slot = "condition_scene_detail", Text = "коридоры держали тишину так же старательно, как сервис", Tags = ["hospitality", "quiet", "service"], Weight = 1.0 },
+            new() { Id = "hospitality_reveal", Category = "condition", Slot = "condition_reveal_state", Text = "номера вели себя так, будто сами кого-то ждали", Tags = ["hospitality", "quiet"], Weight = 1.0 }
+        };
+
+        var service = new TextGeneratorService(
+            entries,
+            templates,
+            [],
+            new WeightedRandomSelector(new Random(1)),
+            new TemplateEngine(),
+            new Random(1));
+
+        var result = service.Generate(new TextGenerationOptions
+        {
+            Mode = GenerationMode.Sentence,
+            AbsurdityLevel = AbsurdityLevel.Normal,
+            ResultCount = 2
+        });
+
+        Assert.Equal(2, result.Count);
+        Assert.StartsWith("В лобби после последнего приезда", result[0].Text, StringComparison.Ordinal);
+        Assert.StartsWith("После последнего приезда", result[1].Text, StringComparison.Ordinal);
+        Assert.DoesNotContain("Объявили только одно", result[1].Text, StringComparison.Ordinal);
+        Assert.Equal("hospitality", result[1].AtmosphereKey);
+    }
+
+    /// <summary>
     /// Проверяет, что результат получает lightweight debug trace для runtime-аудита.
     /// </summary>
     [Fact]

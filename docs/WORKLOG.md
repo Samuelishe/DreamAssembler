@@ -18,6 +18,10 @@
 - длинный `ShortText`-срез показал, что `mall` уже не lexical-only и удерживает strong cadence activation (`94%`) при `10%` surfacing, `observatory` стабильно присутствует, universal `quiet` не возвращается, а следующий реальный weak point смещается в `hospitality cadence autonomy`;
 - длинный `Sentence`-срез показал, что `museum` остается самым тяжелым field этого режима (`22%` surfacing) и по-прежнему заслуживает внимания как possible overreach-candidate, но уже не выглядит hidden baseline для всего runtime;
 - по итогам long-runtime reading зафиксировано: не делать новый broad rebalance; сначала держать фокус на наблюдении длинной дистанции и выбирать следующий targeted step уже между `museum overreach`, `hospitality autonomy` и следующим controlled content candidate.
+- затем выполнен узкий hospitality autonomy pass без broad rebalance: для `hospitality` слегка усилен early surfacing, расширена cadence map под delayed-arrival / room-turnover / breakfast-before-morning feel и добавлены три hospitality-tagged `ShortText` skeletons;
+- длинный compare `audit-hospitality-baseline.json -> audit-hospitality-after.json` показал, что pass сработал по главной цели: `hospitality` поднялся с near-invisible состояния до lead field (`22%` surfacing) и `92.3%` preferred cadence activation;
+- при этом побочных regressions не видно: `quiet` остался contextualized, `legacy-heavy` drift не вырос, cadence repetition слегка снизилась, а `static_observation` не откатился к старой монополии;
+- после этого hospitality больше не считается главным weak point long `ShortText` runtime; следующий decision point смещается к `museum` как heavy sentence-field и, возможно, к `airport` как более слабому mature-field по cadence identity.
 
 ## 2026-05-07
 

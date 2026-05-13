@@ -903,6 +903,60 @@ public static class FallbackDataProvider
             },
             new TemplateDefinition
             {
+                Id = "shorttext_hospitality_delayed_arrival",
+                Text = "После последнего приезда в {place} дольше всего оставалось одно: {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["place", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in",
+                    ["condition"] = "condition_reveal_state"
+                },
+                CompositionRole = "observation",
+                Cadence = "delayed_implication",
+                Tags = ["story", "quiet", "service", "hospitality"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.82
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_hospitality_room_turnover_residue",
+                Text = "После выезда в {place} оставались только {object} и {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["place", "object", "condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["place"] = "place_in",
+                    ["object"] = "object_direct",
+                    ["condition"] = "condition_scene_detail"
+                },
+                CompositionRole = "observation",
+                Cadence = "procedural_residue",
+                Tags = ["story", "quiet", "procedural", "hospitality"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.82
+            },
+            new TemplateDefinition
+            {
+                Id = "shorttext_hospitality_breakfast_before_morning",
+                Text = "Между ночью и завтраком держалось только {condition}.",
+                Mode = GenerationMode.ShortText,
+                RequiredCategories = ["condition"],
+                SlotRequirements = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["condition"] = "condition_scene_detail"
+                },
+                CompositionRole = "scene",
+                Cadence = "threshold_state",
+                Tags = ["story", "quiet", "hospitality"],
+                MinAbsurdity = 0,
+                MaxAbsurdity = 3,
+                Weight = 0.82
+            },
+            new TemplateDefinition
+            {
                 Id = "idea_character_action_object_place_twist",
                 Text = "Идея: {character} получает странное поручение: {action} {object} в {place}, и при этом {twist}.",
                 Mode = GenerationMode.Idea,

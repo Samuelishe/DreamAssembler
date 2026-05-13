@@ -860,6 +860,54 @@
       "minAbsurdity": 0,
       "maxAbsurdity": 3,
       "weight": 0.8
+    },
+    {
+      "id": "shorttext_hospitality_delayed_arrival",
+      "text": "После последнего приезда в {place} дольше всего оставалось одно: {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["place", "condition"],
+      "slotRequirements": {
+        "place": "place_in",
+        "condition": "condition_reveal_state"
+      },
+      "compositionRole": "observation",
+      "cadence": "delayed_implication",
+      "tags": ["story", "quiet", "service", "hospitality"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.82
+    },
+    {
+      "id": "shorttext_hospitality_room_turnover_residue",
+      "text": "После выезда в {place} оставались только {object} и {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["place", "object", "condition"],
+      "slotRequirements": {
+        "place": "place_in",
+        "object": "object_direct",
+        "condition": "condition_scene_detail"
+      },
+      "compositionRole": "observation",
+      "cadence": "procedural_residue",
+      "tags": ["story", "quiet", "procedural", "hospitality"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.82
+    },
+    {
+      "id": "shorttext_hospitality_breakfast_before_morning",
+      "text": "Между ночью и завтраком держалось только {condition}.",
+      "mode": "ShortText",
+      "requiredCategories": ["condition"],
+      "slotRequirements": {
+        "condition": "condition_scene_detail"
+      },
+      "compositionRole": "scene",
+      "cadence": "threshold_state",
+      "tags": ["story", "quiet", "hospitality"],
+      "minAbsurdity": 0,
+      "maxAbsurdity": 3,
+      "weight": 0.82
     }
   ]
 }
